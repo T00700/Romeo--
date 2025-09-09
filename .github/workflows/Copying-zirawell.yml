@@ -1,0 +1,138 @@
+name: Mirror zirawell Modules
+
+on:
+  schedule:
+    - cron: '7 1 * * *'  # 每天 01:07 执行
+  workflow_dispatch:
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  fetch-and-convert:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    services:
+      docker:
+        image: xream/script-hub:latest
+        ports:
+          - 9100:9100
+          - 9101:9101
+      
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq python3 curl netcat-openbsd
+
+      - name: Wait for Docker service
+        run: |
+          echo "Waiting for script-hub service..."
+          for i in {1..10}; do
+            nc -z localhost 9100 && nc -z localhost 9101 && break
+            sleep 5
+          done
+
+      - name: Fetch sgmodule paths
+        run: |
+          curl -H "Authorization: token $GITHUB_TOKEN" -s \
+            "https://api.github.com/repos/zirawell/R-Store/git/trees/main?recursive=1" \
+            | jq -r '.tree[] | select(.path | test("sgmodule$")) | .path' > sgmodule_paths.txt
+          cat sgmodule_paths.txt
+
+      - name: Download sgmodule files
+        run: |
+          mkdir -p Modules/Surge/zirawell/Official
+          while IFS= read -r path; do
+            filename=$(basename "$path")
+            encoded_path=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$path'''))")
+            echo "Downloading $path → $filename"
+            curl -sL -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.raw" \
+              "https://api.github.com/repos/zirawell/R-Store/contents/$encoded_path?ref=main" \
+              -o "Modules/Surge/zirawell/Official/$filename"
+          done < sgmodule_paths.txt
+
+      - name: Convert sgmodules to Surge/Loon/Shadowrocket
+        run: |
+          mkdir -p Modules/Surge/zirawell Modules/Surge/zirawell/Beta \
+                   Modules/Loon/zirawell Modules/Loon/zirawell/Beta \
+                   Modules/Shadowrocket/zirawell Modules/Shadowrocket/zirawell/Beta
+          category="zirawell"
+          encoded_category=$(echo "$category" | jq -sRr @uri)
+
+          for file in Modules/Surge/zirawell/Official/*.sgmodule; do
+            name=$(basename "$file" .sgmodule)
+            encoded_name=$(echo "$name" | jq -sRr @uri)
+            base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Surge/zirawell/Official/$(basename "$file")"
+
+            Surge_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
+            Surge_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
+            Loon_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.plugin?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true"
+            Loon_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.plugin?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true"
+            Shadowrocket_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
+
+            echo "Converting $file → Surge/Loon/Shadowrocket"
+
+            curl -A "Surge Mac/2985" -L -o "Modules/Surge/zirawell/${name}.sgmodule" "$Surge_url" || echo "Failed Surge conversion: $name"
+            curl -A "Surge Mac/2985" -L -o "Modules/Surge/zirawell/Beta/${name}.sgmodule" "$Surge_Beta_url" || echo "Failed Surge conversion: $name"
+            curl -A "Surge Mac/2985" -L -o "Modules/Loon/zirawell/${name}.plugin" "$Loon_url" || echo "Failed Loon conversion: $name"
+            curl -A "Surge Mac/2985" -L -o "Modules/Loon/zirawell/Beta/${name}.plugin" "$Loon_Beta_url" || echo "Failed Loon conversion: $name"
+            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/zirawell/${name}.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket conversion: $name"
+            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/zirawell/Beta/${name}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket conversion: $name"
+          done
+
+      - name: Find and replace external JS resources
+        continue-on-error: true
+        run: |
+          js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
+
+          find Modules/Surge/zirawell -type f -name "*.sgmodule" | while read module_file; do
+            echo "Processing $module_file"
+
+            author="zirawell"
+            module_folder=$(basename "$module_file" .sgmodule)
+            js_links=$(grep -v '#' "$module_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || echo "")
+
+            for js_link in $js_links; do
+              js_filename=$(basename "$js_link")
+              local_js_path="Modules/JS/$author/$module_folder/$js_filename"
+              github_js_url="$js_base_url/$author/$module_folder/$js_filename"
+              mkdir -p "$(dirname "$local_js_path")"
+
+              echo "Downloading $js_link to $local_js_path"
+              if curl -A "Surge Mac/2985" -L -o "$local_js_path" "$js_link"; then
+                sed -i "s|$js_link|$github_js_url|g" "$module_file"
+
+                loon_file="Modules/Loon/$author/$module_folder.plugin"
+                loon_beta_file="Modules/Loon/$author/Beta/$module_folder.plugin"
+                shadowrocket_file="Modules/Shadowrocket/$author/$module_folder.srmodule"
+                shadowrocket_beta_file="Modules/Shadowrocket/$author/Beta/$module_folder.srmodule"
+                [ -f "$loon_file" ] && sed -i "s|$js_link|$github_js_url|g" "$loon_file"
+                [ -f "$loon_beta_file" ] && sed -i "s|$js_link|$github_js_url|g" "$loon_beta_file"
+                [ -f "$shadowrocket_file" ] && sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_file"
+                [ -f "$shadowrocket_beta_file" ] && sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_beta_file"
+              fi
+            done
+          done
+
+      - name: Commit and push changes
+        run: |
+          DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
+
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add Modules/*
+          if git diff --cached --quiet; then
+            echo "✅ No changes to commit."
+          else
+            git commit -m "Synched Modules at $DATE (UTC+8)"
+            git push
+          fi
