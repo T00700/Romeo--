@@ -1,8 +1,0 @@
-#!name=xiandian
-#!desc=xiandian
-#!category=zirawell
-
-[Rule]
-DOMAIN,smarket.dian.so,REJECT,extended-matching,pre-matching
-DOMAIN,file.dian.so,REJECT,extended-matching,pre-matching
-

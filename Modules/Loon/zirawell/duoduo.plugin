@@ -1,8 +1,0 @@
-#!name=duoduo
-#!desc=duoduo
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1047.png
-#!tag=zirawell
-
-[Rule]
-DOMAIN-SUFFIX,ad.duoduo.link,REJECT
-

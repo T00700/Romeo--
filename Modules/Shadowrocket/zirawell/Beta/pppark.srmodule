@@ -1,8 +1,0 @@
-#!name=pppark
-#!desc=pppark
-#!category=zirawell
-
-[Rule]
-DOMAIN,ad-files.4pyun.com,REJECT,extended-matching
-DOMAIN,ad-api.4pyun.com,REJECT,extended-matching
-

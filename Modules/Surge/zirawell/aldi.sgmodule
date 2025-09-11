@@ -1,7 +1,0 @@
-#!name=aldi
-#!desc=aldi
-#!category=zirawell
-
-[Rule]
-DOMAIN,tracker-prd.aldi.com.cn,REJECT,extended-matching,pre-matching
-

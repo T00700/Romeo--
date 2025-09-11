@@ -1,7 +1,0 @@
-#!name=duoduo
-#!desc=duoduo
-#!category=zirawell
-
-[Rule]
-DOMAIN-SUFFIX,ad.duoduo.link,REJECT,extended-matching,pre-matching
-

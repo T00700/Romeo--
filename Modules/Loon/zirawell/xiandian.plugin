@@ -1,9 +1,0 @@
-#!name=xiandian
-#!desc=xiandian
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1007.png
-#!tag=zirawell
-
-[Rule]
-DOMAIN,smarket.dian.so,REJECT
-DOMAIN,file.dian.so,REJECT
-

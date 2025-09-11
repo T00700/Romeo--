@@ -1,8 +1,0 @@
-#!name=aldi
-#!desc=aldi
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1049.png
-#!tag=zirawell
-
-[Rule]
-DOMAIN,tracker-prd.aldi.com.cn,REJECT
-

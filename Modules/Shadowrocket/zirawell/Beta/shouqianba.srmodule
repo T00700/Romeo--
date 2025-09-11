@@ -1,7 +1,0 @@
-#!name=shouqianba
-#!desc=shouqianba
-#!category=zirawell
-
-[Rule]
-DOMAIN,ads-shopping.shouqianba.com,REJECT,extended-matching
-

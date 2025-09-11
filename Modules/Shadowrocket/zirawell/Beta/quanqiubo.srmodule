@@ -1,7 +1,0 @@
-#!name=quanqiubo
-#!desc=quanqiubo
-#!category=zirawell
-
-[Rule]
-DOMAIN,api.zysdsk.cn,REJECT,extended-matching
-
