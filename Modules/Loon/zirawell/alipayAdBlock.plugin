@@ -1,7 +1,17 @@
-alipayAdBlock%0A：Error: Response code 404 (Not Found)
+#!name=alipayAdBlock
+#!desc=alipayAdBlock
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1062.png
+#!tag=zirawell
 
+[Rewrite]
+^https?:\/\/waimai-guide\.ele\.me\/gw\/mtop\.alsc\.eleme\.trigger\.respond - reject
+^https?:\/\/mdn\.alicdn\.com\/imgextra\/i1\/.*-tps-180-180\.gif$ mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.film\.life\.(popup|aristotle)\.get mock-response-body data-type=text data="{}" status-code=200
 
+[Script]
+http-response ^https?:\/\/waimai-guide\.ele\.me\/gw\/mtop\.alsc\.eleme\.miniapp\.homepage script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/alipayAdBlock/eleme.js, requires-body=true, tag=eleme
 
+[MITM]
+hostname = guide-acs.m.taobao.com, mdn.alicdn.com, waimai-guide.ele.me, aimai-guide.ele.me
 
-
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈

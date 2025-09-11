@@ -1,7 +1,11 @@
-clicli%0A：Error: Response code 404 (Not Found)
+#!name=clicli
+#!desc=clicli
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1036.png
+#!tag=zirawell
 
+[Rewrite]
+^https?:\/\/js-ad\.ayximgs\.com\.ad-universe-cdn\.hzhcbkj\.cn\/xgapp\.php\/v\d\/top_notice - reject
 
+[MITM]
+hostname = js-ad.ayximgs.com
 
-
-
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈

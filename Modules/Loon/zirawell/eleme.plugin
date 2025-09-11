@@ -1,7 +1,12 @@
-eleme%0A：Error: Response code 404 (Not Found)
+#!name=eleme
+#!desc=eleme
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1001.png
+#!tag=zirawell
 
+[Rewrite]
+^https?:\/\/waimai-guide\.ele\.me\/h5\/mtop\.alsc\.eleme\.miniapp\.homepage response-body-replace-regex wechat_miniapp_scene_card_template zirawell
+^https?:\/\/waimai-guide\.ele\.me\/h5\/mtop\.alsc\.eleme\.homepage\.miniapp\.popup mock-response-body data-type=text data="{}" status-code=200
 
+[MITM]
+hostname = waimai-guide.ele.me
 
-
-
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈

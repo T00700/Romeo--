@@ -1,7 +1,13 @@
-eleme%0A：Error: Response code 404 (Not Found)
+#!name=eleme
+#!desc=eleme
+#!category=zirawell
 
+[Body Rewrite]
+http-response ^https?:\/\/waimai-guide\.ele\.me\/h5\/mtop\.alsc\.eleme\.miniapp\.homepage wechat_miniapp_scene_card_template zirawell
 
+[Map Local]
+^https?:\/\/waimai-guide\.ele\.me\/h5\/mtop\.alsc\.eleme\.homepage\.miniapp\.popup data-type=text data="{}"
 
+[MITM]
+hostname = %APPEND% waimai-guide.ele.me
 
-
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
