@@ -91,6 +91,25 @@ jobs:
                 printf "%s\n" "${SGMODULE_URLS[@]}" > No_link_provided_for_srmodule.txt
               fi
 
+              # 保存 sgmodule 文件
+              for URL in "${SGMODULE_URLS[@]}"; do
+                FILENAME=$(basename "$URL")
+                OUTPUT_DIR="./Modules/Surge/VirgilClyne"
+                mkdir -p "$OUTPUT_DIR"
+                OUTPUT_FILE="$OUTPUT_DIR/$FILENAME"
+
+                echo "Downloading sgmodule file: $FILENAME"
+                curl -L -H "Authorization: token $GITHUB_TOKEN" -o "$OUTPUT_FILE.tmp" "$URL"
+
+                if [ -f "$OUTPUT_FILE.tmp" ]; then
+                  mv "$OUTPUT_FILE.tmp" "$OUTPUT_FILE"
+                  UPDATED_FILES+=("$FILENAME")
+                  ASSETS_CHANGED=true
+                else
+                  echo "Failed to download $FILENAME"
+                fi
+              done
+
               # 处理 plugin 文件夹中的文件（改后缀为 .lpx）
               for ASSET in $(echo "$PLUGIN_FILES" | jq -r '.[] | select(.type=="file") | .download_url'); do
                 echo "Found plugin file: $ASSET"
