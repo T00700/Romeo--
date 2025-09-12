@@ -159,6 +159,7 @@ Modules/Surge/zirawell/ejoy-App.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/ejoy-Applet.sgmodule # Loon,Shadowrocket
 
 # Z #
+Modules/Surge/fmz200/ChinaMobile.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/ccb.sgmodule # Loon,Shadowrocket
 # Modules/Surge/zirawell/10086.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/boc.sgmodule # Loon,Shadowrocket
