@@ -42,7 +42,7 @@ jobs:
           done
 
       - name: Download and Convert fmz200 Modules
-       env:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           category="fmz200"
