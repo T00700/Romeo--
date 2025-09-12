@@ -2,7 +2,7 @@ name: Mirror fmz200 Modules
 
 on:
   schedule:
-    - cron: '15,45 * * * *'  # 每小时的 15 分和 45 分执行
+    - cron: '11 */12 * * *'  # 每12小时的 11 分执行
   workflow_dispatch:
 
 env:
