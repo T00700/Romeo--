@@ -27,7 +27,6 @@ https://gist.githubusercontent.com/ddgksf2013/12ef6aad209155e7eb62c5b00c11b9dd/r
 https://gist.githubusercontent.com/ddgksf2013/f43026707830c7818ee3ba624e383c8d/raw/baiduCloud.adblock.js
 
 # F #
-https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/weibo.plugin
 
 # G #
 https://github.com/githubdulong/Script/raw/master/Surge/JD_Helper.sgmodule
