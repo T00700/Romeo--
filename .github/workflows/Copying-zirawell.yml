@@ -2,7 +2,7 @@ name: Mirror zirawell Modules
 
 on:
   schedule:
-    - cron: '7 1 * * *'  # 每天 01:07 执行
+    - cron: '7 */12 * * *'  # 每 12 小时的 7 分执行
   workflow_dispatch:
 
 env:
