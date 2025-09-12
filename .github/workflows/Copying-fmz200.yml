@@ -15,10 +15,13 @@ jobs:
         image: xream/script-hub:latest
         ports:
           - 9100:9100
+      
     steps:
-      - name: Checkout repository
+      - name: Checkout Repo
         uses: actions/checkout@v4
-
+        with:
+          persist-credentials: true
+          
       - name: Set up Git
         run: |
           git config --global user.name "${GITHUB_ACTOR}"
