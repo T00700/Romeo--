@@ -1,7 +1,16 @@
-ddrk%0A：Error: Response code 404 (Not Found)
+#!name=ddrk
+#!desc=ddrk
+#!category=zirawell
 
+[Map Local]
+^https?:\/\/img\.ddrk\.me\/ad190824 data-type=tiny-gif
 
+^https?:\/\/img\.ddrk\.me\/cover\.png data-type=tiny-gif
 
+^https?:\/\/ddrk\.me\/image\/logo_footer\.png data-type=tiny-gif
 
+^https?:\/\/ddrk\.me\/wp-content\/plugins\/advanced-floating-content-lite\/public\/images\/close\.png data-type=tiny-gif
 
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
+[MITM]
+hostname = %APPEND% img.ddrk.me, ddrk.me
+
