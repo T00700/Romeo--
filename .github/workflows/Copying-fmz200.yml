@@ -15,6 +15,7 @@ jobs:
         image: xream/script-hub:latest
         ports:
           - 9100:9100
+          - 9101:9101
       
     steps:
       - name: Checkout Repo
@@ -36,7 +37,7 @@ jobs:
         run: |
           echo "Waiting for Docker..."
           for i in {1..10}; do
-            nc -z localhost 9100 && break
+            nc -z localhost 9100 && nc -z localhost 9101 && break
             sleep 5
           done
 
