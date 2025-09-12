@@ -127,12 +127,28 @@ jobs:
         run: |
           DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
 
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add Modules/*
+
           if git diff --cached --quiet; then
             echo "✅ No changes to commit."
           else
-            git commit -m "Synched Modules at $DATE (UTC+8)"
-            git push
+            COMMIT_MESSAGE="Synched Modules at $DATE (UTC+8)"
+
+            # 保存本地修改
+            git stash
+
+            # 拉取远程最新修改并重放本地修改
+            git pull --rebase || true
+
+            # 还原本地修改
+            git stash pop || true
+
+            # 再次添加修改
+            git add Modules/*
+
+            git commit -m "$COMMIT_MESSAGE"
+
+            # 推送到远程
+            git push || echo "Push failed, maybe remote has new commits. Try again next run."
           fi
+
