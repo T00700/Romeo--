@@ -10,5 +10,5 @@
 #!arguments=cdxb_enable:true
 
 [Script]
-财新广告 = type=http-response, pattern=^https?:\/\/gg\.caixin\.com\/s\?z=caixin&op=1&c=3362, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/CaiXin/caixinAd.js, requires-body=true, timeout=60
+财新广告 = type=http-response, pattern=^https?:\/\/gg\.caixin\.com\/s\?z=caixin&op=1&c=3362, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Official/CaiXin/caixinAd.js, requires-body=true, timeout=60
 
