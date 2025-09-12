@@ -131,8 +131,8 @@ jobs:
 
             Surge_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
             Surge_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
-            Loon_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true"
-            Loon_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true"
+            Loon_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.plugin?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true"
+            Loon_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.plugin?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true"
             Shadowrocket_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
             Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
 
@@ -140,8 +140,8 @@ jobs:
 
             curl -A "Surge Mac/2985" -L -o "Modules/Surge/zirawell/${name}.sgmodule" "$Surge_url" || echo "Failed Surge conversion: $name"
             curl -A "Surge Mac/2985" -L -o "Modules/Surge/zirawell/Beta/${name}.sgmodule" "$Surge_Beta_url" || echo "Failed Surge conversion: $name"
-            curl -A "Surge Mac/2985" -L -o "Modules/Loon/zirawell/${name}.lpx" "$Loon_url" || echo "Failed Loon conversion: $name"
-            curl -A "Surge Mac/2985" -L -o "Modules/Loon/zirawell/Beta/${name}.lpx" "$Loon_Beta_url" || echo "Failed Loon conversion: $name"
+            curl -A "Surge Mac/2985" -L -o "Modules/Loon/zirawell/${name}.plugin" "$Loon_url" || echo "Failed Loon conversion: $name"
+            curl -A "Surge Mac/2985" -L -o "Modules/Loon/zirawell/Beta/${name}.plugin" "$Loon_Beta_url" || echo "Failed Loon conversion: $name"
             curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/zirawell/${name}.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket conversion: $name"
             curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/zirawell/Beta/${name}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket conversion: $name"
           done
@@ -168,8 +168,8 @@ jobs:
               if curl -A "Surge Mac/2985" -L -o "$local_js_path" "$js_link"; then
                 sed -i "s|$js_link|$github_js_url|g" "$module_file"
 
-                loon_file="Modules/Loon/$author/$module_folder.lpx"
-                loon_beta_file="Modules/Loon/$author/Beta/$module_folder.lpx"
+                loon_file="Modules/Loon/$author/$module_folder.plugin"
+                loon_beta_file="Modules/Loon/$author/Beta/$module_folder.plugin"
                 shadowrocket_file="Modules/Shadowrocket/$author/$module_folder.srmodule"
                 shadowrocket_beta_file="Modules/Shadowrocket/$author/Beta/$module_folder.srmodule"
                 [ -f "$loon_file" ] && sed -i "s|$js_link|$github_js_url|g" "$loon_file"
