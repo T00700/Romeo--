@@ -5,6 +5,9 @@ on:
     - cron: '15,45 * * * *'  # 每小时的 15 分和 45 分执行
   workflow_dispatch:
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   fetch-fmz200:
     runs-on: ubuntu-latest
