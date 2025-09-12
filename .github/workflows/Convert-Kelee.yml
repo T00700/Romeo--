@@ -69,7 +69,7 @@ jobs:
           done
 
       - name: Replace JS links in all plugins
-        run: python3 ShalalaLala/Scripts/kelee_extract_and_replace.py
+        run: python3 ShalalaLala/Scripts/kelee_extract_and_replace-Romeo.py
 
       - name: Wait for Docker services to be ready
         run: |
