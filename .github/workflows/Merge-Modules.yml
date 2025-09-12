@@ -53,6 +53,9 @@ jobs:
         # 获取当前日期，设置为北京时间 (UTC+8)
         DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
 
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          
         # 添加所有更改
         git add Modules/*
 
