@@ -52,7 +52,7 @@ jobs:
         run: |
           curl -s -H "Authorization: token $GITHUB_TOKEN" \
             "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1" \
-            | jq -r '.tree[] | select(.path | test("Loon/module/split/.*\\.lpx$")) | .path' > loon_paths.txt
+            | jq -r '.tree[] | select(.path | test("Loon/plugin/split/.*\\.lpx$")) | .path' > loon_paths.txt
           cat loon_paths.txt
 
       - name: Download Loon .lpx files
