@@ -1,0 +1,29 @@
+#!name=哔哩哔哩漫画
+#!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
+#!author=奶思
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/gif/naisi-01.gif
+#!tag=fmz200
+#!homepage=https://github.com/fmz200/wool_scripts
+#!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/split/partA/BilibiliComics.lpx
+#!tg-group=https://t.me/lanjieguanggao
+#!date=2025-08-21 22:37:00
+
+[Argument]
+bilimanhua_enable=switch,"true","false",tag=bilimanhua_enable, desc=bilimanhua_enable
+
+[Rewrite]
+^https?:\/\/i\d\.hdslb\.com\/bfs\/fawkes mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/i\d\.hdslb\.com\/bfs\/manga-static\/\w+\.(jpg|png)$ mock-response-body data-type=text data=" " status-code=200
+^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Recommend|Flash|ListFlash|GetBubbles|GetActivityTab|GetCommonBanner|GetComicConfigPicList) mock-response-body data-type=text data=" " status-code=200
+^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Shop\/GetShopItems mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.SeasonV\d\/GetSeasonInfo mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.Read\/ActInfo mock-response-body data-type=text data=" " status-code=200
+
+[Script]
+http-response ^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.User\/UCenterConf script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/BilibiliComics/bilibiliManga.js, requires-body=true, timeout=60, tag=哔哩哔哩漫画
+
+http-response ^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.User\/GetInitInfo script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/BilibiliComics/bilibiliManga.js, requires-body=true, timeout=60, tag=哔哩哔哩漫画
+
+[MITM]
+hostname = manga.bilibili.com, i*.hdslb.com
+

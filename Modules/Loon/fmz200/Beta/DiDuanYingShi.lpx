@@ -1,0 +1,19 @@
+#!name=低端影视
+#!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
+#!author=奶思
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/gif/naisi-01.gif
+#!tag=fmz200
+#!homepage=https://github.com/fmz200/wool_scripts
+#!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/split/partD/DiDuanYingShi.lpx
+#!tg-group=https://t.me/lanjieguanggao
+#!date=2025-08-21 22:37:00
+
+[Rewrite]
+^https?:\/\/img\.ddrk\.me\/ad190824 mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/img\.ddrk\.me\/cover\.png mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/ddrk\.me\/image\/logo_footer\.png mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/ddrk\.me\/wp-content\/plugins\/advanced-floating-content-lite\/public\/images\/close\.png mock-response-body data-type=tiny-gif status-code=200
+
+[MITM]
+hostname = img.ddrk.me, ddrk.me
+

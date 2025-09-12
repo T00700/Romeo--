@@ -1,0 +1,35 @@
+#!name=字节跳动
+#!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
+#!author=奶思
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/gif/naisi-01.gif
+#!category=fmz200
+#!homepage=https://github.com/fmz200/wool_scripts
+#!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/split/partZ/ByteDance.lpx
+#!tg-group=https://t.me/lanjieguanggao
+#!date=2025-08-21 22:37:00
+
+[Rule]
+DOMAIN,ad.zijieapi.com,REJECT
+DOMAIN,applog.zijieapi.com,REJECT
+DOMAIN-SUFFIX,-normal-lq.zijieapi.com,REJECT
+
+[URL Rewrite]
+^https?:\/\/[\w-]+\.amemv\.com\/aweme\/v\d\/ad\/ - reject
+^https?:\/\/[\w-]+\.snssdk\.com\/.+_ad\/ - reject
+#^https?:\/\/.+\.pstatp\.com\/img\/ad - reject-200
+
+[Map Local]
+#^https?:\/\/.+\.pstatp\.com\/img\/ad reject-200
+^https?:\/\/.+\.(amemv|musical|snssdk|tiktokv)\.com\/(api|motor)\/ad\/ data-type=text data=" "
+
+^https?:\/\/.+\.snssdk\.com\/motor\/operation\/activity\/display\/config\/V2\/ data-type=text data=" "
+
+^https?:\/\/.+\.amemv\.com\/.+app_log data-type=tiny-gif
+
+^https?:\/\/.+\.amemv\.com\/.+report data-type=tiny-gif
+
+^https?:\/\/.+\.amemv\.com\/.+stats data-type=tiny-gif
+
+[MITM]
+hostname = %APPEND% *.pstatp.com, amemv.com, musical.com, snssdk.com, tiktokv.com, dsp.toutiao.com
+

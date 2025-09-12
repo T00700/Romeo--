@@ -1,0 +1,27 @@
+#!name=同程旅行
+#!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
+#!author=奶思
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/gif/naisi-01.gif
+#!tag=fmz200
+#!homepage=https://github.com/fmz200/wool_scripts
+#!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/split/partT/TongChengTravel.lpx
+#!tg-group=https://t.me/lanjieguanggao
+#!date=2025-08-21 22:37:00
+
+[Rewrite]
+# 开屏广告
+^https?:\/\/wx\.17u\.cn\/xcxhomeapi\/((aggregator\/index)|(home\/(screen|banner|converge)))$ - reject
+^https?:\/\/wx\.17u\.cn\/crapi\/query\/getAdImgUrlByCode mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/openscreen mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/getindexlayoutcelllist mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/gethotrecommend mock-response-body data-type=text data="{}" status-code=200
+# 景点界面轮播图和右下角悬浮窗
+^https:\/\/mobileapi\.ly\.com\/wlfrontend\/app\/scenicMain mock-response-body data-type=text data="{}" status-code=200
+# 租车界面 广告
+^https:\/\/wx\.17u\.cn\/crapi\/query\/ad mock-response-body data-type=text data="{}" status-code=200
+# 酒店界面广告
+^https:\/\/mobilehotelapi\.elong\.com\/appHotel\/adx\/advert\/getAdvert mock-response-body data-type=text data="{}" status-code=200
+
+[MITM]
+hostname = *.ly.com, *.17usoft.com, *.17u.cn, mobilehotelapi.elong.com, quic-tcmapi.elong.com
+
