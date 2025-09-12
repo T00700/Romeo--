@@ -37,76 +37,63 @@ jobs:
             sleep 5
           done
 
-      - name: Download fmz200 Modules
-        env:
+      - name: Download and Convert fmz200 Modules
+       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Loon .lpx → 扁平化保存
-          echo "Fetching fmz200 Loon plugins (.lpx)"
-          LOON_FILES=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1" \
-            | jq -r '.tree[] | select(.path | startswith("Loon/plugin/split/") and (.path|endswith(".lpx"))) | .path')
-
-          mkdir -p Modules/Loon/fmz200 Modules/Loon/fmz200/Beta
           category="fmz200"
           encoded_category=$(echo "$category" | jq -sRr @uri)
 
-          for PATH in $LOON_FILES; do
-            FILENAME=$(basename "$PATH")   # 去掉子目录，只保留文件名
-            NAME_NOEXT="${FILENAME%.lpx}"
-            RAW_URL="https://raw.githubusercontent.com/fmz200/wool_scripts/main/$PATH"
-
-            # 保存原始 Loon .lpx
-            LOON_OUT="Modules/Loon/fmz200/$FILENAME"
-            echo "Downloading Loon lpx: $RAW_URL → $LOON_OUT"
-            curl -L -o "$LOON_OUT" "$RAW_URL"
-
-            # 转换成 Loon .lpx (Beta)
-            encoded_filename=$(echo "$NAME_NOEXT" | jq -sRr @uri)
-            LOON_BETA_URL="http://localhost:9101/file/_start_/${RAW_URL}/_end_/${encoded_filename}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&nore=true"
-            LOON_BETA_OUT="Modules/Loon/fmz200/Beta/${NAME_NOEXT}.lpx"
-            echo "Converting → Loon Beta: $LOON_BETA_URL → $LOON_BETA_OUT"
-            curl -A "Surge Mac/2985" -L -o "$LOON_BETA_OUT" "$LOON_BETA_URL" || echo "Failed to convert Loon Beta $NAME_NOEXT"
-          done
-
-          # Surge .sgmodule → 扁平化保存 + Shadowrocket 转换
-          echo "Fetching fmz200 Surge plugins (.sgmodule)"
-          SURGE_FILES=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1" \
-            | jq -r '.tree[] | select(.path | startswith("Surge/plugin/split/") and (.path|endswith(".sgmodule"))) | .path')
-
-          mkdir -p Modules/Surge/fmz200 Modules/Surge/fmz200/Beta \
+          mkdir -p Modules/Loon/fmz200/Official Modules/Loon/fmz200/Beta \
+                   Modules/Surge/fmz200/Official Modules/Surge/fmz200/Beta \
                    Modules/Shadowrocket/fmz200 Modules/Shadowrocket/fmz200/Beta
 
-          for PATH in $SURGE_FILES; do
-            FILENAME=$(basename "$PATH")   # 去掉子目录，只保留文件名
-            NAME_NOEXT="${FILENAME%.sgmodule}"
-            RAW_URL="https://raw.githubusercontent.com/fmz200/wool_scripts/main/$PATH"
+          # 1. 下载 Loon 官方 .lpx
+          echo "Fetching official Loon plugins (.lpx)"
+          LOON_FILES=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            https://api.github.com/repos/fmz200/wool_scripts/contents/Loon/module/split \
+            | jq -r '.[] | select(.name | endswith(".lpx")) | .download_url')
 
-            SURGE_OUT="Modules/Surge/fmz200/$FILENAME"
-            SURGE_BETA_OUT="Modules/Surge/fmz200/Beta/$FILENAME"
-            echo "Downloading Surge sgmodule: $RAW_URL → $SURGE_OUT"
-            curl -L -o "$SURGE_OUT" "$RAW_URL"
-
-            # Surge Beta 转换
-            encoded_filename=$(echo "$NAME_NOEXT" | jq -sRr @uri)
-            SURGE_BETA_URL="http://localhost:9101/file/_start_/${RAW_URL}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
-            echo "Converting → Surge Beta: $SURGE_BETA_URL → $SURGE_BETA_OUT"
-            curl -A "Surge Mac/2985" -L -o "$SURGE_BETA_OUT" "$SURGE_BETA_URL" || echo "Failed to convert Surge Beta $NAME_NOEXT"
-
-            # 转换成 Shadowrocket（正式 + Beta）
-            SR_URL="http://localhost:9100/file/_start_/${RAW_URL}/_end_/${encoded_filename}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
-            SR_BETA_URL="http://localhost:9101/file/_start_/${RAW_URL}/_end_/${encoded_filename}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
-
-            SR_OUT="Modules/Shadowrocket/fmz200/${NAME_NOEXT}.srmodule"
-            SR_BETA_OUT="Modules/Shadowrocket/fmz200/Beta/${NAME_NOEXT}.srmodule"
-
-            echo "Converting → Shadowrocket: $SR_URL → $SR_OUT"
-            curl -A "Surge Mac/2985" -L -o "$SR_OUT" "$SR_URL" || echo "Failed to convert Shadowrocket $NAME_NOEXT"
-
-            echo "Converting → Shadowrocket Beta: $SR_BETA_URL → $SR_BETA_OUT"
-            curl -A "Surge Mac/2985" -L -o "$SR_BETA_OUT" "$SR_BETA_URL" || echo "Failed to convert Shadowrocket Beta $NAME_NOEXT"
+          for URL in $LOON_FILES; do
+            FILENAME=$(basename "$URL")
+            echo "Downloading $FILENAME → Modules/Loon/fmz200/Official/"
+            curl -L -o "Modules/Loon/fmz200/Official/$FILENAME" "$URL"
           done
+
+          # 2. 下载 Surge 官方 .sgmodule 并做转换
+          echo "Fetching official Surge plugins (.sgmodule)"
+          SURGE_FILES=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            https://api.github.com/repos/fmz200/wool_scripts/contents/Surge/module/split \
+            | jq -r '.[] | select(.name | endswith(".sgmodule")) | .download_url')
+
+          for base_url in $SURGE_FILES; do
+            FILENAME=$(basename "$base_url")
+            NAME_NOEXT="${FILENAME%.sgmodule}"
+            encoded_name=$(echo "$NAME_NOEXT" | jq -sRr @uri)
+
+            echo "Downloading official Surge: $FILENAME"
+            curl -L -o "Modules/Surge/fmz200/Official/$FILENAME" "$base_url"
+
+            # 构造转换 URL
+            Surge_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
+            Surge_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
+            Loon_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true"
+            Loon_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true"
+            Shadowrocket_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
+
+            echo "Converting $NAME_NOEXT → Surge/Loon/Shadowrocket"
+
+            curl -A "Surge Mac/2985" -L -o "Modules/Surge/fmz200/${NAME_NOEXT}.sgmodule" "$Surge_url" || echo "Failed Surge conversion: $NAME_NOEXT"
+            curl -A "Surge Mac/2985" -L -o "Modules/Surge/fmz200/Beta/${NAME_NOEXT}.sgmodule" "$Surge_Beta_url" || echo "Failed Surge Beta conversion: $NAME_NOEXT"
+
+            curl -A "Surge Mac/2985" -L -o "Modules/Loon/fmz200/${NAME_NOEXT}.lpx" "$Loon_url" || echo "Failed Loon conversion: $NAME_NOEXT"
+            curl -A "Surge Mac/2985" -L -o "Modules/Loon/fmz200/Beta/${NAME_NOEXT}.lpx" "$Loon_Beta_url" || echo "Failed Loon Beta conversion: $NAME_NOEXT"
+
+            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/fmz200/${NAME_NOEXT}.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket conversion: $NAME_NOEXT"
+            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/fmz200/Beta/${NAME_NOEXT}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket Beta conversion: $NAME_NOEXT"
+          done
+
 
       - name: Find and replace external JS resources in .sgmodule, .lpx, and .srmodule files
         continue-on-error: true
