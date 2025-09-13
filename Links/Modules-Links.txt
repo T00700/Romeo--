@@ -14,17 +14,7 @@ https://github.com/001ProMax/Surge/raw/main/Loon/Spotify.plugin
 https://github.com/Alex0510/Eric/raw/master/surge/Module/revenucar.sgmodule
 
 # D #
-https://github.com/ddgksf2013/Modules/raw/main/JD_Price.sgmodule
-https://github.com/ddgksf2013/Modules/raw/main/RevenueCat.Vip.sgmodule
-https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Amap.conf
-https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/BilibiliAds.conf
-https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/SmzdmAds.conf
-https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Weibo.conf
-https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/XiaoHongShuAds.conf
-https://github.com/ddgksf2013/dev/raw/master/ForOwnUse.conf
-https://gist.githubusercontent.com/ddgksf2013/0b2145e7362964c77af57a0e3402fe21/raw/BaiduPanSpeedBoost.conf
-https://gist.githubusercontent.com/ddgksf2013/12ef6aad209155e7eb62c5b00c11b9dd/raw/StartUpAds.conf
-https://gist.githubusercontent.com/ddgksf2013/f43026707830c7818ee3ba624e383c8d/raw/baiduCloud.adblock.js
+# https://github.com/ddgksf2013/Modules/raw/main/RevenueCat.Vip.sgmodule
 
 # F #
 
