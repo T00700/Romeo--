@@ -87,10 +87,10 @@ jobs:
 
       - name: Collect authors
         run: |
-          authors=$(cut -d'/' -f4 Links/Modules-Links.txt | sort -u | tr '\n' ' ')
+          authors=$(grep -E '^https?://' Links/Modules-Links.txt | cut -d'/' -f4 | sort -u | tr '\n' ' ')
           echo "AUTHORS=$authors" >> $GITHUB_ENV
           echo "Collected authors: $authors"
-
+          
       - name: Find and replace external JS resources
         continue-on-error: true  # 确保步骤在部分失败时继续执行
         run: |
