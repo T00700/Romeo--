@@ -85,60 +85,57 @@ jobs:
             curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/$author/Beta/$filename_noext.srmodule" "$Shadowrocket_Beta_url" || echo "Failed to download $filename_noext.srmodule"
           done < Links/Modules-Links.txt
 
+      - name: Collect authors
+        run: |
+          authors=$(cut -d'/' -f4 Links/Modules-Links.txt | sort -u | tr '\n' ' ')
+          echo "AUTHORS=$authors" >> $GITHUB_ENV
+
       - name: Find and replace external JS resources
         continue-on-error: true  # 确保步骤在部分失败时继续执行
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
 
-          for sgmodule_file in $(find Modules/Surge/ \
-              -mindepth 2 -type f -name "*.sgmodule" \
-              ! -path "Modules/Surge/Kelee/*" \
-              ! -path "Modules/Surge/NSRingo/*" \
-              ! -path "Modules/Surge/BiliUniverse/*" \
-              ! -path "Modules/Surge/DualSubs/*" \
-              ! -path "Modules/Surge/VirgilClyne/*" \
-              ! -path "Modules/Surge/fmz200/*" \
-              ! -path "Modules/Surge/zirawell/*" \
-              ! -path "*/Beta/*"); do
-            # 获取当前文件所在的文件夹路径
-            author=$(dirname "$sgmodule_file" | sed 's|^Modules/Surge/||')
-            module_folder=$(basename "$sgmodule_file" .sgmodule)
-            echo "Processing $sgmodule_file from folder $author for JS links"
+          for author in $AUTHORS; do
+            for sgmodule_file in Modules/Surge/$author/*.sgmodule; do
 
-            # 查找 .sgmodule 文件中的 .js 和 .json 链接（不含#）
-            js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || echo "")
+              module_folder=$(basename "$sgmodule_file" .sgmodule)
+              echo "Processing $sgmodule_file from author $author for JS links"
 
-            # 下载和替换每个 JS 链接
-            for js_link in $js_links; do
-              js_filename=$(basename "$js_link")
-              local_js_path="Modules/JS/$author/$module_folder/$js_filename"
-              github_js_url="$js_base_url/$author/$module_folder/$js_filename"
-              
-              # 创建文件夹（如果不存在）
-              mkdir -p "$(dirname "$local_js_path")"
+              # 查找 .sgmodule 文件中的 .js 和 .json 链接（不含#）
+              js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || echo "")
+            
+              # 下载和替换每个 JS 链接
+              for js_link in $js_links; do
+                js_filename=$(basename "$js_link")
+                local_js_path="Modules/JS/$author/$module_folder/$js_filename"
+                github_js_url="$js_base_url/$author/$module_folder/$js_filename"
+  
+                # 创建文件夹（如果不存在）
+                mkdir -p "$(dirname "$local_js_path")"
 
-              # 使用指定的 User-Agent 下载 .js 文件
-              echo "Downloading $js_link to $local_js_path"
-              if curl -A "Surge Mac/2985" -L -o "$local_js_path" "$js_link"; then
-                echo "Download successful for $js_link"
-                
-                # 获取对应的 Loon 和 Shadowrocket 插件文件名
-                surge_Beta_file="Modules/Surge/$author/Beta/$module_folder.sgmodule"
-                loon_file="Modules/Loon/$author/$module_folder.lpx"
-                loon_Beta_file="Modules/Loon/$author/Beta/$module_folder.lpx"
-                shadowrocket_file="Modules/Shadowrocket/$author/$module_folder.srmodule"
-                shadowrocket_Beta_file="Modules/Shadowrocket/$author/Beta/$module_folder.srmodule"
+                # 使用指定的 User-Agent 下载 .js 文件
+                echo "Downloading $js_link to $local_js_path"
+                if curl -A "Surge Mac/2985" -L -o "$local_js_path" "$js_link"; then
+                  echo "Download successful for $js_link"
+                  
+                  # 获取对应的 Loon 和 Shadowrocket 插件文件名
+                  surge_Beta_file="Modules/Surge/$author/Beta/$module_folder.sgmodule"
+                  loon_file="Modules/Loon/$author/$module_folder.lpx"
+                  loon_Beta_file="Modules/Loon/$author/Beta/$module_folder.lpx"
+                  shadowrocket_file="Modules/Shadowrocket/$author/$module_folder.srmodule"
+                  shadowrocket_Beta_file="Modules/Shadowrocket/$author/Beta/$module_folder.srmodule"
 
-                # 替换文件中的 JS 链接
-                sed -i "s|$js_link|$github_js_url|g" "$sgmodule_file" && echo "Replaced $sgmodule_file"
-                sed -i "s|$js_link|$github_js_url|g" "$surge_Beta_file" && echo "Replaced $surge_Beta_file"
-                sed -i "s|$js_link|$github_js_url|g" "$loon_file" && echo "Replaced $loon_file"
-                sed -i "s|$js_link|$github_js_url|g" "$loon_Beta_file" && echo "Replaced $loon_Beta_file"
-                sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_file" && echo "Replaced $shadowrocket_file"
-                sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_Beta_file" && echo "Replaced $shadowrocket_Beta_file"
-              else
-                echo "Failed to download $js_link, skipping..."
-              fi
+                  # 替换文件中的 JS 链接
+                  sed -i "s|$js_link|$github_js_url|g" "$sgmodule_file" && echo "Replaced $sgmodule_file"
+                  sed -i "s|$js_link|$github_js_url|g" "$surge_Beta_file" && echo "Replaced $surge_Beta_file"
+                  sed -i "s|$js_link|$github_js_url|g" "$loon_file" && echo "Replaced $loon_file"
+                  sed -i "s|$js_link|$github_js_url|g" "$loon_Beta_file" && echo "Replaced $loon_Beta_file"
+                  sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_file" && echo "Replaced $shadowrocket_file"
+                  sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_Beta_file" && echo "Replaced $shadowrocket_Beta_file"
+                else
+                  echo "Failed to download $js_link, skipping..."
+                fi
+              done
             done
           done
 
