@@ -1,0 +1,20 @@
+#!name=端传媒
+#!desc=解锁手机APP端和网页端文章阅读权限
+#!author=𝐝𝐝𝐠𝐤𝐬𝐟𝟐𝟎𝟏𝟑
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
+#!tag=Jacob
+
+#!tips=无需登录，直接打开文章观看
+#!tgchannel=https://t.me/ddgksf2021
+#!moduleUrl=https://github.com/ddgksf2013/Modules/raw/main/Duan.Vip.sgmodule
+#!howtouse=小火箭、Surge用户直接添加模块，QuantumultX用户添加重写时打开解析器
+
+[Script]
+# ～ Duan@ddgksf2013
+http-response ^https?:\/\/app\.theinitium\.com\/subs\/[a-zA-Z_]+\/verify_subscription script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Duan.Vip/DuanChuanMeiProCrack.js, requires-body=true, timeout=60, tag=Duan.vip1
+
+http-response ^https?:\/\/api\.wallkit\.net\/api\/v\d/user script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Duan.Vip/DuanChuanMeiProCrack.js, requires-body=true, timeout=60, tag=Duan.vip2
+
+[MITM]
+hostname = app.theinitium.com, api.wallkit.net
+
