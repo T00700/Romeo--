@@ -57,7 +57,7 @@ jobs:
 
       - name: Download Loon .lpx files
         run: |
-          mkdir -p Modules/Loon/${CATEGORY}/Official
+          mkdir -p Modules/Loon/${Author}/Official
           while IFS= read -r path; do
             filename=$(basename "$path")
             encoded_path=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$path'''))")
@@ -65,7 +65,7 @@ jobs:
             curl -sL -H "Authorization: token $GITHUB_TOKEN" \
               -H "Accept: application/vnd.github.raw" \
               "https://api.github.com/repos/fmz200/wool_scripts/contents/$encoded_path?ref=main" \
-              -o "Modules/Loon/${CATEGORY}/Official/$filename"
+              -o "Modules/Loon/${Author}/Official/$filename"
           done < loon_paths.txt
 
       # === 获取 Surge .sgmodule 文件 ===
@@ -78,11 +78,11 @@ jobs:
 
       - name: Download & Convert Surge .sgmodule files
         run: |
-          mkdir -p Modules/Surge/${CATEGORY}/Official \
-                   Modules/Surge/${CATEGORY}/Beta \
-                   Modules/Loon/${CATEGORY}/Beta \
-                   Modules/Shadowrocket/${CATEGORY} \
-                   Modules/Shadowrocket/${CATEGORY}/Beta
+          mkdir -p Modules/Surge/${Author}/Official \
+                   Modules/Surge/${Author}/Beta \
+                   Modules/Loon/${Author}/Beta \
+                   Modules/Shadowrocket/${Author} \
+                   Modules/Shadowrocket/${Author}/Beta
 
           while IFS= read -r path; do
             filename=$(basename "$path")
@@ -95,7 +95,7 @@ jobs:
             curl -sL -H "Authorization: token $GITHUB_TOKEN" \
               -H "Accept: application/vnd.github.raw" \
               "https://api.github.com/repos/fmz200/wool_scripts/contents/$encoded_path?ref=main" \
-              -o "Modules/Surge/${CATEGORY}/Official/$filename"
+              -o "Modules/Surge/${Author}/Official/$filename"
 
             # 转换 (base_url + encoded_name)
             encoded_name=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$name'''))")
@@ -111,14 +111,14 @@ jobs:
             Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
 
             echo "Converting $filename → Surge/Loon/Shadowrocket"
-            curl -A "Surge Mac/2985" -sL -o "Modules/Surge/${CATEGORY}/$filename" "$Surge_url" || echo "Failed Surge conversion: $name"
-            curl -A "Surge Mac/2985" -sL -o "Modules/Surge/${CATEGORY}/Beta/$filename" "$Surge_Beta_url" || echo "Failed Surge Beta conversion: $name"
+            curl -A "Surge Mac/2985" -sL -o "Modules/Surge/${Author}/$filename" "$Surge_url" || echo "Failed Surge conversion: $name"
+            curl -A "Surge Mac/2985" -sL -o "Modules/Surge/${Author}/Beta/$filename" "$Surge_Beta_url" || echo "Failed Surge Beta conversion: $name"
 
-            curl -A "Surge Mac/2985" -sL -o "Modules/Loon/${CATEGORY}/$name.lpx" "$Loon_url" || echo "Failed Loon conversion: $name"
-            curl -A "Surge Mac/2985" -sL -o "Modules/Loon/${CATEGORY}/Beta/$name.lpx" "$Loon_Beta_url" || echo "Failed Loon Beta conversion: $name"
+            curl -A "Surge Mac/2985" -sL -o "Modules/Loon/${Author}/$name.lpx" "$Loon_url" || echo "Failed Loon conversion: $name"
+            curl -A "Surge Mac/2985" -sL -o "Modules/Loon/${Author}/Beta/$name.lpx" "$Loon_Beta_url" || echo "Failed Loon Beta conversion: $name"
 
-            curl -A "Surge Mac/2985" -sL -o "Modules/Shadowrocket/${CATEGORY}/$name.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket conversion: $name"
-            curl -A "Surge Mac/2985" -sL -o "Modules/Shadowrocket/${CATEGORY}/Beta/$name.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket Beta conversion: $name"
+            curl -A "Surge Mac/2985" -sL -o "Modules/Shadowrocket/${Author}/$name.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket conversion: $name"
+            curl -A "Surge Mac/2985" -sL -o "Modules/Shadowrocket/${Author}/Beta/$name.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket Beta conversion: $name"
           done < surge_paths.txt
 
       - name: Find and replace external JS resources in .sgmodule, .lpx, and .srmodule files
@@ -126,14 +126,14 @@ jobs:
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
 
-          mkdir -p Modules/JS/fmz200
+          mkdir -p Modules/JS/${Author}
 
-          for sgmodule_file in $(find Modules/Surge/fmz200 -type f -name "*.sgmodule"); do
-            author="fmz200"
+          for sgmodule_file in $(find Modules/Surge/${Author} -type f -name "*.sgmodule"); do
+            author=${Author}
             module_folder=$(basename "$sgmodule_file" .sgmodule)
             echo "Processing $sgmodule_file for JS links"
 
-            js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]+\.(json|js)' || echo "")
+            js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || echo "")
 
             for js_link in $js_links; do
               js_filename=$(basename "$js_link")
