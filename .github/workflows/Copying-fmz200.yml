@@ -45,13 +45,13 @@ jobs:
           done
 
       - name: Set category
-        run: echo "CATEGORY=fmz200" >> $GITHUB_ENV
+        run: echo "Author=fmz200" >> $GITHUB_ENV
 
       # === 获取 Loon .lpx 文件 ===
       - name: Fetch Loon .lpx paths
         run: |
           curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1" \
+            "https://api.github.com/repos/${Author}/wool_scripts/git/trees/main?recursive=1" \
             | jq -r '.tree[] | select(.path | test("Loon/plugin/split/.*\\.lpx$")) | .path' > loon_paths.txt
           cat loon_paths.txt
 
@@ -64,7 +64,7 @@ jobs:
             echo "Downloading $path → $filename"
             curl -sL -H "Authorization: token $GITHUB_TOKEN" \
               -H "Accept: application/vnd.github.raw" \
-              "https://api.github.com/repos/fmz200/wool_scripts/contents/$encoded_path?ref=main" \
+              "https://api.github.com/repos/${Author}/wool_scripts/contents/$encoded_path?ref=main" \
               -o "Modules/Loon/${Author}/Official/$filename"
           done < loon_paths.txt
 
@@ -72,7 +72,7 @@ jobs:
       - name: Fetch Surge .sgmodule paths
         run: |
           curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1" \
+            "https://api.github.com/repos/${Author}/wool_scripts/git/trees/main?recursive=1" \
             | jq -r '.tree[] | select(.path | test("Surge/module/split/.*\\.sgmodule$")) | .path' > surge_paths.txt
           cat surge_paths.txt
 
@@ -90,11 +90,11 @@ jobs:
 
             # 原始 sgmodule 下载
             encoded_path=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$path'''))")
-            raw_url="https://raw.githubusercontent.com/fmz200/wool_scripts/main/$path"
+            raw_url="https://raw.githubusercontent.com/${Author}/wool_scripts/main/$path"
             echo "Downloading $path → $filename"
             curl -sL -H "Authorization: token $GITHUB_TOKEN" \
               -H "Accept: application/vnd.github.raw" \
-              "https://api.github.com/repos/fmz200/wool_scripts/contents/$encoded_path?ref=main" \
+              "https://api.github.com/repos/${Author}/wool_scripts/contents/$encoded_path?ref=main" \
               -o "Modules/Surge/${Author}/Official/$filename"
 
             # 转换 (base_url + encoded_name)
