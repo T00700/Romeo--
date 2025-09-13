@@ -76,7 +76,7 @@ jobs:
             echo "Converting to ${Modules_name}.lpx"
             curl -A "Surge Mac/2985" -L -o "Modules/Loon/${Author}/${Modules_name}.lpx" "$Loon_url" || echo "Failed to download ${Modules_name}.lpx"
             curl -A "Surge Mac/2985" -L -o "Modules/Loon/${Author}/Beta/${Modules_name}.lpx" "$Loon_Beta_url" || echo "Failed to download ${Modules_name}.lpx"
-            echo "Converting to $.srmodule"
+            echo "Converting to ${Modules_name}.srmodule"
             curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/${Author}/${Modules_name}.srmodule" "$Shadowrocket_url" || echo "Failed to download ${Modules_name}.srmodule"
             curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/${Author}/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed to download ${Modules_name}.srmodule"
           done < plugin_urls.txt
