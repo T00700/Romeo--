@@ -1,7 +1,7 @@
 #!name=coco
 #!desc=coco
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1003.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1047.png
+#!tag=Jacob
 
 [Script]
 http-response ^https?:\/\/coco-com\.e\.verystar\.net\/v\d\/home\/info script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/coco/wechatApplet.js, requires-body=true, tag=coco

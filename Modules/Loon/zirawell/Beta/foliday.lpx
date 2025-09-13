@@ -1,7 +1,7 @@
 #!name=foliday
 #!desc=foliday
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1069.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1030.png
+#!tag=Jacob
 
 [Script]
 http-response ^https?:\/\/apis\.folidaymall\.com\/online\/capi\/component\/getPageComponents script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/foliday/foliday.js, requires-body=true, tag=foliday

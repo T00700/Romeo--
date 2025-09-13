@@ -1,6 +1,6 @@
 #!name=meituanwm-Applet
 #!desc=meituanwm-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/npay\.meituan\.com\/conch\/flow\/mypage-wallet-info data-type=text data="{}"

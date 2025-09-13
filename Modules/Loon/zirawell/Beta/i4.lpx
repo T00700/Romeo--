@@ -1,7 +1,7 @@
 #!name=i4
 #!desc=i4
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1052.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1026.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/list-app-m\.i4\.cn\/(adclickcb|getHotSearchList|getopfstadinfo)\.xhtml - reject

@@ -1,6 +1,6 @@
 #!name=starbucks
 #!desc=starbucks
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/3pp\.starbucks\.com\.cn\/wxmem\/popup data-type=text data="{}"

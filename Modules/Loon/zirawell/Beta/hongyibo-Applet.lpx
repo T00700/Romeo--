@@ -1,7 +1,7 @@
 #!name=hongyibo-Applet
 #!desc=hongyibo-Applet
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1053.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1025.png
+#!tag=Jacob
 
 [Rule]
 DOMAIN,api.hongyibo.com.cn,REJECT

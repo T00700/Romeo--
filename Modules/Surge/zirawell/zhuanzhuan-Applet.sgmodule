@@ -1,6 +1,6 @@
 #!name=zhuanzhuan-Applet
 #!desc=zhuanzhuan-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Body Rewrite]
 http-response ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getpersonalcenter pendantInfo random_body

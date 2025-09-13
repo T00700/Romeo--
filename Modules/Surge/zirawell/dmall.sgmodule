@@ -1,6 +1,6 @@
 #!name=dmall
 #!desc=dmall
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/flow\.dmall\.com\/app\/home\/pops - reject

@@ -1,6 +1,6 @@
 #!name=rouman5
 #!desc=rouman5
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN-SUFFIX,rou3.xyz,REJECT,extended-matching,pre-matching

@@ -1,6 +1,6 @@
 #!name=wanda
 #!desc=wanda
-#!category=zirawell
+#!category=Jacob
 
 [Body Rewrite]
 http-response ^https?:\/\/api\.wandacm\.com\.cn\/wdmp\/common\/v\d\/xmt\/nsettingInfo popConfig random_body

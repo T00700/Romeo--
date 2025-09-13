@@ -1,6 +1,6 @@
 #!name=ejoy-Applet
 #!desc=ejoy-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/a\.sinopecsales\.com\/app\/cms data-type=text data="{}"

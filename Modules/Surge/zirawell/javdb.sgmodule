@@ -1,6 +1,6 @@
 #!name=javdb
 #!desc=javdb
-#!category=zirawell
+#!category=Jacob
 
 [Script]
 javdb = type=http-response, pattern=^https?:\/\/(api\.hechuangxinxi\.xyz|jdforrepam\.com)\/api\/v\d\/(?>ads|startup|users|movies), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/javdb/javdb.js, requires-body=true, max-size=0

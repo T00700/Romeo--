@@ -1,7 +1,7 @@
 #!name=jdexpress
 #!desc=jdexpress
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1037.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1004.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/lop-proxy\.jd\.com\/BeaconFireApi\/queryMarketingRecommendRuleConfigInfo mock-response-body data-type=text data="{}" status-code=200

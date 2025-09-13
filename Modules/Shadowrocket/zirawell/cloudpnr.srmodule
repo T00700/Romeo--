@@ -1,6 +1,6 @@
 #!name=cloudpnr
 #!desc=cloudpnr
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/mcsp\.cloudpnr\.com\/api\/miniapp\/popular\/T_MINIAPP$ - reject

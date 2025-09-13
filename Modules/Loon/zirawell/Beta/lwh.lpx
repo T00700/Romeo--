@@ -1,7 +1,7 @@
 #!name=lwh
 #!desc=lwh
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1045.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1017.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/wx\.youhaosoft\.com\/prom\/Ad - reject

@@ -1,6 +1,6 @@
 #!name=ems
 #!desc=ems
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/ec\.ems\.com\.cn\/mailAd$ - reject

@@ -1,6 +1,6 @@
 #!name=yxx
 #!desc=yxx
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/crm\.scpgroup\.com\.cn\/yinli-minapp\/api\/v\d\/ads data-type=text data="{}" status-code=200

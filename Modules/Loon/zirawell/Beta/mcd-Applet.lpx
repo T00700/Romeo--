@@ -1,7 +1,7 @@
 #!name=mcd-Applet
 #!desc=mcd-Applet
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1067.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1055.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/api\.mcd\.cn\/bff\/portal\/home\/hotActivity mock-response-body data-type=text data="{}" status-code=200

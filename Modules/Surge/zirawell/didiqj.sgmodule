@@ -1,6 +1,6 @@
 #!name=didiqj
 #!desc=didiqj
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/htwkop\.xiaojukeji\.com\/gateway\?api=cms\.htw\.delivery data-type=text data="{}" status-code=200

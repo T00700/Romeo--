@@ -1,6 +1,6 @@
 #!name=ccbHome
 #!desc=ccbHome
-#!category=zirawell
+#!category=Jacob
 
 [Script]
 ccbHome = type=http-response, pattern=^https?:\/\/opss\.qiye\.ccbhome\.cn\/ccbhome-open\/home\/common, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/ccbHome/ccbHome.js, requires-body=true, max-size=0

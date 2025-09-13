@@ -1,6 +1,6 @@
 #!name=enmonster-Applet
 #!desc=enmonster-Applet
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/aag\.enmonster\.com\/apa\/index\/advert\/skin - reject

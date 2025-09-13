@@ -1,6 +1,6 @@
 #!name=yunda
 #!desc=yunda
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/ydmbpic\.yundasys\.com\/opserver\/statics\/uniAppImage\/selfCenter\/rightsPop data-type=text data="{}"

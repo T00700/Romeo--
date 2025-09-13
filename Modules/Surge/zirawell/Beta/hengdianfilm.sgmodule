@@ -1,6 +1,6 @@
 #!name=hengdianfilm
 #!desc=hengdianfilm
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/api\.hengdianfilm\.com\/\/cinema\/queryAvailableBannerInfo\/1 https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/hengdianfilm/hengdian.json 302

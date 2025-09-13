@@ -1,6 +1,6 @@
 #!name=weiKuaiDi
 #!desc=weiKuaiDi
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/api\.kuaidihelp\.com\/g_order_core\/v\d\/mina\/User\/getBannerList data-type=text data="{}"

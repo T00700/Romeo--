@@ -1,6 +1,6 @@
 #!name=bankcomm-Applet
 #!desc=bankcomm-Applet
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/creditcardapp\.bankcomm\.com\/cnsvPmpaMdbcardWeb\/page\/getGuidePageAds - reject

@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 IP-CIDR,1.202.85.193/32,REJECT,no-resolve

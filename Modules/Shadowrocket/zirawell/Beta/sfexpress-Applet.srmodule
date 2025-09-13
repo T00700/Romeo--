@@ -1,6 +1,6 @@
 #!name=sfexpress-Applet
 #!desc=sfexpress-Applet
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/ucmp\.sf-express\.com\/cx-wechat-query\/query\/info-flow\/reconsitution-list - reject

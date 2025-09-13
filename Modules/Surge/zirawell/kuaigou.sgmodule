@@ -1,6 +1,6 @@
 #!name=kuaigou
 #!desc=kuaigou
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/suyun-guest\.daojia\.com\/api\/kuaigou\/banjia\/review data-type=text data="{}" status-code=200

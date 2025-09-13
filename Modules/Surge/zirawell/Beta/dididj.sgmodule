@@ -1,6 +1,6 @@
 #!name=dididj
 #!desc=dididj
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/as\.xiaojukeji\.com\/ep\/as\/conf\?ns=daijia-front&name= data-type=text data="{}" status-code=200

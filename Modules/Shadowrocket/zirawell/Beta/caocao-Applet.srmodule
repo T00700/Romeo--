@@ -1,6 +1,6 @@
 #!name=caocao-Applet
 #!desc=caocao-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/minicap\.caocaokeji\.cn\/advert-bss\/pullAdvert data-type=text data="{}"

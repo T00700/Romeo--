@@ -1,6 +1,6 @@
 #!name=tuhu-Applet
 #!desc=tuhu-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/mkt-gateway\.tuhu\.cn\/mkt-scene-marketing-service\/api\/scene\/queryScheme data-type=text data="{}"

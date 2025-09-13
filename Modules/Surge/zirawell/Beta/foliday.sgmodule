@@ -1,6 +1,6 @@
 #!name=foliday
 #!desc=foliday
-#!category=zirawell
+#!category=Jacob
 
 [Script]
 foliday = type=http-response, pattern=^https?:\/\/apis\.folidaymall\.com\/online\/capi\/component\/getPageComponents, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/foliday/foliday.js, requires-body=true, max-size=0

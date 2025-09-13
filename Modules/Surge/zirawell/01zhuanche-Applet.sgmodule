@@ -1,6 +1,6 @@
 #!name=01zhuanche-Applet
 #!desc=01zhuanche-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/gw-passenger-wap\.01zhuanche\.com\/gw-passenger-wap\/zhuanche-passenger-token\/commonSkipToken\/common\/getAdList data-type=text data="{}" status-code=200

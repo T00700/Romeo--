@@ -1,7 +1,7 @@
 #!name=wwl
 #!desc=wwl
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1026.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1001.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/new\.wwldz\.com\/wechat\/ad\/ mock-response-body data-type=text data="{}" status-code=200

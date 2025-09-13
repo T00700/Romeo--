@@ -1,7 +1,7 @@
 #!name=tenpay
 #!desc=tenpay
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1049.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1070.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/ccmsupport-sz\.tenpay\.com\/cgi-bin\/common\/ccm_page_element.cgi - reject

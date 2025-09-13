@@ -1,6 +1,6 @@
 #!name=shouqianba
 #!desc=shouqianba
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,ads-shopping.shouqianba.com,REJECT,extended-matching,pre-matching

@@ -1,7 +1,7 @@
 #!name=wechatAppletGeneral
 #!desc=wechatAppletGeneral
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1080.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1077.png
+#!tag=Jacob
 
 [Rule]
 DOMAIN-SUFFIX,wxsnsdy.wxs.qq.com,REJECT

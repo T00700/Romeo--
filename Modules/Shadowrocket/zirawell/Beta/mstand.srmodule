@@ -1,6 +1,6 @@
 #!name=mstand
 #!desc=mstand
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/api\.prod\.dj\.mstand\.cn\/scrm\/app\/mdm\/index\/listAdv\?types data-type=text data="{}"

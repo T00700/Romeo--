@@ -1,7 +1,7 @@
 #!name=zhinengxiyifang
 #!desc=zhinengxiyifang
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1019.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1009.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/api-marketing\.zhinengxiyifang\.cn\/api\/v\d\/cloudcode\/wechat\/bid - reject

@@ -1,7 +1,7 @@
 #!name=pagoda
 #!desc=pagoda
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1071.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1010.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/dsxcx\.tencent-prod\.pagoda\.com\.cn\/exc\/wxapp\/homePage\/v\d\/get(?>HomeLaunchDialog|Floating) mock-response-body data-type=text data="{}" status-code=200

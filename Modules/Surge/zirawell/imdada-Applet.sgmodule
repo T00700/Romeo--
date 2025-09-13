@@ -1,6 +1,6 @@
 #!name=imdada-Applet
 #!desc=imdada-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/supplier-api\.imdada\.cn\/fe\/public\/ad\/spot\?forwardServiceName=growth-activity data-type=text data="{}" status-code=200

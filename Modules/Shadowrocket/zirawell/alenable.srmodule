@@ -1,6 +1,6 @@
 #!name=alenable
 #!desc=alenable
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/apis\.alenable\.com\/mall\/v\d\/api\/mall\/skin\/user\/get data-type=text data="{}"

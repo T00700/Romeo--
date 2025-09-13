@@ -1,6 +1,6 @@
 #!name=meituancdb
 #!desc=meituancdb
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/cdb\.meituan\.com\/marketing\/source\/getPageSlotList data-type=text data="{}"

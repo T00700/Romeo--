@@ -1,6 +1,6 @@
 #!name=yonghui-Applet
 #!desc=yonghui-Applet
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/api\.yonghuivip\.com\/api\/fp\/homepage\/pop - reject

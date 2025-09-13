@@ -1,6 +1,6 @@
 #!name=gemdale
 #!desc=gemdale
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/m\.mallcoo\.cn\/api\/content\/Ads - reject

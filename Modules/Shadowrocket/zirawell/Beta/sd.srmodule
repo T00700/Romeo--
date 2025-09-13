@@ -1,6 +1,6 @@
 #!name=sd
 #!desc=sd
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/wxs-weixin\.sd\.zhumanggroup\.com\/api\/v\d\/ad data-type=text data="{}"

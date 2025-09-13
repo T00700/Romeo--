@@ -1,6 +1,6 @@
 #!name=kfc-Applet
 #!desc=kfc-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/dynamicad\.kfc\.com\.cn\/api data-type=text data="{}"

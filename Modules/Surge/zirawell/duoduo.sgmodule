@@ -1,6 +1,6 @@
 #!name=duoduo
 #!desc=duoduo
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN-SUFFIX,ad.duoduo.link,REJECT,extended-matching,pre-matching

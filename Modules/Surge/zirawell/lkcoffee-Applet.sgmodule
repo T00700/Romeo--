@@ -1,6 +1,6 @@
 #!name=lkcoffee-Applet
 #!desc=lkcoffee-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/order\/orderBanner data-type=text data="{}" status-code=200

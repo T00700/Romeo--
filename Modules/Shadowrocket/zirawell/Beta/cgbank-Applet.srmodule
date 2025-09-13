@@ -1,6 +1,6 @@
 #!name=cgbank-Applet
 #!desc=cgbank-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Body Rewrite]
 http-response ^https?:\/\/chl\.tf\.cn\/channelmg\/sys\/socso\/order\/queryOrderInfo "imgUrl" "imgUrl0"

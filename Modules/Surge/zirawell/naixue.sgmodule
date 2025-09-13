@@ -1,6 +1,6 @@
 #!name=naixue
 #!desc=naixue
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/tm-api\.pin-dao\.cn\/home\/api\/index\/activeConfig\/ data-type=text data="{}" status-code=200

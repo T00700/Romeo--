@@ -1,6 +1,6 @@
 #!name=meituan-Applet
 #!desc=meituan-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/web\.meituan\.com\/api\/miniprogram\/index\/aggregate data-type=file data="https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/meituan-Applet/mt_aggregate.json"

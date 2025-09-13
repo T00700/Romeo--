@@ -1,7 +1,7 @@
 #!name=shouqianba
 #!desc=shouqianba
 #!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1004.png
-#!tag=zirawell
+#!tag=Jacob
 
 [Rule]
 DOMAIN,ads-shopping.shouqianba.com,REJECT

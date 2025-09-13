@@ -1,6 +1,6 @@
 #!name=ddrk
 #!desc=ddrk
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/img\.ddrk\.me\/ad190824 data-type=tiny-gif status-code=200

@@ -1,6 +1,6 @@
 #!name=manner
 #!desc=manner
-#!category=zirawell
+#!category=Jacob
 
 [Script]
 manner = type=http-response, pattern=^https?:\/\/triangle\.wearemanner\.com\/mp-api\/v\d\/ads, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/manner/manner.js, requires-body=true, max-size=0

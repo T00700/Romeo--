@@ -1,7 +1,7 @@
 #!name=pppark
 #!desc=pppark
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1088.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1039.png
+#!tag=Jacob
 
 [Rule]
 DOMAIN,ad-files.4pyun.com,REJECT

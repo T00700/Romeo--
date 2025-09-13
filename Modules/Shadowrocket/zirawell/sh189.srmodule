@@ -1,6 +1,6 @@
 #!name=sh189
 #!desc=sh189
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,bigdata-behaviordata.189.cn,REJECT,extended-matching

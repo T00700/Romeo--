@@ -1,7 +1,7 @@
 #!name=laidian
 #!desc=laidian
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1081.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1011.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/mobile-api\.imlaidian\.com\/api\/args mock-response-body data-type=text data="{}" status-code=200

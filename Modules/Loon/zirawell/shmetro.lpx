@@ -1,7 +1,7 @@
 #!name=shmetro
 #!desc=shmetro
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1018.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1001.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/dock\.tenchii\.com\/DockCard\/api\/mini\/card\/list mock-response-body data-type=text data="{}" status-code=200

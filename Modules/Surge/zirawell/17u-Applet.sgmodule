@@ -1,6 +1,6 @@
 #!name=17u-Applet
 #!desc=17u-Applet
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/wx\.17u\.cn\/xcxhomeapi\/((aggregator\/index)|(home\/(?>screen|banner|converge)))$ - reject

@@ -1,7 +1,7 @@
 #!name=kuaigou
 #!desc=kuaigou
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1012.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1007.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/suyun-guest\.daojia\.com\/api\/kuaigou\/banjia\/review mock-response-body data-type=text data="{}" status-code=200

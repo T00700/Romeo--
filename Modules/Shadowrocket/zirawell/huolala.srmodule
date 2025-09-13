@@ -1,6 +1,6 @@
 #!name=huolala
 #!desc=huolala
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/qapi\.huolala\.cn\/(?>ads|home_new_user|get_service_list) data-type=text data="{}"

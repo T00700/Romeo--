@@ -1,7 +1,7 @@
 #!name=rouman5
 #!desc=rouman5
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1034.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1012.png
+#!tag=Jacob
 
 [Rule]
 DOMAIN-SUFFIX,rou3.xyz,REJECT

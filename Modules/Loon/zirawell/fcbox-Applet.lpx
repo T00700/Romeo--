@@ -1,7 +1,7 @@
 #!name=fcbox-Applet
 #!desc=fcbox-Applet
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1070.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1011.png
+#!tag=Jacob
 
 [Rule]
 DOMAIN,dsp.fcbox.com,REJECT

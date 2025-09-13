@@ -1,6 +1,6 @@
 #!name=lanbo
 #!desc=lanbo
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/wx\.ymiot\.net\/Static\/\w+\/advert data-type=text data="" status-code=200

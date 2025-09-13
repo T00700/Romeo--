@@ -1,6 +1,6 @@
 #!name=nfmovies
 #!desc=nfmovies
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/www\.nfmovies\.com\/pic\/tu\/ data-type=tiny-gif

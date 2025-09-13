@@ -1,6 +1,6 @@
 #!name=homeinns-Applet
 #!desc=homeinns-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/wx\.bthhotels\.com\/miniapp\/weixin\/v\d\/home\/index_banner data-type=text data="{}"

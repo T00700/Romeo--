@@ -1,6 +1,6 @@
 #!name=bjxkhc
 #!desc=bjxkhc
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/ver/index_ios$ - reject

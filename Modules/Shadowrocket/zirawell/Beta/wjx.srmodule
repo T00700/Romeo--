@@ -1,6 +1,6 @@
 #!name=wjx
 #!desc=wjx
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/image\.wjx\.cn\/joinnew\/js\/joinawardactivitymobo data-type=text data="{}"

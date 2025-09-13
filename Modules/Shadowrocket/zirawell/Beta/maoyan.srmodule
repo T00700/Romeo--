@@ -1,6 +1,6 @@
 #!name=maoyan
 #!desc=maoyan
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,ad.maoyan.com,REJECT,extended-matching

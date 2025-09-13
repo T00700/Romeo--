@@ -1,7 +1,7 @@
 #!name=clubmed
 #!desc=clubmed
 #!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1014.png
-#!tag=zirawell
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/clubmed\.bd\.clubmedmnp\.com\/miniorder\/api\/basic\/common mock-response-body data-type=text data="{}" status-code=200

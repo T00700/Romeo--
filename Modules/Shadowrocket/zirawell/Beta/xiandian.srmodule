@@ -1,6 +1,6 @@
 #!name=xiandian
 #!desc=xiandian
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,smarket.dian.so,REJECT,extended-matching

@@ -1,6 +1,6 @@
 #!name=didi-Applet
 #!desc=didi-Applet
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/capis(-\d)?\.didapinche\.com\/adbase - reject

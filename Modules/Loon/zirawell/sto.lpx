@@ -1,7 +1,7 @@
 #!name=sto
 #!desc=sto
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1015.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1008.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/customer-app\.sto\.cn\/api\/app\/banner\/banner mock-response-body data-type=text data="{}" status-code=200

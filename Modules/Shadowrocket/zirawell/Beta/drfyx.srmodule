@@ -1,6 +1,6 @@
 #!name=drfyx
 #!desc=drfyx
-#!category=zirawell
+#!category=Jacob
 
 [Body Rewrite]
 http-response ^https?:\/\/membase-yxapp\.feiniu\.com\/misc\/memberIndex myADArray myADArray0

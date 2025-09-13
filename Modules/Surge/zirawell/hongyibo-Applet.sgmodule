@@ -1,6 +1,6 @@
 #!name=hongyibo-Applet
 #!desc=hongyibo-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,api.hongyibo.com.cn,REJECT,extended-matching,pre-matching

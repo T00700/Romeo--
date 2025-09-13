@@ -1,6 +1,6 @@
 #!name=ydd
 #!desc=ydd
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/cappapi\.alittle-tea\.com\/open\?method=catering\.set\.ad\.initial data-type=text data="{}"

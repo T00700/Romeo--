@@ -1,6 +1,6 @@
 #!name=pagoda
 #!desc=pagoda
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/dsxcx\.tencent-prod\.pagoda\.com\.cn\/exc\/wxapp\/homePage\/v\d\/get(?>HomeLaunchDialog|Floating) data-type=text data="{}" status-code=200

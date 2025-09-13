@@ -1,6 +1,6 @@
 #!name=deppon
 #!desc=deppon
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/www\.deppon\.com\/gwapi\/memberService\/eco\/member\/grade\/commonInterface data-type=text data="{}" status-code=200

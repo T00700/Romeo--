@@ -1,6 +1,6 @@
 #!name=baidupan-Applet
 #!desc=baidupan-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/pan\.baidu\.com\/buy\/ad\/ data-type=text data="" status-code=200

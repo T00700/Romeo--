@@ -1,6 +1,6 @@
 #!name=jd-Applet
 #!desc=jd-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/api\.m\.jd\.com\/\?loginType=11 data-type=text data="{}"

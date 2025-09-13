@@ -1,6 +1,6 @@
 #!name=jdexpress
 #!desc=jdexpress
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/lop-proxy\.jd\.com\/BeaconFireApi\/queryMarketingRecommendRuleConfigInfo data-type=text data="{}" status-code=200

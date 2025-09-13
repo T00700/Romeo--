@@ -1,6 +1,6 @@
 #!name=wechatAdBlock
 #!desc=wechatAdBlock
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,ad-api.4pyun.com,REJECT,extended-matching

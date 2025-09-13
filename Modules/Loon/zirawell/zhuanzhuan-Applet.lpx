@@ -1,7 +1,7 @@
 #!name=zhuanzhuan-Applet
 #!desc=zhuanzhuan-Applet
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1021.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1058.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getpersonalcenter response-body-replace-regex pendantInfo random_body

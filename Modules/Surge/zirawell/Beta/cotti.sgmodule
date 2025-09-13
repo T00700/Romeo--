@@ -1,6 +1,6 @@
 #!name=cotti
 #!desc=cotti
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/adSortList data-type=text data="{}" status-code=200

@@ -1,6 +1,6 @@
 #!name=lwh
 #!desc=lwh
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/wx\.youhaosoft\.com\/prom\/Ad - reject

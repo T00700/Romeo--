@@ -1,6 +1,6 @@
 #!name=shansong
 #!desc=shansong
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,ads.ishansong.com,REJECT,extended-matching,pre-matching

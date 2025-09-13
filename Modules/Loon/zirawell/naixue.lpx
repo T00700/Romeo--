@@ -1,7 +1,7 @@
 #!name=naixue
 #!desc=naixue
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1054.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1035.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/tm-api\.pin-dao\.cn\/home\/api\/index\/activeConfig\/ mock-response-body data-type=text data="{}" status-code=200

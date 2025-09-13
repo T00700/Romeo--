@@ -1,7 +1,7 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1081.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1100.png
+#!tag=Jacob
 
 [Rule]
 IP-CIDR,1.202.85.193/32,REJECT,no-resolve

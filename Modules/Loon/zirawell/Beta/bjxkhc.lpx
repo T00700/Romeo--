@@ -1,7 +1,7 @@
 #!name=bjxkhc
 #!desc=bjxkhc
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1030.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1099.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/ver/index_ios$ - reject

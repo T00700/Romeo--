@@ -1,6 +1,6 @@
 #!name=ykc
 #!desc=ykc
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,et.ykccn.com,REJECT,extended-matching,pre-matching

@@ -1,6 +1,6 @@
 #!name=dianping-Applet
 #!desc=dianping-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/m\.dianping\.com\/an\/gear\/dpmapp\/api\/readLionConfig\/config data-type=text data="{}" status-code=200

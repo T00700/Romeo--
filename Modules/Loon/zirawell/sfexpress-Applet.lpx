@@ -1,7 +1,7 @@
 #!name=sfexpress-Applet
 #!desc=sfexpress-Applet
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1038.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1073.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/ucmp\.sf-express\.com\/cx-wechat-query\/query\/info-flow\/reconsitution-list - reject

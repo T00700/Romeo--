@@ -1,6 +1,6 @@
 #!name=etcp
 #!desc=etcp
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/ife\.etcp\.cn\/api\/v[0-9]\/advertisement - reject

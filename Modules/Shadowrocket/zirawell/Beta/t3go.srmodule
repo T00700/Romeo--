@@ -1,6 +1,6 @@
 #!name=t3go
 #!desc=t3go
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/passenger\.t3go\.cn\/passenger-activity-api\/notoken\/api\/v\d\/resource\/getSource data-type=text data="{}"

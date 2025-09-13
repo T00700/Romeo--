@@ -1,6 +1,6 @@
 #!name=lxj
 #!desc=lxj
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/member\.lxjchina\.com\.cn\/mini-server\/home\/page\/banner data-type=text data="{}"

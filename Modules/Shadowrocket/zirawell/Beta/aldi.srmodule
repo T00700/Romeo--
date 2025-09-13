@@ -1,6 +1,6 @@
 #!name=aldi
 #!desc=aldi
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,tracker-prd.aldi.com.cn,REJECT,extended-matching

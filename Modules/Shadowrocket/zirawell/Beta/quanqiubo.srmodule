@@ -1,6 +1,6 @@
 #!name=quanqiubo
 #!desc=quanqiubo
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,api.zysdsk.cn,REJECT,extended-matching

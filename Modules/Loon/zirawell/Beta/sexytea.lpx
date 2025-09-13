@@ -1,7 +1,7 @@
 #!name=sexytea
 #!desc=sexytea
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1035.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1022.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/miniapp\.sexytea2013\.com\/cms\/slot\/byCode\?code=MALL_INDEX_SLOT mock-response-body data-type=text data="{}" status-code=200

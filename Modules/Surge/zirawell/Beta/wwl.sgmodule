@@ -1,6 +1,6 @@
 #!name=wwl
 #!desc=wwl
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/new\.wwldz\.com\/wechat\/ad\/ data-type=text data="{}" status-code=200

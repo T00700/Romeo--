@@ -1,7 +1,7 @@
 #!name=dianping-Applet
 #!desc=dianping-Applet
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1059.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1010.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/m\.dianping\.com\/an\/gear\/dpmapp\/api\/readLionConfig\/config mock-response-body data-type=text data="{}" status-code=200

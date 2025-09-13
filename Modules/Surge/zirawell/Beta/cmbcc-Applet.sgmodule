@@ -1,6 +1,6 @@
 #!name=cmbcc-Applet
 #!desc=cmbcc-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Script]
 cmbcc = type=http-response, pattern=^https?:\/\/xyk\.cmbchina\.com\/WebAppConfigService\/get(Page)?ResourceBits, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/cmbcc-Applet/cmbcc.js, requires-body=true, max-size=0

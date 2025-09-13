@@ -1,6 +1,6 @@
 #!name=rrtv
 #!desc=rrtv
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/api\.rr\.tv\/.*?Version - reject

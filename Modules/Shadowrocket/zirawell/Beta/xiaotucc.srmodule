@@ -1,6 +1,6 @@
 #!name=xiaotucc
 #!desc=xiaotucc
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/ad\.xiaotucc\.com\/advert - reject

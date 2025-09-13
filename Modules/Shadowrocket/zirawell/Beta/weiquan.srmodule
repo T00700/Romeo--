@@ -1,6 +1,6 @@
 #!name=weiquan
 #!desc=weiquan
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/consumer-api\.quncrm\.com\/v\d\/ec\/(splashWeappPage|marketing\/visibleEnterStoreWelfares) data-type=text data="{}"

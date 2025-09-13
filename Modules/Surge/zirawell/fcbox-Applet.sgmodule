@@ -1,6 +1,6 @@
 #!name=fcbox-Applet
 #!desc=fcbox-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,dsp.fcbox.com,REJECT,extended-matching,pre-matching

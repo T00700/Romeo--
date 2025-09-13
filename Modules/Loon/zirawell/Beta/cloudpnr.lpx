@@ -1,7 +1,7 @@
 #!name=cloudpnr
 #!desc=cloudpnr
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1037.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1009.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/mcsp\.cloudpnr\.com\/api\/miniapp\/popular\/T_MINIAPP$ - reject

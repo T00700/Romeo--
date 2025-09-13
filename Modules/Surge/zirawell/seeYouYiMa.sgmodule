@@ -1,6 +1,6 @@
 #!name=seeYouYiMa
 #!desc=seeYouYiMa
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/wxproj\.seeyouyima\.com\/data\/today_tips data-type=text data="{}" status-code=200

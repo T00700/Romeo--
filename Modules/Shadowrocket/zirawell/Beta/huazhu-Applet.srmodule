@@ -1,6 +1,6 @@
 #!name=huazhu-Applet
 #!desc=huazhu-Applet
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/api-fouth-mem\.huazhu\.com\/api\/rights\/bannerList data-type=text data="{}"

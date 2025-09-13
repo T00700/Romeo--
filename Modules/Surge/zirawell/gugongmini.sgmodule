@@ -1,6 +1,6 @@
 #!name=gugongmini
 #!desc=gugongmini
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/gugongmini\.dpm\.org\.cn\/gugong_applet\/open-screen data-type=text data="{}" status-code=200

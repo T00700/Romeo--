@@ -1,6 +1,6 @@
 #!name=powerlong
 #!desc=powerlong
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/proservice\.powerlong\.com\/advertising data-type=text data="{}"

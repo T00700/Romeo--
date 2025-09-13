@@ -1,6 +1,6 @@
 #!name=sexytea
 #!desc=sexytea
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/miniapp\.sexytea2013\.com\/cms\/slot\/byCode\?code=MALL_INDEX_SLOT data-type=text data="{}"

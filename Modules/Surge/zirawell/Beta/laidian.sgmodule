@@ -1,6 +1,6 @@
 #!name=laidian
 #!desc=laidian
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/mobile-api\.imlaidian\.com\/api\/args data-type=text data="{}" status-code=200

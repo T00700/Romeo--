@@ -1,6 +1,6 @@
 #!name=zuche
 #!desc=zuche
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/apiproxy\.zuche\.com\/resource\/carrctapi\/home\/marketing data-type=text data="{}" status-code=200

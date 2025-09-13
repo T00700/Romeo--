@@ -1,6 +1,6 @@
 #!name=mcake
 #!desc=mcake
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/interface\.mcake\.com\/api\/popup\/ data-type=text data="{}" status-code=200

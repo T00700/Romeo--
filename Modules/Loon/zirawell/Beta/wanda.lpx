@@ -1,7 +1,7 @@
 #!name=wanda
 #!desc=wanda
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1077.png
-#!tag=zirawell
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1047.png
+#!tag=Jacob
 
 [Rewrite]
 ^https?:\/\/api\.wandacm\.com\.cn\/wdmp\/common\/v\d\/xmt\/nsettingInfo response-body-replace-regex popConfig random_body

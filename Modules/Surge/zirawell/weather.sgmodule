@@ -1,6 +1,6 @@
 #!name=weather
 #!desc=weather
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/e\.weather\.com\.cn\/weChat\/typhoonNull\.json data-type=text data="{}" status-code=200

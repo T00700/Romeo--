@@ -1,6 +1,6 @@
 #!name=clubmed
 #!desc=clubmed
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/clubmed\.bd\.clubmedmnp\.com\/miniorder\/api\/basic\/common data-type=text data="{}" status-code=200

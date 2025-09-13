@@ -1,6 +1,6 @@
 #!name=laichon
 #!desc=laichon
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/(mobile|shop)\.laichon\.com\/api\/(v\d\/goods\/goodsList|exposureAdvStatistics|getWebAdvList) - reject

@@ -1,6 +1,6 @@
 #!name=clicli
 #!desc=clicli
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/js-ad\.ayximgs\.com\.ad-universe-cdn\.hzhcbkj\.cn\/xgapp\.php\/v\d\/top_notice - reject

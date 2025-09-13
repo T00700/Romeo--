@@ -1,6 +1,6 @@
 #!name=mygolbs
 #!desc=mygolbs
-#!category=zirawell
+#!category=Jacob
 
 [Script]
 mygolbs = type=http-response, pattern=^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/mygolbs/zsgj.js, requires-body=true, max-size=0

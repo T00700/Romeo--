@@ -1,6 +1,6 @@
 #!name=95504
 #!desc=95504
-#!category=zirawell
+#!category=Jacob
 
 [URL Rewrite]
 ^https?:\/\/minipro\.95504\.net\/app\/json\/ad\/get(?>Pop|Index)AdData - reject

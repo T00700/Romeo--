@@ -1,6 +1,6 @@
 #!name=pppark
 #!desc=pppark
-#!category=zirawell
+#!category=Jacob
 
 [Rule]
 DOMAIN,ad-files.4pyun.com,REJECT,extended-matching

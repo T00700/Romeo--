@@ -1,6 +1,6 @@
 #!name=guming
 #!desc=guming
-#!category=zirawell
+#!category=Jacob
 
 [Map Local]
 ^https?:\/\/newton\.gumingnc\.com\/newton-buyer\/newton\/buyer\/(ump|touch|external\/front) data-type=text data="{}" status-code=200
