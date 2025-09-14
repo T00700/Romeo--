@@ -8,7 +8,7 @@
 #!date=2025-08-21 22:37:00
 
 [Argument]
-xnhsuu_enable=switch,"true","false",tag=xnhsuu_enable, desc=xnhsuu_enable
+xhs_enable=switch,"true","false",tag=xhs_enable, desc=xhs_enable
 
 [Rule]
 DOMAIN,ads-img-qc.xhscdn.com,REJECT
@@ -22,33 +22,33 @@ AND,((PROTOCOL,QUIC),(DOMAIN-SUFFIX,xiaohongshu.com)),REJECT
 ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/surprisebox\/(?:get_style|open|submit_action) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/www\.xiaohongshu\.com\/api\/marketing\/box\/trigger\? mock-response-body data-type=text data="{}" status-code=200
 # 信息流
-^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/guide\? mock-response-body data-type=text data="{}" status-code=200
-^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/detailfeed\/preload\? mock-response-body data-type=text data="{}" status-code=200
-^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/guide\/user_banner mock-response-body data-type=text data="{}" status-code=200
-^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/(v\d\/ads\/resource|v\d\/hey\/\w+\/hey_gallery) mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/guide\? mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/detailfeed\/preload\? mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/guide\/user_banner mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/(v\d+\/ads\/resource|v\d+\/hey\/\w+\/hey_gallery) mock-response-body data-type=text data="{}" status-code=200
 # 评论区图片水印
 ^https?:\/\/ci\.xiaohongshu\.com\/system_config\/watermark mock-response-body data-type=tiny-gif status-code=200
 
 [Script]
 # 搜索页
-http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/search\/(banner|hot)_list script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书搜索页
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/(banner|hot)_list script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书搜索页
 
-http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/search\/(hint|trending)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书搜索页
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/(hint|trending)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书搜索页
 
-http-response ^https?:\/\/(so|edith)\.xiaohongshu\.com\/api\/sns\/v\d\/search\/notes\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书搜索页
+http-response ^https?:\/\/(so|edith)\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书搜索页
 
 # 开屏广告
-http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/config\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书开屏广告
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/config\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书开屏广告
 
-http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书开屏广告
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/splash_config script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书开屏广告
 
 # 详情页,小部件
-http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/widgets script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书详情页
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/widgets script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书详情页
 
 # 图片水印,视频水印
-http-response ^https?:\/\/(edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d\/note\/(imagefeed|live_photo\/save) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书图片视频水印
+http-response ^https?:\/\/(edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/(imagefeed|live_photo\/save) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书图片视频水印
 
-http-response ^https?:\/\/(edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d\/(followfeed|homefeed)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书图片视频水印
+http-response ^https?:\/\/(edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d+\/(followfeed|homefeed)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书图片视频水印
 
 http-response ^https?:\/\/(edith|rec|www)\.xiaohongshu\.com\/api\/sns\/(v2\/note\/feed|v3\/note\/videofeed)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Xiaohongshu/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书图片视频水印
 

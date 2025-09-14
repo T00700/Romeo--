@@ -10,6 +10,10 @@
 [Rule]
 DOMAIN,adx.yiche.com,REJECT
 DOMAIN,log.ycapp.yiche.com,REJECT
+DOMAIN-SUFFIX,bglog.bitauto.com,REJECT
+DOMAIN-SUFFIX,g.bitauto.com,REJECT
+DOMAIN-SUFFIX,gimg.bitauto.com,REJECT
+DOMAIN-SUFFIX,gstat.bitauto.com,REJECT
 
 [Rewrite]
 ^https?:\/\/api\.ycapp\.yiche\.com\/appnews\/getadlist mock-response-body data-type=tiny-gif status-code=200

@@ -7,6 +7,10 @@
 #!tg-group=https://t.me/lanjieguanggao
 #!date=2025-08-21 22:37:00
 
+[Rule]
+DOMAIN-SUFFIX,ja.gamersky.com,REJECT
+DOMAIN-SUFFIX,ja1.gamersky.com,REJECT
+
 [Rewrite]
 http:\/\/.+\.gamersky.com/.+/lists/getListElements response-body-json-jq '.listElements |= map(select(has("adCategory") | not))'
 # 移除开屏广告、列表广告

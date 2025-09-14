@@ -10,3 +10,11 @@
 [Rule]
 DOMAIN-SUFFIX,tappx.com,REJECT
 
+[Map Local]
+^https?:\/\/alt-r\.my\.com\/mobile data-type=text data="{}" header="Content-Type:application/json"
+
+^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn data-type=tiny-gif
+
+[MITM]
+hostname = %APPEND% alt-r.my.com, imgx.jampp.com
+

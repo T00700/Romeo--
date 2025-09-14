@@ -21,6 +21,7 @@ DOMAIN,msg.umengcloud.com,REJECT
 DOMAIN,sec.umeng.com,REJECT
 DOMAIN,ulogs.umeng.com,REJECT
 DOMAIN,ynuf.aliapp.org,REJECT
+DOMAIN-SUFFIX,res-ga.smzdm.com,REJECT
 
 [Rewrite]
 ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/other_modul\? mock-response-body data-type=text data="{}" status-code=200
