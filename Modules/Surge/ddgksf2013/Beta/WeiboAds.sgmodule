@@ -62,6 +62,9 @@ http-response-jq ^https?:\/\/api\.weibo\.cn\/\d\/ug\/checkin\/stream '.items |= 
 ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/ad\/weibointl\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 [Script]
+# > 微博_详情页及评论区@ddgksf2013
+weibo_json = type=http-response, pattern=^https?:\/\/api\.weibo\.cn\/\d\/statuses\/container_detail, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/WeiboAds/weibo_json.js, requires-body=true, max-size=-1, timeout=60
+
 # > 微博_首页顶部homeExtend@ddgksf2013
 weibo_json = type=http-response, pattern=^https?:\/\/api\.weibo\.cn\/\d\/groups\/allgroups\/v\d, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/WeiboAds/weibo_json.js, requires-body=true, max-size=-1, timeout=60
 
@@ -98,7 +101,7 @@ weibo_json = type=http-response, pattern=^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/
 
 weibo_json = type=http-response, pattern=^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/search/(finder|container_timeline|container_discover), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/WeiboAds/weibo_json.js, requires-body=true, max-size=-1, timeout=60
 
-weibo_json = type=http-response, pattern=^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(checkin/show|\!/live/media_homelist|comments/build_comments|container/get_item), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/WeiboAds/weibo_json.js, requires-body=true, max-size=-1, timeout=60
+weibo_json = type=http-response, pattern=^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(checkin/show|\!/live/media_homelist|container/get_item), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/WeiboAds/weibo_json.js, requires-body=true, max-size=-1, timeout=60
 
 weibo_json = type=http-response, pattern=^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/cardlist, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/WeiboAds/weibo_json.js, requires-body=true, max-size=-1, timeout=60
 
