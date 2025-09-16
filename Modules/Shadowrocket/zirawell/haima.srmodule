@@ -13,10 +13,10 @@
 #!date=2025-07-08
 
 [Map Local]
-^https?:\/\/39\.98\.135\.211\/admin\/filter\/crowdFunding\/getNewProductData data-type=text data="{}"
+^https?:\/\/hmbaby\.simshine\.cn\/admin\/filter\/crowdFunding\/getNewProductData data-type=text data="{}"
 
-^https?:\/\/39\.98\.135\.211\/admin\/filter\/advert\/getAdvertLists data-type=text data="{}"
+^https?:\/\/hmbaby\.simshine\.cn\/admin\/filter\/advert\/getAdvertLists data-type=text data="{}"
 
 [MITM]
-hostname = %APPEND% 39.98.135.211
+hostname = %APPEND% hmbaby.simshine.cn
 
