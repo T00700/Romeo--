@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1010.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1023.png
 #!tag=Jacob
 
 [Rule]
@@ -1857,6 +1857,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/api-sams\.walmartmobile\.cn\/api\/v\d\/sams\/configuration\/portal\/beUpdate mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.17gwx\.com\/v\d\/growth\/popup\/remind mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/image\.spdbccc\.com\.cn\/group\d\/M00\/[A-Z0-9]{2}\/[A-Z0-9]{2}\/.+(?>4038|0571|M511|V-008|g549|b0628|fg817|5w501|Jo341|Z4583|oo845|i4905|MY245|YU472|Y401|w428|s000) mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d+\/(ads\/resource|hey\/\w+\/hey_gallery) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/social\.blued\.cn\/users\/recommend mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberGoods\/pointMallService\/goodsList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdn\.cmgadx\.com\/sdk\/pool\/\w+\.json mock-response-body data-type=text status-code=200
@@ -1875,7 +1876,6 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/app\.meruki\.cn\/\?n=Sig\.Front\.AppFront\.GetOpenAdDoorzo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.pinduoduo\.com\/api\/flow\/hungary\/window\/global mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/fm\.fenqile\.com\/routev\d\/other\/(startImg|getfloatAd)\.json mock-response-body data-type=tiny-gif status-code=200
-^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d\/(ads\/resource|hey\/\w+\/hey_gallery) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/display\.wting\.info\/.*.jpeg mock-response-body data-type=text status-code=200
 ^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.Read\/ActInfo mock-response-body data-type=text status-code=200
 ^https?:\/\/www\.didapinche\.com\/app\/adstat\/ mock-response-body data-type=text status-code=200
@@ -2630,8 +2630,6 @@ http-response ^https?:\/\/mobilepaas\.abchina\.com\.cn:\d+\/mgw\.htm$ script-pat
 
 http-response ^https?:\/\/bootpreload\.uve\.weibo\.com\/v[12]\/ad\/preload script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
 
-http-response ^https?:\/\/(?>edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d\/(?>followfeed|homefeed)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
-
 http-response ^https?:\/\/g(.*)\.dushu365\.com\/task-orchestration\/taskCenter\/api\/v101\/taskList script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/dushu365.js, requires-body=true, tag=dushu365
 
 http-response ^https?:\/\/g(.*)\.dushu365\.com\/user-orchestration\/user\/api\/v101\/ceiltip script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/dushu365.js, requires-body=true, tag=dushu365
@@ -2648,11 +2646,15 @@ http-response ^https?:\/\/conf\.diditaxi\.com\.cn\/ota\/na\/yuantu\/infoList scr
 
 http-response ^https?:\/\/gw\.m\.163\.com\/nc\/api\/v\d\/search\/hot-word script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/163news.js, requires-body=true, tag=163news
 
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/interaction\/comment\/video\/download\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
+
 http-response ^https?:\/\/api\.coolapk\.com\/v\d\/main\/(?>dataList|indexV|init) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/coolapk.js, requires-body=true, tag=coolapk
 
 http-response ^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliJson.js, requires-body=true, tag=bilibili
 
 http-response ^https?:\/\/cl-gateway\.tuhu\.cn\/cl-shop-api\/shopTab\/getModuleForC script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/tuhu.js, requires-body=true, tag=tuhu
+
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/(?>hint|trending)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
 http-response ^https?:\/\/api\.zhihu\.com\/(v\d\/)?questions\/\d+\/(feeds|answers)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/zhihu.js, requires-body=true, tag=zhihu
 
@@ -2667,6 +2669,8 @@ http-response ^https?:\/\/api\.xiaoheihe\.cn\/bbs\/app\/feeds\/news script-path=
 http-response ^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/picassovc script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/dianping.js, requires-body=true, tag=dianping
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/cardlist\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/vvebo.js, requires-body=true, tag=vvebo
+
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/video\/tiny_stream_video_list\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
 
@@ -2688,9 +2692,9 @@ http-response ^https?:\/\/api\.weibo\.cn\/2\/profile\/(container_timeline|dealat
 
 http-response ^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.User\/GetInitInfo script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliManga.js, requires-body=true, tag=bilibiliManga
 
-http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/search\/notes\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
-
 http-response ^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=\d script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/blued.js, requires-body=true, tag=blued
+
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/comment\/(?>list|sub_comments)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
 http-response ^https?:\/\/47\.110\.187\.87\/winterfell\/v\d\/getIpByDomain script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/soul.js, requires-body=true, tag=soul
 
@@ -2733,8 +2737,6 @@ http-response ^https?:\/\/open\.e\.kuaishou\.com\/rest\/e\/v\d\/open\/univ$ scri
 http-response ^https?:\/\/api-pay\.soulapp\.cn\/vip\/meet\/userInfo script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/soul.js, requires-body=true, tag=soul
 
 http-response ^https?:\/\/app\.bilibili\.com\/x\/v\d\/splash\/(brand\/list|event\/list2|list|show)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliJson.js, requires-body=true, tag=bilibili
-
-http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/comment\/(?>list|sub_comments)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
 http-response ^https?:\/\/conf-m-ssl\.xunlei\.com\/external\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xunlei.js, requires-body=true, tag=xunlei
 
@@ -2786,8 +2788,6 @@ http-response ^https?:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspams
 
 http-response ^https?:\/\/(cdn-)?social\.kkmh\.com\/v\d\/graph\/unified_feed script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/kkmh.js, requires-body=true, tag=kkmh
 
-http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/interaction\/comment\/video\/download\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
-
 http-response ^https?:\/\/g(.*)\.dushu365\.com\/abtest-front\/banner-modular\/get script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/dushu365.js, requires-body=true, tag=dushu365
 
 http-response ^https?:\/\/api-a\.soulapp\.cn\/official\/scene\/module script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/soul.js, requires-body=true, tag=soul
@@ -2823,6 +2823,8 @@ http-response ^https?:\/\/is.snssdk.com/api/ad/union/sdk script-path=https://git
 http-response ^https?:\/\/.+\.pipix\.com\/bds\/feed\/channel_list\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ppx.js, requires-body=true, tag=ppx
 
 http-response ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/(batch|v\d\/resource\/comment\/floor\/get) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/163music.js, requires-body=true, tag=163music
+
+http-response ^https?:\/\/(?>edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d+\/(?>followfeed|homefeed)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
 http-response ^https?:\/\/article-api\.smzdm\.com\/publish\/get_bubble script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/smzdm.js, requires-body=true, tag=smzdm
 
@@ -2874,6 +2876,8 @@ http-response ^https?:\/\/haojia-api\.smzdm\.com\/(?>home\/list|ranking_list\/ar
 
 http-response ^https?:\/\/member\.alipan\.com\/v\d\/users\/onboard_list script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/adrive.js, requires-body=true, tag=adrive
 
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/splash_config script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
+
 http-response ^https?:\/\/.+\.pipix\.com\/bds\/user\/check_in\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ppx.js, requires-body=true, tag=ppx
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/statuses\/user_timeline\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/vvebo.js, requires-body=true, tag=vvebo
@@ -2924,8 +2928,6 @@ http-response ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\/ge
 
 http-response ^https?:\/\/webapi\.qbb6\.com\/h5\/api\/lib\/internal\/append\/get script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/qbb.js, requires-body=true, tag=qbb
 
-http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/search\/(?>hint|trending)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
-
 http-response ^https?:\/\/m\d\.amap\.com\/ws\/c3frontend\/af-(hotel|launch)\/page\/main\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/amap.js, requires-body=true, tag=amap
 
 http-response ^https?:\/\/api\.boohee\.com\/meta-interface\/v\d\/index\/plaza-flow\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/boohee.js, requires-body=true, tag=boohee
@@ -2938,13 +2940,9 @@ http-response ^https?:\/\/g(.*)\.dushu365\.com\/chief-orch\/home\/bookPortal\/v1
 
 http-response ^https?:\/\/sec\.sginput\.qq\.com\/q script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/sougou.js, tag=sogou
 
-http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
-
 http-response ^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/\w+\/hub script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/pdd.js, requires-body=true, tag=pdd
 
 http-response ^https?:\/\/edu\.51cto\.com\/app\.php\?$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/51cto.js, requires-body=true, tag=51cto
-
-http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/recommend\/user\/follow_recommend\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
 http-response ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/taobao.js, requires-body=true, tag=taobao
 
@@ -3013,6 +3011,8 @@ http-response ^https?:\/\/mobile-thor\.api\.mgtv\.com\/v\d\/vod\/info\? script-p
 http-response ^https?:\/\/cupid\.51job(app)?\.com\/open\/noauth\/recommend\/job-tab-dynamic script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/51job.js, requires-body=true, tag=51job
 
 http-response ^https?:\/\/api\.zhihu\.com\/(moments_v\d|topstory\/recommend(_v\d)?) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/zhihu.js, requires-body=true, tag=zhihu
+
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/recommend\/user\/follow_recommend\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
 http-response ^https?:\/\/api\.rr\.tv\/v3plus\/index\/channel\?pageNum=1&position=CHANNEL_INDEX script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/rrtv.js, requires-body=true, tag=rrtv
 
