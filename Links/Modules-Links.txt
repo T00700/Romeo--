@@ -13,6 +13,9 @@ https://github.com/001ProMax/Surge/raw/main/Loon/Spotify.plugin
 # A #
 https://github.com/Alex0510/Eric/raw/master/surge/Module/revenucar.sgmodule
 
+# C #
+https://github.com/chavyleung/scripts/raw/master/box/rewrite/boxjs.rewrite.surge.sgmodule
+
 # D #
 # https://github.com/ddgksf2013/Modules/raw/main/RevenueCat.Vip.sgmodule
 
