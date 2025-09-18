@@ -49,13 +49,16 @@ DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com,REJECT,extended-matching
 ^https?:\/\/ccmsupport-sz\.tenpay\.com\/cgi-bin\/common\/ccm_page_element.cgi - reject
 ^https?:\/\/gw3\.ykccn\.com\/activityServer\/app\/commandAd - reject
 ^https?:\/\/api\.yonghuivip\.com\/api\/fp\/homepage\/pop - reject
+^https?:\/\/(?>webapi|miniapp)\.qmai\.cn\/web\/cmk-center\/marketing\/canvas\/advert - reject
 
 [Body Rewrite]
 http-response ^https?:\/\/api\.yisouti\.com\/popupAd data zirawell
 http-response ^https?:\/\/waimai-guide\.ele\.me\/h5\/mtop\.alsc\.eleme\.miniapp\.homepage wechat_miniapp_scene_card_template zirawell
 http-response ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getpersonalcenter pendantInfo random_body
+http-response-jq ^https?:\/\/rms\.meituan\.com\/api\/v\d\/rmsmina\/c\/queryPortalInfo '.data.modules |= map(select(.data.advType != true and .name != "float-window"))'
 http-response ^https?:\/\/chl\.tf\.cn\/channelmg\/sys\/socso\/order\/queryOrderInfo "imgUrl" "imgUrl0"
 http-response ^https?:\/\/api\.wandacm\.com\.cn\/wdmp\/common\/v\d\/xmt\/nsettingInfo popConfig random_body
+http-response ^https?:\/\/membase-yxapp\.feiniu\.com\/misc\/memberIndex myADArray myADArray0
 http-response ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api\?bannerInfos=%5B%7B%22cinemaI "WX_index_mp-&-boxAD" "WX_index_mp-&-boxAD0"
 
 [Map Local]
@@ -68,6 +71,8 @@ http-response ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banne
 ^https?:\/\/lop-proxy\.jd\.com\/search\/getQuestionnaireByOrderInfo data-type=text data="{}"
 
 ^https?:\/\/as\.xiaojukeji\.com\/ep\/as\/conf\?ns=daijia-front&name= data-type=text data="{}"
+
+^https?:\/\/m\.ctrip\.com\/restapi\/soa\d\/\d+\/(?>tripAds|queryWeChatHotEvent) data-type=text data="{}"
 
 ^https?:\/\/api\.hengdianfilm\.com\/\/cinema\/queryAvailableBannerInfo\/2\?cid= data-type=text data="{}"
 
@@ -101,7 +106,11 @@ http-response ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banne
 
 ^https?:\/\/htwkop\.xiaojukeji\.com\/gateway\?api=hm\.fa\.(?>combineHomepageInfo|mallRecommend) data-type=text data="{}"
 
+^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/navigation\/spread\/querySpreadList data-type=text data="{}"
+
 ^https?:\/\/new\.wwldz\.com\/wechat\/ad\/ data-type=text data="{}"
+
+^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/navigation\/user\/getAdvertisementPlayModuleInfo data-type=text data="{}"
 
 ^https?:\/\/miniapp\.sexytea2013\.com\/cms\/slot\/byCode\?code=MALL_INDEX_SLOT data-type=text data="{}"
 
@@ -155,15 +164,25 @@ http-response ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banne
 
 ^https?:\/\/wxproj\.seeyouyima\.com\/data\/today_tips data-type=text data="{}"
 
+^https?:\/\/sg\.teld\.cn\/api\/invoke\?SID=(?>CMS-GetMpAdList|OMP-Monitor-FrontendSend|CMS-GetMPBannerByType|ATMS-MissioncenterSlideshow) data-type=text data="{}"
+
+^https?:\/\/www-yxapp\.feiniu\.com\/home\/popupWindow data-type=text data="{}"
+
 ^https?:\/\/passengerapi\.saicmobility\.com\/(ad\/requestAd|pay\/v\d\/queryOpenedCouponPackages) data-type=text data="{}"
 
 ^https?:\/\/cappapi\.alittle-tea\.com\/open\?method=catering\.set\.ad\.initial data-type=text data="{}"
+
+^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/navigation\/page\/getPageActivityTab data-type=text data="{}"
+
+^https?:\/\/lawsonapi\.yorentown\.com\/app\/v\d\/globalLaunch\/listAdvert data-type=text data="{}"
 
 ^https?:\/\/proservice\.powerlong\.com\/advertising data-type=text data="{}"
 
 ^https?:\/\/mp\.weixin\.qq\.com\/wapad\/reportaddata\?action=exposure_report data-type=text data=""
 
 ^https?:\/\/m\.dianping\.com\/wxmapi\/shop\/friendslike data-type=text data="{}"
+
+^https?:\/\/elife\.icbc\.com\.cn\/OFSTNEWBASE\/floorinfo\/(getStartupMantleFlatingFloor|getMantlePages) data-type=text data=""
 
 ^https?:\/\/crm\.scpgroup\.com\.cn\/yinli-minapp\/api\/v\d\/ads data-type=text data="{}"
 
@@ -182,6 +201,8 @@ http-response ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banne
 ^https?:\/\/wx\.maoyan\.com\/maoyansh\/myshow\/ajax\/ad\/detail data-type=text data="{}"
 
 ^https?:\/\/suyun-guest\.daojia\.com\/api\/kuaigou\/banjia\/review data-type=text data="{}"
+
+^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/user\/couponPackage\/couponPackageAccess data-type=text data="{}"
 
 ^https?:\/\/wxapp\.bestwehotel\.com\/\w+\/app-mini\/trip-hotel-banner\/activity\/getActivityInfo data-type=text data="{}"
 
@@ -238,6 +259,10 @@ http-response ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banne
 ^https?:\/\/apis\.alenable\.com\/ycx\/v\d\/api\/adPut data-type=text data="{}"
 
 ^https?:\/\/cdb\.meituan\.com\/marketing\/source\/getPageSlotList data-type=text data="{}"
+
+^https?:\/\/search-yxapp\.feiniu\.com\/recommend\/general\/FreshRecBuyAgain data-type=text data="{}"
+
+^https?:\/\/search-yxapp\.feiniu\.com\/recommend\/memberIndexGoodsList data-type=text data="{}"
 
 ^https?:\/\/\w+\.sh\.wxgateway\.com\/xcxhomeapi\/((aggregator\/index)|(home\/(?>screen|banner|converge)))$ data-type=text data="{}"
 
@@ -301,6 +326,8 @@ http-response ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banne
 
 ^https?:\/\/mp\.weixin\.qq\.com\/wapad\/getaddata\?action=getad data-type=text data=""
 
+^https?:\/\/plt\.yorentown\.com\/pltapp\/v\d\/banner data-type=text data="{}"
+
 ^https?:\/\/wx\.17u\.cn\/homemarketapi\/(aggregator\/index|search\/recommend) data-type=text data="{}"
 
 ^https?:\/\/res\.pizzahut\.com\.cn\/CRM data-type=text data="{}"
@@ -339,6 +366,8 @@ ems = type=http-response, pattern=^https?:\/\/ec\.ems\.com\.cn\/ecr-qry-web\/red
 meituanwm = type=http-response, pattern=^https?:\/\/web\.meituan\.com\/api\/miniprogram\/tabbar\/all\/query, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/meituanwm.js, requires-body=true, max-size=0
 
 mstand = type=http-response, pattern=^https?:\/\/api\.prod\.dj\.mstand\.cn\/scrm\/mini\/app\/index\/info, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/wechatApplet.js, requires-body=true, max-size=0
+
+lawson = type=http-response, pattern=^https?:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v\d, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/wechatApplet.js, requires-body=true, max-size=0
 
 manner = type=http-response, pattern=^https?:\/\/triangle\.wearemanner\.com\/mp-api\/v\d\/ads, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/manner.js, requires-body=true, max-size=0
 

@@ -14,6 +14,10 @@
 
 [Rewrite]
 ^https?:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene response-body-json-jq '.data.showShopEntry=false|.data.idolTabShow=true'
+^https?:\/\/bd-api\.kuwo\.cn\/api\/service\/music\/recommendList response-body-json-jq '.data.musicList[] |= del(.showAd)'
+^https?:\/\/bd-api\.kuwo\.cn\/api\/service\/resource\/recommend response-body-json-jq '.data.resourceList[] |= del(.resource)'
+^https?:\/\/bd-api\.kuwo\.cn\/api\/voice\/room\/v\d\/sidebar response-body-json-jq '(.data) = {}'
+^https?:\/\/bd-api\.kuwo\.cn\/api\/(\w+\/)?advert mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/bd-api\.kuwo\.cn\/api\/.*popup mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/lowPriceText mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/bd-api\.kuwo\.cn\/api\/play\/listening\/entrance\/music\?musicId mock-response-body data-type=text data="{}" status-code=200

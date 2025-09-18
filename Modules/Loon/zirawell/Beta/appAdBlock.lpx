@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1018.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1094.png
 #!tag=Jacob
 
 [Rule]
@@ -632,7 +632,6 @@ DOMAIN-SUFFIX,afp.zol-img.com.cn,REJECT
 DOMAIN-SUFFIX,afpmm.alicdn.com,REJECT
 DOMAIN-SUFFIX,agoodm.m.taobao.com,REJECT
 DOMAIN-SUFFIX,ai.taobao.com,REJECT
-DOMAIN-SUFFIX,alipaydns.com,REJECT
 DOMAIN-SUFFIX,alitui.weibo.com,REJECT
 DOMAIN-SUFFIX,alitui.weibo.com.cn,REJECT
 DOMAIN-SUFFIX,amfi.gou.sogou.com,REJECT
@@ -1335,14 +1334,19 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/smkmp\.96225\.com\/smkcenter\/ad/ - reject
 ^https?:\/\/g(.*)\.dushu365\.com\/fandeng-orch\/bookboy\/v\d+\/vipPagePop - reject
 ^https?:\/\/api-marketing\.zhinengxiyifang\.cn\/api\/v\d\/cloudcode\/wechat\/bid - reject
+^https?:\/\/.*\.xima.*\.com\/butler-portal\/versionCheck - reject
 ^https?:\/\/api\.xueqiu\.com\/livestream\/structure\/live\/hotCard - reject
+^https?:\/\/aiqicha\.baidu\.com\/app\/getExpertVideoAjax - reject
 ^https?:\/\/.+\.byteimg\.com\/web\.business\.image - reject
 ^https?:\/\/api\d?\.futunn\.com\/ad - reject
 ^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/ver/index_ios$ - reject
+^https?:\/\/.*\.xima.*\.com\/hotWord - reject
 ^https?:\/\/e\.jparking\.cn\/abTest-gateway\/abTest-api - reject
 ^https?:\/\/mkt-gateway\.tuhu\.cn\/mkt-push-message-box\/banner\/cms\/getIndexBanner - reject
 ^https?:\/\/cix\.line-apps\.com\/R4\? - reject
 ^https?:\/\/api-sams\.walmartmobile\.cn\/api\/v\d\/sams\/sams-user\/(window\/getGoUpPlus|screen_promotion\/get) - reject
+^https?:\/\/.*\.xima.*\.com\/api\/v\d\/adRealTime - reject
+^https?:\/\/api\.gotokeep\.com\/anno\/v\d\/upgrade\/check - reject
 ^https?:\/\/tk\.lanjiyin\.com\.cn\/ad\/getAdList - reject
 ^https?:\/\/lf-cdn-tos\.bytescm\.com\/obj\/static\/ad\/ - reject
 ^https?:\/\/api\.zcool\.com\.cn\/v\d\.\d\.\d/common\/open-screen - reject
@@ -1358,6 +1362,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/hoapp\.juneyaoair\.com\/data\/index\/(?>queryPopUpWinPic|getLoadPic|getRecommendProduct) - reject
 ^https?:\/\/ocean\.shuqireader\.com\/api\/ad\/adserver\/.+ - reject
 ^https?:\/\/pan\.baidu\.com\/pmall\/order\/privilege\/info - reject
+^https?:\/\/api\.gotokeep\.com\/search\/v\d\/hotCourse\/list - reject
 ^https?:\/\/hcz-member\.pingan\.com\.cn\/micro-api\/homepage\/do\/app\/popbox\/getTopPopBox - reject
 ^https?:\/\/.*mangaapi\.manhuaren\.\w{2,4}\/v\d\/public\/(?>getStartUpMessage|getStartPageAds|getShelfActivity) - reject
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise - reject
@@ -1366,6 +1371,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/appactive\.1234567\.com\.cn\/AppoperationApi\/OperationService\/GetAppStartImg - reject
 ^https?:\/\/mime\.baidu\.com\/v\d\/IosStart\/getStartInfo - reject
 ^https?:\/\/axxd\.xmseeyouyima\.com\/.*getad\? - reject
+^https?:\/\/api.gotokeep.com/cauchy/growth/init - reject
 ^https?:\/\/api\d\.bybutter\.com\/v\d\/app\/placements\/\d\/advertisements - reject
 ^https?:\/\/api\.douban\.com\/b.*\/common_ads\? - reject
 ^https?:\/\/pan-api\.bitqiu\.com\/activity\/getPromoteGuide - reject
@@ -1383,7 +1389,9 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/api\.xbxxhz\.com\/big_data\/v\d\/home_pages - reject
 ^https?:\/\/open\.fitdays\.cn\/uploads\/ad\/ - reject
 ^https?:\/\/www1\.elecfans\.com\/www\/delivery\/ - reject
+^https?:\/\/cupid\.51job(app)?\.com\/open\/index\/recommend-infos - reject
 ^https?:\/\/gw\.csdn\.net\/cms-app\/v\d+\/home_page\/open_advertisement - reject
+^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/h\/headlines\/queryHeadlines - reject
 ^https?:\/\/api\.wmpvp\.com\/api\/v\d\/config\/promote - reject
 ^https?:\/\/api\.wallstreetcn\.com\/apiv\d\/advertising\/ - reject
 ^https?:\/\/webboot\.zhangyue\.com\/zycl\/api\/ad\/ - reject
@@ -1403,10 +1411,13 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/api\.xueqiu\.com\/lightsnow\/launch\/plan\/bee\/query - reject
 ^https?:\/\/sports3\.gtimg\.com\/community\/20cf93884470434eaf38b2e77ab7796a\.png - reject
 ^https?:\/\/api\.futunn\.com\/v\d\/config\/promote-config - reject
+^https?:\/\/api\.gotokeep\.com\/op-engine-webapp\/v\d\/ad - reject
 ^https?:\/\/dispatcher\.camera360\.com\/api\/v\d\/list$ - reject
 ^https?:\/\/x\.seeyouyima\.com\/adx\/staticstics\? - reject
 ^https?:\/\/app\.wy\.guahao\.com\/json\/white\/dayquestion\/getpopad - reject
 ^https?:\/\/m\.ctrip\.com\/restapi\/.*\/tripAds - reject
+^https?:\/\/cupid\.51job(app)?\.com\/open\/guide\/home-page-top - reject
+^https?:\/\/api-global\.soulapp\.me\/app\/open\/get - reject
 ^https?:\/\/ndstatic\.cdn\.bcebos\.com\/activity\/welfare - reject
 ^https?:\/\/mkt-gateway\.tuhu\.cn\/mlp-product-search-api\/search\/helper\/defaultAndHotWord - reject
 ^https?:\/\/uts-front\.line-apps\.com\/(?>settings|event)$ - reject
@@ -1426,9 +1437,12 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/crs-event\.line\.me\/v\d\/imp - reject
 ^https?:\/\/apis\.lifeweek\.com\.cn\/api\/baseConfig\/getIosNewConfig - reject
 ^https?:\/\/snailsleep\.net\/snail\/v\d\/screen\/qn\/get\? - reject
+^https?:\/\/.*\.xima.*\.com\/discovery-feed\/isShowUserGiftPendant - reject
 ^https?:\/\/api\.dangdang\.com\/mapi\d\/mobile\/init - reject
 ^https?:\/\/api\.yikaobang\.com\.cn\/index\.php\/Client\/main\/startPage - reject
 ^https?:\/\/api\.hanju\.koudaibaobao\.com\/api\/carp\/kp\? - reject
+^https?:\/\/api\.gotokeep\.com\/search\/v\d\/hotword\/list - reject
+^https?:\/\/.*\.xima.*\.com\/mobile\/discovery\/v\d\/location - reject
 ^https?:\/\/gfp\.veta\.naver\.com\/adcall\? - reject
 ^https?:\/\/api\.sfacg\.com\/ioscfg - reject
 ^https?:\/\/client\.tujia\.com\/bnbapp-node\/app\/(promotion\/popup\/getpopupups\/bnb|portal\/getStartPictureAdvertising) - reject
@@ -1436,6 +1450,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/rp\.hpplay\.cn\/logouts - reject
 ^https?:\/\/a\.line\.me\/cs\/v\d\/oa$ - reject
 ^https?:\/\/jz\.wacaijizhang\.com\/api\/banners - reject
+^https?:\/\/api\.gotokeep\.com\/guide-webapp\/v\d\/popup\/getPopUp - reject
 ^https?:\/\/zua\.zhidiantianxia\.cn\/api\/adverts - reject
 ^https?:\/\/pic\.k\.sohu\.com\/img\d\/wb\/tj\/ - reject
 ^https?:\/\/[a-z]*\.rsscc\.com\/[a-z]*\/adver - reject
@@ -1445,9 +1460,11 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/api\.jxedt\.com\/ad\/ - reject
 ^https?:\/\/gw-passenger\.01zhuanche\.com\/gw-passenger\/zhuanche-passenger-token\/leachtoken\/webservice\/homepage\/queryADs - reject
 ^https?:\/\/img-tailor\.11222\.cn\/pm\/app\/.+\.gif - reject
+^https?:\/\/cupid\.51job(app)?\.com\/launch-hub\/open\/noauth\/popUp - reject
 ^https?:\/\/.*\/yyting\/advertclient\/ClientAdvertList.action - reject
 ^https?:\/\/gateway\.36kr\.com\/api\/adx\/ad\/show - reject
 ^https?:\/\/wx\.17u\.cn\/xcxhomeapi\/((aggregator\/index)|(home\/(?>screen|banner|converge)))$ - reject
+^https?:\/\/kad\.gotokeep\.com\/op-engine-webapp\/v\d\/ad - reject
 ^https?:\/\/.+\.pstatp\.com\/(obj|img)\/web\.business\.image\/.+ - reject
 ^https?:\/\/online\.sptcc\.com:\d+\/handapp_zx\/rss_info - reject
 ^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/iosAdInfo\/report - reject
@@ -1475,6 +1492,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/gaia\.ch\.com\/ECProduct\/homePageRevision\/queryRecommendInfo - reject
 ^https?:\/\/ut2\.shuqistat\.com\/.+\.gif - reject
 ^https?:\/\/dss0\.bdstatic\.com\/.+/tam-ogel\/.+\.(?>jpg|mp4) - reject
+^https?:\/\/aiqicha\.baidu\.com\/apps\/getHomeMonitorDataAjax - reject
 ^https?:\/\/www\.okx\.com\/v\d\/support\/home\/app\/updateInfo - reject
 ^https?:\/\/.+\.shuqireader\.com\/sapi\/.+ - reject
 ^https?:\/\/business\.msstatic\.com\/advertiser\/material - reject
@@ -1488,11 +1506,14 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/biz\/base\/appversion\/latest - reject
 ^https?:\/\/static\.95508\.com\/mmg\/images\/ads\/(?!(2024031|20241205)) - reject
 ^https?:\/\/home\.mi\.com\/cgi-op\/api\/v\d\/recommendation - reject
+^https?:\/\/ya-sdn\.ysepay\.com\/ma_gate\/version\/updateAppVersion - reject
+^https?:\/\/api\.gotokeep\.com\/kprime\/v\d\/popups\/primeGuide - reject
 ^https?:\/\/slapi\.oray\.net\/(client\/)?ad - reject
 ^https?:\/\/mrobot\.(?>pcauto|pconline)\.com\.cn\/xsp\/s\/auto\/info\/(ad|preload) - reject
 ^https?:\/\/download\.trip\.com\/html5 - reject
 ^https?:\/\/r6\.mo\.baidu\.com\/res\/file/advertisement\/files\/.+\.jpg - reject
 ^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{3},h_\d{4}\/format,webp\/ - reject
+^https?:\/\/appapi\.huazhu\.com:\d+\/client\/app\/getAppStartPage\/ - reject
 ^https?:\/\/huichuan\.sm\.cn\/nativead - reject
 ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/(get-lbs-cell-info\.php|sdkconfig\.php) - reject
 ^https?:\/\/(?>csc|osg)-service\.sgcc\.com\.cn:\d+\/emss-pfa-appset-front\/appForceUpdate - reject
@@ -1500,14 +1521,18 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/dict-mobile\.iciba\.com\/interface\/index\.php\?.+(?>c=ad|collectFeedsAdShowCount|KSFeedsAdCardViewController) - reject
 ^https?:\/\/cl-gateway\.tuhu\.cn\/cl-common-api\/api\/personalCenter\/getAutoSuperConfig - reject
 ^https?:\/\/app\.58\.com\/api\/home\/(advertising|appadv)\/ - reject
+^https?:\/\/gslb.*\.xima.*\.com\/ - reject
 ^https?:\/\/top-widgets-api\.xiaozujian\.com\/api\/ad\/config - reject
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.guide\.guess\.what\.you\.like - reject
 ^https?:\/\/feedback\.uc\.cn\/feedback\/api\/get_unread_status - reject
+^https?:\/\/aiqicha\.baidu\.com\/app\/bannerPicAjax - reject
 ^https?:\/\/obs\.line-scdn\.net\/0h.+\/\d+p\.mp4$ - reject
+^https?:\/\/.*\.xima.*\.com\/mobile-playpage\/view\/ - reject
 ^https?:\/\/tnc3-alisc1\.zijieapi\.com\/get_domains - reject
 ^https?:\/\/apiwz\.midukanshu\.com\/config\/getAds$ - reject
 ^https?:\/\/storage\.360buyimg\.com\/dynamicConfig\/binary - reject
 ^https?:\/\/mobileapi\.xiamenair\.com\/mobile-starter - reject
+^https?:\/\/.*\.xima.*\.com\/chaos-notice-web\/v1\/message\/preview\/list - reject
 ^https?:\/\/180\.76\.76\.112\/v\d\/ - reject
 ^https?:\/\/m\.you\.163\.com\/activity\/popWindow - reject
 ^https?:\/\/api-new\.app\.acfun\.cn\/rest\/app\/flash\/screen\/ - reject
@@ -1522,6 +1547,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/yun\.feidee\.net\/cab-periodic-activity-ws\/terminal\/v\d\/members\/status - reject
 ^https?:\/\/tqt\.weibo\.cn\/overall\/redirect\.php\?r=(?>tqt_sdkad|tqtad) - reject
 ^https?:\/\/gw-passenger\.01zhuanche\.com\/gw-passenger\/zhuanche-passengerController\/notk\/passenger\/recommendADs - reject
+^https?:\/\/(adse\.wsa|adse|adbehavior|xdcs-collector)\.xima.*\.com\/.* - reject
 ^https?:\/\/dq\.dxy\.cn\/api\.php\?action=getpostbanners - reject
 ^https?:\/\/api\.futunn\.com\/v\d\/ad - reject
 ^https?:\/\/cube\.elemecdn\.com\/\w\/\w{2}\/\w+mp4\.mp4\? - reject
@@ -1533,15 +1559,18 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/cdn\.wup\.huya\.com\/launch\/queryHttpDns$ - reject
 ^https?:\/\/mime\.baidu\.com\/v\d\/activity\/advertisementnonrealtime - reject
 ^https?:\/\/gw\.line\.naver\.jp\/tr\/event$ - reject
+^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/album\/adBar - reject
 ^https?:\/\/p\.kuaidi100\.com\/mobile\/mobileapi\.do - reject
 ^https?://(ios|android)\.sogou\.com/[^/]+/sogou_input_[^/]+/[^/]+/index\.html - reject
 ^https?:\/\/(gw|heic)\.alicdn\.com\/imgextra\/\w{2}\/\w+!+(?!600000000(5412|6148|4021|5802))\d*-\d-tps-(?!1035)\d{3,4}-(?!570)\d{3,4}\.(?>jpg|png)_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q\d0\.jpg_\.(?>heic|webp) - reject
+^https?:\/\/myusmile\.online\/user\/version\/requestFirmwareUpdate\/ - reject
 ^https?:\/\/m\.ctrip\.com\/html5\/webresource\/js\/iscroll\.js$ - reject
 ^https?:\/\/api\.21ec74\.com\/v\d\.\d\/ad - reject
 ^https?:\/\/zconfig\.alibabausercontent\.com\/zconfig - reject
 ^https?:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/.+ - reject
 ^https?:\/\/pages\.trip\.com\/js\/market - reject
 ^https?:\/\/lban\.spdb\.com\.cn\/mspmk-web-component\/getAdvertisementList\.ah - reject
+^https?:\/\/m\.ctrip\.com\/restapi\/.*\/getTimeZoneServerIpList - reject
 ^https?:\/\/.+\.byteimg.com/tos-cn-i-1yzifmftcy\/(.+)-jpeg\.jpeg - reject
 ^https?:\/\/apimobile\.meituan\.com\/appupdate\/mach\/checkUpdate? - reject
 ^https?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native - reject
@@ -1554,6 +1583,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/www\.dpfile\.com\/sc\/indexpromotion - reject
 ^https?:\/\/access\.mypikpak\.com\/access_controller\/v\d\/area_accessible - reject
 ^https?:\/\/api\.cdmcaac\.com\/ad - reject
+^https?:\/\/aiqicha\.baidu\.com\/m\/getLoginWordsAjax - reject
 ^https?:\/\/p0\.pipi\.cn\/(adAdmin|mediaplus\/maoyantong_ads_fe)\/\w+\.gif - reject
 ^https?:\/\/m\.ctrip\.com\/restapi\/.*\/getAppConfig - reject
 ^https?:\/\/mercury-gateway\.ixiaochuan\.cn\/mercury\/v\d\/ad\/ - reject
@@ -1565,15 +1595,18 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.hippotown\.tabbar\.info - reject
 ^https?:\/\/img\d+\.360buyimg\.com\/jddjadvertise\/ - reject
 ^https?:\/\/pan\.baidu\.com\/act\/api\/activityentry - reject
+^https?:\/\/.*\.xima.*\.com\/(hub)?guideWord - reject
 ^https?:\/\/sytgate\.jslife\.com\.cn\/data-report-gateway\/syt-data-report\/receive - reject
 ^https?:\/\/apiwz\.midukanshu\.com\/advert\/getPopup$ - reject
 ^https?:\/\/g(.*)\.dushu365\.com\/order-orchestration\/orderWeb\/exchange\/v\d+\/showExchangeButton - reject
 ^https?:\/\/.+\.byteimg\.com\/ad-app-package - reject
+^https?:\/\/api\.gotokeep\.com\/search\/v\d\/default\/keyword\/list - reject
 ^https?:\/\/api\.club\.lenovo\.cn\/common\/open_ad - reject
 ^https?:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{4,},h_\d{4,}\/($|format,webp\/$) - reject
 ^https?:\/\/images\.pinduoduo\.com\/(mrk|marketing_api)\/ - reject
 ^https?:\/\/client\.mail\.163\.com\/apptrack\/confinfo\/(?>searchMultiAds|showAds) - reject
 ^https?:\/\/s3plus\.meituan\.net\/v\d\/mss_\w+\/waimai-alita\/\w+\.zip$ - reject
+^https?:\/\/.*\.xima.*\.com\/(dog-portal\/checkOld|(child-mobile\/child|aged-mobile\/aged)\/mode\/query) - reject
 ^https?:\/\/obs\.line-scdn\.net\/0hGH\d - reject
 ^https?:\/\/online\.sptcc\.com:\d+\/handapp_app\/(?>ActivityGetServlet|queryWebUrlConfig) - reject
 ^https?:\/\/prom\.mobile\.gome\.com\.cn\/mobile\/promotion\/promscms\/\w+\.jsp - reject
@@ -1581,6 +1614,8 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/api\.wfdata\.club\/v\d\/yesfeng\/(?>infoCenterAd|yesList) - reject
 ^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/ad - reject
 ^https?:\/\/m\.trip\.com\/quic - reject
+^https?:\/\/api\.gotokeep\.com\/training\/box\/config - reject
+^https?:\/\/aiqicha\.baidu\.com\/app\/getAppPopSettingAjax - reject
 ^https?:\/\/agent-count\.(?>pcauto|pconline)\.com\.cn\/counter\/adAnalyse\/ - reject
 ^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\/mappweb_collection - reject
 ^https?:\/\/api\.babytree\.com\/api\/(?>advertising|mobile_activity) - reject
@@ -1611,6 +1646,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/stlib\.qbb6\.com\/wclt\/js\/core\/popup - reject
 ^https?:\/\/learn\.chaoxing\.com\/apis\/service\/appConfig\? - reject
 ^https?:\/\/api\.futunn\.com\/treasure-chest\/box-data - reject
+^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/(ehc|titansx|ddblue|edfu)\/ - reject
 ^https?:\/\/img\d+\.10101111cdn\.com\/adpos\/ - reject
 ^https?:\/\/api\.feidee\.net\/v\d\/configs\/client\/configs - reject
 ^https?:\/\/api\.jr\.mi\.com\/v\d\/adv - reject
@@ -1618,6 +1654,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/vip\d\.kuwo\.cn\/vip\/v\d\/sysinfo\?op=getRePayAndDoPayBox - reject
 ^https?:\/\/g(.*)\.dushu365\.com\/fdtalk-orch\/newcomerzone\/v\d+\/guide - reject
 ^https?:\/\/go\.babytree\.com\/go_pregnancy\/api\/cms_second_tab\/topic_tab_list - reject
+^https?:\/\/aiqicha\.baidu\.com\/apps\/searchRecommendAjax - reject
 ^https?:\/\/mrobot\.(?>pcauto|pconline)\.com\.cn\/v\d\/ad - reject
 ^https?:\/\/r\.inews\.qq\.com\/(?>adsBlacklist|getFullScreenPic|getQQNewsRemoteConfig) - reject
 ^https?:\/\/r\.inews\.qq\.com\/(?>getBannerAds|getNewsRemoteConfig|getSplash|searchHotCatList|upLoadLoc) - reject
@@ -1630,6 +1667,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/daoyu\.sdo\.com\/api\/userCommon\/getAppStartAd - reject
 ^https?:\/\/venus\.yhd\.com\/memhome\/launchConfig - reject
 ^https?:\/\/yunmk\.feidee\.net\/cab-market-ws\/market\/v\d\/contents - reject
+^https?:\/\/.*\.xima.*\.com\/discovery-feed\/focus\/queryF - reject
 ^https?:\/\/push\.it\.10086\.cn\/mc\/receipt\/iosBadge - reject
 ^https?:\/\/us\.l\.qq\.com\/exapp - reject
 ^https?:\/\/media\.qyer\.com\/ad\/ - reject
@@ -1662,21 +1700,28 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/\w+\.ys7\.com\/api\/ads - reject
 ^https?:\/\/api\.zhihu\.com\/ab\/api\/v\d\/products\/zhihu\/platforms\/ios\/config - reject
 ^https?:\/\/p\d\.meituan\.net\/cell - reject
+^https?:\/\/.*\.xima.*\.com/mobile-user/minorProtection/pop - reject
 ^https?:\/\/explorer\.tratao\.com\/api\/client\/v\d\/xtransfer\/ad\/ - reject
 ^https?:\/\/st7niu\.aicarmap\.com\/st_?!(a2|a3|e9)\w+\.webp$ - reject
 ^https?:\/\/g(.*)\.dushu365\.com\/fandeng-orch\/dual2211\/config - reject
 ^https?:\/\/www\.meituan\.com\/api\/v\d\/appstatus\? - reject
 ^https?:\/\/dili\.bdatu\.com\/jiekou\/ad\/ - reject
+^https?:\/\/aiqicha\.baidu\.com\/apps\/getHotRecommendV\dAjax - reject
 ^https?:\/\/nelo2-col\.linecorp\.com\/_store$ - reject
 ^https?:\/\/.*\.i18n-pglstatp\.com\/obj\/ad-pattern-sg - reject
+^https?:\/\/.*\.xima.*\.com\/mobile-user\/unread - reject
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.(?>popresource|screen) - reject
 ^https?:\/\/mobile\.yangkeduo\.com\/layer\/app_upgrade_popup - reject
+^https?:\/\/appapi\.51job(app)?\.com\/api\/market\/(?>adtrace|get_launch|get_prompt) - reject
 ^https?:\/\/api\.laifeng\.com\/v\d\/start\/ads - reject
 ^https?:\/\/app\.hbooker\.com\/setting\/get_startpage_url_list - reject
+^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/getHomeAdPop - reject
 ^https?:\/\/\w{32}\.jddebug\.com\/diagnose\? - reject
 ^https?:\/\/mkt-gateway\.tuhu\.cn\/mkt-scene-marketing-service\/api\/scene\/queryScheme - reject
 ^https?:\/\/xxyx-client-api\.xiaoxiaoyouxuan\.com\/client\/urban\/activity\/index\/data\?agentId=12 - reject
+^https?:\/\/www\.linkedin\.com\/voyager\/api\/voyagerConfiguration - reject
 ^https?:\/\/101\.91\.69\.26:8080\/.+ - reject
+^https?:\/\/jiguang\.sptcc\.com\/smartop\/\d/getEvent - reject
 ^https?:\/\/mage(v\d)?\.if\.qidian\.com\/argus\/api\/v\d\/client\/iosad - reject
 ^https?:\/\/.*mangaapi\.manhuaren\.\w{2,4}\/v\d\/ad - reject
 ^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.venus\.shopcouponpopupservice\.getshopcouponspopup - reject
@@ -1686,11 +1731,14 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/sqt\.meituan\.com\/s\/gateway\/mweb\/api\/marketingResource\/show - reject
 ^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/free\/open\/advertising - reject
 ^https?:\/\/.+\.pstatp\.com\/bytecom\/resource\/track_log\/src\/.+ - reject
+^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ - reject
 ^https?:\/\/go\.babytree\.com\/go_pregnancy\/api\/app_index\/get_ceramic_chip_area - reject
 ^https?:\/\/app\.homeinns\.com\/api\/landing - reject
+^https?:\/\/.*\.xima.*\.com\/social-web\/bottomTabs\/dynamicEntrance\/status - reject
 ^https?:\/\/(client\.)?app(\.coc)?\.10086\.cn\/biz-orange\/DN\/init\/startInit - reject
 ^https?:\/\/apps\.api\.ke\.com\/config\/config\/(?>bootpage|getactivityconfig) - reject
 ^https?:\/\/intellicc\.\w+\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec - reject
+^https?:\/\/api\.m\.jd\.com\/openUpgrade - reject
 ^https?:\/\/goblin\.hupu\.com\/.+\/interfaceAd\/ - reject
 ^https?:\/\/api\.zhihu\.com\/appview\/api\/v\d\/answers\/\d+\/recommendations - reject
 ^https?:\/\/p\.kuaidi100\.com\/advertisement\/ - reject
@@ -1710,6 +1758,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/cdn\.\w{3}\.chelaileapp\.cn\/(api\/)?adpub - reject
 ^https?:\/\/jad-api\.jin10\.com\/ad - reject
 ^https?:\/\/res\.kfc\.com.\cn\/advertisement - reject
+^https?:\/\/[\d\.]+:\d{5}\/\?cmd=indexes - reject
 ^https?:\/\/.+\.snssdk\.com\/video\/play\/1\/toutiao\/.+\/mp4 - reject
 ^https?:\/\/sq\.iyunmai\.com\/api\/ios\/adlunbo - reject
 ^https?:\/\/tower\.ubixioe\.com\/mob\/mediation - reject
@@ -1748,11 +1797,13 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_1\d{3},h_2\d{3}\/format,webp\/ - reject
 ^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v\d\?position - reject
 ^https?:\/\/interface\.aomiapp\.com\/aomi-ads - reject
+^https?:\/\/aiqicha\.baidu\.com\/app\/getHotTopicAjax - reject
 ^https?:\/\/app-gw\.csdn\.net\/abtesting\/v\d\/getList? - reject
 ^https?:\/\/(api|api-bk\d+)\.tv\.sohu\.com\/agg\/api\/app\/config\/bootstrap - reject
 ^https?:\/\/cloud\.189\.cn\/include\/splash\/ - reject
 ^https?:\/\/mapi\.dangdang\.com\/index\.php\?action=init - reject
 ^https?:\/\/cili\.xfuse\.fun\/s\/ - reject
+^https?:\/\/www\.myusmile\.online\/user\/userTagRecord\/popup - reject
 ^https?:\/\/ut\.xiaojukeji\.com\/ut\/kappa\/api\/owner\/index\/dialog - reject
 ^https?:\/\/adsoss\.zhinengxiyifang\.cn\/ads - reject
 ^https?:\/\/ma-adx\.ctrip\.com\/_ma\.gif - reject
@@ -1778,6 +1829,8 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/m\.trip\.com\/restapi\/.*\/(queryAdsDisplayData|queryBadge|isPopUp|(?>G|g)etAppConfig|getRecommendResource|appWelcomeImage|uploadConfigContent|appData|appAttributionLog|heartBeat|GetUserUpgradeNoticeInfo|incrQueryTrans|getTopPic|getABTestData) - reject
 ^https?:\/\/scdn\.line-apps\.com\/lan\/document\/pageEvent\/line\/ios\/ - reject
 ^https?:\/\/log.+?baidu\.com - reject
+^https?:\/\/api\.gotokeep\.com\/ads - reject
+^https?:\/\/.*\.xima.*\.com\/ting\/(?>loading|feed|home)? - reject
 ^https?:\/\/a\.line\.me\/oa\/v\d\/e$ - reject
 ^https?:\/\/obs\.line-scdn\.net\/0h.+\/(o|m)\d+x\d+$ - reject
 ^https?:\/\/(cdn-)?api\.kkmh\.com\/v\d\/ad - reject
@@ -1789,21 +1842,24 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/mbd\.baidu\.com\/newspage\/api\/getmobads\?page\=landingshare - reject
 ^https?:\/\/p0\.pipi\.cn\/(adAdmin|mediaplus\/maoyantong_ads_fe)\/\w+\.jpg\?imageMogr2\/quality\/ - reject
 ^https?:\/\/mapi\.mafengwo\.cn\/system\/push\/get_local_push_config - reject
+^https?:\/\/aiqicha\.baidu\.com\/app\/getNewsReportAjax - reject
 ^https?:\/\/.*mbasecc\.\w+\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec - reject
 ^https?:\/\/cdn\.sdb\.com\.cn\/widget\/nps\/feedback\/ - reject
-^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/(ehc|titansx|ddblue)\/ - reject
 ^https?:\/\/dinamicx\.alibabausercontent\.com\/pub\/fish_home_top_kingkong_new\/ - reject
 ^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/t_splash_info - reject
 ^https?:\/\/mobileapi\.chebada\.com\/publicv\d\/api\/v\d+\/infodeliver\/getmerchantad - reject
 ^https?:\/\/storage\.360buyimg\.com\/app\.m\.jd\.com\/lottie - reject
 ^https?:\/\/app\.dewu\.com\/api\/v\d\/app\/advertisement(?!\/new\/activity\/receiveCoupon) - reject
+^https?:\/\/.*\.xima.*\.com\/collector\/xl\/v\d - reject
 ^https?:\/\/api\.haohaozhu\.cn\/index\.php\/home\/AppInit\/getStartPhoto - reject
 ^https?:\/\/api\.caijingmobile\.com\/(ad|advert)\/ - reject
 ^https?:\/\/w\.line\.me\/adp\/api\/ad\/v\d\/ - reject
 ^https?:\/\/www\.xiaoxiongmeishu\.com\/api\/(home\/v\d\/config\/appInit|s\/v\d\/popup\/createCouponPopup) - reject
 ^https?:\/\/download1\.bankcomm\.com\/mobs6-inner\/offline\/static\/releaseConf - reject
+^https?:\/\/aiqicha\.baidu\.com\/app\/getPopConfigAjax - reject
 ^https?:\/\/catfront\.dianping\.com\/api\/metric\?v=\d&p=rn_gcbu_mrn-joy-poidetail - reject
 ^https?:\/\/182\.92\.244\.70\/d\/json - reject
+^https?:\/\/cupid\.51job(app)?\.com\/open\/user-task\/user\/task\/init - reject
 ^https?:\/\/static\.line-scdn\.net\/ad-sdk\/ - reject
 ^https?:\/\/api\.pinduoduo\.com\/api\/ktt_gateway\/activity\/feeds\/personal_home_page\/ - reject
 ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising - reject
@@ -1812,6 +1868,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/lban\.spdb\.com\.cn\/mspmk-web-component\/prefetchAdvList\.ah - reject
 ^https?:\/\/s3plus\.meituan\.net\/ocean-blk-index\/index\/blk_conf - reject
 ^https?:\/\/pan\.baidu\.com\/rest\/.+\/pcs\/adx - reject
+^https?:\/\/.*\.xmcdn\.com\/\w{8}\/\w{4}-\w{16}\/.+gif$ - reject
 ^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.alsc\.wamai\.store\.detail\.miniapp\.popup - reject
 ^https?:\/\/api\.21jingji\.com\/ad\/ - reject
 ^https?:\/\/lban\.spdb\.com\.cn\/mspmk-web-component\/getAdvList\.ah$ - reject
@@ -1825,49 +1882,61 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up - reject
 ^https?:\/\/m\.ibuscloud\.com\/v\d\/app\/getStartPage - reject
 ^https?:\/\/api\.jr\.mi\.com\/jr\/api\/playScreen - reject
+^https?:\/\/gw\.api\.ddxq\.mobi\/vip-app-service\/vip\/my\/page\/advertising - reject
 ^https?:\/\/staticsns\.cdn\.bcebos\.com\/amis\/.+/banner.png - reject
 ^https?:\/\/img\.meituan\.net\/bizad - reject
+^https?:\/\/bd-api\.kuwo\.cn\/api\/voice\/room\/v\d\/sidebar response-body-json-jq '(.data) = {}'
 ^https?:\/\/tft-app\.cdtft\.cn\/gateway-customer\/tftapp\/tft-ams\/api\/appAd response-body-replace-regex officialAdvertResultVo random-response
-^https?:\/\/api\.boohee\.com\/meta-interface\/v\d\/index\/record_index response-body-replace-regex articles random_body
 ^https?:\/\/www\.flyert(rip)?\.com(\.cn)?\/.*\.php\?.*module=threadpost response-body-replace-regex relatedrecommend relatedrecommend0
 ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/common\/getInitData response-body-replace-regex SpecialSalePageMidTabConfig random_body
-^https?:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene response-body-json-jq '.data.showShopEntry=false|.data.idolTabShow=true'
-^https?:\/\/ut\.xiaojukeji\.com\/ut\/kappa\/api\/owner\/index response-body-replace-regex banner_items random_body
+^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.venus\.shopresourceservice\.getshopresource response-body-replace-regex posterList random_body
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/v\d\/zzinfoshow\/getchoicegoodsinfos response-body-replace-regex infoData random_body
 ^https?:\/\/www\.tailgdd\.com\/v\d\/smart\/app\/config\/get$ response-body-replace-regex footResource footResource0
 ^https?:\/\/res\.cc\.cmbimg\.com\/fsp\/File\/ClientFacePublic\/\w+\.DAT$ response-body-replace-regex widget widget0
-^https?:\/\/(h3\.)?open\.taou\.com\/maimai\/feed\/v\d\/detail_recommend_feeds response-body-replace-regex feeds random_body
-^https?:\/\/www\.flyert(rip)?\.com(\.cn)?\/.*\.php\?.*module=basicdata&type=forumlist response-body-replace-regex adv adv0
 ^https?:\/\/client\.tujia\.com\/bnbapp-node\/app\/portal\/getportalconfig\/bnb\/v\d response-body-replace-regex "banners":\[.+\], "banners":[],
 ^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/headLine\/headLineInit response-body-replace-regex data data0
+^https?:\/\/bd-api\.kuwo\.cn\/api\/service\/music\/recommendList response-body-json-jq '.data.musicList[] |= del(.showAd)'
+^https?:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\? response-body-replace-regex "recommend_queries":\{.+\} "recommend_queries":{}
+^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/discovery-feed\/list response-body-json-jq '.data |= map(select(.type == "DISCOVERY_EPISODE_RECOMMEND" or .type == "EDITOR_PICK"))'
+^https?:\/\/beta-api\.crunchyroll\.com\/cms response-body-replace-regex offset_ms":\d+ offset_ms":99999999999999
+^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do response-body-replace-regex "imgUrl19_5x9":".+?" "imgUrl19_5x9":""
+^https?:\/\/api\.boohee\.com\/meta-interface\/v\d\/index\/record_index response-body-replace-regex articles random_body
+^https?:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene response-body-json-jq '.data.showShopEntry=false|.data.idolTabShow=true'
+^https?:\/\/ut\.xiaojukeji\.com\/ut\/kappa\/api\/owner\/index response-body-replace-regex banner_items random_body
+^https?:\/\/(h3\.)?open\.taou\.com\/maimai\/feed\/v\d\/detail_recommend_feeds response-body-replace-regex feeds random_body
+^https?:\/\/www\.flyert(rip)?\.com(\.cn)?\/.*\.php\?.*module=basicdata&type=forumlist response-body-replace-regex adv adv0
+^https?:\/\/bd-api\.kuwo\.cn\/api\/service\/resource\/recommend response-body-json-jq '.data.resourceList[] |= del(.resource)'
 ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-body-replace-regex screenSplashAd random-response
 ^https?:\/\/api\.swiftgram\.app\/v0\/settings response-body-replace-regex announcements_data random_body
-^https?:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\? response-body-replace-regex "recommend_queries":\{.+\} "recommend_queries":{}
-^https?:\/\/beta-api\.crunchyroll\.com\/cms response-body-replace-regex offset_ms":\d+ offset_ms":99999999999999
 ^https?:\/\/m\.lkcoffee\.com\/ecapi\/resource\/m\/member\/exchange\/page response-body-replace-regex \{.+\} {"status":"SUCCESS"}
 ^https?:\/\/m\.lkcoffee\.com\/capi\/resource\/m\/growUp\/main response-body-replace-regex "popTitle":".+?" "popTitle":""
-^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do response-body-replace-regex "imgUrl19_5x9":".+?" "imgUrl19_5x9":""
+^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/newDetails response-body-replace-regex suspension random_body
 ^https?:\/\/vv\.video\.qq\.com\/getvinfo request-body-replace-regex &sppreviewtype=\d(.*)&spsrt=\d &sppreviewtype=0$1&spsrt=0
+^https?:\/\/gw\.xiaocantech\.com\/rpc header-replace-regex 'methodname' '.*(GetBannerList|IsShowOrderAwardPopup|UserLifeShopList|BrandBannerList|GetPromotionGlobalCfg)' 'null'
 ^https?:\/\/m\d\.amap\.com\/ws\/shield\/dsp\/app\/startup\/init\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/as\.xiaojukeji\.com\/ep\/as\/conf\?ns=daijia-front&name= mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/gateway(retry)?\.kugou\.com\/adp\/ad\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/7n\.bczcdn\.com\/launchad\/ mock-response-body data-type=text status-code=200
+^https?:\/\/hweb-manager\.huazhu\.com\/notice\/getAppPopupNotifyAlert mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/bohe\.sfo-tx-shanghai-01\.saas\.sensorsdata\.cn\/api\/v\d\/sfo\/user_popup_configs mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/3g\.csair\.com\/CSMBP\/bookProcess\/homepopup\/queryAdvertisement mock-response-body data-type=text status-code=200
 ^https?:\/\/api-sams\.walmartmobile\.cn\/api\/v\d\/sams\/configuration\/portal\/beUpdate mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.17gwx\.com\/v\d\/growth\/popup\/remind mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/image\.spdbccc\.com\.cn\/group\d\/M00\/[A-Z0-9]{2}\/[A-Z0-9]{2}\/.+(?>4038|0571|M511|V-008|g549|b0628|fg817|5w501|Jo341|Z4583|oo845|i4905|MY245|YU472|Y401|w428|s000) mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/ebk\.17u\.cn\/tctrafficappversionadmin\/api\/getLatestVersionApp mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d+\/(ads\/resource|hey\/\w+\/hey_gallery) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/social\.blued\.cn\/users\/recommend mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberGoods\/pointMallService\/goodsList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdn\.cmgadx\.com\/sdk\/pool\/\w+\.json mock-response-body data-type=text status-code=200
 ^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/advertisement\/ mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/search\/get-(?>preset|express) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/zj\.haier\.net\/api-gw\/shpmResource\/servicePage\/start\/advertising\?approach mock-response-body data-type=text status-code=200
 ^https?:\/\/static1\.keepcdn\.com\/ark_optimus\/202\d\/*\/*\/.*.(?>png|jpg) mock-response-body data-type=text status-code=200
 ^https?:\/\/\w+\.kingsoft-office-service\.com\/ad mock-response-body data-type=text status-code=200
 ^https?:\/\/3g\.csair\.com\/CSMBP\/personalCenter\/ads\/getEasterEggTaskOrAds mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/tfsmy\.chengdu\.gov\.cn\/api\/v\d\/core\/version mock-response-body data-type=text status-code=200
 ^https?:\/\/japi\.233\.com\/ess-ecms-api\/advert mock-response-body data-type=text status-code=200
+^https?:\/\/syt\.leshuazf\.com\/merchant\/merchant\/getBannerConfig$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.zhuishushenqi\.com\/splashes\/ios mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.ulife\.group\/auth\/account\/entrance mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wap\.ngchina\.cn\/news\/adverts\/ mock-response-body data-type=text status-code=200
@@ -1886,6 +1955,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/api\.m\.mi\.com\/v\d\/misearch\/search_input$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/business\.msstatic\.com\/advertiser mock-response-body data-type=text status-code=200
 ^https?:\/\/appmedia\.springairlines\.com\/cmsstatic\/.*\.gif mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/api\.m\.mi\.com\/v\d\/home\/page_feed(_v5)?$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api-miprint\.hannto\.com\/v\d\/c\/res\/app\/ad\/\?app_version mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/facade-api\.black-unique\.com\/app\/v\d\/startScreen\?.* mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/dualstack-logs\.amap\.com\/ws\/log\/upload\?product mock-response-body data-type=text status-code=200
@@ -1918,6 +1988,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/mage(v\d)?\.if\.qidian\.com\/argus\/api\/v\d\/bookshelf\/getTopOperation mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.yangkeduo\.com\/api\/ant\/entry\/navigate mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/kano\.guahao\.cn\/.+?\?resize=\d{3}-\d{4} mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/cn-app\.narwaltech\.com\/operate\/cactivity\/listByResourceIds\?resourceIds=index_banner mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/vv\.video\.qq\.com\/getvmind\? mock-response-body data-type=text status-code=200
 ^https?:\/\/m\d\.amap\.com\/ws\/shield\/search\/new_hotword\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.weibo\.cn\/2\/!\/live\/media_homelist\? mock-response-body data-type=text data="{}" status-code=200
@@ -1937,6 +2008,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/(cdn-)?api\.kkmh\.com\/v\d\/business\/mine\/business_config mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.xueqiu\.com\/recommend-proxy\/card\/portfolio_tab_symbol mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/apigateway\.gaodun\.com\/common-app\/version mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/hweb-hotel\.huazhu\.com\/{1,2}home\/(?>queryNewNotice|querySelectHotel|queryHotelBrand|queryMall|huazhuWorld) mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.taptapdada\.com\/startup-logo\/v\d\/combo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(h3\.)?open\.taou\.com\/maimai\/go_gossip_darwin\/external\/v\d\/query_flow_cards mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mmgr\.gtimg\.com\/gjsmall\/qiantu\/upload\/ mock-response-body data-type=tiny-gif status-code=200
@@ -1944,6 +2016,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.crm\.platform\.ma\.recommend mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\d?\.musical\.ly\/api\/ad\/ mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/pic\.k\.sohu\.com\/img8\/wb\/tj\/ mock-response-body data-type=text status-code=200
+^https?:\/\/syt\.leshuazf\.com\/merchant\/popup\/getPopupInfo$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/capis(-\w+)?\.didapinche\.com\/publish\/api\/upgrade mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v\d\/slots:batchGet mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.mcd\.cn\/bff\/portal\/(home\/splash|richpop) mock-response-body data-type=text status-code=200
@@ -1966,6 +2039,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/mobileapi\.ly\.com\/wlfrontend\/app\/scenicMain mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/static\.shihuocdn\.cn\/admin\/imgs/202[0-9]{5}\/[a-z0-9]{32}_(513x777|750x1624)\.png mock-response-body data-type=text status-code=200
 ^https?:\/\/hui\.sohu\.com\/predownload2\/? mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/guide\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/m\.aty\.sohu\.com\/openload? mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/p\d\.meituan\.net\/nrpresourcevenus\/\w+\.gif mock-response-body data-type=tiny-gif status-code=200
@@ -1988,8 +2062,11 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/app\.yinxiang\.com\/ads\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/static\.95508\.com\/mmg\/ciop\/sysabbr\/cmep\/images\/(app)?popupads mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mps\.95508\.com\/mps\/club\/cardPortals\/adv\/\d{25}\.(?>png|jpg) mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/cupid\.51job(app)?\.com\/open\/index\/notice-infos mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/s\.go\.sohu\.com\/adgtr\/\?gbcode= mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/app\.ceair\.com\/customize\/main\/adScreen mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/myusmile\.online\/user\/version\/requestAppUpdate mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/dict\.youdao\.com\/course\/tab\/translateTab mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.bwton\.com\/bff\/app\/h5\/v\d\/station\/goods mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ossgw.alicdn.com\/creatives-assets\/image\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/www\.nfmovies\.com\/uploads\/images\/play\.jpg mock-response-body data-type=tiny-gif status-code=200
@@ -1999,6 +2076,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.nj\.nbtv\.cn\/v\d\/common\/system-boot-inform\/detail mock-response-body data-type=text status-code=200
 ^https?:\/\/c\.kuaiduizuoye\.com\/adx\/impress mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdnmobibank\.bankofbeijing\.com\.cn\/cdn\/MarketingCloud\/.+\/.+\/99_1\/.+\.jpg mock-response-body data-type=text status-code=200
+^https?:\/\/dict\.youdao\.com\/dictusertask\/system mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cy\.cloud\.ccb\.com\/\/gateway\/user-server\/user\/qyCenter\/getCustomizedAdv mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mgesq\.api\.mgtv\.com\/user\/center\/config mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/img\.yun\.01zhuanche\.com\/statics\/app\/advertisement\/.+?-750-1334 mock-response-body data-type=tiny-gif status-code=200
@@ -2006,8 +2084,10 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/pt-starimg\.didistatic\.com\/static\/starimg\/node\/.*.(?>jpg|png|gif) mock-response-body data-type=text status-code=200
 ^https?:\/\/app-sc\.miguvideo\.com\/app-management\/v\d\/staticcache\/settings\/miguvideo\/SHARE_PIC mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.zhihu\.com\/root\/window mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/damang\.api\.mgtv\.com\/station\/album\/red\/dot\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cheyouquan\.kakamobi\.com\/api\/open\/group\/recommend-subscribe-tag mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ztoread\.ziroom\.com\/foka-card-api\/popup\/v\d\/get mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/syt\.leshuazf\.com\/merchant\/merchant\/showOpenScreenAd$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\/mappweb\/homepage(\/discovery)?\/promote mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/hwimg\.beingfine\.cn\/(?>card|Channel) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.boohee\.com\/app-interface\/v\d\/search\/search\? mock-response-body data-type=text data="{}" status-code=200
@@ -2015,9 +2095,12 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/tiance\.wps\.cn\/dce\/exec\/api\/market\/activity mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/biz\.cyapi\.cn\/p\/v\d\/(entries|trial_card\/info) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/app-api\.niu\.com\/v\d\/advertisement mock-response-body data-type=text status-code=200
+^https?:\/\/cn-app\.narwaltech\.com\/operate\/cactivity\/listByResourceIds\?resourceIds=user_center_banner mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/i\d\.hdslb\.com\/bfs\/manga-static\/\w+\.(?>jpg|png)$ mock-response-body data-type=text status-code=200
+^https?:\/\/hweb-manager\.huazhu\.com\/bundle\/upgrade\/check mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/apicloud\.zol\.com\.cn\/Article\/WapLaunchLogo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/lofter\.lf127\.net\/ad mock-response-body data-type=text status-code=200
+^https?:\/\/mada-travel\.17u\.cn\/mdapi\/config\/ads mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/apipt\.qbb6\.com\/parenting\/pt\/home\/post\/card\/get mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/m.360buyimg\.com\/mobilecms\/s1125x2436_jfs\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/GetIndexPopFlash mock-response-body data-type=text status-code=200
@@ -2030,6 +2113,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/www\.cmbc\.com\.cn\/m\/image\/loadingpage\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/market-api\.fenbi\.com\/iphone\/v\d\/assistant\/entrance\/show mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ump\.sz\.creditcard\.ecitic\.com\/citiccard\/cm-ump\/ump-gateway\/ump-net-app\/ump-net-app\/adv mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/dictvip-business\.youdao\.com\/home\/ad mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/.+?\.58cdn\.com\.cn\/brandads\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/ok\.166\.net\/reunionpub\/202[2-9]{1}-[0-9]{2}-[0-9]{2}\/ntesgod_cms\/.*.jpg$ mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.intsig\.net\/user\/cs\/operating\/app\/get_startpic\/ mock-response-body data-type=text status-code=200
@@ -2039,6 +2123,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.ncarzone\.com\/superapi\/canary\/popupDialogFacade\/popupDialogList mock-response-body data-type=text status-code=200
 ^https?:\/\/appwk\.baidu\.com\/xpage\/interface\/wknaad mock-response-body data-type=text status-code=200
 ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/(search\/(chart|default|rcmd\/keyword|specialkeyword)|(resource-exposure\/|middle\/clientcfg\/config)|activity\/bonus\/playpage\/time\/query) mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/dict\.youdao\.com\/vip\/activity\/couponinfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/d\.psbc\.com:\d+\/mcc\/resources\/.+\.(?>jpg|jpeg|png) mock-response-body data-type=text status-code=200
 ^https?:\/\/mime\.baidu\.com\/sapi\/v\d\/circle\/joinedlist mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(cdn-)?h5\.kuaikanmanhua\.com\/user\/scene\/api\/new_user\/sign_in\/list mock-response-body data-type=text data="{}" status-code=200
@@ -2054,8 +2139,11 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/\w+\.ys7\.com\/api\/user\/tabList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/gateway(retry)?\.kugou\.com\/ads\.gateway\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/compus\.xiaofubao\.com\/compus\/advertising\/getStartupAdvertising mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/wallet\.lakala\.com\/m\/lama\/mgt\/activity\/bank\/query\/list mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/a\/update\/startupPage mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/appi\.kuwo\.cn\/kuwopay\/personal\/cells mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/fuss10\.elemecdn\.com\/.+?\.mp4 mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/api-overmind\.youdao\.com\/openapi\/get\/luna\/dict\/dict-mobile\/prod\/dictCommonConfig mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/l[0-9]{1}\.51fanli\.net\/app\/images\/splash\/202\d{1}\/\d{2}\/.*.jpg mock-response-body data-type=text status-code=200
 ^https?:\/\/m\d\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(?>car-end|route-plan) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api-sams\.walmartmobile\.cn\/api\/v\d\/sams\/trade\/order\/getOftenBuyGoods mock-response-body data-type=text data="{}" status-code=200
@@ -2081,10 +2169,12 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdn\.sdb\.com\.cn\/widget\/magic-module-sprite\/general-banner mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mlife\.jf365\.boc\.cn\/AppPrj\/FirstPic\.do\?txnId=2PIC000001 mock-response-body data-type=text status-code=200
+^https?:\/\/saas\.hpplay\.cn\/api\/lebo-rabbit\/app-card\/list mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.winbull8\.com\/v\d\/marketing\/(advert|activity)\/(?>list|page) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/500px\.com\.cn\/community\/apk\/downloadApk mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/bd-api\.kuwo\.cn\/api\/service\/banner mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/jiucaigongshe\.oss-cn-beijing\.aliyuncs\.com\/[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}\.png mock-response-body data-type=text status-code=200
+^https?:\/\/mada-travel\.17u\.cn\/mdapi\/config\/mine mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/pic\.edaijia\.cn\/adsplash\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/m\.client\.10010\.com\/mobileService\/customer\/getclientconfig\.htm mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/gateway(retry)?\.kugou\.com\/mstc\/musicsymbol\/v\d\/system\/profile mock-response-body data-type=text data="{}" status-code=200
@@ -2102,6 +2192,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/du\.hupucdn\.com\/\w+h\d{4} mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/api\.u51\.com\/liabilitygateway\/api\/v\d\/homepage\/liabilityline mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/xhtz.oss-cn-guangzhou\.aliyuncs\.com\/home\/member\/.+\.png$ mock-response-body data-type=text status-code=200
+^https?:\/\/iface2\.iqiyi\.com\/video\/3\.0\/v_interface_proxy\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/res\.kfc\.com\.cn\/CRM\/kfcad\/apphome mock-response-body data-type=text status-code=200
 ^https?:\/\/(bdsp-x|dsp-x)\.jd\.com\/adx\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.k\.sohu\.com\/api\/channel\/ad\/ mock-response-body data-type=tiny-gif status-code=200
@@ -2114,6 +2205,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/(cdn-)?pay\.kkmh\.com\/v\d\/vip\/(?>banner|charge)_tip_list mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wx\.17u\.cn\/crapi\/query\/(?>ad|getAdImgUrlByCode) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/hb-boom\.api\.mgtv\.com\/release\/pullReleaseInfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/shop-api\.retail\.mi\.com\/mtop\/navi\/(rec\/merge\/|skywheel\/mishop\/splash) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/jdread-api\.jd\.com\/jdread\/api\/popup mock-response-body data-type=text status-code=200
 ^https?:\/\/hoapp\.juneyaoair\.com\/data\/index\/getPictureList mock-response-body data-type=tiny-gif status-code=200
@@ -2122,6 +2214,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/agn\.aty\.sohu\.com\/m? mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/tianqi\.2345\.com\/api\/content\/getContentFeeds mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdn-evone-ceph\.echargenet\.com\/gw-emas-cdn\/63c4e3b558bb610008969f89 mock-response-body data-type=text status-code=200
+^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/membership\/platform mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/app\.xinpianchang\.com\/open_screen mock-response-body data-type=text status-code=200
 ^https?:\/\/p\d\.meituan\.net\/(\d+\.\d+\.\d+\/)?wmbanner\/(?!fb51b9d|4e9d3c4).+\.gif mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Shop\/GetShopItems mock-response-body data-type=text data="{}" status-code=200
@@ -2137,12 +2230,16 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/delivery-api\.imdada\.cn\/\w+\/transporter(\/screen)?\/ad mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(?>gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com(:443)?\/pendragon\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/maicai\.api\.ddxq\.mobi\/cart\/vipGuide mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.alipan\.com\/adrive\/v\d\/file\/getTopFolders mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/dss0\.bdstatic\.com\/-0U0bnSm1A5BphGlnYG\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/m\d-zb\.amap\.com\/ws\/boss\/(order\/car\/king_toolbox_car_bubble|tips\/onscene_visual_optimization) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/shcss\.suning\.com\/shcss-web\/api\/appImage\/queryAppImage mock-response-body data-type=text status-code=200
 ^https?:\/\/omgup\d?\.xiaojukeji\.com\/api mock-response-body data-type=text status-code=200
+^https?:\/\/api\.zhihu\.com\/comment_v\d\/answers\/\d+\/list-headers mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbopen\.miniapp\.recommend mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/a\/config\/windowsintegration\/getMessage mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/common-sc\.miguvideo\.com\/videoActivity\/activityList\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ecard\.shenzhentong\.com\/wxweb\/bwxppub2\/QryAdvertList\.do mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.k\.sohu\.com\/api\/news\/adsense mock-response-body data-type=text status-code=200
@@ -2156,6 +2253,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/common\/getWeworkPromotionInfoBySceneType mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/router-app-api\.jdcloud\.com\/v\d\/board\/routerAppSplash mock-response-body data-type=text status-code=200
 ^https?:\/\/splashqqlive\.gtimg\.com\/website\/\d{6} mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/saas\.hpplay\.cn\/api\/lebo-desk\/endpoint\/app-resource\/app-user-banner mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mmgr\.gtimg\.com\/gjsmall\/qqpim\/public\/ios\/splash\/.+?\/\d{4}_\d{4} mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/syt\.leshuazf\.com\/merchant\/messageCenter\/stationLetterList$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mob\.mddcloud\.com\.cn\/adApi\/advert\/(?>first|third)part\/advertList mock-response-body data-type=text data="{}" status-code=200
@@ -2164,12 +2262,14 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/foodie-api\.yiruikecorp\.com\/v\d\/(banner|notice)\/overview mock-response-body data-type=text status-code=200
 ^https?:\/\/homefront\.qunar\.com\/front\/splash\/ad mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/fx\.service\.kugou\.com\/mfx-kugoulive\/ad\/ mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/www\.upwork\.com\/api\/v\d\/client-app-config\/platform\/ios\/app\/freelancer\/version mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/swallow\.kakamobi\.cn\/api\/open\/config\/get-config mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/common\/getWeworkCategoryPromotionInfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdn\.kuaidi100\.com\/images\/open\/appads mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/static\.95508\.com\/icppweb\/images\/modelMaterial\/(advertising|accurate)\/202\d{5}\/.*.(?>png|jpg) mock-response-body data-type=text status-code=200
 ^https?:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v\d\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/upload-bbs\.mihoyo\.com\/upload\/202[2-9]{1}\/[0-9]{2}\/[0-9]{2}\/[a-z0-9]{32}_[a-z0-9]{19}\.(?>jpg|png)$ mock-response-body data-type=text status-code=200
+#^https?:\/\/cdn\.sdb\.com\.cn\/widget\/magic-module-sprite\/goods-module mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/pocketuni\.net\/\?app=api&mod=Message&act=ad mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.jxedt\.com\/jump\/EMiCcDNp mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/p\d\.meituan\.net\/travelcube\/(?!c129a661)\w+\.gif mock-response-body data-type=tiny-gif status-code=200
@@ -2180,6 +2280,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.sodalife\.xyz\/hydr\/v\d\/poster\/posters mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/p\.kuaidi100\.com\/apicenter\/card\.dox mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/(resource\/comments?\/musiciansaid|community\/friends\/fans-group\/artist\/group\/get|user\/sub\/artist|music\/songshare\/text\/recommend\/get|mine\/applet\/redpoint|resniche\/position\/play\/new\/get) mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/mobileso\.bz\.mgtv\.com\/spotlight\/search\/v\d\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ecloud\.tppension\.cntaiping\.com\/fxtpplatform\/common\/anonymous\/common\/page\/queryStartPage mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.pinduoduo\.com\/api\/pdd_live_moore_main_lego mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/booking\.bestwehotel\.com\/proxy\/trip-hotel-banner\/activity\/getActivityInfo mock-response-body data-type=text status-code=200
@@ -2189,10 +2290,13 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.weibo\.cn\/2\/!\/was\/finder\/searchbarchange\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/.+\.(?>gif|jpg|mp4) mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/api\.ncarzone\.com\/superapi\/canary\/bannerFacade\/app\/list mock-response-body data-type=text status-code=200
+^https?:\/\/bootrealtime\.uve\.weibo\.com\/v[23]\/ad\/realtime mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.xueqiu\.com\/recommend-proxy\/card\/zj_card\.json\?feed_id=207 mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/monkey\.kakamobi\.cn\/api\/open\/live-room\/get-resource mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mgesq\.api\.mgtv\.com\/search\/goods\/rank mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/www\.gaoding\.com\/api\/v\d\/cp\/search-words\/v\d\/placeholder mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mall\.meituan\.com\/api\/c\/homepage\/splash mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/api\.weibo\.cn\/2\/search\/container_discover\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/appcloud2\.zhihu\.com\/v\d\/resource\?group_name=mp mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/p\.du\.163\.com\/ad\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/vv\.video\.qq\.com\/(?>diff|get)vmind mock-response-body data-type=text data="{}" status-code=200
@@ -2215,6 +2319,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/mbs\.boc\.cn\/ubas-mgateway-static\/images\/advertType\/.+.jpg mock-response-body data-type=text status-code=200
 ^https?:\/\/\w+\.ys7\.com\/v\d\/config\/service\/entrance\/bannerInfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/zj\.haier\.net\/api-gw\/shpmResource\/ad\/ mock-response-body data-type=text status-code=200
+^https?:\/\/card\.weibo\.com\/article\/m\/aj\/(reward|uvead)\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.xueqiu\.com\/snowpard\/launch_strategy\/query mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mobile-api2011\.elong\.com\/adgateway\/newad\/list mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/targeted_ads mock-response-body data-type=tiny-gif status-code=200
@@ -2223,9 +2328,11 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.ycapp\.yiche\.com\/\w+\/getadlist mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/api\.psy-1\.com\/cosleep\/startup mock-response-body data-type=text status-code=200
 ^https?:\/\/cache\.bydauto\.com\.cn\/dilink_user_upload\/20 mock-response-body data-type=text status-code=200
+^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/flash mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/bk\.bingo\.qq\.com\/bk\/crx\/data\/videoAd mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/as\.xiaojukeji\.com\/ep\/as\/toggles mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/geetest\.htsc\.com:\d+\/pre_get_token mock-response-body data-type=text status-code=200
+^https?:\/\/dict\.youdao\.com\/commonsearch mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/d\.socdm\.com\/adsv\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.ulife\.group\/market\/frontEntrance\/getThirdAdvertising mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mres\.aibank\.com\/app\/resource\/cim\/cim0000001\/.+\.jpg mock-response-body data-type=text status-code=200
@@ -2234,22 +2341,29 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api-release\.wuta-cam\.com\/ad_tree mock-response-body data-type=text status-code=200
 ^https?:\/\/p\d\.meituan\.net\/movie\/.+?\.jpg\?may_covertWebp mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/www\.zhihu\.com\/api\/v\d\/search\/related_queries\/(answer|article)\/\d+ mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/web2\.realtech-inc\.com\/oss\/xc-app-assets\/configs\/common\/theme mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/member\.alipan\.com\/v\d\/activity\/sign_in_(?>info|luckyBottle) mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/saas\.hpplay\.cn\/api\/lebo-desk\/endpoint\/app-resource\/app_index_operate2 mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/saas\.hpplay\.cn\/api\/lebo-desk\/endpoint\/app-resource\/app_home_pop_up mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(cdn-)?api\.kkmh\.com\/v\d\/business\/activities\/get mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.weibo\.cn\/2\/hot\/hours_spotlight\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/qimgs\.qunarzz\.com\/wpf_newmpic_001\/06c3a131f53cca9a78dd26272e3e4cb3 mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/www\.kuaiduizuoye\.com\/init\/ad\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(cdn-)?topic\.kkmh\.com\/gamecard\/v\d\/activityText\/getUserActivityTextInfo\?activityTextConfigId mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/appdmkj\.5idream\.net\/appPic\/homepage mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/api\.bilibili\.com\/x\/v2\/dm\/qoe\/show\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/hd\.xiaojukeji\.com\/d mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/e\.jparking\.cn\/ad-api mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/mada-travel\.17u\.cn\/mdapi\/config\/tabAct mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/zj\.haier\.net\/api-gw\/upmapi\/appmanage\/publish\/getRecommendVersion$ mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.zhuishushenqi\.com\/notification\/shelfMessage mock-response-body data-type=text status-code=200
 ^https?:\/\/zj\.haier\.net\/omsappapi\/ad\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/apicommunity\.qbb6\.com\/community\/category\/list\/get mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.querysinglepage mock-response-body data-type=text status-code=200
+^https?:\/\/oimage\w\d\.ydstatic\.com\.+adpublish mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/3g\.csair\.com\/extraClient\/data\/mytrip\/getMinPriceFlight mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/queryMyPagePopup mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/peisongapi\.meituan\.com\/client\/getInitiateImage mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.51credit\.com\/ks\/a\/list\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(?>Recommend|MoreRecommend|Flash|ListFlash|GetBubbles|GetActivityTab|GetCommonBanner|GetComicConfigPicList|SearchBanner) mock-response-body data-type=text status-code=200
@@ -2264,6 +2378,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/pss\.txffp\.com\/piaogen\/images\/launchScreen/ mock-response-body data-type=text status-code=200
 ^https?:\/\/marscc\.bcs\.cmbchina\.com\/MarsReceiver mock-response-body data-type=text data="{}" status-code=200
+^https:\/\/cdn\.sdb\.com\.cn\/ibank\/upgrade\/plugins\/upgradefile\.ios\.simplify mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.00bang\.cn\/llb\/baseinfo\/advertise\/getAdvertiseByPageCode mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.51credit\.com\/bbs\/app\/api\/v\d\/task\/operationalCredit mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.sogaha\.cn\/ssp\/ad\/get\?ip mock-response-body data-type=text data="{}" status-code=200
@@ -2277,6 +2392,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/cdn\.sdb\.com\.cn\/app_com\/adversdk mock-response-body data-type=text status-code=200
 ^https?:\/\/3gimg\.qq\.com\/tencentMapTouch\/splash\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.petkit\.cn.*device\/relatedProductsInfo mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.cnactivitycenter mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/swdlcdn\.eastmoney\.com\/app\/adimg\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/quanguo\.mygolbs\.com:\d+\/MyBusServer\/servlet\/MyGoServer\.HttpPool\.HttpHandlerServlet mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.shanghaionstar\.com\/sos\/contentinfo\/v\d\/public\/landingpage mock-response-body data-type=text data="{}" status-code=200
@@ -2288,6 +2404,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/(cdn-)?h5\.kuaikanmanhua\.com\/game-h5\/new-user-welfare\/index\.html mock-response-body data-type=text status-code=200
 ^https?:\/\/creditcard\.bankcomm\.(com|cn)\/tfimg\/public00\/M00\/4C\/6F mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/h5\.m\.goofish\.com\/wow\/moyu\/moyu-project\/idle-xy-seller-home\/pages\/dress-pop mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/mars\.ccc\.cmbchina\.com\/MarsReceiver mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/manga\.bilibili\.com\/twirp\/novel\.v\d\.Novel\/MoreRecommend mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mrobot\.(?>pcauto|pconline)\.com\.cn\/[a-z0-9-]+\/onlineinfo\/(ad|cms\/launch) mock-response-body data-type=text status-code=200
 ^https?:\/\/webcast-open\.douyin\.com\/webcast\/openapi\/feed\/ mock-response-body data-type=text data="{}" status-code=200
@@ -2299,7 +2416,9 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.boohee\.com\/shop-interface\/api\/v\d\/home\/index mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/c\.zhangle\.com\/pic\/mktg\/diversity\/.+\.jpg$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/zj\.haier\.net\/api-gw\/shpmResource\/servicePage\/weather\/query\?areaId mock-response-body data-type=text status-code=200
+^https?:\/\/pv\.elife\.icbc\.com\.cn\/OFSTPV\/utm\.gif mock-response-body data-type=text status-code=200
 ^https?:\/\/stock\.xueqiu\.com\/v\d\/stock\/group\/recommend\/default\/list mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/m\.fqfin\.cn\/cls\/leshuapay\/preCredit\.json$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.m\.mi\.com\/v\d\/search\/search_default$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/www\.bodivis\.com\.cn\/app\/splash mock-response-body data-type=text status-code=200
 ^https?:\/\/res\.mall\.10010\.cn\/mall\/common\/js\/fa\.js?referer= mock-response-body data-type=tiny-gif status-code=200
@@ -2307,11 +2426,14 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/activity\/advertisement\/get mock-response-body data-type=text status-code=200
 ^https?:\/\/gateway(retry)?\.kugou\.com\/searchnofocus\/v\d\/search_no_focus_word mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/qimg\.cdnmama\.com\/rd mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/ocfapi\.huatu\.com\/api\/user\/get_my_suggest mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/[\d\.]+\/odin\/c\d\/(channel\/ads|skin\/config)\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api-ios\.zhipin\.com\/api\/zpCommon\/upgrade\/check mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/dsp-impr2\.youdao\.com\/adload mock-response-body data-type=text status-code=200
 ^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig mock-response-body data-type=text status-code=200
 ^https?:\/\/iobs\.pingan\.com\.cn\/download\/icore-aops-base-dmz-prd\/(?>YourSystemName|icore-apps-ad) mock-response-body data-type=text status-code=200
 ^https?:\/\/static01\.versa-ai\.com\/upload\/ec0ba51d68f9\/.*.jpg mock-response-body data-type=text status-code=200
+^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/userLike mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdn\.sdb\.com\.cn\/widget\/magic-module-sprite\/dialog-normal mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/gw-passenger\.01zhuanche\.com\/gw-passenger\/car-rest\/webservice\/passenger\/recommendADs mock-response-body data-type=text status-code=200
 ^https?:\/\/starplucker\.cyapi\.cn\/v\d\/(config\/cypage\/\w+\/conditions|notification\/message_center|operation\/homefeatures) mock-response-body data-type=text data="{}" status-code=200
@@ -2334,17 +2456,22 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/(?>csc|osg)-service\.sgcc\.com\.cn:\d+\/emss-pfa-appset-front\/bootpageoutter\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?>searchBoxWord|xview2Config|stationPullService|getWidget|widget|hybrid|jdDiscoveryRedPoint|queryMaterialAdverts) mock-response-body data-type=text status-code=200
 ^https?:\/\/weibo\.com\/ttarticle\/x\/m\/aj\/(reward|uvead)\? mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/api\.zhihu\.com\/feed\/render\/revisit\/current_reading mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/hweb-hotel\.huazhu\.com\/home\/queryRecommond mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/live\.inst-service\.htsc\.com\/live mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/manualOperationGoods\/pageManualOperationGoods mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.zhuishushenqi\.com\/user\/bookshelf-updated mock-response-body data-type=text status-code=200
 ^https?:\/\/creditcard\.bankcomm\.(com|cn)\/tofimg\/bucket-pj-btss-tfcn-dmz\/OSS-F\/a8f2e8 mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/(h3\.)?open\.taou\.com\/maimai\/pay\/v\d\/check_gift mock-response-body data-type=text data="{}" status-code=200
 ^https?://rs.creditcard.cmbc.com.cn/mmc/img/126f35586ece469aa2daf2e451ba7b4d.jpg mock-response-body data-type=text status-code=200
+^https?:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(cdn-)?shop\.kkmh\.com\/mbff\/popup_administration mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\? mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/gw\.xiaocantech\.com\/g\/pa mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/xyst\.yuanfudao\.com\/iphone\/splashesV\d mock-response-body data-type=text status-code=200
 ^https?:\/\/new-app-api\.ylyk\.com\/v\d\/user\/myinfo\/adviser mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/photocdn\.sohu\.com\/tvmobilemvms mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/activity\/coupon\/float_entrance\/get\?api_key mock-response-body data-type=text status-code=200
 ^https?:\/\/douyucdn\.cn\/.+?\/appapi\/getinfo mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/4gimg\.map\.qq\.com\/mwaSplash\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/v\d\/ads\/ mock-response-body data-type=text data="{}" status-code=200
@@ -2378,8 +2505,11 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api-ac\.liepin\.com\/api\/com\.liepin\.pupa\.discover\.click-tab mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/j5\.dfcfw\.com\/WG\/(app)?conf\/202[0-9]{5}/.*.(?>jpg|png) mock-response-body data-type=text status-code=200
 ^https?:\/\/mage(v\d)?\.if\.qidian\.com\/argus\/api\/v\d\/adv mock-response-body data-type=text data="{}" status-code=200
+#^https?:\/\/api\.mos\.csvw\.com\/mos\/operation\/home\/api\/v\d\/app\/brand\/queryDataForOperation mock-response-body data-type=text status-code=200
+^https?:\/\/iface2\.iqiyi\.com\/ivos\/interact\/video\/data\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/b2baifanfan\.baidu\.com\/crm\/web\/b2b\/im\/common\/getConfigByDeviceNum mock-response-body data-type=text status-code=200
 ^https?:\/\/mapi\.sichuanair\.com\/zt\/tribeport\/encrypt_translate_key mock-response-body data-type=text status-code=200
+^https?:\/\/ios\.chat\.openai\.com\/public-api\/mobile\/app_support_status mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(cdn-)?api\.kkmh\.com\/v\d\/checkin\/api\/new_user\/tab_info mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.zhihu\.com\/search\/preset_words mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(?>gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com(:443)?\/(?>ad-logic|ads|.+ad_slot|.+banners|.+canvases|.+cards|.+crashlytics|.+doubleclick.net|.+enabled-tracks|.+event|.+sponsored|.+promoted) mock-response-body data-type=tiny-gif status-code=200
@@ -2401,8 +2531,10 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/tiku\.zhan\.com\/Common\/newAd\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/mob\.mddcloud\.com\.cn\/api\/(ad|advert)\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/www\.gcores\.com\/gapi\/v\d\/app-start-pages\?page mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/wemallh5\.usmile\.com\/api\/sp-portal\/store\/usmile\/activity\/dayCheck\?pop mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/118\.178\.214\.118\/yyting\/advertclient\/ClientAdvertList\.action mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/tv\.qiaohuapp\.com\/api\/v\d\.\d\/advert mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/www\.gaoding\.com\/api\/v\d\/oc\/delivery-pits\/(?>template|mine|home)-page-dialog\/modules$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/rr[\w-]+\.googlevideo\.com\/initplayback\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.feng\.com\/v\d\/advertisement\/ mock-response-body data-type=text status-code=200
@@ -2411,6 +2543,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.duitang\.com\/napi\/vienna\/daren\/daren\/recommend\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/hwstore\.kugou\.com\/v\d\/get_store_data mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/api\.m\.mi\.com\/v\d\/app\/popup_info$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.weibo\.cn\/2\/statuses\/(container_positive|push_info)\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/service\.iciba\.com\/popo\/open\/screens\/v\d\?adjson mock-response-body data-type=text status-code=200
 ^https?:\/\/(syh|www)\.zybang\.com\/adx\/ mock-response-body data-type=text status-code=200
@@ -2419,6 +2552,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/mobile\.1qianbao\.com\/mtp-web\/ui\/op_common_query_business_yqb\.json mock-response-body data-type=text status-code=200
 ^https?:\/\/l[0-9]{1}\.51fanli\.net\/app\/images\/splash\/2022\/0[4-9]{1}\/.*.jpg mock-response-body data-type=text status-code=200
 ^https?:\/\/restapi\.iyunmai\.com\/api\/ios\/credit\/credit-family mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/ci\.xiaohongshu\.com\/system_config\/watermark mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/cloud\.bluecardsoft\.com\/yuntingad\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/promote-trx\.helipay\.com\/promote-business-client\/pos\/appAdvertisement\/appAdvertisementList mock-response-body data-type=text status-code=200
@@ -2432,6 +2566,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/online\.aicarmap\.com\/club\/api\/user\/updateloc mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/gateway(retry)?\.kugou\.com\/adp\/bubble\/v\d\/song_play mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/rtbapi\.douyucdn\.cn\/japi\/sign\/app\/getinfo mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/maicai\.api\.ddxq\.mobi\/vip\/getVipAd mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.pinduoduo\.com\/search_hotquery mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ep\.kugou\.com\/v\d\/album_shop\/get_entrance_info mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/discuz\.gtimg\.cn\/cloud\/scripts\/discuz_tips mock-response-body data-type=tiny-gif status-code=200
@@ -2441,12 +2576,17 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/jiakao-misc\.kakamobi\.cn\/api\/open\/my-tab-config\/(?>banner|selection)-list mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/popUpAdCollection mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/patient-api\.suh\.cn\/apt\/api\/userinfo\/GetNotice\? mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/cdke\.youdao\.com\/course\d\/recommend\/dict\/startup mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.gameplus\.qq\.com\/community\.OnloadSrv\/GetPreloadScreenInfo mock-response-body data-type=text status-code=200
+^https?:\/\/cn-app\.narwaltech\.com\/operate\/appPosition\/listSplash\?resourceIds=narwal_splash_screen mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/gateway(retry)?\.kugou\.com\/v\d\/feeds\/follow_feed_fallback mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/download1\.bankcomm\.com\/chngweb\/CHNRCSP\/media mock-response-body data-type=text status-code=200
 ^https?:\/\/ms\.jr\.jd\.com\/gw\/generic\/app\/(new)?na\/m\/getLaunchImageList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/a\.line\.me\/er\/l.*\/v\d\/event\/image mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/yyfapi\.huatu\.com\/common\/ad\/resource\/home mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/bd-api\.kuwo\.cn\/api\/(\w+\/)?advert mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/jdread-api\.jd\.com\/jdread\/api\/channel\/module\/opens mock-response-body data-type=text status-code=200
+#^https?:\/\/cdn\.sdb\.com\.cn\/widget\/magic-module-sprite\/four-rectangle-grid mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/edit\.sinaapp\.com\/ua\?t=adv mock-response-body data-type=text status-code=200
 ^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic mock-response-body data-type=text status-code=200
 ^https?:\/\/recite\.perfectlingo\.com\/api\/recite\/app-act\/act-list mock-response-body data-type=text data="{}" status-code=200
@@ -2465,7 +2605,9 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/img\.meituan\.net\/groceryimages\/\w+\.png@220w_220h_1e_1l mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/\w+\.ys7\.com\/v\d\/configurations\/gray\/info\?grayTypes=185 mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/a\.line\.me\/er\/lads\/v\d\/ei\? mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/ai-summary mock-response-body data-type=text status-code=200
 ^https?:\/\/mage(v\d)?\.if\.qidian\.com\/argus\/api\/v\d\/followsubscribe mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/www\.gaoding\.com\/api\/v\d\/oc\/gaoding\/app\/upgrade mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/djcapp\.game\.qq\.com\/daoju\/igw\/main\/\?_service=welink\.ad\.list&_ret_key=result&site_set mock-response-body data-type=text status-code=200
 ^https?:\/\/openapi\.boc\.cn\/unlogin\/app\/cbsp\/query_ad_list mock-response-body data-type=text status-code=200
 ^https?:\/\/szdmobile\.suzhou\.gov\.cn\/thirdapp-center\/appUpdate\/update mock-response-body data-type=text data="{}" status-code=200
@@ -2475,9 +2617,11 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/vapp\.tmuyun\.com\/api\/buoy\/list mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/bd-api\.kuwo\.cn\/api\/search\/topic\/word\/list mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mapi\.mafengwo\.cn\/system\/update\/check_update mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/hweb-manager\.huazhu\.com\/hotels\/ad\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/3g\.csair\.com\/extraClient\/data\/preSelecteSeat\/xproduct\/getXProductList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/afd\.baidu\.com\/afd\/entry mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/rsb\.pingan\.com\.cn\/brcp\/stp\/cust\/mobile\/source\/upgrade mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/maicai\.api\.ddxq\.mobi\/order\/getRecommend mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/obs\.line-scdn\.net\/r\/linecrs\/.+\/m180x180$ mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/api\.weibo\.cn\/2\/!\/wbox\/\w+\/(home_bottom_modal|interest_category)\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\? mock-response-body data-type=text data="{}" status-code=200
@@ -2485,6 +2629,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d\/query\/likes mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/zlsdk\.1rtb\.net\/sdk\/req_ad\?sdk_version=\d+\.\d+\.\d+\.\d+&device_os=iOS&accept_ad_type=\d+&app_id=\d+&pid=\d+&sdk_version_code=\d+ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(?>ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList mock-response-body data-type=text status-code=200
+^https?:\/\/ovs-shopwindow-server.*\.wps\.com\/api\/v\d\/shop_window\/type\/ios mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdnfile1\.msstatic\.com\/cdnfile\/appad\/ mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/3g\.csair\.com\/CSMBP\/data\/homePage\/getLaunchInfoNew mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/l[0-9]{1}\.51fanli\.net\/app\/images\/splash\/2022\/1[0-2]{1}\/.*.jpg mock-response-body data-type=text status-code=200
@@ -2492,9 +2637,11 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/ddrk\.me\/wp-content\/plugins\/advanced-floating-content-lite\/public\/images\/close\.png mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/wcprd\.hilton\.com\.cn\/app-middleware\/graphql\?type=splashAd mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.17gwx\.com\/v\d\/recommend\/feed\/list mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/mobile\.api\.mgtv\.com\/v\d\/mobile\/checkUpdate\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/xqimg\.imedao\.com\/[a-z0-9]{24}\.jpg$ mock-response-body data-type=text status-code=200
 ^https?:\/\/(cdn-)?api\.kkmh\.com\/v\d\/business\/fake_push\/info mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mapiweb\.babytree\.com\/newapi\/luban\/behavior\/receive mock-response-body data-type=text status-code=200
+^https?:\/\/api\.zhihu\.com\/me\/guides mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ams-cdn\.cdtft\.cn\/prod\/tft-ams mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/recite\.perfectlingo\.com\/api\/recite\/content-recommend\/v\d\/get-by-uid mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(homepage\.merge|tabbar\.marketing)\.get mock-response-body data-type=text data="{}" status-code=200
@@ -2525,7 +2672,10 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/www\.ahzs10000\.com\/palmhall\/client\/base\/newVerson_getStartUp\.action mock-response-body data-type=text status-code=200
 ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.qbb6\.com\/commons\/self\/button\/group\/get mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/userred\?scene=homePage mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/wallet\.lakala\.com\/m\/a\/message\/v\d\/fetchMsgList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.interface\.v\d\.Search\/DefaultWords mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/act\.vip\.iqiyi\.com\/interact\/api(\/v\d)?\/show mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.ncarzone\.com\/superapi\/canary\/appHomeFacade\/getNewUserPlateActivity mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.m\.mi\.com\/v\d\/app\/start mock-response-body data-type=text status-code=200
 ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/other_modul\? mock-response-body data-type=text data="{}" status-code=200
@@ -2535,6 +2685,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/vapp\.tmuyun\.com\/api\/app_start_page\/list\/new mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/portal-xunyou\.qingcdn\.com\/api\/v\d\/\w+\/configs\/(?>splash_ad|ad_urls) mock-response-body data-type=text status-code=200
 ^https?:\/\/m\d\.amap\.com\/ws\/(mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword) mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/www\.gaoding\.com\/api\/v\d\/oc\/v\d\/delivery-pits\/ios-splash\/modules$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/freight\.xiaojukeji\.com\/gateway(?!\?api=freight\.p\.personal\.center) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.cloud\.189\.cn\/guns\/(img\/recommendedPosition|getOpenscreenBanners) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/intellicc\.\w+\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.RecommendRenderControllerApi\/getRecommendResult mock-response-body data-type=text data="{}" status-code=200
@@ -2544,6 +2695,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/cdn\.poizon\.com\/node-common\/.*.jpg mock-response-body data-type=text status-code=200
 ^https?:\/\/cdn\.sdb\.com\.cn\/widget\/pb\/pb-plugins-rec-mivideo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mp\.weixin\.qq\.com\/mp\/(?>ad_|advertisement|getappmsgad|cps_product_info|masonryfeed|relatedarticle|relatedsearchword) mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/layout\/productList\/eventData\/v mock-response-body data-type=text status-code=200
 ^https?:\/\/fastbuyer\.zbj\.com\/configure\/screenAdConfig\/ mock-response-body data-type=text status-code=200
 ^https:\/\/ecssmobile\.e-chinalife\.com(:\d+)?\/ecss\/web\/appupdate\/customization\/getFlashScreenInfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/zj\.haier\.net\/omsappapi\/resource\/v\d\/resBagList$ mock-response-body data-type=text status-code=200
@@ -2551,6 +2703,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api-sams\.walmartmobile\.cn\/api\/v\d\/sams\/goods-portal\/spu\/searchRecommendPool mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/imgcache\.qq\.com\/qqlive\/ mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/rsb\.pingan\.com\.cn\/brcp\/bds\/cust\/ygfz\/up mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/wallet\.lakala\.com\/m\/a\/lama\/mgt\/activity\/biz\/query\/byMerInfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.mimir\.recommend mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/apapia-sqk\.manmanbuy\.com\/index_json\.ashx$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mgesq\.api\.mgtv\.com\/v\d\/goods\/guess_you_like mock-response-body data-type=text data="{}" status-code=200
@@ -2558,6 +2711,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/ggic\d+.miguvideo\.com\/ad\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/open\.e\.kuaishou\.cn\/rest\/e\/v\d\/open mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/tiku\.fenbi\.com\/activity\/app\/(?>launcher|versions) mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/guide\/user_banner mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.qbb6\.com\/commons\/widget\/info\/get mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.topic\.banner\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/m\d\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? mock-response-body data-type=text data="{}" status-code=200
@@ -2565,6 +2719,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/www\.cmbc\.com\.cn\/m\/image\/banner\/.*.png mock-response-body data-type=text status-code=200
 ^https?:\/\/(api|b)\.zhuishushenqi\.com\/advert mock-response-body data-type=text status-code=200
 ^https?:\/\/gha\.ghac\.cn\:\w+\/base\/app\/api\/ad\/query mock-response-body data-type=text status-code=200
+^https?:\/\/lamb\.lakala\.com\/lamo\/adv\/access\/queryMaterialUrl mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/m\.tuniu\.com\/api\/operation\/splash\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/api-c\.liepin\.com\/api\/com\.liepin\.pupa\.discover\.city\.get-ad-comps mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/h5api\.sginput\.qq\.com\/v\d\/gcenter\/ios\/homepage mock-response-body data-type=text data="{}" status-code=200
@@ -2573,11 +2728,14 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/www\.nfmovies\.com\/templets\/default\/images\/logos mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/img0[1-9]{1}\.luckincoffeecdn\.com\/group\d/M00/[A-Z0-9]{2}/[A-Z0-9]{2}/[a-zA-Z0-9]{29}\.(?>jpg|jpeg)_\.webp mock-response-body data-type=text status-code=200
 ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.longquan\.place\.getpageresourcecontent mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.alsc\.eleme\.\w+\.trigger\.respond mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/hmbaby\.simshine\.cn\/admin\/filter\/advert\/getAdvertLists mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.(pisp\.scripts\.get|xspace\.play\.position\.preload\.query|xspace\.poplayer\.position\.query) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/(?>m|xp)get mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.sodalife\.xyz\/v\d\/posters\?location=SODA_APP%3AHOME%3ATOP mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/y\.gtimg\.cn\/music\/common\/\/upload\/kg_ad\/.+?\d{3,4}x\d{4} mock-response-body data-type=text status-code=200
+^https?:\/\/api\.zhihu\.com\/distribute\/rhea\/qa_ad_card\/h5\/recommendation\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/upos-sz-static\.bilivideo\.com\/ssaxcode\/\w{2}\/\w{2}\/\w{32}-1-SPLASH mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/zj\.haier\.net\/omssceneapi\/house\/v\d\/recommend\/listByRoom$ mock-response-body data-type=text status-code=200
 ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.(discover|shade)\/ mock-response-body data-type=text data="{}" status-code=200
@@ -2592,15 +2750,21 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/apps\.teamair\.cn\/app\/version mock-response-body data-type=file data="https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/qi.json"
 ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.wireless\.home\.xianyu(\.my)?\.awesome\.get mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/s3plus\.meituan\.net\/v\d\/mss_\w+\/goku\/(?>lottie|lucency) mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/api\.zhihu\.com\/ad mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/saas\.hpplay\.cn\/api\/lebo-desk\/endpoint\/app-resource\/app_home_tips mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/apphw\.ddpai\.com:\d+\/onroad\/api\/v\d\/\w+\/list mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/surprisebox\/(?>get_style|open|submit_action) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api-sams\.walmartmobile\.cn\/api\/v\d\/sams\/channel\/portal\/AdgroupData mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/i\d\.hdslb\.com\/bfs\/fawkes mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.duitang\.com\/napi\/infra\/settings\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.bwton\.com\/bff\/app\/index\/goods mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mbd\.baidu\.com\/ccs\/v\d\/start\/confsync\?appname=baidu_input mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/appapi\.51job(app)?\.com\/api\/util\/get_version mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdn\.sdb\.com\.cn\/widget\/pb\/pb-plugins-rec-content-list mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/www\.shihuo\.cn\/app\d\/saveAppInfo mock-response-body data-type=text status-code=200
 ^https?:\/\/cupid\.51job(app)?\.com\/open\/noauth\/index\/last-version mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/iface2\.iqiyi\.com\/views_pop\/3\.0\/pop_control\? mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword\.get mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/app2\.autoimg\.cn\/apppdfs\/ mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/adapi\.izuiyou\.com\/ad\/fetch_api_ads\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig mock-response-body data-type=text status-code=200
@@ -2616,13 +2780,21 @@ http-response ^https?:\/\/api\.weibo\.cn\/2\/groups\/allgroups\/v2\? script-path
 
 http-response ^https?:\/\/(cdn-)?api\.kkmh\.com\/v\d\/ironman\/discovery_v\d\/tab_list_v\d script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/kkmh.js, requires-body=true, tag=kkmh
 
+http-response ^https?:\/\/api\.gotokeep\.com\/nuocha\/course\/v\d/\w+\/preview script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/keep.js, requires-body=true, tag=keep
+
 http-response ^https?:\/\/gateway-mobile-gray\.soulapp\.cn\/mobile\/app\/version\/queryIos script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/soul.js, requires-body=true, tag=soul
 
+http-response ^https?:\/\/mob-st\.bz\.mgtv\.com\/odin\/c\d\/channel\/index\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=mgtv
+
 http-response ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/goofish.js, requires-body=true, tag=goofish
+
+http-response ^https?:\/\/.*\.xima.*\.com\/discovery-feed\/v\d\/mix script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xmly.js, requires-body=true, tag=xmly
 
 http-response ^https?:\/\/common\.diditaxi\.com\.cn\/common\/v\d\/usercenter\/me script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/didi.js, requires-body=true, tag=didi
 
 http-response ^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.User\/UCenterConf script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliManga.js, requires-body=true, tag=bilibiliManga
+
+http-response ^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.columbus\.(gateway\.new\.execute|home\.feed|home\.query|uc\.query|ycp\.query) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=youku
 
 http-response ^https?:\/\/api\.17gwx\.com\/v\d\/history\/remind\/listV script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/sqkb.js, requires-body=true, tag=sqkb
 
@@ -2646,6 +2818,8 @@ http-response ^https?:\/\/conf\.diditaxi\.com\.cn\/ota\/na\/yuantu\/infoList scr
 
 http-response ^https?:\/\/gw\.m\.163\.com\/nc\/api\/v\d\/search\/hot-word script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/163news.js, requires-body=true, tag=163news
 
+http-response ^https?:\/\/iface2\.iqiyi\.com\/aggregate\/3\.0\/getMyMenus\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=iqiyi
+
 http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/interaction\/comment\/video\/download\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
 http-response ^https?:\/\/api\.coolapk\.com\/v\d\/main\/(?>dataList|indexV|init) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/coolapk.js, requires-body=true, tag=coolapk
@@ -2660,9 +2834,13 @@ http-response ^https?:\/\/api\.zhihu\.com\/(v\d\/)?questions\/\d+\/(feeds|answer
 
 http-response ^https?:\/\/qianbao\.smzdm\.com\/v\d\/app\/home script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/smzdm.js, requires-body=true, tag=smzdm
 
+http-response ^https?:\/\/user\.api\.ddxq\.mobi\/userportal-service\/api\/v\d\/user\/queryMyPage script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ddxq.js, requires-body=true, tag=ddxq
+
 http-response ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
 
 http-response ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.polymer\.app\.search\.v\d\.Search\/SearchAll script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliProtoA.js, requires-body=true, tag=bilibili
+
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/widgets script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
 http-response ^https?:\/\/api\.xiaoheihe\.cn\/bbs\/app\/feeds\/news script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaoheihe.js, requires-body=true, tag=xiaoheihe
 
@@ -2680,6 +2858,12 @@ http-response ^https?:\/\/post\.soulapp\.cn\/v\d\/post\/homepage\/guide\/card sc
 
 http-response ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/goofish.js, requires-body=true, tag=goofish
 
+http-response ^https?:\/\/api\.weibo\.cn\/2\/direct_messages\/user_list\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
+
+http-response ^https?:\/\/mobile\.api\.mgtv\.com\/mobile\/config\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=mgtv
+
+http-response ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/youtube.js, requires-body=true, tag=youtube
+
 http-response ^https?:\/\/api\.rr\.tv\/drama\/app\/get_combined_drama_detail script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/rrtv.js, requires-body=true, tag=rrtv
 
 http-response ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/song\/play\/more\/list\/v\d script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/163music.js, requires-body=true, tag=163music
@@ -2692,7 +2876,15 @@ http-response ^https?:\/\/api\.weibo\.cn\/2\/profile\/(container_timeline|dealat
 
 http-response ^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.User\/GetInitInfo script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliManga.js, requires-body=true, tag=bilibiliManga
 
+http-response ^https?:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/common_switch\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=iqiyi
+
+http-response ^https?:\/\/search\.video\.iqiyi\.com\/q\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=iqiyi
+
 http-response ^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=\d script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/blued.js, requires-body=true, tag=blued
+
+http-response ^https?:\/\/api\.gotokeep\.com\/config\/v\d\/basic script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/keep.js, requires-body=true, tag=keep
+
+http-response ^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/mpageconfig\/myPageConfigList script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/picc.js, requires-body=true, tag=picc
 
 http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/comment\/(?>list|sub_comments)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
@@ -2701,6 +2893,8 @@ http-response ^https?:\/\/47\.110\.187\.87\/winterfell\/v\d\/getIpByDomain scrip
 http-response ^https?:\/\/app-api\.smzdm\.com\/util\/(loading|update) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/smzdm.js, requires-body=true, tag=smzdm
 
 http-response ^https?:\/\/api\.rr\.tv\/app\/config\/h5NativeBar script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/rrtv.js, requires-body=true, tag=rrtv
+
+http-response ^https?:\/\/app\.bilibili\.com\/x\/v\d\/account\/(mine(\/ipad)?|myinfo)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliJson.js, requires-body=true, tag=bilibili
 
 http-response ^https?:\/\/post\.m\.smzdm\.com\/ajax_app\/ajax_get_footer_list script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/smzdm.js, requires-body=true, tag=smzdm
 
@@ -2714,6 +2908,8 @@ http-response ^https?:\/\/go\.babytree\.com\/go_pregnancy\/api\/(?>app_index|cms
 
 http-response ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/kuwo.js, requires-body=true, tag=kuwo
 
+http-response ^https?:\/\/maicai\.api\.ddxq\.mobi\/tool\/getConfig script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ddxq.js, requires-body=true, tag=ddxq
+
 http-response ^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/sync$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/tiebaJson.js, requires-body=true, tag=baidutieba
 
 http-response ^https?:\/\/access\.if\.iqiyi\.com\/3f1\/cards\.iqiyi\.com\/(views_category\/3\.0\/category_home|views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=iqiyi
@@ -2722,15 +2918,29 @@ http-response ^https?:\/\/mapi\.mafengwo\.cn\/user\/profile\/get_(?>list|profile
 
 http-response ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.interface\.v\d\.Teenagers\/ModeStatus script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliProtoA.js, requires-body=true, tag=bilibili
 
+http-response ^https?:\/\/[\d\.]+\/3f1\/cards\.iqiyi\.com\/(views_home\/3\.0\/qy_home|waterfall\/3\.0\/feed)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=iqiyi
+
 http-response ^https?:\/\/(cdn-)?api\.kkmh\.com\/v\d\/ironman\/comic\/recommend script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/kkmh.js, requires-body=true, tag=kkmh
+
+http-response ^https?:\/\/www\.gaoding\.com\/api\/v\d\/oc\/exhibitions\/template\/resources$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/gaoding.js, requires-body=true, tag=gaoding
+
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/config\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
+
+http-response ^https?:\/\/api\.bilibili\.com\/pgc\/page\/(bangumi|cinema\/tab\?) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliJson.js, requires-body=true, tag=bilibili
 
 http-response ^https?:\/\/(mgxhtj|nmobi|searchrecterm)\.kuwo\.cn\/(mgxh|mobi|recterm)\.s script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/kuwo.js, requires-body=true, tag=kuwo
 
 http-response ^https?:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/pdd.js, requires-body=true, tag=pdd
 
+http-response ^https?:\/\/new\.vip\.weibo\.cn\/aj\/appicon\/list\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
+
 http-response ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/link\/home\/framework\/tab script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/163music.js, requires-body=true, tag=163music
 
+http-response ^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.haidai\.lantern\.appconfig\.get script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=youku
+
 http-response ^https?:\/\/mage(v\d)?\.if\.qidian\.com\/argus\/api\/v\d\/(deeplink\/geturl|client\/getconf|bookshelf\/getHoverAdv|dailyrecommend\/getdailyrecommend|assembly\/toolbar|user\/getaccountpage) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/qidian.js, requires-body=true, tag=qidian
+
+http-response ^https?:\/\/.*\.xima.*\.com\/focus-mobile\/focusPic script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xmly.js, requires-body=true, tag=xmly
 
 http-response ^https?:\/\/open\.e\.kuaishou\.com\/rest\/e\/v\d\/open\/univ$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/adsense.js, requires-body=true, tag=kuaishou
 
@@ -2738,11 +2948,17 @@ http-response ^https?:\/\/api-pay\.soulapp\.cn\/vip\/meet\/userInfo script-path=
 
 http-response ^https?:\/\/app\.bilibili\.com\/x\/v\d\/splash\/(brand\/list|event\/list2|list|show)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliJson.js, requires-body=true, tag=bilibili
 
+http-response ^https?:\/\/api\.weibo\.cn\/2\/(cardlist|page)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
+
+http-response ^https?:\/\/iface2\.iqiyi\.com\/views\/3\.0\/(bottom_theme|home_top_menu)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=iqiyi
+
 http-response ^https?:\/\/conf-m-ssl\.xunlei\.com\/external\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xunlei.js, requires-body=true, tag=xunlei
 
 http-response ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(pickup\.empty\.page|protocol\.homepage)\.get script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cainiao.js, requires-body=true, tag=cainiao
 
 http-response ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.main\.community\.reply\.v\d\.Reply\/MainList script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliProtoA.js, requires-body=true, tag=bilibili
+
+http-response ^https?:\/\/iface2\.iqiyi\.com\/control\/3\.0\/init_proxy\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=iqiyi
 
 http-response ^https?:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/adsense.js, requires-body=true, tag=adunion
 
@@ -2756,11 +2972,19 @@ http-response ^https?:\/\/dc2?\.bz\.mgtv\.com\/dynamic\/v\d\/channel\/(index|vrs
 
 http-response ^https?:\/\/api\.rr\.tv\/v3plus\/index\/channel\?pageNum=1&position=CHANNEL_MY script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/rrtv.js, requires-body=true, tag=rrtv
 
+http-response ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/zhuanzhuan.js, requires-body=true, tag=zhuanzhuan
+
 http-response ^https?:\/\/api\.weibo\.cn\/2\/statuses\/(extend|show)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
+
+http-response ^https?:\/\/mobile\.api\.mgtv\.com\/v\d+\/video\/info\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=mgtv
 
 http-response ^https?:\/\/api\.rr\.tv\/watch\/v\d script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/rrtv.js, requires-body=true, tag=rrtv
 
+http-response ^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/a\/config\/homeInit script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/picc.js, requires-body=true, tag=picc
+
 http-response ^https?:\/\/mapi\.chaogejiaoyu\.com\/api\/outline\/getAppBanner script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/chaoge.js, requires-body=true, tag=chaoge
+
+http-response ^https?:\/\/.*\.xima.*\.com\/discovery-category\/v\d/category script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xmly.js, requires-body=true, tag=xmly
 
 http-response ^https?:\/\/user-api\.smzdm\.com\/vip script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/smzdm.js, requires-body=true, tag=smzdm
 
@@ -2772,9 +2996,17 @@ http-response ^https?:\/\/cards\.iqiyi\.com\/(views_home\/3\.0\/qy_home|waterfal
 
 http-response ^https?:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/core script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/didi.js, requires-body=true, tag=didi
 
+http-response ^https?:\/\/api\.gotokeep\.com\/sportpage\/sport\/v\d\/mysport script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/keep.js, requires-body=true, tag=keep
+
 http-response ^https?:\/\/api\.weibo\.cn\/2\/users\/show\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/vvebo.js, requires-body=true, tag=vvebo
 
+http-response ^https?:\/\/me\.bz\.mgtv\.com\/v\d\/module\/list\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=mgtv
+
 http-response ^https?:\/\/api\.rr\.tv\/user\/privilege\/list script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/rrtv.js, requires-body=true, tag=rrtv
+
+http-response ^https?:\/\/(kjp|t7z)\.cupid\.iqiyi\.com\/mixer\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=iqiyi
+
+http-response ^https?:\/\/api\.gotokeep\.com\/athena\/v\d\/people\/my$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/keep.js, requires-body=true, tag=keep
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/(container\/asyn|flowlist|flowpage)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
 
@@ -2788,7 +3020,19 @@ http-response ^https?:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspams
 
 http-response ^https?:\/\/(cdn-)?social\.kkmh\.com\/v\d\/graph\/unified_feed script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/kkmh.js, requires-body=true, tag=kkmh
 
+http-response ^https?:\/\/iosapi\.peiyinxiu\.com\/Api\/Film\/GetConfigValue script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/peiyinxiu.js, requires-body=true, tag=peiyinxiu
+
+http-response ^https?:\/\/audiobookpay\.kuwo\.cn\/a\.p script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/kuwo.js, requires-body=true, tag=kuwo
+
+http-response ^https?:\/\/.*\.xima.*\.com\/mobile-user\/v\d\/homePage script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xmly.js, requires-body=true, tag=xmly
+
+http-response ^https?:\/\/(?>edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/(?>imagefeed|feed|videofeed|(live_photo|video)\/save) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
+
+http-response ^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.huluwa\.dispatcher\.youthmode\.config2 script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=youku
+
 http-response ^https?:\/\/g(.*)\.dushu365\.com\/abtest-front\/banner-modular\/get script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/dushu365.js, requires-body=true, tag=dushu365
+
+http-response ^https?:\/\/.*\.xima.*\.com\/discovery-category\/customCategories script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xmly.js, requires-body=true, tag=xmly
 
 http-response ^https?:\/\/api-a\.soulapp\.cn\/official\/scene\/module script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/soul.js, requires-body=true, tag=soul
 
@@ -2814,6 +3058,10 @@ http-response ^https?:\/\/api\.weibo\.cn\/2\/search\/(container_timeline|finder)
 
 http-response ^https?:\/\/www\.1314zhilv\.com\/ltsstnew\/(common\/getJGQIconNew|city\/getAllBannelByCity) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ltsst.js, requires-body=true, tag=1314zhilv
 
+http-response ^https?:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=youku
+
+http-response ^https?:\/\/iosapi\.peiyinxiu\.com\/api\/Union\/HomeData script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/peiyinxiu.js, requires-body=true, tag=peiyinxiu
+
 http-response ^https?:\/\/g\.alicdn\.com\/.*o2o-ad script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/alicdn.js, requires-body=true, tag=adunion
 
 http-response ^https?:\/\/mi\.gdt\.qq\.com\/gdt_mview script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/adsense.js, requires-body=true, tag=adunion
@@ -2821,6 +3069,12 @@ http-response ^https?:\/\/mi\.gdt\.qq\.com\/gdt_mview script-path=https://github
 http-response ^https?:\/\/is.snssdk.com/api/ad/union/sdk script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/adsense.js, requires-body=true, tag=adunion
 
 http-response ^https?:\/\/.+\.pipix\.com\/bds\/feed\/channel_list\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ppx.js, requires-body=true, tag=ppx
+
+http-response ^https?:\/\/comment-card\.iqiyi\.com\/views_comment\/3\.0\/long_video_comments\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=iqiyi
+
+http-response ^https?:\/\/www\.gaoding\.com\/api\/v\d\/oc\/exhibitions\/app_mine\/resources script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/gaoding.js, requires-body=true, tag=gaoding
+
+http-response ^https?:\/\/iosapi\.peiyinxiu\.com\/api\/live\/FollowList script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/peiyinxiu.js, requires-body=true, tag=peiyinxiu
 
 http-response ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/(batch|v\d\/resource\/comment\/floor\/get) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/163music.js, requires-body=true, tag=163music
 
@@ -2842,9 +3096,13 @@ http-response ^https?:\/\/g(.*)\.dushu365\.com\/resource-orchestration-system\/b
 
 http-response ^https?:\/\/api-a\.soulapp\.cn\/v\d\/post\/gift\/list script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/soul.js, requires-body=true, tag=soul
 
+http-response ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.nbfriend\.message\.conversation\.list\.cn script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cainiao.js, requires-body=true, tag=cainiao
+
 http-response ^https?:\/\/vip\d\.kuwo\.cn\/vip\/(enc\/user\/vip\?op=ui|v\d\/theme\?op=gd) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/kuwo.js, requires-body=true, tag=kuwo
 
 http-response ^https?:\/\/iqushangwang\.8quan\.com\/index\.php\/i\/index\/index script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/quda.js, requires-body=true, tag=quda
+
+http-response ^https?:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=youku
 
 http-response ^https?:\/\/appcloud2\.zhihu\.com\/v\d\/config script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/zhihu.js, requires-body=true, tag=zhihu
 
@@ -2876,9 +3134,13 @@ http-response ^https?:\/\/haojia-api\.smzdm\.com\/(?>home\/list|ranking_list\/ar
 
 http-response ^https?:\/\/member\.alipan\.com\/v\d\/users\/onboard_list script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/adrive.js, requires-body=true, tag=adrive
 
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/(?>banner|hot)_list script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
+
 http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/splash_config script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
 http-response ^https?:\/\/.+\.pipix\.com\/bds\/user\/check_in\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ppx.js, requires-body=true, tag=ppx
+
+http-response ^https?:\/\/iosapi\.peiyinxiu\.com\/Api\/Friend\/GetRecommendUsers script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/peiyinxiu.js, requires-body=true, tag=peiyinxiu
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/statuses\/user_timeline\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/vvebo.js, requires-body=true, tag=vvebo
 
@@ -2894,7 +3156,11 @@ http-response ^https?:\/\/homepage-api\.smzdm\.com\/v\d\/home script-path=https:
 
 http-response ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.(view|viewunite)\.v\d\.View\/(?>View|ViewProgress) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliProtoA.js, requires-body=true, tag=bilibili
 
+http-response ^https?:\/\/dict\.youdao\.com\/(homepage\/promotion|course\/tab\/home|homepage\/tile) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/163youdao.js, requires-body=true, tag=163youdao
+
 http-response ^https?:\/\/api\.rr\.tv\/\w{3}\/level\/info script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/rrtv.js, requires-body=true, tag=rrtv
+
+http-response ^https?:\/\/m\d\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/amap.js, requires-body=true, tag=amap
 
 http-response ^https?:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v\d/(?>token|m3u8).php\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/BahamutAnimeAds.js, requires-body=true, tag=gamer
 
@@ -2904,13 +3170,19 @@ http-response ^https?:\/\/api\.rr\.tv\/ad\/getAll script-path=https://github.com
 
 http-response ^https?:\/\/m-cloud\.zhihu\.com\/api\/cloud\/config\/all\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/zhihu.js, requires-body=true, tag=zhihu
 
+http-response ^https?:\/\/api\.weibo\.cn\/2\/(checkin\/show|client\/publisher_list|push\/active)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
+
 http-response ^https?:\/\/\w+\.ys7\.com\/v\d\/valueadded\/operation\/config\/master\/station script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ys7.js, requires-body=true, tag=ys7
 
 http-response ^https?:\/\/oss-zjrs\.haier\.net\/resource\/confFile\/\d{22}\.json$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/haier.js, requires-body=true, tag=ehaier
 
 http-response ^https?:\/\/www\.flyert(rip)?\.com(\.cn)?\/.*plugin script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/flyert.js, requires-body=true, tag=flyert
 
+http-response ^https?:\/\/cards\.iqiyi\.com\/views_plt\/3\.0\/player_tabs_v2\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=iqiyi
+
 http-response ^https?:\/\/api\.coolapk\.com\/v\d\/feed\/(detail|replyList)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/coolapk.js, requires-body=true, tag=coolapk
+
+http-response ^https?:\/\/api\.gotokeep\.com\/homepage\/v\d\/tab script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/keep.js, requires-body=true, tag=keep
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/!\/huati\/discovery_home_bottom_channels\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
 
@@ -2925,6 +3197,8 @@ http-response ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/link\/page\/di
 http-response ^https?:\/\/m\d\.amap\.com\/ws\/shield\/search_poi\/(homepage|mps|search\/sp|sug|tips_operation_location) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/amap.js, requires-body=true, tag=amap
 
 http-response ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\/getHomePageV script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/guiderank.js, requires-body=true, tag=guiderank
+
+http-response ^https?:\/\/api\.m\.mi\.com\/v\d\/order\/expressView script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/mishop.js, requires-body=true, tag=mishop
 
 http-response ^https?:\/\/webapi\.qbb6\.com\/h5\/api\/lib\/internal\/append\/get script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/qbb.js, requires-body=true, tag=qbb
 
@@ -2943,6 +3217,8 @@ http-response ^https?:\/\/sec\.sginput\.qq\.com\/q script-path=https://github.co
 http-response ^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/\w+\/hub script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/pdd.js, requires-body=true, tag=pdd
 
 http-response ^https?:\/\/edu\.51cto\.com\/app\.php\?$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/51cto.js, requires-body=true, tag=51cto
+
+http-response ^https?:\/\/m\d\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv\d\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/amap.js, requires-body=true, tag=amap
 
 http-response ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/taobao.js, requires-body=true, tag=taobao
 
@@ -2968,6 +3244,8 @@ http-response ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/link\/position
 
 http-response ^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliJson.js, requires-body=true, tag=bilibili
 
+http-response ^https?:\/\/m\d\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/amap.js, requires-body=true, tag=amap
+
 http-response ^https?:\/\/api\.weibo\.cn\/2\/messageflow\/notice\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
 
 http-response ^https?:\/\/api\.rr\.tv\/user\/profile script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/rrtv.js, requires-body=true, tag=rrtv
@@ -2980,7 +3258,11 @@ http-response ^https?:\/\/g(.*)\.dushu365\.com\/sns-orchestration-system\/homePa
 
 http-response ^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\/rcg\/index\.html\?callbackurl=rcg\/index\.html&orclogin=1& script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/mdb.js, requires-body=true, tag=mdb
 
+http-response ^https?:\/\/m\d\.amap\.com\/ws\/faas\/amap-navigation\/(?>card-service-plan-home|main-page) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/amap.js, requires-body=true, tag=amap
+
 http-response ^https?:\/\/mgs\.wallet\.pbcdci\.cn:\d+\/mgw\.htm$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ecny.js, requires-body=true, tag=ecny
+
+http-response ^https?:\/\/api\.zhihu\.com\/commercial_api\/app_float_layer script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/zhihu.js, requires-body=true, tag=zhihu
 
 http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?>deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/jd.js, requires-body=true, tag=jd
 
@@ -2988,7 +3270,11 @@ http-response ^https?:\/\/gg\.caixin\.com\/s\?z=caixin&op=1&c=3362 script-path=h
 
 http-response ^https?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/amdc.js, tag=adunion
 
+http-response ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v\d\.Dynamic\/DynAll script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliProtoA.js, requires-body=true, tag=bilibili
+
 http-response ^https?:\/\/(bkclient|umerp|home)\.umetrip\.com(\.cn){0,1}\/gateway\/api\/umetrip\/native script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/umetrip.js, tag=umetrip
+
+http-response ^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.soku\.yksearch script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=youku
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/comments\/build_comments\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
 
@@ -2996,7 +3282,15 @@ http-response ^https?:\/\/napi\.ithome\.com\/api\/(news\/index|topmenu\/getfeeds
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/friendships\/(create|destroy)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
 
+http-response ^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/(?>bottomNavi|homeFlowDetail) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ddxq.js, requires-body=true, tag=ddxq
+
+http-response ^https?:\/\/cards\.iqiyi\.com\/views_search\/3\.0\/(hot_query_)?search\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=iqiyi
+
+http-response ^https?:\/\/m\d-zb\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/amap.js, requires-body=true, tag=amap
+
 http-response ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/duitang.js, requires-body=true, tag=duitang
+
+http-response ^https?:\/\/cupid\.51job(app)?\.com\/open\/my-page\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/51job.js, requires-body=true, tag=51job
 
 http-response ^https?:\/\/m\d-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/amap.js, requires-body=true, tag=amap
 
@@ -3011,6 +3305,12 @@ http-response ^https?:\/\/mobile-thor\.api\.mgtv\.com\/v\d\/vod\/info\? script-p
 http-response ^https?:\/\/cupid\.51job(app)?\.com\/open\/noauth\/recommend\/job-tab-dynamic script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/51job.js, requires-body=true, tag=51job
 
 http-response ^https?:\/\/api\.zhihu\.com\/(moments_v\d|topstory\/recommend(_v\d)?) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/zhihu.js, requires-body=true, tag=zhihu
+
+http-response ^https?:\/\/www\.myusmile\.online\/user\/plaqueTopic\/selectByType script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/usmile.js, requires-body=true, tag=usmile
+
+http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/user\/followings\/followfeed script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
+
+http-response ^https?:\/\/yunbusiness\.ccb\.com\/(?>basic_service|clp_service)\/txCtrl\?txcode=A3341(?>SB16|C147|MB22|A009|A120|AB03|AB04|A068|A095|AB08) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ccblife.js, requires-body=true, tag=ccblife
 
 http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/recommend\/user\/follow_recommend\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/xiaohongshu.js, requires-body=true, tag=xiaohongshu
 
@@ -3031,6 +3331,8 @@ http-response ^https?:\/\/s-api\.smzdm\.com\/sou\/(>?filter\/tags\/hot_tags|list
 http-response ^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/baiduPan.js, requires-body=true, tag=baidupan
 
 http-response ^https?:\/\/api\.boohee\.com\/meta-interface\/v\d\/index\/plaza\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/boohee.js, requires-body=true, tag=boohee
+
+http-response ^https?:\/\/iosapi\.peiyinxiu\.com\/Api\/live\/LiveList script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/peiyinxiu.js, requires-body=true, tag=peiyinxiu
 
 http-response ^https?:\/\/api\.zhihu\.com\/next-(bff|data|render)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/zhihu.js, requires-body=true, tag=zhihu
 

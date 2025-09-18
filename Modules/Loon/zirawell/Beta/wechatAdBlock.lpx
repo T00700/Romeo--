@@ -1,6 +1,6 @@
 #!name=wechatAdBlock
 #!desc=wechatAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1063.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1042.png
 #!tag=Jacob
 
 [Rule]
@@ -50,17 +50,21 @@ DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com,REJECT
 ^https?:\/\/ccmsupport-sz\.tenpay\.com\/cgi-bin\/common\/ccm_page_element.cgi - reject
 ^https?:\/\/gw3\.ykccn\.com\/activityServer\/app\/commandAd - reject
 ^https?:\/\/api\.yonghuivip\.com\/api\/fp\/homepage\/pop - reject
+^https?:\/\/(?>webapi|miniapp)\.qmai\.cn\/web\/cmk-center\/marketing\/canvas\/advert - reject
 ^https?:\/\/api\.yisouti\.com\/popupAd response-body-replace-regex data zirawell
 ^https?:\/\/waimai-guide\.ele\.me\/h5\/mtop\.alsc\.eleme\.miniapp\.homepage response-body-replace-regex wechat_miniapp_scene_card_template zirawell
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getpersonalcenter response-body-replace-regex pendantInfo random_body
+^https?:\/\/rms\.meituan\.com\/api\/v\d\/rmsmina\/c\/queryPortalInfo response-body-json-jq '.data.modules |= map(select(.data.advType != true and .name != "float-window"))'
 ^https?:\/\/chl\.tf\.cn\/channelmg\/sys\/socso\/order\/queryOrderInfo response-body-replace-regex "imgUrl" "imgUrl0"
 ^https?:\/\/api\.wandacm\.com\.cn\/wdmp\/common\/v\d\/xmt\/nsettingInfo response-body-replace-regex popConfig random_body
+^https?:\/\/membase-yxapp\.feiniu\.com\/misc\/memberIndex response-body-replace-regex myADArray myADArray0
 ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api\?bannerInfos=%5B%7B%22cinemaI response-body-replace-regex "WX_index_mp-&-boxAD" "WX_index_mp-&-boxAD0"
 ^https?:\/\/apiproxy\.zuche\.com\/resource\/carrctapi\/home\/marketing mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.maoyan\.com\/sns\/common\/feed\/channel\/v\d\/list\.json mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.mcd\.cn\/bff\/portal\/richpop mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/lop-proxy\.jd\.com\/search\/getQuestionnaireByOrderInfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/as\.xiaojukeji\.com\/ep\/as\/conf\?ns=daijia-front&name= mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/m\.ctrip\.com\/restapi\/soa\d\/\d+\/(?>tripAds|queryWeChatHotEvent) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.hengdianfilm\.com\/\/cinema\/queryAvailableBannerInfo\/2\?cid= mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/www\.deppon\.com\/gwapi\/memberService\/eco\/member\/grade\/commonInterface mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/sto-customer-app\.oss-cn-shanghai\.aliyuncs\.com\/images mock-response-body data-type=text data="{}" status-code=200
@@ -77,7 +81,9 @@ DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com,REJECT
 ^https?:\/\/api\.hengdianfilm\.com\/\/cinema\/queryAvailableBannerInfo\/4\?cid= mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wx\.17u\.cn\/platformpubapi\/customer\/lead\/getInfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/htwkop\.xiaojukeji\.com\/gateway\?api=hm\.fa\.(?>combineHomepageInfo|mallRecommend) mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/navigation\/spread\/querySpreadList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/new\.wwldz\.com\/wechat\/ad\/ mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/navigation\/user\/getAdvertisementPlayModuleInfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/miniapp\.sexytea2013\.com\/cms\/slot\/byCode\?code=MALL_INDEX_SLOT mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/gugongmini\.dpm\.org\.cn\/gugong_applet\/open-screen mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/appuser-static\.huolala\.cn\/imgs mock-response-body data-type=text data="{}" status-code=200
@@ -104,11 +110,16 @@ DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com,REJECT
 ^https?:\/\/interface\.mcake\.com\/api\/popup\/ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.hellobike\.com\/api\?adx mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wxproj\.seeyouyima\.com\/data\/today_tips mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/sg\.teld\.cn\/api\/invoke\?SID=(?>CMS-GetMpAdList|OMP-Monitor-FrontendSend|CMS-GetMPBannerByType|ATMS-MissioncenterSlideshow) mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/www-yxapp\.feiniu\.com\/home\/popupWindow mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/passengerapi\.saicmobility\.com\/(ad\/requestAd|pay\/v\d\/queryOpenedCouponPackages) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cappapi\.alittle-tea\.com\/open\?method=catering\.set\.ad\.initial mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/navigation\/page\/getPageActivityTab mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/lawsonapi\.yorentown\.com\/app\/v\d\/globalLaunch\/listAdvert mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/proservice\.powerlong\.com\/advertising mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mp\.weixin\.qq\.com\/wapad\/reportaddata\?action=exposure_report mock-response-body data-type=text status-code=200
 ^https?:\/\/m\.dianping\.com\/wxmapi\/shop\/friendslike mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/elife\.icbc\.com\.cn\/OFSTNEWBASE\/floorinfo\/(getStartupMantleFlatingFloor|getMantlePages) mock-response-body data-type=text status-code=200
 ^https?:\/\/crm\.scpgroup\.com\.cn\/yinli-minapp\/api\/v\d\/ads mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/r2\.gzyct\.com\/qrcode\/advert mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/chl\.tf\.cn\/channelmg\/sys\/socso\/socsonew\/queryIsRealNameAdertInfo mock-response-body data-type=text data="{}" status-code=200
@@ -118,6 +129,7 @@ DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com,REJECT
 ^https?:\/\/dsxcx\.tencent-prod\.pagoda\.com\.cn\/exc\/wxapp\/homePage\/v\d\/get(?>HomeLaunchDialog|Floating) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wx\.maoyan\.com\/maoyansh\/myshow\/ajax\/ad\/detail mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/suyun-guest\.daojia\.com\/api\/kuaigou\/banjia\/review mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/user\/couponPackage\/couponPackageAccess mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wxapp\.bestwehotel\.com\/\w+\/app-mini\/trip-hotel-banner\/activity\/getActivityInfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/passenger\.t3go\.cn\/(solution\-|common\-)?(passenger\-)?(activity\-|app\-)?api\/notoken\/(trip\/)?api\/(home\/|common\/)?(v\d\/)?(ad\/getNegativescreen|solution\/passenger\/open\/getHomeMenu|leftmenu|getHomeInfoGlobal) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/minicap\.caocaokeji\.cn\/advert-bss\/pullAdvert mock-response-body data-type=text data="{}" status-code=200
@@ -146,6 +158,8 @@ DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com,REJECT
 ^https?:\/\/wx\.17u\.cn\/wechatmypubapi\/myInfo\/(?>orderRemind|icons|memberShow|memberInfo|messageBox) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/apis\.alenable\.com\/ycx\/v\d\/api\/adPut mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdb\.meituan\.com\/marketing\/source\/getPageSlotList mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/search-yxapp\.feiniu\.com\/recommend\/general\/FreshRecBuyAgain mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/search-yxapp\.feiniu\.com\/recommend\/memberIndexGoodsList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/\w+\.sh\.wxgateway\.com\/xcxhomeapi\/((aggregator\/index)|(home\/(?>screen|banner|converge)))$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.kuaidihelp\.com\/g_order_core\/v\d\/mina\/User\/getBannerList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/m\.sh\.189\.cn\/business-appletapi\/applet\/query\/(?>items|banners|getAdItemList) mock-response-body data-type=text data="{}" status-code=200
@@ -177,6 +191,7 @@ DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com,REJECT
 ^https?:\/\/api\.m\.jd\.com\/\?loginType=11 mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mapi\.dianping\.com\/mapi\/mgw\/growth\/clipboardquery mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mp\.weixin\.qq\.com\/wapad\/getaddata\?action=getad mock-response-body data-type=text status-code=200
+^https?:\/\/plt\.yorentown\.com\/pltapp\/v\d\/banner mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wx\.17u\.cn\/homemarketapi\/(aggregator\/index|search\/recommend) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/res\.pizzahut\.com\.cn\/CRM mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wx\.maoyan\.com\/maoyansh\/api\/mobile\/(?>hotMatchList|eSportsIps) mock-response-body data-type=text data="{}" status-code=200
@@ -202,6 +217,8 @@ http-response ^https?:\/\/ec\.ems\.com\.cn\/ecr-qry-web\/redis\/pageInfoByChanne
 http-response ^https?:\/\/web\.meituan\.com\/api\/miniprogram\/tabbar\/all\/query script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/meituanwm.js, requires-body=true, tag=meituanwm
 
 http-response ^https?:\/\/api\.prod\.dj\.mstand\.cn\/scrm\/mini\/app\/index\/info script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/wechatApplet.js, requires-body=true, tag=mstand
+
+http-response ^https?:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v\d script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/wechatApplet.js, requires-body=true, tag=lawson
 
 http-response ^https?:\/\/triangle\.wearemanner\.com\/mp-api\/v\d\/ads script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/manner.js, requires-body=true, tag=manner
 
