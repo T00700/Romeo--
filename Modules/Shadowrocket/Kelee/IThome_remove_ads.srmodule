@@ -8,7 +8,7 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-09-18 21:23:13
+#!date=2025-09-18 21:42:00
 #!arguments=removeAllBanners:false,removePinnedArticles:false
 
 [URL Rewrite]
