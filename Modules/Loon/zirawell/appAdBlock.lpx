@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1026.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1050.png
 #!tag=Jacob
 
 [Rule]
@@ -343,6 +343,7 @@ DOMAIN,log5-applog.fqnovel.com,REJECT
 DOMAIN,logs.chelaile.net.cn,REJECT
 DOMAIN,lookup.api.bsb.baidu.com,REJECT
 DOMAIN,lwlog.laiwang.com,REJECT
+DOMAIN,lx0.meituan.com,REJECT
 DOMAIN,m-vali.cp31.ott.cibntv.net,REJECT
 DOMAIN,m.meitun.com,REJECT
 DOMAIN,m.pinduoduo.net,REJECT
@@ -946,6 +947,7 @@ DOMAIN-SUFFIX,logstat.caixin.com,REJECT
 DOMAIN-SUFFIX,lstat.youku.com,REJECT
 DOMAIN-SUFFIX,lu.sogou.com,REJECT
 DOMAIN-SUFFIX,lu.sogoucdn.com,REJECT
+DOMAIN-SUFFIX,lx.meituan.net,REJECT
 DOMAIN-SUFFIX,m-adash.m.taobao.com,REJECT
 DOMAIN-SUFFIX,m.baidu.com.yiqisee.cn,REJECT
 DOMAIN-SUFFIX,m.baidu.com.zhiduo.org,REJECT
@@ -1565,6 +1567,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/(gw|heic)\.alicdn\.com\/imgextra\/\w{2}\/\w+!+(?!600000000(5412|6148|4021|5802))\d*-\d-tps-(?!1035)\d{3,4}-(?!570)\d{3,4}\.(?>jpg|png)_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q\d0\.jpg_\.(?>heic|webp) - reject
 ^https?:\/\/myusmile\.online\/user\/version\/requestFirmwareUpdate\/ - reject
 ^https?:\/\/m\.ctrip\.com\/html5\/webresource\/js\/iscroll\.js$ - reject
+^https?:\/\/catdot\.dianping\.com\/broker-service\/hijack - reject
 ^https?:\/\/api\.21ec74\.com\/v\d\.\d\/ad - reject
 ^https?:\/\/zconfig\.alibabausercontent\.com\/zconfig - reject
 ^https?:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/.+ - reject
