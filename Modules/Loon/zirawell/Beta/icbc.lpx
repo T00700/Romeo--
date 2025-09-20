@@ -14,5 +14,4 @@
 
 [Rule]
 DOMAIN,pageviewp.icbc.com.cn,REJECT
-DOMAIN-SUFFIX,mall.icbc.com.cn,REJECT
 
