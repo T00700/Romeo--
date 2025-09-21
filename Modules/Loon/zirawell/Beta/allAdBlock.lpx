@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1083.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1096.png
 #!tag=Jacob
 
 [Rule]
@@ -1644,6 +1644,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/c\.m\.163\.com\/nc\/gl\/ - reject
 ^https?:\/\/api\.wfdata\.club\/v\d\/yesfeng\/(?>infoCenterAd|yesList) - reject
 ^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/ad - reject
+^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/(?>ehc|titansx|ddblue|edfu)\/ - reject
 ^https?:\/\/creditcardapp\.bankcomm\.com\/cnsvPmpaMdbcardWeb\/page\/getGuidePageAds - reject
 ^https?:\/\/m\.trip\.com\/quic - reject
 ^https?:\/\/api\.gotokeep\.com\/training\/box\/config - reject
@@ -1679,7 +1680,6 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/stlib\.qbb6\.com\/wclt\/js\/core\/popup - reject
 ^https?:\/\/learn\.chaoxing\.com\/apis\/service\/appConfig\? - reject
 ^https?:\/\/api\.futunn\.com\/treasure-chest\/box-data - reject
-^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/(ehc|titansx|ddblue|edfu)\/ - reject
 ^https?:\/\/img\d+\.10101111cdn\.com\/adpos\/ - reject
 ^https?:\/\/api\.feidee\.net\/v\d\/configs\/client\/configs - reject
 ^https?:\/\/api\.jr\.mi\.com\/v\d\/adv - reject
@@ -2634,7 +2634,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/gateway\.shouqiev\.com(:\d+)?\/fsda\/app\/(?>bootImage|loadPic|appBannerList) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/gzacshow\.kugou\.com\/mfanxing-home\/cdn\/room\/index\/list_v mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/image\.suning\.cn\/uimg\/ma\/ad\/ mock-response-body data-type=text status-code=200
-^https?:\/\/img\.meituan\.net\/goodsawardpic mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/(?>csc|osg)-service\.sgcc\.com\.cn:\d+\/emss-pfa-homepage-front\/member mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/newclient\.map\.baidu\.com\/feed\/govui\/rich_content mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.weibo\.cn\/2\/vote\/get_vote_detail\? mock-response-body data-type=text data="{}" status-code=200
@@ -3082,8 +3081,6 @@ http-response ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/song\/play\/mo
 
 http-response ^https?:\/\/mapi\.xiaotucc\.com\/(mall\/main|\w+\/main_page\/index\/getActivity) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/wechatApplet.js, requires-body=true, tag=xiaotucc
 
-http-response ^https?:\/\/img\.meituan\.net\/dpmobile\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/dianping.js, requires-body=true, tag=dianping
-
 http-response ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/goofish.js, requires-body=true, tag=goofish
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/profile\/(container_timeline|dealatt|me|statuses\/tab|userinfo)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/weibo.js, requires-body=true, tag=weibo
@@ -3287,6 +3284,8 @@ http-response ^https?:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_co
 http-response ^https?:\/\/iosapi\.peiyinxiu\.com\/api\/Union\/HomeData script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/peiyinxiu.js, requires-body=true, tag=peiyinxiu
 
 http-response ^https?:\/\/g\.alicdn\.com\/.*o2o-ad script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/alicdn.js, requires-body=true, tag=adunion
+
+http-response ^https?:\/\/img\.meituan\.net\/(?>dpmobile|goodsawardpic)\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/dianping.js, requires-body=true, tag=dianping
 
 http-response ^https?:\/\/mi\.gdt\.qq\.com\/gdt_mview script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/adsense.js, requires-body=true, tag=adunion
 

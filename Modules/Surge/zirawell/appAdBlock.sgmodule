@@ -1614,6 +1614,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT,extended-matching,pre-matching
 ^https?:\/\/c\.m\.163\.com\/nc\/gl\/ - reject
 ^https?:\/\/api\.wfdata\.club\/v\d\/yesfeng\/(?>infoCenterAd|yesList) - reject
 ^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/ad - reject
+^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/(?>ehc|titansx|ddblue|edfu)\/ - reject
 ^https?:\/\/m\.trip\.com\/quic - reject
 ^https?:\/\/api\.gotokeep\.com\/training\/box\/config - reject
 ^https?:\/\/aiqicha\.baidu\.com\/app\/getAppPopSettingAjax - reject
@@ -1647,7 +1648,6 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT,extended-matching,pre-matching
 ^https?:\/\/stlib\.qbb6\.com\/wclt\/js\/core\/popup - reject
 ^https?:\/\/learn\.chaoxing\.com\/apis\/service\/appConfig\? - reject
 ^https?:\/\/api\.futunn\.com\/treasure-chest\/box-data - reject
-^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/(ehc|titansx|ddblue|edfu)\/ - reject
 ^https?:\/\/img\d+\.10101111cdn\.com\/adpos\/ - reject
 ^https?:\/\/api\.feidee\.net\/v\d\/configs\/client\/configs - reject
 ^https?:\/\/api\.jr\.mi\.com\/v\d\/adv - reject
@@ -3058,8 +3058,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 
 ^https?:\/\/image\.suning\.cn\/uimg\/ma\/ad\/ data-type=text data="" status-code=200
 
-^https?:\/\/img\.meituan\.net\/goodsawardpic data-type=tiny-gif status-code=200
-
 ^https?:\/\/(?>csc|osg)-service\.sgcc\.com\.cn:\d+\/emss-pfa-homepage-front\/member data-type=text data="{}" status-code=200
 
 ^https?:\/\/newclient\.map\.baidu\.com\/feed\/govui\/rich_content data-type=text data="{}" status-code=200
@@ -3729,8 +3727,6 @@ rrtv = type=http-response, pattern=^https?:\/\/api\.rr\.tv\/drama\/app\/get_comb
 
 163music = type=http-response, pattern=^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/song\/play\/more\/list\/v\d, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/163music.js, requires-body=true, max-size=0
 
-dianping = type=http-response, pattern=^https?:\/\/img\.meituan\.net\/dpmobile\/, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/dianping.js, requires-body=true, max-size=0
-
 goofish = type=http-response, pattern=^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/goofish.js, requires-body=true, max-size=0
 
 weibo = type=http-response, pattern=^https?:\/\/api\.weibo\.cn\/2\/profile\/(container_timeline|dealatt|me|statuses\/tab|userinfo)\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, max-size=0
@@ -3920,6 +3916,8 @@ youku = type=http-response, pattern=^https?:\/\/push\.m\.youku\.com\/collect-api
 peiyinxiu = type=http-response, pattern=^https?:\/\/iosapi\.peiyinxiu\.com\/api\/Union\/HomeData, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/peiyinxiu.js, requires-body=true, max-size=0
 
 adunion = type=http-response, pattern=^https?:\/\/g\.alicdn\.com\/.*o2o-ad, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/alicdn.js, requires-body=true, max-size=0
+
+dianping = type=http-response, pattern=^https?:\/\/img\.meituan\.net\/(?>dpmobile|goodsawardpic)\/, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/dianping.js, requires-body=true, max-size=0
 
 adunion = type=http-response, pattern=^https?:\/\/mi\.gdt\.qq\.com\/gdt_mview, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/adsense.js, requires-body=true, max-size=0
 
