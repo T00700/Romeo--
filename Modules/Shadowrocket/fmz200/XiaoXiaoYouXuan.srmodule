@@ -8,6 +8,8 @@
 #!date=2025-08-21 22:37:00
 
 [Rule]
+DOMAIN-SUFFIX,fancyapi.com,REJECT
+DOMAIN-SUFFIX,ad.richmob.cn,REJECT
 DOMAIN-SUFFIX,api-htp.beizi.biz,REJECT
 DOMAIN-SUFFIX,yfanads.com,REJECT
 DOMAIN-SUFFIX,1rtb.net,REJECT

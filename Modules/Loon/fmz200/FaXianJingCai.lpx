@@ -10,7 +10,7 @@
 [Rewrite]
 # 开屏广告
 ^https?:\/\/static\.95508\.com\/mmg\/images\/ads\/.+\/(.+1125?.+2436|.+%.+%|.+_.+_) mock-response-body data-type=text data="{}" status-code=200
-^https?:\/\/static\.95508\.com\/mmg\/ciop\/sysabbr\/cmep\/images\/apppopupads mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/static\.95508\.com\/mmg\/ciop\/sysabbr\/cmep\/images\/(apppopupads|popupads) mock-response-body data-type=text data="{}" status-code=200
 
 [MITM]
 hostname = static.95508.com
