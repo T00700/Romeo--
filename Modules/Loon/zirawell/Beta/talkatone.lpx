@@ -13,7 +13,32 @@
 #!date=2025-07-09
 
 [Rule]
+DOMAIN-SUFFIX,4dvertible.com,REJECT
+DOMAIN-SUFFIX,adrta.com,REJECT
+DOMAIN-SUFFIX,adsrvr.org,REJECT
+DOMAIN-SUFFIX,ads.inmobi.com,REJECT
+DOMAIN-SUFFIX,ads.pubmatic.com,REJECT
+DOMAIN-SUFFIX,akamaized.net,REJECT
+DOMAIN-SUFFIX,amazon-adsystem.com,REJECT
+DOMAIN-SUFFIX,bidder.criteo.com,REJECT
+DOMAIN-SUFFIX,gum.criteo.com,REJECT
+DOMAIN-SUFFIX,i.sng.link,REJECT
+DOMAIN-SUFFIX,impression.link,REJECT
+DOMAIN-SUFFIX,inhousedsp.com,REJECT
+DOMAIN-SUFFIX,inner-active.mobi,REJECT
+DOMAIN-SUFFIX,jampp.com,REJECT
+DOMAIN-SUFFIX,mobilefuse.com,REJECT
+DOMAIN-SUFFIX,outbrainimg.com,REJECT
+DOMAIN-SUFFIX,outbrain.com,REJECT
+DOMAIN-SUFFIX,pomodoromedia.com,REJECT
+DOMAIN-SUFFIX,richmob.cn,REJECT
+DOMAIN-SUFFIX,smadex.com,REJECT
+DOMAIN-SUFFIX,smaato.net,REJECT
+DOMAIN-SUFFIX,spadsync.com,REJECT
 DOMAIN-SUFFIX,tappx.com,REJECT
+DOMAIN-SUFFIX,trustarc.com,REJECT
+DOMAIN-SUFFIX,truste.com,REJECT
+DOMAIN-SUFFIX,zemanta.com,REJECT
 
 [Rewrite]
 ^https?:\/\/alt-r\.my\.com\/mobile mock-response-body data-type=text data="{}" status-code=200

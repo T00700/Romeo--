@@ -1,7 +1,7 @@
 #!name=广告联盟 - ADUNION
 #!desc=功能类插件
 #!author=zirawell[https://github.com/zirawell]
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1092.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1026.png
 #!tag=Jacob
 
 #!tag=去广告
@@ -137,6 +137,7 @@ DOMAIN-SUFFIX,adservice.google.com,REJECT
 DOMAIN-SUFFIX,mobileads.google.com,REJECT
 DOMAIN-SUFFIX,google-analytics.com,REJECT
 DOMAIN-SUFFIX,googlesyndication.com,REJECT
+DOMAIN-SUFFIX,googlesyndication-cn.com,REJECT
 DOMAIN-SUFFIX,googletagservices.com,REJECT
 DOMAIN-SUFFIX,googletagmanager.com,REJECT
 DOMAIN-SUFFIX,l.google.com,REJECT

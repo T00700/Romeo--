@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1021.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1054.png
 #!tag=Jacob
 
 [Rule]
@@ -543,6 +543,7 @@ DOMAIN-SUFFIX,1rtb.net,REJECT
 DOMAIN-SUFFIX,33.autohome.com.cn,REJECT
 DOMAIN-SUFFIX,360baidus.com,REJECT
 DOMAIN-SUFFIX,3rd.t.sohu.com,REJECT
+DOMAIN-SUFFIX,4dvertible.com,REJECT
 DOMAIN-SUFFIX,888.tv.sohu.com,REJECT
 DOMAIN-SUFFIX,a-dxk.play.api.3g.youku.com,REJECT
 DOMAIN-SUFFIX,a.baidu.com,REJECT
@@ -592,10 +593,13 @@ DOMAIN-SUFFIX,adnet.sohu.com,REJECT
 DOMAIN-SUFFIX,adping.qq.com,REJECT
 DOMAIN-SUFFIX,adpm.app.qq.com,REJECT
 DOMAIN-SUFFIX,adrdir.qq.com,REJECT
+DOMAIN-SUFFIX,adrta.com,REJECT
 DOMAIN-SUFFIX,ads-d.viber.com,REJECT
 DOMAIN-SUFFIX,ads-twitter.com,REJECT
 DOMAIN-SUFFIX,ads.aws.viber.com,REJECT
+DOMAIN-SUFFIX,ads.inmobi.com,REJECT
 DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN-SUFFIX,ads.pubmatic.com,REJECT
 DOMAIN-SUFFIX,ads.sohu.com,REJECT
 DOMAIN-SUFFIX,ads.viber.com,REJECT
 DOMAIN-SUFFIX,ads.vungle.com,REJECT
@@ -626,6 +630,7 @@ DOMAIN-SUFFIX,adsmoloco.com,REJECT
 DOMAIN-SUFFIX,adsolution.imtt.qq.com,REJECT
 DOMAIN-SUFFIX,adspecs.yahoo.com,REJECT
 DOMAIN-SUFFIX,adsqqclick.qq.com,REJECT
+DOMAIN-SUFFIX,adsrvr.org,REJECT
 DOMAIN-SUFFIX,adstextview.qq.com,REJECT
 DOMAIN-SUFFIX,adstream.123.sogoucdn.com,REJECT
 DOMAIN-SUFFIX,adsview.qq.com,REJECT
@@ -647,8 +652,10 @@ DOMAIN-SUFFIX,afp.zol-img.com.cn,REJECT
 DOMAIN-SUFFIX,afpmm.alicdn.com,REJECT
 DOMAIN-SUFFIX,agoodm.m.taobao.com,REJECT
 DOMAIN-SUFFIX,ai.taobao.com,REJECT
+DOMAIN-SUFFIX,akamaized.net,REJECT
 DOMAIN-SUFFIX,alitui.weibo.com,REJECT
 DOMAIN-SUFFIX,alitui.weibo.com.cn,REJECT
+DOMAIN-SUFFIX,amazon-adsystem.com,REJECT
 DOMAIN-SUFFIX,amfi.gou.sogou.com,REJECT
 DOMAIN-SUFFIX,analy.qq.com,REJECT
 DOMAIN-SUFFIX,analytics.163.com,REJECT
@@ -705,6 +712,7 @@ DOMAIN-SUFFIX,bdplus.baidu.com,REJECT
 DOMAIN-SUFFIX,beacon.sina.com.cn,REJECT
 DOMAIN-SUFFIX,beizi.biz,REJECT
 DOMAIN-SUFFIX,bianxianmao.com,REJECT
+DOMAIN-SUFFIX,bidder.criteo.com,REJECT
 DOMAIN-SUFFIX,brand.sogou.com,REJECT
 DOMAIN-SUFFIX,bsiet.husky.sogou.com,REJECT
 DOMAIN-SUFFIX,btlaunch.baidu.com,REJECT
@@ -874,6 +882,7 @@ DOMAIN-SUFFIX,google-analytics.com,REJECT
 DOMAIN-SUFFIX,googleadservices.com,REJECT
 DOMAIN-SUFFIX,googleadsserving.cn,REJECT
 DOMAIN-SUFFIX,googlecommerce.com,REJECT
+DOMAIN-SUFFIX,googlesyndication-cn.com,REJECT
 DOMAIN-SUFFIX,googlesyndication.com,REJECT
 DOMAIN-SUFFIX,googletagmanager.com,REJECT
 DOMAIN-SUFFIX,googletagservices.com,REJECT
@@ -882,6 +891,7 @@ DOMAIN-SUFFIX,goto.sogou.com,REJECT
 DOMAIN-SUFFIX,gozendata.com,REJECT
 DOMAIN-SUFFIX,graph.facebook.com,REJECT
 DOMAIN-SUFFIX,guanjia.baidu.com,REJECT
+DOMAIN-SUFFIX,gum.criteo.com,REJECT
 DOMAIN-SUFFIX,gw5.push.mcp.weibo.cn,REJECT
 DOMAIN-SUFFIX,gw6.push.mcp.weibo.cn,REJECT
 DOMAIN-SUFFIX,gxe.husky.sogou.com,REJECT
@@ -901,6 +911,7 @@ DOMAIN-SUFFIX,hui.sohu.com,REJECT
 DOMAIN-SUFFIX,huodong.pl.youku.com,REJECT
 DOMAIN-SUFFIX,huodong.vip.youku.com,REJECT
 DOMAIN-SUFFIX,hz.youku.com,REJECT
+DOMAIN-SUFFIX,i.sng.link,REJECT
 DOMAIN-SUFFIX,iad-apple.com,REJECT
 DOMAIN-SUFFIX,iadmusicmat.music.126.net,REJECT
 DOMAIN-SUFFIX,iadmusicmatvideo.music.126.net,REJECT
@@ -915,12 +926,15 @@ DOMAIN-SUFFIX,ikcode.baidu.com,REJECT
 DOMAIN-SUFFIX,img-x.jd.com,REJECT
 DOMAIN-SUFFIX,imgaliyun.res.mgtv.com,REJECT
 DOMAIN-SUFFIX,imp.zol.com.cn,REJECT
+DOMAIN-SUFFIX,impression.link,REJECT
 DOMAIN-SUFFIX,impservice-test.dictapp.youdao.com,REJECT
 DOMAIN-SUFFIX,impservice.dictapp.youdao.com,REJECT
 DOMAIN-SUFFIX,impservice.youdao.com,REJECT
 DOMAIN-SUFFIX,impservice2.youdao.com,REJECT
 DOMAIN-SUFFIX,impservicetest.dictapp.youdao.com,REJECT
 DOMAIN-SUFFIX,info.pinyin.sogou.com,REJECT
+DOMAIN-SUFFIX,inhousedsp.com,REJECT
+DOMAIN-SUFFIX,inner-active.mobi,REJECT
 DOMAIN-SUFFIX,install.kugou.com,REJECT
 DOMAIN-SUFFIX,install2.kugou.com,REJECT
 DOMAIN-SUFFIX,int.dpool.sina.com.cn,REJECT
@@ -930,6 +944,7 @@ DOMAIN-SUFFIX,interest.mix.sina.com.cn,REJECT
 DOMAIN-SUFFIX,iwanad.baidu.com,REJECT
 DOMAIN-SUFFIX,j.br.baidu.com,REJECT
 DOMAIN-SUFFIX,j.wit.qq.com,REJECT
+DOMAIN-SUFFIX,jampp.com,REJECT
 DOMAIN-SUFFIX,jb.mbaidu.top,REJECT
 DOMAIN-SUFFIX,jiguang.cn,REJECT
 DOMAIN-SUFFIX,jpush.cn,REJECT
@@ -990,6 +1005,7 @@ DOMAIN-SUFFIX,mob.com,REJECT
 DOMAIN-SUFFIX,mobaliyun.res.mgtv.com,REJECT
 DOMAIN-SUFFIX,mobilead.kuwo.cn,REJECT
 DOMAIN-SUFFIX,mobileads.google.com,REJECT
+DOMAIN-SUFFIX,mobilefuse.com,REJECT
 DOMAIN-SUFFIX,mobilemsg.youku.com,REJECT
 DOMAIN-SUFFIX,mobileservice.cn,REJECT
 DOMAIN-SUFFIX,mobsurl.com,REJECT
@@ -1032,6 +1048,8 @@ DOMAIN-SUFFIX,omgmta.qq.com,REJECT
 DOMAIN-SUFFIX,omgmta1.qq.com,REJECT
 DOMAIN-SUFFIX,openinstall.io,REJECT
 DOMAIN-SUFFIX,openrcv.baidu.com,REJECT
+DOMAIN-SUFFIX,outbrain.com,REJECT
+DOMAIN-SUFFIX,outbrainimg.com,REJECT
 DOMAIN-SUFFIX,p-log.ykimg.com,REJECT
 DOMAIN-SUFFIX,p.kugou.com,REJECT
 DOMAIN-SUFFIX,p.twitter.com,REJECT
@@ -1065,6 +1083,7 @@ DOMAIN-SUFFIX,pmbservice.bosc.cn,REJECT
 DOMAIN-SUFFIX,pmbservice2.bosc.cn,REJECT
 DOMAIN-SUFFIX,pmir.3g.qq.com,REJECT
 DOMAIN-SUFFIX,policy.video.iqiyi.com,REJECT
+DOMAIN-SUFFIX,pomodoromedia.com,REJECT
 DOMAIN-SUFFIX,pos.baidu.com,REJECT
 DOMAIN-SUFFIX,promote.biz.weibo.cn,REJECT
 DOMAIN-SUFFIX,promote.caixin.com,REJECT
@@ -1097,6 +1116,7 @@ DOMAIN-SUFFIX,re.taobao.com,REJECT
 DOMAIN-SUFFIX,redirect.simba.taobao.com,REJECT
 DOMAIN-SUFFIX,release.baidu.com,REJECT
 DOMAIN-SUFFIX,rich.kuwo.cn,REJECT
+DOMAIN-SUFFIX,richmob.cn,REJECT
 DOMAIN-SUFFIX,river.zhidao.baidu.com,REJECT
 DOMAIN-SUFFIX,rj.baidu.com,REJECT
 DOMAIN-SUFFIX,rlogs.youdao.com,REJECT
@@ -1128,10 +1148,13 @@ DOMAIN-SUFFIX,shouji.sougou.com,REJECT
 DOMAIN-SUFFIX,shuzilm.cn,REJECT
 DOMAIN-SUFFIX,simba.m.taobao.com,REJECT
 DOMAIN-SUFFIX,slog.sina.com.cn,REJECT
+DOMAIN-SUFFIX,smaato.net,REJECT
+DOMAIN-SUFFIX,smadex.com,REJECT
 DOMAIN-SUFFIX,sngmta.qq.com,REJECT
 DOMAIN-SUFFIX,sobar.baidu.com,REJECT
 DOMAIN-SUFFIX,sobartop.baidu.com,REJECT
 DOMAIN-SUFFIX,song.fanxing.kugou.com,REJECT
+DOMAIN-SUFFIX,spadsync.com,REJECT
 DOMAIN-SUFFIX,spcode.baidu.com,REJECT
 DOMAIN-SUFFIX,srd.simba.taobao.com,REJECT
 DOMAIN-SUFFIX,stat.simba.taobao.com,REJECT
@@ -1178,6 +1201,8 @@ DOMAIN-SUFFIX,track.sohu.com,REJECT
 DOMAIN-SUFFIX,track.toutiao.com,REJECT
 DOMAIN-SUFFIX,tracker.sns.iqiyi.com,REJECT
 DOMAIN-SUFFIX,tracker.yhd.com,REJECT
+DOMAIN-SUFFIX,trustarc.com,REJECT
+DOMAIN-SUFFIX,truste.com,REJECT
 DOMAIN-SUFFIX,ttayy.cn,REJECT
 DOMAIN-SUFFIX,tui.weibo.com,REJECT
 DOMAIN-SUFFIX,tuijian.baidu.com,REJECT
@@ -1262,6 +1287,7 @@ DOMAIN-SUFFIX,yksdks.com,REJECT
 DOMAIN-SUFFIX,ynuf.alipay.com,REJECT
 DOMAIN-SUFFIX,youxi.kugou.com,REJECT
 DOMAIN-SUFFIX,yuedu.iqiyi.com,REJECT
+DOMAIN-SUFFIX,zemanta.com,REJECT
 DOMAIN-SUFFIX,zhengxiaoliu.top,REJECT
 DOMAIN-SUFFIX,znsv.baidu.com,REJECT
 DOMAIN-SUFFIX,zymo.mps.weibo.com,REJECT
@@ -2217,6 +2243,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/(cdn-)?h5\.kuaikanmanhua\.com\/user\/scene\/api\/new_user\/sign_in\/list mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberManage\/memberEquity\/queryRecommendEquity mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wx\.17u\.cn\/platformpubapi\/customer\/lead\/getInfo mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/img\.meituan\.net\/goodsawardpic\/\w+\.gif mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d\/query\/new_chat_group mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(info\.mina\.xiaoaisound|marketing-aibox\.v\.mitvos)\.com\/popup mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ad\.shunchangzhixing\.com\/getAd mock-response-body data-type=text data="{}" status-code=200
@@ -3074,6 +3101,8 @@ http-response ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/song\/play\/mo
 
 http-response ^https?:\/\/mapi\.xiaotucc\.com\/(mall\/main|\w+\/main_page\/index\/getActivity) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/wechatApplet.js, requires-body=true, tag=xiaotucc
 
+http-response ^https?:\/\/img\.meituan\.net\/dpmobile\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/dianping.js, requires-body=true, tag=dianping
+
 http-response ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/goofish.js, requires-body=true, tag=goofish
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/profile\/(container_timeline|dealatt|me|statuses\/tab|userinfo)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/weibo.js, requires-body=true, tag=weibo
@@ -3280,8 +3309,6 @@ http-response ^https?:\/\/iosapi\.peiyinxiu\.com\/api\/Union\/HomeData script-pa
 
 http-response ^https?:\/\/g\.alicdn\.com\/.*o2o-ad script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/alicdn.js, requires-body=true, tag=adunion
 
-http-response ^https?:\/\/img\.meituan\.net\/(?>dpmobile|goodsawardpic)\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/dianping.js, requires-body=true, tag=dianping
-
 http-response ^https?:\/\/mi\.gdt\.qq\.com\/gdt_mview script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/adsense.js, requires-body=true, tag=adunion
 
 http-response ^https?:\/\/is.snssdk.com/api/ad/union/sdk script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/adsense.js, requires-body=true, tag=adunion
@@ -3329,6 +3356,8 @@ http-response ^https?:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinf
 http-response ^https?:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v\d script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/wechatApplet.js, requires-body=true, tag=lawson
 
 http-response ^https?:\/\/appcloud2\.zhihu\.com\/v\d\/config script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/zhihu.js, requires-body=true, tag=zhihu
+
+http-response ^https?:\/\/img\.meituan\.net\/goodsawardpic\/\w+\.(?!gif)\w+$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/dianping.js, requires-body=true, tag=dianping
 
 http-response ^https?:\/\/(cdn-)?social\.kkmh\.com\/v\d\/graph\/homepage\/comicVideo\/v\d\/configs script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/kkmh.js, requires-body=true, tag=kkmh
 
