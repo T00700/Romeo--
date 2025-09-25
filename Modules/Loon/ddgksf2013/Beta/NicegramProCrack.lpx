@@ -1,7 +1,12 @@
-NicegramProCrack%0A：Error: 请求超时(20 秒)
+#!name=NicegramProCrack
+#!desc=NicegramProCrack
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
+#!tag=Jacob
 
+[Script]
+# > Nicegram☆解锁会员权限（2024-02-24）@ddgksf2013
+http-response ^https?:\/\/nicegram\.cloud\/api\/v\d\/(ai-assistant\/purchase-list|user\/info|telegram\/auth) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/NicegramProCrack/NicegramProCrack.js, requires-body=true, timeout=60, tag=NicegramProCrack
 
+[MITM]
+hostname = nicegram.cloud
 
-
-
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
