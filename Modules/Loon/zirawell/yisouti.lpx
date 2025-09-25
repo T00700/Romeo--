@@ -1,11 +1,7 @@
-#!name=yisouti
-#!desc=yisouti
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1028.png
-#!tag=Jacob
+yisouti%0A：Error: 请求超时(20 秒)
 
-[Rewrite]
-^https?:\/\/api\.yisouti\.com\/popupAd response-body-replace-regex data zirawell
 
-[MITM]
-hostname = api.yisouti.com
 
+
+
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈

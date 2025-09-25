@@ -1,9 +1,7 @@
-#!name=pppark
-#!desc=pppark
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1035.png
-#!tag=Jacob
+pppark%0A：Error: 请求超时(20 秒)
 
-[Rule]
-DOMAIN,ad-files.4pyun.com,REJECT
-DOMAIN,ad-api.4pyun.com,REJECT
 
+
+
+
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈

@@ -1,10 +1,7 @@
-#!name=enmonster-Applet
-#!desc=enmonster-Applet
-#!category=Jacob
+enmonster-Applet%0A：Error: 请求超时(20 秒)
 
-[URL Rewrite]
-^https?:\/\/aag\.enmonster\.com\/apa\/index\/advert\/skin - reject
 
-[MITM]
-hostname = %APPEND% aag.enmonster.com
 
+
+
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈

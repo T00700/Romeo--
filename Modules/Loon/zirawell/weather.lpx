@@ -1,11 +1,7 @@
-#!name=weather
-#!desc=weather
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1052.png
-#!tag=Jacob
+weather%0A：Error: 请求超时(20 秒)
 
-[Rewrite]
-^https?:\/\/e\.weather\.com\.cn\/weChat\/typhoonNull\.json mock-response-body data-type=text data="{}" status-code=200
 
-[MITM]
-hostname = e.weather.com.cn
 
+
+
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
