@@ -2506,8 +2506,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 
 ^https?:\/\/wx\.17u\.cn\/platformpubapi\/customer\/lead\/getInfo data-type=text data="{}"
 
-^https?:\/\/img\.meituan\.net\/goodsawardpic\/\w+\.gif data-type=tiny-gif
-
 ^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d\/query\/new_chat_group data-type=text data="{}"
 
 ^https?:\/\/(info\.mina\.xiaoaisound|marketing-aibox\.v\.mitvos)\.com\/popup data-type=text data="{}"
@@ -4111,8 +4109,6 @@ rrtv = type=http-response, pattern=^https?:\/\/api\.rr\.tv\/drama\/app\/get_comb
 
 xiaotucc = type=http-response, pattern=^https?:\/\/mapi\.xiaotucc\.com\/(mall\/main|\w+\/main_page\/index\/getActivity), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/wechatApplet.js, requires-body=true, max-size=0
 
-dianping = type=http-response, pattern=^https?:\/\/img\.meituan\.net\/dpmobile\/, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/dianping.js, requires-body=true, max-size=0
-
 goofish = type=http-response, pattern=^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/goofish.js, requires-body=true, max-size=0
 
 weibo = type=http-response, pattern=^https?:\/\/api\.weibo\.cn\/2\/profile\/(container_timeline|dealatt|me|statuses\/tab|userinfo)\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/weibo.js, requires-body=true, max-size=0
@@ -4319,6 +4315,8 @@ peiyinxiu = type=http-response, pattern=^https?:\/\/iosapi\.peiyinxiu\.com\/api\
 
 adunion = type=http-response, pattern=^https?:\/\/g\.alicdn\.com\/.*o2o-ad, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/alicdn.js, requires-body=true, max-size=0
 
+dianping = type=http-response, pattern=^https?:\/\/img\.meituan\.net\/(?>dpmobile|goodsawardpic)\/, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/dianping.js, requires-body=true, max-size=0
+
 adunion = type=http-response, pattern=^https?:\/\/mi\.gdt\.qq\.com\/gdt_mview, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/adsense.js, requires-body=true, max-size=0
 
 adunion = type=http-response, pattern=^https?:\/\/is.snssdk.com/api/ad/union/sdk, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/adsense.js, requires-body=true, max-size=0
@@ -4366,8 +4364,6 @@ youku = type=http-response, pattern=^https?:\/\/un-acs\.youku\.com\/gw\/mtop\.yo
 lawson = type=http-response, pattern=^https?:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v\d, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/wechatApplet.js, requires-body=true, max-size=0
 
 zhihu = type=http-response, pattern=^https?:\/\/appcloud2\.zhihu\.com\/v\d\/config, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/zhihu.js, requires-body=true, max-size=0
-
-dianping = type=http-response, pattern=^https?:\/\/img\.meituan\.net\/goodsawardpic\/\w+\.(?!gif)\w+$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/dianping.js, requires-body=true, max-size=0
 
 kkmh = type=http-response, pattern=^https?:\/\/(cdn-)?social\.kkmh\.com\/v\d\/graph\/homepage\/comicVideo\/v\d\/configs, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/kkmh.js, requires-body=true, max-size=0
 

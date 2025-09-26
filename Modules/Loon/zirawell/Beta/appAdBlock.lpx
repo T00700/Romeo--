@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1086.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1018.png
 #!tag=Jacob
 
 [Rule]
@@ -2152,7 +2152,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/d\.psbc\.com:\d+\/mcc\/resources\/.+\.(?>jpg|jpeg|png) mock-response-body data-type=text status-code=200
 ^https?:\/\/mime\.baidu\.com\/sapi\/v\d\/circle\/joinedlist mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(cdn-)?h5\.kuaikanmanhua\.com\/user\/scene\/api\/new_user\/sign_in\/list mock-response-body data-type=text data="{}" status-code=200
-^https?:\/\/img\.meituan\.net\/goodsawardpic\/\w+\.gif mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d\/query\/new_chat_group mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(info\.mina\.xiaoaisound|marketing-aibox\.v\.mitvos)\.com\/popup mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ad\.shunchangzhixing\.com\/getAd mock-response-body data-type=text data="{}" status-code=200
@@ -2889,8 +2888,6 @@ http-response ^https?:\/\/api\.rr\.tv\/drama\/app\/get_combined_drama_detail scr
 
 http-response ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/song\/play\/more\/list\/v\d script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/163music.js, requires-body=true, tag=163music
 
-http-response ^https?:\/\/img\.meituan\.net\/dpmobile\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/dianping.js, requires-body=true, tag=dianping
-
 http-response ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/goofish.js, requires-body=true, tag=goofish
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/profile\/(container_timeline|dealatt|me|statuses\/tab|userinfo)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/weibo.js, requires-body=true, tag=weibo
@@ -3083,6 +3080,8 @@ http-response ^https?:\/\/iosapi\.peiyinxiu\.com\/api\/Union\/HomeData script-pa
 
 http-response ^https?:\/\/g\.alicdn\.com\/.*o2o-ad script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/alicdn.js, requires-body=true, tag=adunion
 
+http-response ^https?:\/\/img\.meituan\.net\/(?>dpmobile|goodsawardpic)\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/dianping.js, requires-body=true, tag=dianping
+
 http-response ^https?:\/\/mi\.gdt\.qq\.com\/gdt_mview script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/adsense.js, requires-body=true, tag=adunion
 
 http-response ^https?:\/\/is.snssdk.com/api/ad/union/sdk script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/adsense.js, requires-body=true, tag=adunion
@@ -3124,8 +3123,6 @@ http-response ^https?:\/\/iqushangwang\.8quan\.com\/index\.php\/i\/index\/index 
 http-response ^https?:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=youku
 
 http-response ^https?:\/\/appcloud2\.zhihu\.com\/v\d\/config script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/zhihu.js, requires-body=true, tag=zhihu
-
-http-response ^https?:\/\/img\.meituan\.net\/goodsawardpic\/\w+\.(?!gif)\w+$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/dianping.js, requires-body=true, tag=dianping
 
 http-response ^https?:\/\/(cdn-)?social\.kkmh\.com\/v\d\/graph\/homepage\/comicVideo\/v\d\/configs script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/kkmh.js, requires-body=true, tag=kkmh
 
