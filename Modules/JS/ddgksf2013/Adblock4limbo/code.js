@@ -275,7 +275,7 @@ iframe {
 </head>
 
 <body>
-    <script async src="https://euob.youseasky.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="25fe065d70153a23dc4f403bee6b49d928e49d19" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
+    <script async src="https://euob.youseasky.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="472b8cbfa55f929b456c6ac3d268892aed4c54d2" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
     <noscript>
         <iframe src="https://obseu.youseasky.com/ns/224f85302aa2b6ec30aac9a85da2cbf9.html?ch=AdsDeli%20-%20domain%20-%20landingpage"
                 width="0" height="0" style="display:none"></iframe>
@@ -286,30 +286,27 @@ iframe {
         console.log('Callback complete.');
     };
 </script>
-<script type='text/javascript'>
-fetch('/chronos?dune=eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.xJ7frDhsoo1umrMleuE70R9nF5Q-t2lQzT-hTR04HklRrrYGoTsf5w.I8PN3ng08GbpAUZIPMwysg.tgImhsRz9keGRpIe4QytQHMAA3wNc7KELfrDi6k8wEShz2XT3D9JAMgOSQdqD0xyqfftjBEhKgRBu72jy88ybnnWVjA-AZevfFNXiv4dKJmCcS5hHoS_fca21U34O8RgcBpeT_Utdhkr5bT_daGX-1zVkMfc9Qpu7SkckhEXg_Ib4gZani6wkkrtlh4H-6ls.8DPIFcw1bN58ri8Z_sW9Mw&t=68d68fc2&token=25fe065d70153a23dc4f403bee6b49d928e49d19')
-    .then(async response => {
-        if (!response.ok && response.status >= 400) {
-            throw new Error('Network response was not ok: ' + response.statusText);
+<script type="text/javascript">
+var ls = function(xhr, token) {
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status >= 200 && xhr.status <= 400) {
+                if (xhr.responseText.trim() === '') {
+                    return;
+                }
+    
+                console.log(JSON.parse(xhr.responseText))
+            } else {
+                console.log('There was a problem with the request.');
+            }
         }
-        if (response.status === 204) {
-            window.chronosfailed();
-            return null;
-        }
-        return JSON.parse(await response.text());
-    })
-    .then(data => {
-        if (data && data.location) {
-            window.location.href = data.location;
-        } else if (data) {
-            window.chronosfailed();
-            console.log(data);
-        }
-    })
-    .catch(error => {
-        console.error(error);
-        window.chronosfailed();
-    });
+    }
+    
+    xhr.open('GET', '/munin/a/l' + 's?t=68d74650&token=' + encodeURI(token), true);
+    xhr.send();
+};
+ls(new XMLHttpRequest(), '472b8cbfa55f929b456c6ac3d268892aed4c54d2');
+if (typeof window.chronosfailed === 'function') { window.chronosfailed(); }
 </script>
 
 <div>
