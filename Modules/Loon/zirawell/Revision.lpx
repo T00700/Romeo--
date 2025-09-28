@@ -1,6 +1,6 @@
 #!name=分流修正
 #!desc=Revision
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1096.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1032.png
 #!tag=Jacob
 
 #!homepage=https://github.com/zirawell/R-Store
@@ -87,5 +87,5 @@ DOMAIN,msg.umeng.com,DIRECT
 DOMAIN,msg.umengcloud.com,DIRECT
 #携程
 DOMAIN-KEYWORD,aw-s.tripcdn.com,DIRECT
-DOMAIN-KEYWORD,trip.com,DIRECT
+DOMAIN-SUFFIX,trip.com,DIRECT
 

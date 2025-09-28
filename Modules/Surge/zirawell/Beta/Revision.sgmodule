@@ -86,5 +86,5 @@ DOMAIN,msg.umeng.com,DIRECT
 DOMAIN,msg.umengcloud.com,DIRECT
 #携程
 DOMAIN-KEYWORD,aw-s.tripcdn.com,DIRECT
-DOMAIN-KEYWORD,trip.com,DIRECT
+DOMAIN-SUFFIX,trip.com,DIRECT
 
