@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1041.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1021.png
 #!tag=Jacob
 
 [Rule]
@@ -2590,6 +2590,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/[\d\.]+\/odin\/c\d\/(channel\/ads|skin\/config)\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api-ios\.zhipin\.com\/api\/zpCommon\/upgrade\/check mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/dsp-impr2\.youdao\.com\/adload mock-response-body data-type=text status-code=200
+^https?:\/\/rr[\w-]+\.googlevideo\.com\/initplayback\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig mock-response-body data-type=text status-code=200
 ^https?:\/\/iobs\.pingan\.com\.cn\/download\/icore-aops-base-dmz-prd\/(?>YourSystemName|icore-apps-ad) mock-response-body data-type=text status-code=200
 ^https?:\/\/static01\.versa-ai\.com\/upload\/ec0ba51d68f9\/.*.jpg mock-response-body data-type=text status-code=200
@@ -2715,7 +2716,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/wx\.maoyan\.com\/maoyansh\/myshow\/ajax\/movie\/wonderShow mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/www\.gaoding\.com\/api\/v\d\/oc\/delivery-pits\/(?>template|mine|home)-page-dialog\/modules$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit mock-response-body data-type=text data="{}" status-code=200
-^https?:\/\/rr[\w-]+\.googlevideo\.com\/initplayback\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.feng\.com\/v\d\/advertisement\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/bla\.gtimg\.com\/qqlive\/\d{6}.+?\.png mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/static\.95508\.com\/mmg\/ciop\/202402\/button\/.*\.gif$ mock-response-body data-type=tiny-gif status-code=200
@@ -3089,8 +3089,6 @@ http-response ^https?:\/\/api\.prod\.dj\.mstand\.cn\/scrm\/mini\/app\/index\/inf
 http-response ^https?:\/\/api\.weibo\.cn\/2\/direct_messages\/user_list\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/weibo.js, requires-body=true, tag=weibo
 
 http-response ^https?:\/\/mobile\.api\.mgtv\.com\/mobile\/config\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/cntv.js, requires-body=true, tag=mgtv
-
-http-response ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/youtube.js, requires-body=true, tag=youtube
 
 http-response ^https?:\/\/api\.rr\.tv\/drama\/app\/get_combined_drama_detail script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/rrtv.js, requires-body=true, tag=rrtv
 
@@ -3529,6 +3527,8 @@ http-response ^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.soku\.yksearch scrip
 http-response ^https?:\/\/api\.weibo\.cn\/2\/comments\/build_comments\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/weibo.js, requires-body=true, tag=weibo
 
 http-response ^https?:\/\/napi\.ithome\.com\/api\/(news\/index|topmenu\/getfeeds) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/ithome.js, requires-body=true, tag=ithome
+
+http-response ^https?:\/\/youtubei\.googleapis\.com\/(youtubei\/v\d\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/youtube.js, requires-body=true, tag=youtube
 
 http-response ^https?:\/\/api\.weibo\.cn\/2\/friendships\/(create|destroy)\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/weibo.js, requires-body=true, tag=weibo
 

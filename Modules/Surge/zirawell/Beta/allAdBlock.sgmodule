@@ -3192,6 +3192,8 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 
 ^https?:\/\/dsp-impr2\.youdao\.com\/adload data-type=text data="" status-code=200
 
+^https?:\/\/rr[\w-]+\.googlevideo\.com\/initplayback\? data-type=text data="{}" status-code=200
+
 ^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig data-type=text data="" status-code=200
 
 ^https?:\/\/iobs\.pingan\.com\.cn\/download\/icore-aops-base-dmz-prd\/(?>YourSystemName|icore-apps-ad) data-type=text data="" status-code=200
@@ -3441,8 +3443,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/www\.gaoding\.com\/api\/v\d\/oc\/delivery-pits\/(?>template|mine|home)-page-dialog\/modules$ data-type=text data="{}" status-code=200
 
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit data-type=text data="{}" status-code=200
-
-^https?:\/\/rr[\w-]+\.googlevideo\.com\/initplayback\? data-type=text data="{}" status-code=200
 
 ^https?:\/\/api\.feng\.com\/v\d\/advertisement\/ data-type=text data="" status-code=200
 
@@ -4089,8 +4089,6 @@ weibo = type=http-response, pattern=^https?:\/\/api\.weibo\.cn\/2\/direct_messag
 
 mgtv = type=http-response, pattern=^https?:\/\/mobile\.api\.mgtv\.com\/mobile\/config\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/cntv.js, requires-body=true, max-size=0
 
-youtube = type=http-response, pattern=^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/youtube.js, requires-body=true, max-size=0
-
 rrtv = type=http-response, pattern=^https?:\/\/api\.rr\.tv\/drama\/app\/get_combined_drama_detail, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/rrtv.js, requires-body=true, max-size=0
 
 163music = type=http-response, pattern=^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/song\/play\/more\/list\/v\d, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/163music.js, requires-body=true, max-size=0
@@ -4528,6 +4526,8 @@ youku = type=http-response, pattern=^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku
 weibo = type=http-response, pattern=^https?:\/\/api\.weibo\.cn\/2\/comments\/build_comments\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/weibo.js, requires-body=true, max-size=0
 
 ithome = type=http-response, pattern=^https?:\/\/napi\.ithome\.com\/api\/(news\/index|topmenu\/getfeeds), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/ithome.js, requires-body=true, max-size=0
+
+youtube = type=http-response, pattern=^https?:\/\/youtubei\.googleapis\.com\/(youtubei\/v\d\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/youtube.js, requires-body=true, max-size=0
 
 weibo = type=http-response, pattern=^https?:\/\/api\.weibo\.cn\/2\/friendships\/(create|destroy)\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/weibo.js, requires-body=true, max-size=0
 
