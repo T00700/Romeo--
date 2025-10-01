@@ -275,7 +275,7 @@ iframe {
 </head>
 
 <body>
-    <script async src="https://euob.youseasky.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="e354dabbb6f239ea6a151878198dd2e5f7195436" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
+    <script async src="https://euob.youseasky.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="9122114d6b192934138a8fc49aa7f6b691addc80" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
     <noscript>
         <iframe src="https://obseu.youseasky.com/ns/224f85302aa2b6ec30aac9a85da2cbf9.html?ch=AdsDeli%20-%20domain%20-%20landingpage"
                 width="0" height="0" style="display:none"></iframe>
@@ -302,10 +302,10 @@ var ls = function(xhr, token) {
         }
     }
     
-    xhr.open('GET', '/munin/a/l' + 's?t=68dbd634&token=' + encodeURI(token), true);
+    xhr.open('GET', '/munin/a/l' + 's?t=68dc9166&token=' + encodeURI(token), true);
     xhr.send();
 };
-ls(new XMLHttpRequest(), 'e354dabbb6f239ea6a151878198dd2e5f7195436');
+ls(new XMLHttpRequest(), '9122114d6b192934138a8fc49aa7f6b691addc80');
 if (typeof window.chronosfailed === 'function') { window.chronosfailed(); }
 </script>
 
