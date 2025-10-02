@@ -275,14 +275,14 @@ iframe {
 </head>
 
 <body>
-    <script async src="https://euob.youseasky.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="9122114d6b192934138a8fc49aa7f6b691addc80" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
+    <script async src="https://euob.youseasky.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="bdaa33d2a2acc997f986ee5d424bb5ea0f3da383" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
     <noscript>
         <iframe src="https://obseu.youseasky.com/ns/224f85302aa2b6ec30aac9a85da2cbf9.html?ch=AdsDeli%20-%20domain%20-%20landingpage"
                 width="0" height="0" style="display:none"></iframe>
     </noscript>
 <script type="application/javascript">
     let scriptPath='';
-    window.chronosfailed = function () {
+    window.chronosFailed = function () {
         console.log('Callback complete.');
     };
 </script>
@@ -302,11 +302,11 @@ var ls = function(xhr, token) {
         }
     }
     
-    xhr.open('GET', '/munin/a/l' + 's?t=68dc9166&token=' + encodeURI(token), true);
+    xhr.open('GET', '/munin/a/l' + 's?t=68dddea9&token=' + encodeURI(token), true);
     xhr.send();
 };
-ls(new XMLHttpRequest(), '9122114d6b192934138a8fc49aa7f6b691addc80');
-if (typeof window.chronosfailed === 'function') { window.chronosfailed(); }
+ls(new XMLHttpRequest(), 'bdaa33d2a2acc997f986ee5d424bb5ea0f3da383');
+if (typeof window.chronosFailed === 'function') { window.chronosFailed(); }
 </script>
 
 <div>
@@ -342,12 +342,12 @@ if (typeof window.chronosfailed === 'function') { window.chronosfailed(); }
 </div>
 
 <div id="content">
-    <iframe id="iframe" frameBorder="0" src="https://yfdpco2.com/sk-park.php?pid=9PO15V947&dn=ra7.xyz&ua=Surge+Mac%2F2985&requrl=http%3A%2F%2Fra7.xyz%2Fz%2F.%2A%2Fcode.js"></iframe>
+    <iframe id="iframe" frameBorder="0" src="https://yfdnzf.com/?dn=ra7.xyz&pid=9PO755G95"></iframe>
     </div>
 
 <script>
     (function () {
-        document.getElementById("content").style.top = document.getElementById("content").previousElementSibling.clientHeight + "px";
+        document.getElementById('content').style.top = document.getElementById('content').previousElementSibling.clientHeight + 'px';
     })();
 </script>
 </body>
