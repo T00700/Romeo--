@@ -1,0 +1,12 @@
+#!name=SoraRemoveWatermark
+#!desc=SoraRemoveWatermark
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
+#!tag=Jacob
+
+[Script]
+# > Sora去水印@ddgksf2013
+http-request ^https?:\/\/videos\.openai\.com\/vg-assets\/assets.*mp4 script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/SoraRemoveWatermark/SoraRemoveWatermark.js, timeout=60, tag=SoraRemoveWatermark
+
+[MITM]
+hostname = videos.openai.com
+
