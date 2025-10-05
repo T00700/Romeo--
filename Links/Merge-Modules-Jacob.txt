@@ -52,8 +52,7 @@ Modules/Surge/zirawell/didi-App.sgmodule # Shadowrocket
 Modules/Surge/zirawell/didi-Applet.sgmodule # Shadowrocket
 Modules/Loon/Kelee/DiDi_remove_ads.lpx
 # https://github.com/ifflagged/Neverflagged/raw/main/Loon/Plugin/DiDi.plugin
-Modules/Surge/zirawell/dianping-App.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/dianping-Applet.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/DianPing.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/HKDouYin_remove_ads.sgmodule # Loon,Shadowrocket
 
 # E #
@@ -96,8 +95,8 @@ Modules/Surge/zirawell/mstand.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/manner.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/manmanbuy.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/mihome.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/meituan-App.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/meituan-Applet.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/Meituan.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/Meituan-MeituanWaimai.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/meitu.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/seeyouyima.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/seeYouYiMa.sgmodule # Loon,Shadowrocket
