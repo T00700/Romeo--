@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1017.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1033.png
 #!tag=Jacob
 
 [Rule]
@@ -2484,6 +2484,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/creditcard\.bankcomm\.(com|cn)\/tofimg\/bucket-pj-btss-tfcn-dmz\/OSS-F\/a8f2e8 mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/(h3\.)?open\.taou\.com\/maimai\/pay\/v\d\/check_gift mock-response-body data-type=text data="{}" status-code=200
 ^https?://rs.creditcard.cmbc.com.cn/mmc/img/126f35586ece469aa2daf2e451ba7b4d.jpg mock-response-body data-type=text status-code=200
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/(?>ad_|advertisement|getappmsgad|cps_product_info|masonryfeed|relatedarticle|relatedsearchword|geticon|getainfo|jsmonitor) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(cdn-)?shop\.kkmh\.com\/mbff\/popup_administration mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\? mock-response-body data-type=text data="{}" status-code=200
@@ -2710,7 +2711,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d\/query\/my_order_group mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdn\.poizon\.com\/node-common\/.*.jpg mock-response-body data-type=text status-code=200
 ^https?:\/\/cdn\.sdb\.com\.cn\/widget\/pb\/pb-plugins-rec-mivideo mock-response-body data-type=text data="{}" status-code=200
-^https?:\/\/mp\.weixin\.qq\.com\/mp\/(?>ad_|advertisement|getappmsgad|cps_product_info|masonryfeed|relatedarticle|relatedsearchword) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/layout\/productList\/eventData\/v mock-response-body data-type=text status-code=200
 ^https?:\/\/fastbuyer\.zbj\.com\/configure\/screenAdConfig\/ mock-response-body data-type=text status-code=200
 ^https:\/\/ecssmobile\.e-chinalife\.com(:\d+)?\/ecss\/web\/appupdate\/customization\/getFlashScreenInfo mock-response-body data-type=text data="{}" status-code=200
