@@ -8,7 +8,7 @@
 > TgChannel         https://t.me/ddgksf2021
 > Contribute        https://t.me/ddgksf2013_bot
 > Feedback          📮 ddgksf2013@163.com 📮
-> UpdateTime        2025-05-03
+> UpdateTime        2025-10-13
 > Suitable          自行观看“# > ”注释内容
 > Attention         如需引用请注明出处，谢谢合作！
 > ScriptURL         https://gist.githubusercontent.com/ddgksf2013/d43179d848586d561dbb968dee93bae8/raw/Zhihu.Adblock.js
@@ -125,6 +125,9 @@
 
 # > 知乎_回答页面相关搜索词@ddgksf2013
 ^https?:\/\/www\.zhihu\.com\/api\/v4\/search\/related_queries\/answer\/ url reject-dict
+
+# > 知乎_广告请求@ddgksf2013
+^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/v2\/resolv url reject-200
 
 # > 知乎_首页左侧图标@ddgksf2013
 ^https?:\/\/api\.zhihu\.com\/root\/window url reject-dict
