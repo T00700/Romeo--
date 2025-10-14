@@ -22,7 +22,8 @@
 ^https?:\/\/mars\.ccc\.cmbchina\.com\/MarsReceiver mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/marscc\.bcs\.cmbchina\.com\/MarsReceiver mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/intellicc\.\w+\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.RecommendRenderControllerApi\/getRecommendResult mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/interactivecc\.\w+\.cmbchina\.com\/Edge\/api\/atpcore\.api\.AccompanyingServiceControllerApi\/queryAccompanyingServiceUserConfForApp mock-response-body data-type=text data="{}" status-code=200
 
 [MITM]
-hostname = mars.ccc.cmbchina.com, marscc.bcs.cmbchina.com, intellicc.b*s.cmbchina.com, *mbasecc.b*s.cmbchina.com
+hostname = mars.ccc.cmbchina.com, marscc.bcs.cmbchina.com, intellicc.b*s.cmbchina.com, *mbasecc.b*s.cmbchina.com, interactivecc.b*s.cmbchina.com
 
