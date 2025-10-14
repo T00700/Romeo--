@@ -52,6 +52,9 @@
 # > 知乎_我的页面底部@ddgksf2013
 ^https?:\/\/www\.zhihu\.com\/appview\/v\d\/zhmore - reject-200
 
+[Body Rewrite]
+http-response-jq ^https?:\/\/.*zhihu.com\/(answers|articles)\/v\d '.third_business |= del(.related_queries, .ring)'
+
 [Script]
 # > 知乎_我的页面开通会员CARD@ddgksf2013
 Zhihu.Adblock = type=http-response, pattern=^https?:\/\/api\.zhihu\.com\/unlimited/go/my_card, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Zhihu.Adblock/Zhihu.Adblock.js, requires-body=true, max-size=-1, timeout=60
@@ -107,5 +110,5 @@ Zhihu.Adblock = type=http-response, pattern=^https?:\/\/api\.zhihu\.com\/moments
 Zhihu.Adblock = type=http-response, pattern=https://api.zhihu.com/search/hot_search, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Zhihu.Adblock/Zhihu.Adblock.js, requires-body=true, max-size=-1, timeout=60
 
 [MITM]
-hostname = %APPEND% 118.89.204.198, 103.41.167.237, 2402:4e00:1200:ed00:0:9089:6dac:96b6, www.zhihu.com, api.zhihu.com, zhuanlan.zhihu.com, appcloud2.zhihu.com, m-cloud.zhihu.com, 103.41.167.236, 103.41.167.234, 103.41.167.235, 103.41.167.226
+hostname = %APPEND% 118.89.204.198, 103.41.167.237, 2402:4e00:1200:ed00:0:9089:6dac:96b6, www.zhihu.com, api.zhihu.com, page-info.zhihu.com, zhuanlan.zhihu.com, appcloud2.zhihu.com, m-cloud.zhihu.com, 103.41.167.236, 103.41.167.234, 103.41.167.235, 103.41.167.226
 

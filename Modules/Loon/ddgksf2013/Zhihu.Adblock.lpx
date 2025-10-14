@@ -4,6 +4,7 @@
 #!tag=Jacob
 
 [Rewrite]
+^https?:\/\/.*zhihu.com\/(answers|articles)\/v\d response-body-json-jq '.third_business |= del(.related_queries, .ring)'
 # > 知乎_拦截DNS解析@blackmatrix7
 ^https?:\/\/118\.89\.204\.198 - reject-200
 ^https?:\/\/103\.41\.167\.237 - reject-200
@@ -108,5 +109,5 @@ http-response ^https?:\/\/api\.zhihu\.com\/moments_v3 script-path=https://github
 http-response https://api.zhihu.com/search/hot_search script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Zhihu.Adblock/Zhihu.Adblock.js, requires-body=true, timeout=60, tag=Zhihu.Adblock
 
 [MITM]
-hostname = 118.89.204.198, 103.41.167.237, 2402:4e00:1200:ed00:0:9089:6dac:96b6, www.zhihu.com, api.zhihu.com, zhuanlan.zhihu.com, appcloud2.zhihu.com, m-cloud.zhihu.com, 103.41.167.236, 103.41.167.234, 103.41.167.235, 103.41.167.226
+hostname = 118.89.204.198, 103.41.167.237, 2402:4e00:1200:ed00:0:9089:6dac:96b6, www.zhihu.com, api.zhihu.com, page-info.zhihu.com, zhuanlan.zhihu.com, appcloud2.zhihu.com, m-cloud.zhihu.com, 103.41.167.236, 103.41.167.234, 103.41.167.235, 103.41.167.226
 
