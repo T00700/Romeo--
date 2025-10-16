@@ -233,7 +233,7 @@ body_rewrite_134 = type=http-response, pattern=^https:\/\/chong\.qq\.com\/tws\/u
 
 企迈点单系统去广告 = type=http-response, pattern=^https:\/\/webapi\.qmai\.cn\/web\/catering\/design\/homePage-Config, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/WexinMiniPrograms_Remove_ads/kff.js, requires-body=true
 
-EMS中国邮政物流速递去广告 = type=http-response, pattern=^https:\/\/ump\.ems\.com\.cn\/new-generation-extend\/redis\/pageInfoByChannel, script-path=https://kelee.one/Resource/JavaScript/WexinMiniPrograms/ems/ems.js, requires-body=true
+EMS中国邮政物流速递去广告 = type=http-response, pattern=^https:\/\/ump\.ems\.com\.cn\/new-generation-extend\/redis\/pageInfoByChannel, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/WexinMiniPrograms_Remove_ads/ems.js, requires-body=true
 
 小兔充充去广告 = type=http-response, pattern=^https:\/\/mapi\.xiaotucc\.com\/(mall\/main|main_page\/index\/getActivity), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/WexinMiniPrograms_Remove_ads/xiaotucc.js, requires-body=true
 
