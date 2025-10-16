@@ -7,7 +7,7 @@
 > TgChannel         https://t.me/ddgksf2021
 > Contribute        https://t.me/ddgksf2013_bot
 > Feedback          📮 𝐝𝐝𝐠𝐤𝐬𝐟𝟐𝟎𝟏𝟑@𝟏𝟔𝟑.𝐜𝐨𝐦 📮
-> UpdateTime        2025-10-03
+> UpdateTime        2025-10-16
 > Attention         如需引用请注明出处，谢谢合作！
 > ScriptURL         https://gist.githubusercontent.com/ddgksf2013/71fca841d34a7b440408276d03da3261/raw/SoraRemoveWatermark.js
 
@@ -17,7 +17,7 @@
 [rewrite_local]
 
 # > Sora去水印@ddgksf2013
-^https?:\/\/videos\.openai\.com\/vg-assets\/assets.*mp4 url script-request-header https://gist.githubusercontent.com/ddgksf2013/71fca841d34a7b440408276d03da3261/raw/SoraRemoveWatermark.js
+^https?:\/\/videos\.openai\.com\/.*vg-assets\/assets.*mp4 url script-request-header https://gist.githubusercontent.com/ddgksf2013/71fca841d34a7b440408276d03da3261/raw/SoraRemoveWatermark.js
 
 [mitm]
 
