@@ -36,6 +36,8 @@ bilibiliManga = type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/tw
 
 bilibiliManga = type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Home\/HomeFeed, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/bilibiliManga-App/bilibiliManga.js, requires-body=true, max-size=0
 
+bilibiliManga = type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comment\/Main, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/bilibiliManga-App/bilibiliManga.js, requires-body=true, max-size=0
+
 [MITM]
 hostname = %APPEND% manga.bilibili.com, i*.hdslb.com
 

@@ -29,6 +29,8 @@ http-response ^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.User\/GetInitI
 
 http-response ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Home\/HomeFeed script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/bilibiliManga-App/bilibiliManga.js, requires-body=true, tag=bilibiliManga
 
+http-response ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comment\/Main script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/bilibiliManga-App/bilibiliManga.js, requires-body=true, tag=bilibiliManga
+
 [MITM]
 hostname = manga.bilibili.com, i*.hdslb.com
 

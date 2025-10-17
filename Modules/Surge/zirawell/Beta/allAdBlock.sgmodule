@@ -4423,6 +4423,8 @@ weibo = type=http-response, pattern=^https?:\/\/api\.weibo\.cn\/2\/(checkin\/sho
 
 ys7 = type=http-response, pattern=^https?:\/\/\w+\.ys7\.com\/v\d\/valueadded\/operation\/config\/master\/station, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/ys7.js, requires-body=true, max-size=0
 
+bilibiliManga = type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comment\/Main, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/bilibiliManga.js, requires-body=true, max-size=0
+
 ehaier = type=http-response, pattern=^https?:\/\/oss-zjrs\.haier\.net\/resource\/confFile\/\d{22}\.json$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/haier.js, requires-body=true, max-size=0
 
 flyert = type=http-response, pattern=^https?:\/\/www\.flyert(rip)?\.com(\.cn)?\/.*plugin, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/flyert.js, requires-body=true, max-size=0
@@ -4558,6 +4560,8 @@ bilibili = type=http-response, pattern=^https?:\/\/app\.bilibili\.com\/x\/resour
 bosclife = type=http-response, pattern=^https?:\/\/mgs1\.bosc\.cn:3601\/mgw, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/bosclife.js, max-size=0
 
 mgtv = type=http-response, pattern=^https?:\/\/mobile-thor\.api\.mgtv\.com\/v\d\/vod\/info\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/cntv.js, requires-body=true, max-size=0
+
+fliggy = type=http-response, pattern=^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.traveldetail\.ultron\.detail\.firstscreen\.get, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/fliggy.js, requires-body=true, max-size=0
 
 51job = type=http-response, pattern=^https?:\/\/cupid\.51job(app)?\.com\/open\/noauth\/recommend\/job-tab-dynamic, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/51job.js, requires-body=true, max-size=0
 

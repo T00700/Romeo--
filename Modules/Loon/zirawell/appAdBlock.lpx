@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1073.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1094.png
 #!tag=Jacob
 
 [Rule]
@@ -3182,6 +3182,8 @@ http-response ^https?:\/\/api\.weibo\.cn\/2\/(checkin\/show|client\/publisher_li
 
 http-response ^https?:\/\/\w+\.ys7\.com\/v\d\/valueadded\/operation\/config\/master\/station script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/ys7.js, requires-body=true, tag=ys7
 
+http-response ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comment\/Main script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bilibiliManga.js, requires-body=true, tag=bilibiliManga
+
 http-response ^https?:\/\/oss-zjrs\.haier\.net\/resource\/confFile\/\d{22}\.json$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/haier.js, requires-body=true, tag=ehaier
 
 http-response ^https?:\/\/www\.flyert(rip)?\.com(\.cn)?\/.*plugin script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/flyert.js, requires-body=true, tag=flyert
@@ -3309,6 +3311,8 @@ http-response ^https?:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$ scri
 http-response ^https?:\/\/mgs1\.bosc\.cn:3601\/mgw script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/bosclife.js, tag=bosclife
 
 http-response ^https?:\/\/mobile-thor\.api\.mgtv\.com\/v\d\/vod\/info\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cntv.js, requires-body=true, tag=mgtv
+
+http-response ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.traveldetail\.ultron\.detail\.firstscreen\.get script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/fliggy.js, requires-body=true, tag=fliggy
 
 http-response ^https?:\/\/cupid\.51job(app)?\.com\/open\/noauth\/recommend\/job-tab-dynamic script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/51job.js, requires-body=true, tag=51job
 
