@@ -275,10 +275,9 @@ iframe {
 </head>
 
 <body>
-    <script async src="https://euob.youseasky.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="660e12defecd8ec14e28d76718c90269fcc4d751" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
+    <script async src="https://euob.youstarsbuilding.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="5c646de541f69d2a0bb0cb109a384bcbb948c735" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
     <noscript>
-        <iframe src="https://obseu.youseasky.com/ns/224f85302aa2b6ec30aac9a85da2cbf9.html?ch=AdsDeli%20-%20domain%20-%20landingpage"
-                width="0" height="0" style="display:none"></iframe>
+        <iframe src="https://obseu.youstarsbuilding.com/ns/224f85302aa2b6ec30aac9a85da2cbf9.html?ch=AdsDeli%20-%20domain%20-%20landingpage" width="0" height="0" style="display:none"></iframe>
     </noscript>
 <script type="application/javascript">
     let scriptPath='';
@@ -291,43 +290,27 @@ iframe {
         Array.from(document.getElementsByTagName('iframe')).forEach((iframe) => iframe.remove());
     };
 </script>
-<script type='text/javascript'>
-fetch('/chronos?dune=eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.9sTCiDyRI6hTdLVfAA8DXgz1sl-I3ko1RCKsVmenObhnBXMmqtF_hw.a713Bue-zAB7wxBP8wK2rQ.lXNCMpsGh_GBhzlA_6O799tqTYywjPO9vMdfBjMDp1jmZCOD0EOQfx1oQmNSAJN2bgfrLEg8jXoiwD-VEFF3yP11u4nr1-FFbKtVziMp3JTtxzpm8H93Qvsu4I7xC3Ge6G5f3Yx-V2qlCWCorTcukLlhHtHTmCB4tFgihPs5Awq97dMLS5mjPBbeXhIoJa9G.08G_KpKVStyWySG7QgjpHA&t=68f23f81&token=660e12defecd8ec14e28d76718c90269fcc4d751')
-    .then(async response => {
-        if (!response.ok && response.status >= 400) {
-            throw new Error('Network response was not ok: ' + response.statusText);
-        }
-        if (response.status === 204) {
-            window.chronosFailed();
-            return null;
-        }
-        return JSON.parse(await response.text());
-    })
-    .then(data => {
-        if (data && data.location) {
-            window.location.href = data.location;
-        } else if (data && data.res && data.res.length > 0) {
-            var html = '';
-            Object.keys(locations).forEach(function (keyword) {
-                var href = locations[keyword];
-                html += `<a href="${href}" class="fallback-term-link"><span>${keyword}</span></a>`;
-            });
-            
-            document.getElementById('fallbackTerms').innerHTML = html;
-            document.getElementById('keywords-template').style.display = 'block';
-            
-            if (typeof window.chronosSuccess === 'function') {
-                window.chronosSuccess(data);
+<script type="text/javascript">
+var ls = function(xhr, token) {
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status >= 200 && xhr.status <= 400) {
+                if (xhr.responseText.trim() === '') {
+                    return;
+                }
+    
+                console.log(JSON.parse(xhr.responseText))
+            } else {
+                console.log('There was a problem with the request.');
             }
-        } else {
-            window.chronosFailed();
-            console.log(data);
         }
-    })
-    .catch(error => {
-        console.error(error);
-        window.chronosFailed();
-    });
+    }
+    
+    xhr.open('GET', '/munin/a/l' + 's?t=68f2f5ff&token=' + encodeURI(token), true);
+    xhr.send();
+};
+ls(new XMLHttpRequest(), '5c646de541f69d2a0bb0cb109a384bcbb948c735');
+if (typeof window.chronosFailed === 'function') { window.chronosFailed(); }
 </script>
 
 <div>
@@ -363,7 +346,7 @@ fetch('/chronos?dune=eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.9sTCiDy
 </div>
 
 <div id="content">
-    <iframe id="iframe" frameBorder="0" src="https://yfdpco1.com/sk-park.php?pid=9PO15V947&dn=ra7.xyz&ua=Surge+Mac%2F2985&requrl=http%3A%2F%2Fra7.xyz%2Fz%2F.%2A%2Fcode.js"></iframe>
+    <iframe id="iframe" frameBorder="0" src="https://yfdnzf.com/?dn=ra7.xyz&pid=9PO755G95"></iframe>
     </div>
 <script>
     (function () {
