@@ -1534,6 +1534,7 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https?:\/\/api\.mcd\.cn\/bff\/portal\/home\/hotActivity mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.mcd\.cn\/bff\/portal\/richpop mock-response-body data-type=text data="{}" status-code=200
 # Pinduoduo
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/order_detail_group response-body-json-jq 'del(.data.goods_list)'
 ^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab - reject-dict
 ^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element - reject-dict
 ^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject-dict
