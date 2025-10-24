@@ -63,7 +63,7 @@ Modules/Surge/zirawell/eleme-Applet.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/51fanli.sgmodule # Loon,Shadowrocket
 
 # G #
-Modules/Surge/fmz200/GaoTieGuanJia.sgmodule # Loon,Shadowrocket
+# Modules/Surge/fmz200/GaoTieGuanJia.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/Amap_remove_ads.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/amap-App.sgmodule # Loon,Shadowrocket
 # Modules/Surge/zirawell/rsscc.sgmodule # Loon,Shadowrocket
