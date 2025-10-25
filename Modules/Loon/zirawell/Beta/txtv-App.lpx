@@ -32,10 +32,11 @@ IP-CIDR,183.201.213.194/24,REJECT,no-resolve
 
 [Rewrite]
 ^https?:\/\/apd-vlive\.apdcdn\.tc\.qq\.com\/vmind\.qqvideo\.tc\.qq\.com\/\w+ - reject
-^https?:\/\/apd-\w+\.v\.smtcdns\.com\/(defaultts|omts|vmind\.qqvideo)\.tc\.qq\.com\/\w+ - reject
+^https?:\/\/apd-\w+\.v\.smtcdns\.com\/(defaultts|omts|vmind\.qqvideo)\.tc\.qq\.com\/ - reject
+^https?:\/\/ossgw\.alicdn\.com\/creatives-assets\/prod\/feupload\/user - reject
 ^https?:\/\/vv\.video\.qq\.com\/getvinfo request-body-replace-regex &sppreviewtype=\d(.*)&spsrt=\d &sppreviewtype=0$1&spsrt=0
 ^https?:\/\/vv\.video\.qq\.com\/(?>diff|get)vmind mock-response-body data-type=text data="{}" status-code=200
 
 [MITM]
-hostname = vv.video.qq.com, apd-vlive.apdcdn.tc.qq.com, apd-*.v.smtcdns.com
+hostname = vv.video.qq.com, apd-vlive.apdcdn.tc.qq.com, apd-*.v.smtcdns.com, ossgw.alicdn.com
 
