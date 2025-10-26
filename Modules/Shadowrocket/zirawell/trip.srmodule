@@ -17,7 +17,6 @@ DOMAIN,firebaseinstallations.googleapis.com,REJECT,extended-matching
 DOMAIN,ocsp.pki.goog,REJECT,extended-matching
 DOMAIN,cpush.trip.com,REJECT,extended-matching
 DOMAIN,tcpgateway-sgp-trip.trip.com,REJECT,extended-matching
-DOMAIN,overseamobileap.ctrip.com,REJECT,extended-matching
 DOMAIN,ak-d.tripcdn.com,REJECT,extended-matching
 DOMAIN,easytomessage.com,REJECT,extended-matching
 DOMAIN,cpush.ctrip.com,REJECT,extended-matching
@@ -26,7 +25,6 @@ IP-CIDR,162.14.137.26/32,REJECT,no-resolve
 IP-CIDR,103.143.160.209/32,REJECT,no-resolve
 IP-CIDR,210.13.85.204/32,REJECT,no-resolve
 DOMAIN-SUFFIX,graph.facebook.com,REJECT,extended-matching
-DOMAIN-SUFFIX,m.ctripins.com,REJECT,extended-matching
 DOMAIN-KEYWORD,app.adjust,REJECT,extended-matching
 
 [URL Rewrite]

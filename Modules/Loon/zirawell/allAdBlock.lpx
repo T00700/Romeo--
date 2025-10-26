@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1097.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1051.png
 #!tag=Jacob
 
 [Rule]
@@ -400,7 +400,6 @@ DOMAIN,open.kuaishou.com,REJECT
 DOMAIN,openapi.boc.cn,REJECT
 DOMAIN,optimus-ads.amap.com,REJECT
 DOMAIN,ossgw.alicdn.com,REJECT
-DOMAIN,overseamobileap.ctrip.com,REJECT
 DOMAIN,pageviewp.icbc.com.cn,REJECT
 DOMAIN,pgdt.gtimg.cn,REJECT
 DOMAIN,pl.cp31.ott.cibntv.net,REJECT
@@ -981,7 +980,6 @@ DOMAIN-SUFFIX,lx.meituan.net,REJECT
 DOMAIN-SUFFIX,m-adash.m.taobao.com,REJECT
 DOMAIN-SUFFIX,m.baidu.com.yiqisee.cn,REJECT
 DOMAIN-SUFFIX,m.baidu.com.zhiduo.org,REJECT
-DOMAIN-SUFFIX,m.ctripins.com,REJECT
 DOMAIN-SUFFIX,m.simba.taobao.com,REJECT
 DOMAIN-SUFFIX,m.yes.youku.com,REJECT
 DOMAIN-SUFFIX,m1.baidu.com,REJECT
