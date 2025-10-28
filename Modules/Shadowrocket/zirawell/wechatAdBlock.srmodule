@@ -375,6 +375,8 @@ tflj = type=http-response, pattern=^https?:\/\/tf02\.istrongcloud\.com\/member\/
 
 mygolbs = type=http-response, pattern=^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/zsgj.js, requires-body=true, max-size=0
 
+cotti = type=http-request, pattern=^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/cotti.js, requires-body=true, max-size=0
+
 wechatAppletGeneral = type=http-response, pattern=^https?:\/\/(?>webapi|miniapp)\.qmai\.cn\/web\/catering([0-9]-apiserver)?\/advertising\/ad\/advertiseInfo, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/qmai.js, requires-body=true, max-size=0
 
 wjx = type=http-response, pattern=^https?:\/\/kaoshi\.wjx\.top\/wjx\/join\/completemobile, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/wjx.js, requires-body=true, max-size=0
@@ -404,8 +406,6 @@ freshippo = type=http-response, pattern=^https?:\/\/acs\.m\.shyhhema\.com\/h5\/m
 xiaotucc = type=http-response, pattern=^https?:\/\/mapi\.xiaotucc\.com\/(mall\/main|\w+\/main_page\/index\/getActivity), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/wechatApplet.js, requires-body=true, max-size=0
 
 cloudpnr = type=http-response, pattern=^https?:\/\/saas-ad\.cloudpnr\.com\/huifuad-base-api\/api\/tactics\/ad, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/wechatApplet.js, requires-body=true, max-size=0
-
-cotti = type=http-response, pattern=^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/cotti.js, max-size=0
 
 meituanwm = type=http-response, pattern=^https?:\/\/web\.meituan\.com\/api\/miniprogram\/index\/aggregate, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/wechatAdBlock/meituanwm.js, requires-body=true, max-size=0
 

@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1071.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1093.png
 #!tag=Jacob
 
 [Rule]
@@ -3013,6 +3013,8 @@ http-response ^https?:\/\/mob-st\.bz\.mgtv\.com\/odin\/c\d\/channel\/index\? scr
 
 http-response ^https?:\/\/tf02\.istrongcloud\.com\/member\/v[0-9.]+\/home script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/tflj.js, requires-body=true, tag=tflj
 
+http-request ^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/cotti.js, requires-body=true, tag=cotti
+
 http-response ^https?:\/\/(?>webapi|miniapp)\.qmai\.cn\/web\/catering([0-9]-apiserver)?\/advertising\/ad\/advertiseInfo script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/qmai.js, requires-body=true, tag=wechatAppletGeneral
 
 http-response ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/goofish.js, requires-body=true, tag=goofish
@@ -3588,8 +3590,6 @@ http-response ^https?:\/\/wbapp\.uve\.weibo\.com\/(preload\/get_ad|wbapplua\/wbp
 http-response ^https?:\/\/g(.*)\.dushu365\.com\/fs-member\/user\/profile\/v100\/detail script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/dushu365.js, requires-body=true, tag=dushu365
 
 http-response ^https?:\/\/cl-gateway\.tuhu\.cn\/cl-common-api\/api\/personalCenter\/getCmsModuleList script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/tuhu.js, requires-body=true, tag=tuhu
-
-http-response ^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/cotti.js, tag=cotti
 
 http-response ^https?:\/\/s-api\.smzdm\.com\/sou\/(>?filter\/tags\/hot_tags|list_v\d\?) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/smzdm.js, requires-body=true, tag=smzdm
 

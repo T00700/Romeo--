@@ -4016,6 +4016,8 @@ mgtv = type=http-response, pattern=^https?:\/\/mob-st\.bz\.mgtv\.com\/odin\/c\d\
 
 tflj = type=http-response, pattern=^https?:\/\/tf02\.istrongcloud\.com\/member\/v[0-9.]+\/home, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/tflj.js, requires-body=true, max-size=0
 
+cotti = type=http-request, pattern=^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/cotti.js, requires-body=true, max-size=0
+
 wechatAppletGeneral = type=http-response, pattern=^https?:\/\/(?>webapi|miniapp)\.qmai\.cn\/web\/catering([0-9]-apiserver)?\/advertising\/ad\/advertiseInfo, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/qmai.js, requires-body=true, max-size=0
 
 goofish = type=http-response, pattern=^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/goofish.js, requires-body=true, max-size=0
@@ -4591,8 +4593,6 @@ weibo = type=http-response, pattern=^https?:\/\/wbapp\.uve\.weibo\.com\/(preload
 dushu365 = type=http-response, pattern=^https?:\/\/g(.*)\.dushu365\.com\/fs-member\/user\/profile\/v100\/detail, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/dushu365.js, requires-body=true, max-size=0
 
 tuhu = type=http-response, pattern=^https?:\/\/cl-gateway\.tuhu\.cn\/cl-common-api\/api\/personalCenter\/getCmsModuleList, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/tuhu.js, requires-body=true, max-size=0
-
-cotti = type=http-response, pattern=^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/cotti.js, max-size=0
 
 smzdm = type=http-response, pattern=^https?:\/\/s-api\.smzdm\.com\/sou\/(>?filter\/tags\/hot_tags|list_v\d\?), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/smzdm.js, requires-body=true, max-size=0
 
