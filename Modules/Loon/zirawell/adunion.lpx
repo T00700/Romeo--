@@ -1,7 +1,7 @@
 #!name=广告联盟 - ADUNION
 #!desc=功能类插件
 #!author=zirawell[https://github.com/zirawell]
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1062.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1086.png
 #!tag=Jacob
 
 #!tag=去广告
@@ -452,6 +452,8 @@ DOMAIN,iad.g.163.com,REJECT
 DOMAIN,n.3g.163.com,REJECT
 DOMAIN,g1.163.com,REJECT
 DOMAIN,ad.bn.netease.com,REJECT
+DOMAIN,statistic.live.126.net,REJECT
+DOMAIN,lbs.netease.im,REJECT
 DOMAIN,ad.yixin.im,REJECT
 DOMAIN,yt-adp.nosdn.127.net,REJECT
 DOMAIN,yt-adp.ws.126.net,REJECT

@@ -16,8 +16,6 @@
 DOMAIN,applog-perf.uc.cn,REJECT
 DOMAIN,woodpecker.uc.cn,REJECT
 DOMAIN,collect.xiaopeng.com,REJECT
-DOMAIN,statistic.live.126.net,REJECT
-DOMAIN,lbs.netease.im,REJECT
 DOMAIN,httpdns.yunxindns.com,REJECT
 DOMAIN,apps-booster.xiaopeng.com,REJECT
 
