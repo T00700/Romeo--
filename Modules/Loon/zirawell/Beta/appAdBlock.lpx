@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1025.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1064.png
 #!tag=Jacob
 
 [Rule]
@@ -534,6 +534,7 @@ DOMAIN-SUFFIX,a-dxk.play.api.3g.youku.com,REJECT
 DOMAIN-SUFFIX,a.baidu.com,REJECT
 DOMAIN-SUFFIX,a.ckm.iqiyi.com,REJECT
 DOMAIN-SUFFIX,a.youdao.com,REJECT
+DOMAIN-SUFFIX,abtest.alibaba.com,REJECT
 DOMAIN-SUFFIX,acs4baichuan.m.taobao.com,REJECT
 DOMAIN-SUFFIX,activeqq.3g.qq.com,REJECT
 DOMAIN-SUFFIX,actives.youku.com,REJECT
