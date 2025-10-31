@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1098.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1007.png
 #!tag=Jacob
 
 [Rule]
@@ -2638,7 +2638,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/creditcard\.bankcomm\.(com|cn)\/tofimg\/bucket-pj-btss-tfcn-dmz\/OSS-F\/a8f2e8 mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/(h3\.)?open\.taou\.com\/maimai\/pay\/v\d\/check_gift mock-response-body data-type=text data="{}" status-code=200
 ^https?://rs.creditcard.cmbc.com.cn/mmc/img/126f35586ece469aa2daf2e451ba7b4d.jpg mock-response-body data-type=text status-code=200
-^https?:\/\/mp\.weixin\.qq\.com\/mp\/(?>ad_|advertisement|getappmsgad|cps_product_info|masonryfeed|relatedarticle|relatedsearchword|geticon|getainfo|jsmonitor) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(cdn-)?shop\.kkmh\.com\/mbff\/popup_administration mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\? mock-response-body data-type=text data="{}" status-code=200
@@ -2963,6 +2962,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/apivip\.kuaiduizuoye\.com\/viponline\/scancode\/mycard mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wx\.17u\.cn\/mytourapi\/mytrip\/(?>blankflight|toptips) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mage(v\d)?\.if\.qidian\.com\/Atom\.axd\/Api\/Client\/GetConfIOS mock-response-body data-type=tiny-gif status-code=200
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/(?>ad_|advertisement|getappmsgad|cps_product_info|masonryfeed|relatedarticle|relatedsearchword|searchkeywordreport|geticon|getainfo|jsmonitor) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/jiaxiao-awd\.kakamobi\.cn\/api\/h5\/v\d\/home-lead-advertise\/abtest mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ucmp-static\.sf-express\.com\/proxy\/wxbase\/wxTicket\/wxLiveStreamInfo\?pageNo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/staticlive\.douyucdn\.cn\/.+?\/getStartSend mock-response-body data-type=tiny-gif status-code=200

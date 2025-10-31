@@ -3039,8 +3039,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 
 ^https?://rs.creditcard.cmbc.com.cn/mmc/img/126f35586ece469aa2daf2e451ba7b4d.jpg data-type=text data="" status-code=200
 
-^https?:\/\/mp\.weixin\.qq\.com\/mp\/(?>ad_|advertisement|getappmsgad|cps_product_info|masonryfeed|relatedarticle|relatedsearchword|geticon|getainfo|jsmonitor) data-type=text data="{}" status-code=200
-
 ^https?:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp data-type=text data="{}" status-code=200
 
 ^https?:\/\/(cdn-)?shop\.kkmh\.com\/mbff\/popup_administration data-type=text data="{}" status-code=200
@@ -3590,6 +3588,8 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/apivip\.kuaiduizuoye\.com\/viponline\/scancode\/mycard data-type=text data="{}" status-code=200
 
 ^https?:\/\/mage(v\d)?\.if\.qidian\.com\/Atom\.axd\/Api\/Client\/GetConfIOS data-type=tiny-gif status-code=200
+
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/(?>ad_|advertisement|getappmsgad|cps_product_info|masonryfeed|relatedarticle|relatedsearchword|searchkeywordreport|geticon|getainfo|jsmonitor) data-type=text data="{}" status-code=200
 
 ^https?:\/\/jiaxiao-awd\.kakamobi\.cn\/api\/h5\/v\d\/home-lead-advertise\/abtest data-type=text data="{}" status-code=200
 
