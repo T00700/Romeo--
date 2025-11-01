@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1074.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1036.png
 #!tag=Jacob
 
 [Rule]
@@ -215,6 +215,7 @@ DOMAIN,bigdata-behaviordata.189.cn,REJECT
 DOMAIN,bootpreload.uve.weibo.com,REJECT
 DOMAIN,bsync3-normal.zijieapi.com,REJECT
 DOMAIN,business.msstatic.com,REJECT
+DOMAIN,cactus.jd.com,REJECT
 DOMAIN,cad.youku.com,REJECT
 DOMAIN,collect.xiaopeng.com,REJECT
 DOMAIN,conf-darwin.xycdn.com,REJECT
@@ -286,6 +287,7 @@ DOMAIN,goblin.hupu.com,REJECT
 DOMAIN,gorgon.youdao.com,REJECT
 DOMAIN,hc-ssp.sm.cn,REJECT
 DOMAIN,hdns.ksyun.com,REJECT
+DOMAIN,hermes.jd.com,REJECT
 DOMAIN,hlx.meituan.com,REJECT
 DOMAIN,hmma.baidu.com,REJECT
 DOMAIN,httpdns.baidubce.com,REJECT
@@ -434,6 +436,7 @@ DOMAIN,rprain.bz.mgtv.com,REJECT
 DOMAIN,rtlog5-applog.fqnovel.com,REJECT
 DOMAIN,rtms.alipay.com,REJECT
 DOMAIN,rttrack.ddxq.mobi,REJECT
+DOMAIN,s.youtube.com,REJECT
 DOMAIN,s3a.pstatp.com,REJECT
 DOMAIN,safebrowsing.g.applimg.com,REJECT
 DOMAIN,safebrowsing.googleapis.com,REJECT
@@ -506,6 +509,7 @@ DOMAIN,twns.p2ptun.qq.com,REJECT
 DOMAIN,tysdk.95516.com,REJECT
 DOMAIN,ug.snssdk.com,REJECT
 DOMAIN,ugchsy.gtimg.com,REJECT
+DOMAIN,un.m.jd.com,REJECT
 DOMAIN,union.chinalifeonline.com.cn,REJECT
 DOMAIN,ups.ksmobile.net,REJECT
 DOMAIN,vali-g1.cp31.ott.cibntv.net,REJECT
@@ -522,6 +526,7 @@ DOMAIN,webproxy-advp.iad-apple.com,REJECT
 DOMAIN,webproxy-advp.iad-apple.com.akadns.net,REJECT
 DOMAIN,wn.pos.baidu.com,REJECT
 DOMAIN,woodpecker.uc.cn,REJECT
+DOMAIN,wqs.jd.com,REJECT
 DOMAIN,ws.ksmobile.net,REJECT
 DOMAIN,ws.tapjoyads.com,REJECT
 DOMAIN,wxsmsdy.video.qq.com,REJECT
@@ -2598,6 +2603,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/dsp-impr2\.youdao\.com\/adload mock-response-body data-type=text status-code=200
 ^https?:\/\/rr[\w-]+\.googlevideo\.com\/initplayback\? mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig mock-response-body data-type=text status-code=200
+^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?>searchBoxWord|xview2Config|stationPullService|getWidget|widget|hybrid|jdDiscoveryRedPoint|queryMaterialAdverts|apollo_style|jdaPreDownload) mock-response-body data-type=text status-code=200
 ^https?:\/\/iobs\.pingan\.com\.cn\/download\/icore-aops-base-dmz-prd\/(?>YourSystemName|icore-apps-ad) mock-response-body data-type=text status-code=200
 ^https?:\/\/static01\.versa-ai\.com\/upload\/ec0ba51d68f9\/.*.jpg mock-response-body data-type=text status-code=200
 ^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/userLike mock-response-body data-type=text data="{}" status-code=200
@@ -2978,7 +2984,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api-sams\.walmartmobile\.cn\/api\/v\d\/sams\/channel\/portal\/AdgroupData mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/i\d\.hdslb\.com\/bfs\/fawkes mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.duitang\.com\/napi\/infra\/settings\/ mock-response-body data-type=text data="{}" status-code=200
-^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?>searchBoxWord|xview2Config|stationPullService|getWidget|widget|hybrid|jdDiscoveryRedPoint|queryMaterialAdverts|apollo_style) mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.bwton\.com\/bff\/app\/index\/goods mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mbd\.baidu\.com\/ccs\/v\d\/start\/confsync\?appname=baidu_input mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/lop-proxy\.jd\.com\/csat\/getNPSQuestionnaire mock-response-body data-type=text data="{}" status-code=200
