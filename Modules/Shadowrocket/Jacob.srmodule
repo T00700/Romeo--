@@ -789,6 +789,10 @@ URL-REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
 DOMAIN,waapdg.jd.com,REJECT,extended-matching
 DOMAIN,jdqd.jd.com,REJECT,extended-matching
 DOMAIN,dgstatic.jd.com,REJECT,extended-matching
+DOMAIN,un.m.jd.com,REJECT,extended-matching
+DOMAIN,wqs.jd.com,REJECT,extended-matching
+DOMAIN,hermes.jd.com,REJECT,extended-matching
+DOMAIN,cactus.jd.com,REJECT,extended-matching
 DOMAIN-SUFFIX,jzt.jd.com,REJECT,extended-matching
 DOMAIN-SUFFIX,img-x.jd.com,REJECT,extended-matching
 DOMAIN-SUFFIX,du.jd.com,REJECT,extended-matching
@@ -1598,7 +1602,7 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Acc
 # haiersmarthomes
 ^https?:\/\/service\.haiersmarthomes\.com\/management\/banner\/getBannerList\?source=4 data-type=text data="{}"
 # jd-App
-^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?>searchBoxWord|xview2Config|stationPullService|getWidget|widget|hybrid|jdDiscoveryRedPoint|queryMaterialAdverts|apollo_style) data-type=text data=""
+^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?>searchBoxWord|xview2Config|stationPullService|getWidget|widget|hybrid|jdDiscoveryRedPoint|queryMaterialAdverts|apollo_style|jdaPreDownload) data-type=text data=""
 ^https?:\/\/(bdsp-x|dsp-x)\.jd\.com\/adx\/ data-type=text data=""
 # jd-Applet
 ^https?:\/\/api\.m\.jd\.com\/\?loginType=11 data-type=text data="{}"

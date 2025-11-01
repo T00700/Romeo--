@@ -791,6 +791,10 @@ URL-REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
 DOMAIN,waapdg.jd.com,REJECT,extended-matching,pre-matching
 DOMAIN,jdqd.jd.com,REJECT,extended-matching,pre-matching
 DOMAIN,dgstatic.jd.com,REJECT,extended-matching,pre-matching
+DOMAIN,un.m.jd.com,REJECT,extended-matching,pre-matching
+DOMAIN,wqs.jd.com,REJECT,extended-matching,pre-matching
+DOMAIN,hermes.jd.com,REJECT,extended-matching,pre-matching
+DOMAIN,cactus.jd.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,jzt.jd.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,img-x.jd.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,du.jd.com,REJECT,extended-matching,pre-matching
@@ -1520,7 +1524,7 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Acc
 # JD_remove_ads
 ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06]) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 # jd-App
-^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?>searchBoxWord|xview2Config|stationPullService|getWidget|widget|hybrid|jdDiscoveryRedPoint|queryMaterialAdverts|apollo_style) data-type=text data="" status-code=200
+^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?>searchBoxWord|xview2Config|stationPullService|getWidget|widget|hybrid|jdDiscoveryRedPoint|queryMaterialAdverts|apollo_style|jdaPreDownload) data-type=text data="" status-code=200
 ^https?:\/\/(bdsp-x|dsp-x)\.jd\.com\/adx\/ data-type=text data="" status-code=200
 # jd-Applet
 ^https?:\/\/api\.m\.jd\.com\/\?loginType=11 data-type=text data="{}" status-code=200
