@@ -1,9 +1,10 @@
 #!name=jdexpress
 #!desc=jdexpress
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1061.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1016.png
 #!tag=Jacob
 
 [Rewrite]
+^https?:\/\/lop-proxy\.jd\.com\/index\/queryTabBubble - reject
 ^https?:\/\/lop-proxy\.jd\.com\/BeaconFireApi\/queryMarketingRecommendRuleConfigInfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/lop-proxy\.jd\.com\/home\/banner mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/lop-proxy\.jd\.com\/order\/getCarbonIntegral mock-response-body data-type=text data="{}" status-code=200

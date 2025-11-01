@@ -1,6 +1,6 @@
 #!name=wechatAdBlock
 #!desc=wechatAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1010.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1058.png
 #!tag=Jacob
 
 [Rule]
@@ -38,6 +38,7 @@ DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com,REJECT
 ^https?:\/\/mcsp\.cloudpnr\.com\/api\/miniapp\/popular\/T_MINIAPP$ - reject
 ^https?:\/\/ec\.ems\.com\.cn\/ecr-exp-web\/advert - reject
 ^https?:\/\/minipro\.95504\.net\/app\/json\/ad\/get(?>Pop|Index)AdData - reject
+^https?:\/\/lop-proxy\.jd\.com\/index\/queryTabBubble - reject
 ^https?:\/\/webchatapp\.fcbox\.com\/fcboxactivityweb\/api\/v\d\/clientPage - reject
 ^https?:\/\/capis(-\d)?\.didapinche\.com\/adbase - reject
 ^https?:\/\/flow\.dmall\.com\/app\/home\/pops - reject
