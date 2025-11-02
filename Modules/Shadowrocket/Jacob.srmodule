@@ -789,7 +789,6 @@ URL-REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
 DOMAIN,waapdg.jd.com,REJECT,extended-matching
 DOMAIN,jdqd.jd.com,REJECT,extended-matching
 DOMAIN,dgstatic.jd.com,REJECT,extended-matching
-DOMAIN,un.m.jd.com,REJECT,extended-matching
 DOMAIN,wqs.jd.com,REJECT,extended-matching
 DOMAIN,hermes.jd.com,REJECT,extended-matching
 DOMAIN,cactus.jd.com,REJECT,extended-matching
