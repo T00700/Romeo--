@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1010.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1003.png
 #!tag=Jacob
 
 [Rule]
@@ -509,7 +509,6 @@ DOMAIN,twns.p2ptun.qq.com,REJECT
 DOMAIN,tysdk.95516.com,REJECT
 DOMAIN,ug.snssdk.com,REJECT
 DOMAIN,ugchsy.gtimg.com,REJECT
-DOMAIN,un.m.jd.com,REJECT
 DOMAIN,union.chinalifeonline.com.cn,REJECT
 DOMAIN,ups.ksmobile.net,REJECT
 DOMAIN,vali-g1.cp31.ott.cibntv.net,REJECT
