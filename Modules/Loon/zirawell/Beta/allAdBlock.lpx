@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1023.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1071.png
 #!tag=Jacob
 
 [Rule]
@@ -187,6 +187,7 @@ DOMAIN,api.verify.mob.com,REJECT
 DOMAIN,api.zuihuimai.com,REJECT
 DOMAIN,api.zysdsk.cn,REJECT
 DOMAIN,apiinit.amap.com,REJECT
+DOMAIN,apis.alenable.com,REJECT
 DOMAIN,apm.gotokeep.com,REJECT
 DOMAIN,apm.pinduoduo.com,REJECT
 DOMAIN,apmplus.volces.com,REJECT
@@ -318,8 +319,6 @@ DOMAIN,icloud-amap.com,REJECT
 DOMAIN,id.hadron.ad.gt,REJECT
 DOMAIN,ifconfig.me,REJECT
 DOMAIN,imc.abchina.com.cn,REJECT
-DOMAIN,img.adnyg.com,REJECT
-DOMAIN,img.adnyg.com.w.kunlungr.com,REJECT
 DOMAIN,img.auction-ads.wpscdn.cn,REJECT
 DOMAIN,imgad0.pcauto.com.cn,REJECT
 DOMAIN,imgad0.pconline.com.cn,REJECT
@@ -1330,6 +1329,7 @@ DOMAIN-KEYWORD,dns.alidns.com,REJECT
 DOMAIN-KEYWORD,dnspod.meituan.httpdns,REJECT
 DOMAIN-KEYWORD,gdtimg.com,REJECT
 DOMAIN-KEYWORD,iflyad.bj.openstorage.cn,REJECT
+DOMAIN-KEYWORD,img.adnyg.com,REJECT
 DOMAIN-KEYWORD,iyes.youku.com,REJECT
 DOMAIN-KEYWORD,kepler.jd.com,REJECT
 DOMAIN-KEYWORD,keplerapi.jd.com,REJECT
