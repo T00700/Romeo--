@@ -18,6 +18,8 @@
 
 ^https?:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberActLengthy\/fullGiveActivityService\/fullGiveInfo data-type=text data="{}"
 
+^https?:\/\/ucmp\.sf-express\.com\/cx-wechat-query\/query\/module-config\/query data-type=text data="{}"
+
 [MITM]
 hostname = %APPEND% ucmp.sf-express.com
 

@@ -1,6 +1,6 @@
 #!name=wechatAdBlock
 #!desc=wechatAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1080.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1010.png
 #!tag=Jacob
 
 [Rule]
@@ -141,6 +141,7 @@ DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com,REJECT
 ^https?:\/\/mkt-gateway\.tuhu\.cn\/mkt-scene-marketing-service\/api\/scene\/queryScheme mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/miniprogram\.ishansong\.com\/cms\/faq\/query mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/e\.weather\.com\.cn\/weChat\/typhoonNull\.json mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/ucmp\.sf-express\.com\/cx-wechat-query\/query\/module-config\/query mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/static\.etcp\.cn\/json\/advertisment mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/res\.hongyibo\.com\.cn\/os\/gs\/resapi\/activity mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/hdgateway\.zto\.com\/(?>getApolloConfig|track|getAdInfo|listJumperShow) mock-response-body data-type=text data="{}" status-code=200

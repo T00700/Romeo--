@@ -1,6 +1,6 @@
 #!name=sfexpress-Applet
 #!desc=sfexpress-Applet
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1089.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1001.png
 #!tag=Jacob
 
 [Rewrite]
@@ -11,6 +11,7 @@
 ^https?:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberGoods\/pointMallService\/goodsList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberManage\/memberEquity\/queryRecommendEquity mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberActLengthy\/fullGiveActivityService\/fullGiveInfo mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/ucmp\.sf-express\.com\/cx-wechat-query\/query\/module-config\/query mock-response-body data-type=text data="{}" status-code=200
 
 [MITM]
 hostname = ucmp.sf-express.com

@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1042.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1035.png
 #!tag=Jacob
 
 [Rule]
@@ -2308,6 +2308,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/mada-travel\.17u\.cn\/mdapi\/config\/mine mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/pic\.edaijia\.cn\/adsplash\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/m\.client\.10010\.com\/mobileService\/customer\/getclientconfig\.htm mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/ucmp\.sf-express\.com\/cx-wechat-query\/query\/module-config\/query mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/gateway(retry)?\.kugou\.com\/mstc\/musicsymbol\/v\d\/system\/profile mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlecommerce\.splash mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mall\.meituan\.com\/api\/c\/homepage\/bubble\/operate\/info mock-response-body data-type=text data="{}" status-code=200
