@@ -790,8 +790,6 @@ DOMAIN,waapdg.jd.com,REJECT,extended-matching
 DOMAIN,jdqd.jd.com,REJECT,extended-matching
 DOMAIN,dgstatic.jd.com,REJECT,extended-matching
 DOMAIN,wqs.jd.com,REJECT,extended-matching
-DOMAIN,hermes.jd.com,REJECT,extended-matching
-DOMAIN,cactus.jd.com,REJECT,extended-matching
 DOMAIN-SUFFIX,jzt.jd.com,REJECT,extended-matching
 DOMAIN-SUFFIX,img-x.jd.com,REJECT,extended-matching
 DOMAIN-SUFFIX,du.jd.com,REJECT,extended-matching
