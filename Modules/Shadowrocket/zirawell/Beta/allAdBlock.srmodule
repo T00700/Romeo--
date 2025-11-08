@@ -215,7 +215,6 @@ DOMAIN,bigdata-behaviordata.189.cn,REJECT,extended-matching
 DOMAIN,bootpreload.uve.weibo.com,REJECT,extended-matching
 DOMAIN,bsync3-normal.zijieapi.com,REJECT,extended-matching
 DOMAIN,business.msstatic.com,REJECT,extended-matching
-DOMAIN,cactus.jd.com,REJECT,extended-matching
 DOMAIN,cad.youku.com,REJECT,extended-matching
 DOMAIN,collect.xiaopeng.com,REJECT,extended-matching
 DOMAIN,conf-darwin.xycdn.com,REJECT,extended-matching
@@ -287,7 +286,6 @@ DOMAIN,goblin.hupu.com,REJECT,extended-matching
 DOMAIN,gorgon.youdao.com,REJECT,extended-matching
 DOMAIN,hc-ssp.sm.cn,REJECT,extended-matching
 DOMAIN,hdns.ksyun.com,REJECT,extended-matching
-DOMAIN,hermes.jd.com,REJECT,extended-matching
 DOMAIN,hlx.meituan.com,REJECT,extended-matching
 DOMAIN,hmma.baidu.com,REJECT,extended-matching
 DOMAIN,httpdns.baidubce.com,REJECT,extended-matching

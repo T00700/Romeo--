@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1072.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1075.png
 #!tag=Jacob
 
 [Rule]
@@ -208,7 +208,6 @@ DOMAIN,bgg.baidu.com,REJECT
 DOMAIN,bootpreload.uve.weibo.com,REJECT
 DOMAIN,bsync3-normal.zijieapi.com,REJECT
 DOMAIN,business.msstatic.com,REJECT
-DOMAIN,cactus.jd.com,REJECT
 DOMAIN,cad.youku.com,REJECT
 DOMAIN,collect.xiaopeng.com,REJECT
 DOMAIN,conf-darwin.xycdn.com,REJECT
@@ -277,7 +276,6 @@ DOMAIN,goblin.hupu.com,REJECT
 DOMAIN,gorgon.youdao.com,REJECT
 DOMAIN,hc-ssp.sm.cn,REJECT
 DOMAIN,hdns.ksyun.com,REJECT
-DOMAIN,hermes.jd.com,REJECT
 DOMAIN,hlx.meituan.com,REJECT
 DOMAIN,hmma.baidu.com,REJECT
 DOMAIN,httpdns.baidubce.com,REJECT
