@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1003.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1048.png
 #!tag=Jacob
 
 [Rule]
@@ -526,6 +526,7 @@ DOMAIN-SUFFIX,10086.cn.baidu.cdn.yiwk.com,REJECT
 DOMAIN-SUFFIX,123.sogou.com,REJECT
 DOMAIN-SUFFIX,163jiasu.com,REJECT
 DOMAIN-SUFFIX,1rtb.net,REJECT
+DOMAIN-SUFFIX,1sapp.com,REJECT
 DOMAIN-SUFFIX,33.autohome.com.cn,REJECT
 DOMAIN-SUFFIX,360baidus.com,REJECT
 DOMAIN-SUFFIX,3rd.t.sohu.com,REJECT
@@ -565,6 +566,7 @@ DOMAIN-SUFFIX,ad4.sina.com.cn,REJECT
 DOMAIN-SUFFIX,adashbc.m.taobao.com,REJECT
 DOMAIN-SUFFIX,adashx4yt.m.taobao.com,REJECT
 DOMAIN-SUFFIX,adbehavior.wsa.ximalaya.com,REJECT
+DOMAIN-SUFFIX,adbiding.com,REJECT
 DOMAIN-SUFFIX,adbox.sina.com.cn,REJECT
 DOMAIN-SUFFIX,adbs.ximalaya.com,REJECT
 DOMAIN-SUFFIX,adcanvas.com,REJECT
@@ -639,6 +641,7 @@ DOMAIN-SUFFIX,afp.zol-img.com.cn,REJECT
 DOMAIN-SUFFIX,afpmm.alicdn.com,REJECT
 DOMAIN-SUFFIX,agoodm.m.taobao.com,REJECT
 DOMAIN-SUFFIX,ai.taobao.com,REJECT
+DOMAIN-SUFFIX,aiclk.com,REJECT
 DOMAIN-SUFFIX,akamaized.net,REJECT
 DOMAIN-SUFFIX,alitui.weibo.com,REJECT
 DOMAIN-SUFFIX,alitui.weibo.com.cn,REJECT
@@ -1093,8 +1096,10 @@ DOMAIN-SUFFIX,pvtest.zol.com.cn,REJECT
 DOMAIN-SUFFIX,pvx.autohome.com.cn,REJECT
 DOMAIN-SUFFIX,qhl.bealge.sogou.com,REJECT
 DOMAIN-SUFFIX,qianclick.baidu.com,REJECT
+DOMAIN-SUFFIX,qiyukf.com,REJECT
 DOMAIN-SUFFIX,qqshow2-item.qq.com,REJECT
 DOMAIN-SUFFIX,qt002x.corp.youdao.com,REJECT
+DOMAIN-SUFFIX,qttunion.com,REJECT
 DOMAIN-SUFFIX,qxm.pluto.sogou.com,REJECT
 DOMAIN-SUFFIX,r.dmp.sina.com.cn,REJECT
 DOMAIN-SUFFIX,rd.e.sogou.com,REJECT
@@ -1261,6 +1266,7 @@ DOMAIN-SUFFIX,wup.imtt.qq.com,REJECT
 DOMAIN-SUFFIX,wxs.qq.com,REJECT
 DOMAIN-SUFFIX,wxsnsdy.tc.qq.com,REJECT
 DOMAIN-SUFFIX,xdcs-collector.ximalaya.com,REJECT
+DOMAIN-SUFFIX,xwpbj.com,REJECT
 DOMAIN-SUFFIX,ydjs.zol.com.cn,REJECT
 DOMAIN-SUFFIX,ydpushserver.youdao.com,REJECT
 DOMAIN-SUFFIX,yfanads.com,REJECT

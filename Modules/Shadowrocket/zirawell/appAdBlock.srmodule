@@ -525,6 +525,7 @@ DOMAIN-SUFFIX,10086.cn.baidu.cdn.yiwk.com,REJECT,extended-matching
 DOMAIN-SUFFIX,123.sogou.com,REJECT,extended-matching
 DOMAIN-SUFFIX,163jiasu.com,REJECT,extended-matching
 DOMAIN-SUFFIX,1rtb.net,REJECT,extended-matching
+DOMAIN-SUFFIX,1sapp.com,REJECT,extended-matching
 DOMAIN-SUFFIX,33.autohome.com.cn,REJECT,extended-matching
 DOMAIN-SUFFIX,360baidus.com,REJECT,extended-matching
 DOMAIN-SUFFIX,3rd.t.sohu.com,REJECT,extended-matching
@@ -564,6 +565,7 @@ DOMAIN-SUFFIX,ad4.sina.com.cn,REJECT,extended-matching
 DOMAIN-SUFFIX,adashbc.m.taobao.com,REJECT,extended-matching
 DOMAIN-SUFFIX,adashx4yt.m.taobao.com,REJECT,extended-matching
 DOMAIN-SUFFIX,adbehavior.wsa.ximalaya.com,REJECT,extended-matching
+DOMAIN-SUFFIX,adbiding.com,REJECT,extended-matching
 DOMAIN-SUFFIX,adbox.sina.com.cn,REJECT,extended-matching
 DOMAIN-SUFFIX,adbs.ximalaya.com,REJECT,extended-matching
 DOMAIN-SUFFIX,adcanvas.com,REJECT,extended-matching
@@ -638,6 +640,7 @@ DOMAIN-SUFFIX,afp.zol-img.com.cn,REJECT,extended-matching
 DOMAIN-SUFFIX,afpmm.alicdn.com,REJECT,extended-matching
 DOMAIN-SUFFIX,agoodm.m.taobao.com,REJECT,extended-matching
 DOMAIN-SUFFIX,ai.taobao.com,REJECT,extended-matching
+DOMAIN-SUFFIX,aiclk.com,REJECT,extended-matching
 DOMAIN-SUFFIX,akamaized.net,REJECT,extended-matching
 DOMAIN-SUFFIX,alitui.weibo.com,REJECT,extended-matching
 DOMAIN-SUFFIX,alitui.weibo.com.cn,REJECT,extended-matching
@@ -1092,8 +1095,10 @@ DOMAIN-SUFFIX,pvtest.zol.com.cn,REJECT,extended-matching
 DOMAIN-SUFFIX,pvx.autohome.com.cn,REJECT,extended-matching
 DOMAIN-SUFFIX,qhl.bealge.sogou.com,REJECT,extended-matching
 DOMAIN-SUFFIX,qianclick.baidu.com,REJECT,extended-matching
+DOMAIN-SUFFIX,qiyukf.com,REJECT,extended-matching
 DOMAIN-SUFFIX,qqshow2-item.qq.com,REJECT,extended-matching
 DOMAIN-SUFFIX,qt002x.corp.youdao.com,REJECT,extended-matching
+DOMAIN-SUFFIX,qttunion.com,REJECT,extended-matching
 DOMAIN-SUFFIX,qxm.pluto.sogou.com,REJECT,extended-matching
 DOMAIN-SUFFIX,r.dmp.sina.com.cn,REJECT,extended-matching
 DOMAIN-SUFFIX,rd.e.sogou.com,REJECT,extended-matching
@@ -1260,6 +1265,7 @@ DOMAIN-SUFFIX,wup.imtt.qq.com,REJECT,extended-matching
 DOMAIN-SUFFIX,wxs.qq.com,REJECT,extended-matching
 DOMAIN-SUFFIX,wxsnsdy.tc.qq.com,REJECT,extended-matching
 DOMAIN-SUFFIX,xdcs-collector.ximalaya.com,REJECT,extended-matching
+DOMAIN-SUFFIX,xwpbj.com,REJECT,extended-matching
 DOMAIN-SUFFIX,ydjs.zol.com.cn,REJECT,extended-matching
 DOMAIN-SUFFIX,ydpushserver.youdao.com,REJECT,extended-matching
 DOMAIN-SUFFIX,yfanads.com,REJECT,extended-matching
