@@ -176,18 +176,12 @@ DOMAIN,lf-ad-ies.bytecdn.cn,REJECT
 DOMAIN,dig.bdurl.net,REJECT
 DOMAIN,extlog.snssdk.com,REJECT
 DOMAIN,mcs.snssdk.com,REJECT
-DOMAIN-KEYWORD,pangolin-sdk-toutiao,REJECT
-DOMAIN-KEYWORD,pangolin-dsp-toutiao,REJECT
-DOMAIN-KEYWORD,pglstatp-sdk-toutiao,REJECT
-DOMAIN-KEYWORD,pglstatp-snssdk-toutiao,REJECT
-DOMAIN-KEYWORD,pglstatp-toutiao,REJECT
+DOMAIN-KEYWORD,pangolin,REJECT
+DOMAIN-KEYWORD,pglstatp,REJECT
 DOMAIN-KEYWORD,panplayable-toutiao,REJECT
 DOMAIN-SUFFIX,bds.snssdk.com,REJECT
 DOMAIN-SUFFIX,byteadverts.com,REJECT
 DOMAIN-SUFFIX,ctobsnssdk.com,REJECT
-DOMAIN-SUFFIX,pangolin.snssdk.com,REJECT
-DOMAIN-SUFFIX,sf3-ttcdn-tos.pstatp.com,REJECT
-DOMAIN,sf3-fe-tos.pglstatp-toutiao.com,REJECT
 DOMAIN-KEYWORD,-ad-sign.byteimg.com,REJECT
 DOMAIN-KEYWORD,-ad.byteoversea.com,REJECT
 DOMAIN-KEYWORD,asiad.byteactivity,REJECT
@@ -374,9 +368,14 @@ DOMAIN-SUFFIX,66mobi.com,REJECT
 DOMAIN-SUFFIX,xdplt.com,REJECT
 DOMAIN-SUFFIX,adjust.com,REJECT
 DOMAIN-SUFFIX,adjust.net.in,REJECT
+DOMAIN,app-analytics-services.com,REJECT
+DOMAIN,odm.app-ads-services.com,REJECT
+DOMAIN,firebaselogging-pa.googleapis.com,REJECT
+DOMAIN,firebaseinappmessaging.googleapis.com,REJECT
+DOMAIN,firebaseremoteconfig.googleapis.com,REJECT
+DOMAIN,fundingchoicesmessages.google.com,REJECT
 DOMAIN-SUFFIX,doubleclick-cn.net,REJECT
 DOMAIN-SUFFIX,googlesyndication-cn.com,REJECT
-DOMAIN,fundingchoicesmessages.google.com,REJECT
 DOMAIN-SUFFIX,xinduoad.com,REJECT
 DOMAIN,statis.miwuad.com,REJECT
 DOMAIN-SUFFIX,sigmob.cn,REJECT
@@ -421,7 +420,6 @@ DOMAIN,geo2.adobe.com,REJECT
 # adunion
 DOMAIN,adtracker.adfunlink.com,REJECT
 DOMAIN,apis.alenable.com,REJECT
-DOMAIN,app-analytics-services.com,REJECT
 DOMAIN,init.supersonicads.com,REJECT
 DOMAIN,ws.tapjoyads.com,REJECT
 DOMAIN,hdns.ksyun.com,REJECT
@@ -506,7 +504,9 @@ DOMAIN-KEYWORD,-pack.byteimg.com,REJECT
 DOMAIN-KEYWORD,-analytics.bytescm.com,REJECT
 DOMAIN-KEYWORD,-tos.pstatp.com,REJECT
 DOMAIN-KEYWORD,p3.pstatp.com,REJECT
+DOMAIN-KEYWORD,pangolin-sdk-toutiao,REJECT
 DOMAIN-KEYWORD,pangolin.snssdk.com,REJECT
+DOMAIN-KEYWORD,pglstatp-toutiao,REJECT
 DOMAIN,open.kuaishou.com,REJECT
 DOMAIN-SUFFIX,kuaishouzt.com,REJECT
 DOMAIN-SUFFIX,googleadsserving.cn,REJECT
@@ -1421,10 +1421,10 @@ iosapps.itunes.apple.com = iosapps.itunes.apple.com.download.ks-cdn.com
 ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.view\.v1\.View\/TFInfo$ mock-response-body data-type=base64 data="AAAAAAIIAQ==" mock-data-is-base64=true
 # Bilibili_remove_ads
 ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(list|show|event\/list2)\? response-body-json-jq '.data |= with_entries(if .key | IN("show", "event_list") then .value = [] else . end)'
-^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? response-body-json-jq jq-path="https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/tab_Bilibili_remove_ads.jq"
+^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/Bilibili/tab_Bilibili_remove_ads.jq"
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? response-body-json-jq 'if .data.items then .data.items |= map(select((.banner_item == null) and (.ad_info == null) and (.card_goto == "av") and (.card_type | IN("small_cover_v2", "large_cover_single_v9", "large_cover_v1")))) end'
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\/story\? response-body-json-jq 'if .data.items then .data.items |= map(select((.ad_info == null) and (.card_goto | IN("vertical_ad_av", "vertical_ad_live", "vertical_ad_picture") | not)) | del(.story_cart_icon, .free_flow_toast, .image_infos, .course_info, .game_info)) end'
-^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(\/ipad)?\? response-body-json-jq jq-path="https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/mine_Bilibili_remove_ads.jq"
+^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(\/ipad)?\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/Bilibili/mine_Bilibili_remove_ads.jq"
 ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? response-body-json-jq '.data.vip |= if . != null and .status == 0 then . + { status: 1, type: 2, due_date: 9005270400000, role: 15 } else . end'
 undefined undefined undefined
 ^https:\/\/line3-h5-mobile-api\.biligame\.com\/game\/live\/large_card_material\? - reject-dict
