@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1017.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1071.png
 #!tag=Jacob
 
 [Rule]
@@ -659,6 +659,7 @@ DOMAIN-SUFFIX,api.dsp.yhd.com,REJECT
 DOMAIN-SUFFIX,api.poll.video.qq.com,REJECT
 DOMAIN-SUFFIX,api.waptest.taobao.com,REJECT
 DOMAIN-SUFFIX,apilog.qbb6.com,REJECT
+DOMAIN-SUFFIX,apkevery.com,REJECT
 DOMAIN-SUFFIX,apoll.m.taobao.com,REJECT
 DOMAIN-SUFFIX,apollo.caixin.com,REJECT
 DOMAIN-SUFFIX,app-measurement.com,REJECT

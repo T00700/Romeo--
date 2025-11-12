@@ -41,6 +41,8 @@ DOMAIN-KEYWORD,bfzycdn.com,DIRECT
 DOMAIN-KEYWORD,vip.kuaikan-cdn,DIRECT
 DOMAIN-KEYWORD,vip.ffzy-play,DIRECT
 DOMAIN-KEYWORD,vip.ffzy-online,DIRECT
+#Google
+DOMAIN-KEYWORD,download.google,DIRECT
 #中国建设银行
 DOMAIN,imageadv.ccb.com,DIRECT
 #美团

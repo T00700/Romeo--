@@ -1,6 +1,6 @@
 #!name=分流修正
 #!desc=Revision
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1089.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1070.png
 #!tag=Jacob
 
 #!homepage=https://github.com/zirawell/R-Store
@@ -42,6 +42,8 @@ DOMAIN-KEYWORD,bfzycdn.com,DIRECT
 DOMAIN-KEYWORD,vip.kuaikan-cdn,DIRECT
 DOMAIN-KEYWORD,vip.ffzy-play,DIRECT
 DOMAIN-KEYWORD,vip.ffzy-online,DIRECT
+#Google
+DOMAIN-KEYWORD,download.google,DIRECT
 #中国建设银行
 DOMAIN,imageadv.ccb.com,DIRECT
 #美团
