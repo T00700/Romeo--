@@ -2,6 +2,38 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+    <script>
+window.onRTBFailure = function () {
+  console.log('Callback complete.');
+};
+
+window.onRTBSuccess = function (data) {
+    document.getElementById('content').remove();
+    Array.from(document.getElementsByTagName('iframe')).forEach((iframe) => iframe.remove());
+};
+    </script>
+    <script type="text/javascript">
+var ls = function(xhr, token) {
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status >= 200 && xhr.status <= 400) {
+                if (xhr.responseText.trim() === '') {
+                    return;
+                }
+    
+                console.log(JSON.parse(xhr.responseText))
+            } else {
+                console.log('There was a problem with the request.');
+            }
+        }
+    }
+    
+    xhr.open('GET', '/munin/a/l' + 's?t=6913eeb1&token=' + encodeURI(token), true);
+    xhr.send();
+};
+ls(new XMLHttpRequest(), '70aa24e953c7fe42d1599e296bd410786a8ed6bc');
+if (typeof window.onRTBFailure === 'function') { window.onRTBFailure(); }
+</script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>ra7.xyz</title>
@@ -238,42 +270,7 @@
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-}</style>    <style media="screen">
-/* skzcss - for tests */
-
-body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	overflow: hidden;
-}
-
-iframe {
-	margin: 0;
-	padding: 0;
-	border: none;
-	width: 100%;
-	height: 100vh;
-}
-
-#content {
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	top: 0;
-}
-
-#imprint {
-    position: relative;
-    bottom: 0;
-    text-align: center;
-    padding-top: 5px;
-    height: 25px;
-}
-</style>    <meta name="description" content="This domain may be for sale!" />
-    <style>
-
+}</style>    <style type="text/css">
         :root {
             --blue: #101c36;
             --text: #ffffff;
@@ -281,7 +278,47 @@ iframe {
             --stroke: rgba(255, 255, 255, 0.25);
         }
 
-        .loading {
+        body {
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: sans-serif;
+            color: var(--text);
+            background: var(--blue);
+        }
+
+        iframe {
+            margin: 0;
+            padding: 0;
+            border: none;
+            width: 100%;
+            height: 100vh;
+        }
+
+        #content {
+            display: grid;
+            place-items: center;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin-top: 10%;
+            margin-bottom: 20%;
+        }
+
+        #imprint {
+            position: relative;
+            bottom: 0;
+            text-align: center;
+            padding-top: 5px;
+            height: 25px;
+        }
+
+        * { box-sizing: border-box; }
+        html { height: 100%; }
+
+        #loading {
             width: min(720px, 92vw);
             text-align: center;
             padding: 48px 28px;
@@ -290,7 +327,18 @@ iframe {
             backdrop-filter: blur(6px);
             border: 1px solid var(--stroke);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-            color: var(--text);
+        }
+
+        h1 {
+            margin: 12px 0 10px;
+            font-size: clamp(28px, 5vw, 44px);
+            letter-spacing: 0.2px;
+        }
+
+        p {
+            margin: 0 0 22px;
+            font-size: clamp(14px, 2.4vw, 18px);
+            opacity: 0.95;
         }
 
         /* Simple CSS spinner */
@@ -309,92 +357,23 @@ iframe {
             to { transform: rotate(360deg); }
         }
 
-        #content {
-            display: grid;
-            place-items: center;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            top: 0;
+        footer {
+            margin-top: 26px;
+            font-size: 12px;
+            opacity: 0.8;
         }
-
-        .loading > h1 {
-            margin: 12px 0 10px;
-            font-size: clamp(28px, 5vw, 44px);
-            letter-spacing: 0.2px;
-        }
-
-        .loading > p {
-            margin: 0 0 22px;
-            font-size: clamp(14px, 2.4vw, 18px);
-            opacity: 0.95;
-        }
+        a { color: #fff; }
     </style>
+
+    <meta name="description" content="This domain may be for sale!" />
 </head>
 
 <body>
-    <script async src="https://euob.youstarsbuilding.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="c6dfb07fffd0bce96c7e3ba52f0ed8345a492a9e" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
+
+    <script async src="https://euob.youstarsbuilding.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="70aa24e953c7fe42d1599e296bd410786a8ed6bc" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
     <noscript>
         <iframe src="https://obseu.youstarsbuilding.com/ns/224f85302aa2b6ec30aac9a85da2cbf9.html?ch=AdsDeli%20-%20domain%20-%20landingpage" width="0" height="0" style="display:none"></iframe>
     </noscript>
-<script type="application/javascript">
-    let scriptPath='';
-    window.onRTBFailure = function () {
-        function handleRTBFailure() {
-            console.log('Failure callback complete.');
-
-            document.getElementById('loading')?.remove();
-            // dynamically create and insert the iframe on failure
-            if (document.getElementById('iframe') !== null) {
-                return;
-            }
-
-            var iframe = document.createElement('iframe');
-            iframe.id = 'iframe';
-            iframe.frameBorder = '0';
-            iframe.src = "https://yfdpco2.com/sk-park.php?pid=9PO15V947&dn=ra7.xyz&ua=Surge+Mac%2F2985&requrl=http%3A%2F%2Fra7.xyz%2Fz%2F.%2A%2Fcode.js";
-            // apply any classes or styles you need
-            iframe.style.display = 'block';
-            // append into the content container
-            var container = document.getElementById('content');
-            container?.insertBefore(iframe, container.firstChild);
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', handleRTBFailure);
-        } else {
-            handleRTBFailure();
-        }
-    };
-
-    window.onRTBSuccess = function (data) {
-        document.getElementById('content')?.remove();
-        Array.from(document.getElementsByTagName('iframe')).forEach((iframe) => iframe.remove());
-    };
-</script>
-<script type="text/javascript">
-var ls = function(xhr, token) {
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status >= 200 && xhr.status <= 400) {
-                if (xhr.responseText.trim() === '') {
-                    return;
-                }
-    
-                console.log(JSON.parse(xhr.responseText))
-            } else {
-                console.log('There was a problem with the request.');
-            }
-        }
-    }
-    
-    xhr.open('GET', '/munin/a/l' + 's?t=691334b5&token=' + encodeURI(token), true);
-    xhr.send();
-};
-ls(new XMLHttpRequest(), 'c6dfb07fffd0bce96c7e3ba52f0ed8345a492a9e');
-if (typeof window.onRTBFailure === 'function') { window.onRTBFailure(); }
-</script>
-
 <div>
     
     
@@ -428,17 +407,12 @@ if (typeof window.onRTBFailure === 'function') { window.onRTBFailure(); }
 </div>
 
 <div id="content">
-    <div id="loading" class="loading">
+    <div id="loading">
         <div class="spinner" role="status" aria-label="Loading"></div>
         <h1>We’re getting things ready</h1>
         <p>Loading your experience… This won’t take long.</p>
     </div>
-    </div>
-<script>
-    (function () {
-        document.getElementById('content').style.top = document.getElementById('content').previousElementSibling.clientHeight + 'px';
-    })();
-</script>
+</div>
 <style media="screen">
 .asset_star0 {
 	background: url('//d38psrni17bvxu.cloudfront.net/themes/assets/star0.gif') no-repeat center;
@@ -648,5 +622,11 @@ h1 {
         </div>
     </div>
 </div>
+
+<script>
+    (function () {
+        document.getElementById("content").style.top = document.getElementById("content").previousElementSibling.clientHeight + "px";
+    })();
+</script>
 </body>
 </html>
