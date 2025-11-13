@@ -28,10 +28,10 @@ var ls = function(xhr, token) {
         }
     }
     
-    xhr.open('GET', '/munin/a/l' + 's?t=6913eeb1&token=' + encodeURI(token), true);
+    xhr.open('GET', '/munin/a/l' + 's?t=691540d3&token=' + encodeURI(token), true);
     xhr.send();
 };
-ls(new XMLHttpRequest(), '70aa24e953c7fe42d1599e296bd410786a8ed6bc');
+ls(new XMLHttpRequest(), 'c498dd6845294702974ce10161bbe81c3f3c3cae');
 if (typeof window.onRTBFailure === 'function') { window.onRTBFailure(); }
 </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -366,11 +366,12 @@ if (typeof window.onRTBFailure === 'function') { window.onRTBFailure(); }
     </style>
 
     <meta name="description" content="This domain may be for sale!" />
+<meta name="og:description" content="Italian live TV streaming,Online TV channel Italy,Italy TV guide" />
 </head>
 
 <body>
 
-    <script async src="https://euob.youstarsbuilding.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="70aa24e953c7fe42d1599e296bd410786a8ed6bc" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
+    <script async src="https://euob.youstarsbuilding.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="c498dd6845294702974ce10161bbe81c3f3c3cae" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
     <noscript>
         <iframe src="https://obseu.youstarsbuilding.com/ns/224f85302aa2b6ec30aac9a85da2cbf9.html?ch=AdsDeli%20-%20domain%20-%20landingpage" width="0" height="0" style="display:none"></iframe>
     </noscript>
