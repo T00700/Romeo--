@@ -348,6 +348,7 @@ DOMAIN,log.tagtic.cn,REJECT,extended-matching
 DOMAIN,log.web.kugou.com,REJECT,extended-matching
 DOMAIN,log.ycapp.yiche.com,REJECT,extended-matching
 DOMAIN,log5-applog.fqnovel.com,REJECT,extended-matching
+DOMAIN,logs-bigdata.yeehaw.com.cn,REJECT,extended-matching
 DOMAIN,logs.chelaile.net.cn,REJECT,extended-matching
 DOMAIN,lookup.api.bsb.baidu.com,REJECT,extended-matching
 DOMAIN,lwlog.laiwang.com,REJECT,extended-matching

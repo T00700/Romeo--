@@ -1,6 +1,6 @@
 #!name=wechatAdBlock
 #!desc=wechatAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1007.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1074.png
 #!tag=Jacob
 
 [Rule]
@@ -15,6 +15,7 @@ DOMAIN,bigdata-behaviordata.189.cn,REJECT
 DOMAIN,dsp.fcbox.com,REJECT
 DOMAIN,et.ykccn.com,REJECT
 DOMAIN,file.dian.so,REJECT
+DOMAIN,logs-bigdata.yeehaw.com.cn,REJECT
 DOMAIN,smarket.dian.so,REJECT
 DOMAIN,tracker-prd.aldi.com.cn,REJECT
 DOMAIN-SUFFIX,ad.duoduo.link,REJECT

@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1038.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1030.png
 #!tag=Jacob
 
 [Rule]
@@ -349,6 +349,7 @@ DOMAIN,log.tagtic.cn,REJECT
 DOMAIN,log.web.kugou.com,REJECT
 DOMAIN,log.ycapp.yiche.com,REJECT
 DOMAIN,log5-applog.fqnovel.com,REJECT
+DOMAIN,logs-bigdata.yeehaw.com.cn,REJECT
 DOMAIN,logs.chelaile.net.cn,REJECT
 DOMAIN,lookup.api.bsb.baidu.com,REJECT
 DOMAIN,lwlog.laiwang.com,REJECT
