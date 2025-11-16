@@ -1,10 +1,224 @@
-<!DOCTYPE html>
-<html data-adblockkey="MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALquDFETXRn0Hr05fUP7EJT77xYnPmRbpMy4vk8KYiHnkNpednjOANJcaXDXcKQJN0nXKZJL7TciJD8AoHXK158CAwEAAQ==_PHoLhObrDr8tn9SMk0msPSjiHX2ejv325sj3PoDtvadTuUA2FHLzgynE+UoCGRyaoAELFy7+CiJ0M9y64vxTJA==" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+    <script>
+window.onRTBFailure = function () {
+  console.log('Callback complete.');
+};
+
+window.onRTBSuccess = function (data) {
+    document.getElementById('content').remove();
+    Array.from(document.getElementsByTagName('iframe')).forEach((iframe) => iframe.remove());
+};
+    </script>
+    <script type="text/javascript">
+var ls = function(xhr, token) {
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status >= 200 && xhr.status <= 400) {
+                if (xhr.responseText.trim() === '') {
+                    return;
+                }
+    
+                console.log(JSON.parse(xhr.responseText))
+            } else {
+                console.log('There was a problem with the request.');
+            }
+        }
+    }
+    
+    xhr.open('GET', '/munin/a/l' + 's?t=69193669&token=' + encodeURI(token), true);
+    xhr.send();
+};
+ls(new XMLHttpRequest(), 'a0d8e818bda626a9c5b39c3598b35a5d5d6546e6');
+if (typeof window.onRTBFailure === 'function') { window.onRTBFailure(); }
+</script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>ra7.xyz</title>
-    <style media="screen">
+            <style media="screen">
+#sale_link,
+#sale_link_bold,
+#sale_link_below {
+    color: rgb(0,0,0);
+    text-align: right;
+    font: 14px arial, sans-serif;
+    height: 20px;
+    padding: 10px 0 5px 0;
+    width: 900px;
+    margin: 0 auto;
+    z-index: 20;
+}
+#sale_link a,
+#sale_link_below a {
+    text-decoration: underline;
+    color: rgb(0,0,0);
+    font-size: 14px;
+}
+#sale_link_bold a {
+	font-weight: bold;
+    text-decoration: underline;
+    color: rgb(0,0,0);
+    font-size: 14px;
+}
+#sale_link a:hover,
+#sale_link_bold a:hover,
+#sale_link_below a:hover {
+    color: rgb(100,100,100);
+}
+
+#sale_link_below {
+    text-align: center;
+}
+
+
+
+#sale_banner_gray {
+    background: url('//d38psrni17bvxu.cloudfront.net/themes/sale/sale_simple.png') repeat-x;
+}
+#sale_banner_orange {
+    background: url('//d38psrni17bvxu.cloudfront.net/themes/sale/orange.png') repeat-x;
+}
+#sale_banner_gray,
+#sale_banner_orange {
+    border-bottom: 1px solid rgb(200,200,200);
+    color: rgb(200,200,200);
+    text-align: center;
+    font: 16px arial, sans-serif;
+    font-weight: bold;
+
+    padding: 8px 0 0 0;
+    height: 28px;
+}
+#sale_banner_gray a.firstlink,
+#sale_banner_orange a.firstlink {
+    text-decoration: none;
+    display: block;
+}
+#sale_banner_gray a,
+#sale_banner_orange a {
+    color: rgb(255,255,255);
+}
+
+#sale_banner_orange_wide {
+	background-position: bottom;
+	background-color: #E57921;
+	padding: 18px 0;
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 14px;
+}
+#sale_banner_orange_wide a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#sale_discreet {
+    background: url('//d38psrni17bvxu.cloudfront.net/themes/sale/sale_simple.png') repeat-x;
+    border-bottom: 1px solid rgb(200,200,200);
+    color: rgb(200,200,200);
+    text-align: right;
+    font: 14px arial, sans-serif;
+    height: 28px;
+    padding: 10px 20px 0 0;
+}
+#sale_discreet a {
+    text-decoration: none;
+    color: rgb(240,240,240);
+    font-size: 14px;
+}
+
+#sale_prominent {
+    height: 68px;
+}
+#sale_prominent #grey {
+    background: rgb(145,140,137);
+    color: rgb(255,255,255);
+    text-align: right;
+    font: 14px arial, sans-serif;
+    height: 62px;
+    padding: 7px 15px 0 50px;
+    border-bottom: 1px solid rgb(90,90,90);
+    float: right;
+}
+#sale_prominent #grey img {
+    float: left;
+    margin: -7px 0 0 -100px;
+}
+#sale_prominent #sale_top {
+    font-size: 20px;
+}
+#sale_prominent #sale_bottom a {
+    text-decoration: none;
+    color: blue;
+    font-size: 14px;
+}
+
+#sale_diagonal_orange {
+	height:50px;
+	line-height:25px;
+	text-transform:uppercase;
+	font-family:'Port Lligat Slab',sans-serif;
+	font-weight:lighter; text-align:center;
+    z-index: 20;
+}
+
+#sale_diagonal_orange a {
+	display:block;
+	height:100%;
+	color:#000;
+	text-decoration:none;
+	background: #f25b00;
+	background: -moz-linear-gradient(left,  #f25b00 0%, #f49300 47%, #f25b00 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f25b00), color-stop(47%,#f49300), color-stop(100%,#f25b00));
+	background: -webkit-linear-gradient(left,  #f25b00 0%,#f49300 47%,#f25b00 100%);
+	background: -o-linear-gradient(left,  #f25b00 0%,#f49300 47%,#f25b00 100%);
+	background: -ms-linear-gradient(left,  #f25b00 0%,#f49300 47%,#f25b00 100%);
+	background: linear-gradient(to right,  #f25b00 0%,#f49300 47%,#f25b00 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f25b00', endColorstr='#f25b00',GradientType=1 );
+}
+
+#sale_diagonal_orange a:hover {
+	text-decoration:underline;
+}
+
+#sale_diagonal_orange span {
+	display:inline-block;
+	margin:0 3px;
+}
+#break {
+	display:none;
+}
+
+@media only screen and (min-width : 480px) {
+	#sale_diagonal_orange {
+		width: 400px;
+		height:70px;
+		position:fixed;
+		right:-120px;
+		top:42px;
+		line-height:20px;
+	    z-index: 20;
+	}
+
+	#sale_diagonal_orange a {
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-o-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+		color: #fff;
+	}
+
+	#sale_diagonal_orange span:first-child {
+		padding-top: 5px;
+	}
+	#break {
+		display: block;
+	}
+}
+</style>        <style media="screen">
 .asset_star0 {
 	background: url('//d38psrni17bvxu.cloudfront.net/themes/assets/star0.gif') no-repeat center;
 	width: 13px;
@@ -56,7 +270,203 @@
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-}</style>    <style media="screen">
+}</style>    <style type="text/css">
+        :root {
+            --blue: #101c36;
+            --text: #ffffff;
+            --card: rgba(255, 255, 255, 0.14);
+            --stroke: rgba(255, 255, 255, 0.25);
+        }
+
+        body {
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: sans-serif;
+            color: var(--text);
+            background: var(--blue);
+        }
+
+        iframe {
+            margin: 0;
+            padding: 0;
+            border: none;
+            width: 100%;
+            height: 100vh;
+        }
+
+        #content {
+            display: grid;
+            place-items: center;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin-top: 10%;
+            margin-bottom: 20%;
+        }
+
+        #imprint {
+            position: relative;
+            bottom: 0;
+            text-align: center;
+            padding-top: 5px;
+            height: 25px;
+        }
+
+        * { box-sizing: border-box; }
+        html { height: 100%; }
+
+        #loading {
+            width: min(720px, 92vw);
+            text-align: center;
+            padding: 48px 28px;
+            border-radius: 24px;
+            background: var(--card);
+            backdrop-filter: blur(6px);
+            border: 1px solid var(--stroke);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            margin: 12px 0 10px;
+            font-size: clamp(28px, 5vw, 44px);
+            letter-spacing: 0.2px;
+        }
+
+        p {
+            margin: 0 0 22px;
+            font-size: clamp(14px, 2.4vw, 18px);
+            opacity: 0.95;
+        }
+
+        /* Simple CSS spinner */
+        .spinner {
+            --size: 56px;
+            width: var(--size);
+            height: var(--size);
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.35);
+            border-top-color: #fff;
+            animation: spin 0.9s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        footer {
+            margin-top: 26px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        a { color: #fff; }
+    </style>
+
+    <meta name="description" content="This domain may be for sale!" />
+<meta name="og:description" content="Italian live TV streaming,Online TV channel Italy,Italy TV guide" />
+</head>
+
+<body>
+
+    <script async src="https://euob.youstarsbuilding.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="a0d8e818bda626a9c5b39c3598b35a5d5d6546e6" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
+    <noscript>
+        <iframe src="https://obseu.youstarsbuilding.com/ns/224f85302aa2b6ec30aac9a85da2cbf9.html?ch=AdsDeli%20-%20domain%20-%20landingpage" width="0" height="0" style="display:none"></iframe>
+    </noscript>
+<div>
+    
+    
+<style>
+	.sale_banner_orange {
+		background:#F49300;
+		color: #c8c8c8;
+		text-align: center;
+		font: 16px/36px Roboto, sans-serif;
+		height: 36px;
+	}
+
+	.sale_banner_orange a {
+		display: block;
+		color:#fff;
+		text-decoration: none;
+	}
+
+    @media (max-width: 600px) {
+        .sale_banner_orange {
+            height: 100%;
+        }
+    }
+</style>
+
+<div class="sale_banner_orange" style="border-top:none">
+			<a href="https://www.mydomaincontact.com/?domain_name=ra7.xyz" target="_blank">
+			Buy this domain. | More domains at Seo.Domains
+	</a>
+</div>
+</div>
+
+<div id="content">
+    <div id="loading">
+        <div class="spinner" role="status" aria-label="Loading"></div>
+        <h1>We’re getting things ready</h1>
+        <p>Loading your experience… This won’t take long.</p>
+    </div>
+</div>
+<style media="screen">
+.asset_star0 {
+	background: url('//d38psrni17bvxu.cloudfront.net/themes/assets/star0.gif') no-repeat center;
+	width: 13px;
+	height: 12px;
+	display: inline-block;
+}
+
+.asset_star1 {
+	background: url('//d38psrni17bvxu.cloudfront.net/themes/assets/star1.gif') no-repeat center;
+	width: 13px;
+	height: 12px;
+	display: inline-block;
+}
+
+.asset_starH {
+	background: url('//d38psrni17bvxu.cloudfront.net/themes/assets/starH.gif') no-repeat center;
+	width: 13px;
+	height: 12px;
+	display: inline-block;
+}
+
+.sitelink {
+	padding-right: 16px;
+}
+
+.sellerRatings a:link,
+.sellerRatings a:visited,
+.sellerRatings a:hover,
+.sellerRatings a:active {
+	text-decoration: none;
+	cursor: text;
+}
+
+.sellerRatings {
+	margin:0 0 3px 20px;
+}
+
+.sitelinkHolder {
+	margin:-15px 0 15px 35px;
+}
+
+#ajaxloaderHolder {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background: #fff;
+	padding: 8px 0 0 8px;
+	margin:10px auto;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}</style><style media="screen">
 * {
     margin:0;padding:0
 }
@@ -98,7 +508,7 @@ h1 {
 }
 
 .wrapper2 {
-    background:url('//d38psrni17bvxu.cloudfront.net/themes/cleanPeppermintBlack_657d9013/img/bottom.png') no-repeat center bottom;
+    background:url('//d38psrni17bvxu.cloudfront.net/themes/cleanPeppermintBlackConsent_657d9013/img/bottom.png') no-repeat center bottom;
     padding-bottom:140px;
 }
 
@@ -144,6 +554,33 @@ h1 {
     max-width: 500px;
 }
 
+.fallback-term-holder {
+    display: inline-grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding-top: 75px;
+}
+
+.fallback-term-link {
+    grid-column: 1 / span 1; align-self: center;
+    padding: 50px 13px 50px 13px; border-radius: 25px;
+    border: 5px solid #ffffff; margin-bottom: 20px;
+    background-color: rgb(16, 28, 54);
+    text-decoration-line: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: left;
+}
+
+.fallback-term-link:hover {
+    background-color: #242b42;
+
+    text-decoration-line: underline;
+    text-decoration-color: currentColor;
+    text-decoration-thickness: auto;
+}
+
 @media screen and (min-width:600px) {
 
     .comp-is-parked,
@@ -162,7 +599,7 @@ h1 {
     }
 
     .wrapper2 {
-        background:url('//d38psrni17bvxu.cloudfront.net/themes/cleanPeppermintBlack_657d9013/img/arrows.png') no-repeat center top;
+        background:url('//d38psrni17bvxu.cloudfront.net/themes/cleanPeppermintBlackConsent_657d9013/img/arrows.png') no-repeat center top;
         padding-bottom:0;
         min-height:600px;
     }
@@ -172,172 +609,19 @@ h1 {
         background:none;
     }
 }
-</style>    <style media="screen">
-.fallback-term-holder {
-    display: inline-grid;
-    grid-template-columns: 1fr;
-    width: 100%;
-    padding-top: 75px;
-}
-
-.fallback-term-link {
-    grid-column: 1 / span 1; align-self: center;
-    padding: 50px 13px 50px 13px; border-radius: 25px;
-    border: 5px solid #ffffff; margin-bottom: 20px;
-    background-color: rgb(17, 38, 77);
-    text-decoration-line: none;
-    font-size: 18px;
-    font-weight: 700;
-    color: #ffffff;
-    text-align: left;
-}
-
-.fallback-arrow {
-    float: right;
-    width: 24px;
-    height: 24px;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPScjRDdEN0Q3JyBzdHlsZT0iZmxvYXQ6IHJpZ2h0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTUuODggNC4xMkwxMy43NiAxMmwtNy44OCA3Ljg4TDggMjJsMTAtMTBMOCAyeiIvPjwvc3ZnPg==');
-}</style>
-    <meta name="description" content="This domain may be for sale!" />
-<meta name="og:description" content="Italian live TV streaming,Online TV channel Italy,Italy TV guide" />
-    </head>
-
-<body id="afd">
-
-<div class="wrapper1">
-    
-<style>
-	.sale_banner_orange {
-		background:#F49300;
-		color: #c8c8c8;
-		text-align: center;
-		font: 16px/36px Roboto, sans-serif;
-		height: 36px;
-	}
-
-	.sale_banner_orange a {
-		display: block;
-		color:#fff;
-		text-decoration: none;
-	}
-
-    @media (max-width: 600px) {
-        .sale_banner_orange {
-            height: 100%;
-        }
-    }
 </style>
-
-<div class="sale_banner_orange" style="border-top:none">
-			<a href="https://www.mydomaincontact.com/?domain_name=ra7.xyz" target="_blank">
-			Buy this domain. | More domains at Seo.Domains
-	</a>
-</div>
+<div class="wrapper1" id="keywords-template" style="display:none;">
     <div class="wrapper2">
         <div class="wrapper3">
-            <br/>
-        <script async src="https://euob.youstarsbuilding.com/sxp/i/224f85302aa2b6ec30aac9a85da2cbf9.js" data-ch="AdsDeli - domain - landingpage" data-uvid="a1f6aa55cbfcd1942c85c30d52f416ded2c7b673" class="ct_clicktrue_80705" data-jsonp="onCheqResponse"></script>
-    <noscript>
-        <iframe src="https://obseu.youstarsbuilding.com/ns/224f85302aa2b6ec30aac9a85da2cbf9.html?ch=AdsDeli%20-%20domain%20-%20landingpage" width="0" height="0" style="display:none"></iframe>
-    </noscript>
-<br/>
-<div class="header" id="domainname">
-        <h1>ra7.xyz</h1>
-    </div>
-                        <div class="tcHolder">
-                <div id="tc"></div>
-            </div>
+            <div id="fallbackTerms" class="fallback-term-holder"></div>
         </div>
-    </div>
-            <div class="footer">
-            2025 Copyright | All Rights Reserved.
-<br/><br/>
-<a href="javascript:void(0);" onClick="window.open('/privacy.html', 'privacy-policy', 'width=890,height=330,left=200,top=200,menubar=no,status=yes,toolbar=no').focus()" class="privacy-policy">
-    Privacy Policy
-</a>
-<br/><br/>
-<br/><br/>
     </div>
 </div>
 
-<script type="text/javascript" language="JavaScript">
-    var tcblock = {
-        // Required and steady
-        'container': 'tc',
-        'type': 'relatedsearch',
-        'colorBackground': 'transparent',
-        
-        'number': 3,
-        
-        // Font-Sizes and Line-Heights
-        'fontSizeAttribution': 14,
-        'fontSizeTitle': 24,
-        'lineHeightTitle': 34,
-        // Colors
-        'colorAttribution': '#aaa',
-        'colorTitleLink': '#0277bd',
-        // Alphabetically
-        'horizontalAlignment': 'center',
-        'noTitleUnderline': false,
-        'rolloverLinkColor': '#01579b',
-        'verticalSpacing': 10
-    };
-    var searchboxBlock = {
-        'container': 'search',
-        'type': 'searchbox',
-        'fontSizeSearchInput': 12,
-        'hideSearchInputBorder': false,
-        'hideSearchButtonBorder': true,
-        'fontSizeSearchButton': 13,
-        'colorBackground': 'transparent',
-        'colorSearchButton': '#0b3279',
-        'colorSearchButtonText': '#fff'
-    };
-    </script>
-<script type="text/javascript">let isAdult=false;         let containerNames=[];         let uniqueTrackingID='MTc2MzIxMTUwMS45MDIxOjg5YmI2NjY5NWRlNTU1OGM1OWY0MDcxOWY3MmZmNWI2OWM4MThkZmRkODQ3Y2M5MjQ2OWZkNTM1ZDI5MDI5MjA6NjkxODc4ZWRkYzNjOQ==';         let search='';         let themedata='eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.142bxTPX8L4B795kG88cAtoUroL1GNSvE5DA3l2vqr23761Id7quoQ.Zg2mlhOxLB1ZrswSv6aJ2A.Ir4J6XwqTL8SvNa03X10xwnyV6xjdRy9eZH8BD51g83LaBzGC5NThUaWjdOqxNC7Vl9-EptuX6Oz0aHibVOSF0n4iFlazNc0Ke9yAI2sGL15Nfzc_AXj91y79BvhZOah5W5t80FgOnADr0CEse7JXZL3AY31HN8dqthQDdPJ2zzsSZHeA_t1s8W2GN6akrhFXK6poYGly3AR5nDLIM0RyeJcE3YYVS96OXKkVeBGE7VYIe1Z5lqQd-mrB6RnGDTDOCGcE2DIslw-v-_nrFQ39Nt_HOT15XlkRgdNWOvuT_BG3q_iVMOt1YnVebZD_kEWQRxHsFFYRGEI-uxOU50B0NUkeh8kJr9YukoJphBD9UqdvAyFMR1cOGO3GOFcXgPLDiCw4qzxR4ljF2o3tr3alhFX-X7nEKBaPjHnPCP2WQgbZMwDLGiSJtVMMRUs9812qa9GO89ysQvvxQa1c2ZoJ9ZCdPcUo_os-djBM2KTvuk-FOSt0w1HvpirJWHSanFFBMZ-icMmzIJ5PULwi3AEyNIu_dRN-OLm3XxdZBfbdPoZKnMS4BGMpCKPpMsbT5LXUD7bezUeotQZ1HE8rKF9MzZbAliqAPLE82wdQ9q_XMM6iRPnycvo_DbepEIAiVXD.VbngEghZp3tDi-oAxcxYnQ';         let domain='ra7.xyz';         let scriptPath='';         let adtest='off';if(top.location!==location) { top.location.href=location.protocol + '//' + location.host + location.pathname + (location.search ? location.search + '&' : '?') + '_xafvr=MGZkYTI4Y2VlNzkyZmZlOWU2NzY5N2VmNjYwMjY2MTNhODdkMTQwYiw2OTE4NzhlZGUxYWIz'; }let pageLoadedCallbackTriggered = false;let fallbackTriggered = false;let formerCalledArguments = false;let pageOptions = {'pubId': 'dp-teaminternet01','resultsPageBaseUrl': '//' + location.host + '/?ts=','fontFamily': 'arial','optimizeTerms': true,'maxTermLength': 40,'adtest': true,'clicktrackUrl': '//' + location.host + '/munin/a/tr/click?','attributionText': 'Ads','colorAttribution': '#b7b7b7','fontSizeAttribution': 16,'attributionBold': false,'rolloverLinkBold': false,'fontFamilyAttribution': 'arial','adLoadedCallback': function(containerName, adsLoaded, isExperimentVariant, callbackOptions) {let data = {containerName: containerName,adsLoaded: adsLoaded,isExperimentVariant: isExperimentVariant,callbackOptions: callbackOptions,terms: pageOptions.terms};if (!adsLoaded || (containerName in containerNames)) {ajaxQuery(scriptPath + "/munin/a/tr/adloaded"+ "?toggle=adloaded"+ "&uid=" + encodeURIComponent(uniqueTrackingID)+ "&domain=" + encodeURIComponent(domain)+ "&data=" + encodeURIComponent(JSON.stringify(data)));}},'pageLoadedCallback': function (requestAccepted, status) {document.body.style.visibility = 'visible';pageLoadedCallbackTriggered = true;if ((status.faillisted === true || status.faillisted == "true" || status.blocked === true || status.blocked == "true" ) && status.error_code != 25) {ajaxQuery(scriptPath + "/munin/a/tr/block?domain=" + encodeURIComponent(domain) + "&caf=1&toggle=block&reason=other&uid=" + encodeURIComponent(uniqueTrackingID));}if (status.errorcode && !status.error_code) {status.error_code = status.errorcode;}if (status.error_code) {ajaxQuery(scriptPath + "/munin/a/tr/errorcode?domain=" + encodeURIComponent(domain) + "&caf=1&toggle=errorcode&code=" + encodeURIComponent(status.error_code) + "&uid=" + encodeURIComponent(uniqueTrackingID));if ([18, 19].indexOf(parseInt(status.error_code)) != -1 && fallbackTriggered == false) {fallbackTriggered = true;if (typeof loadFeed === "function") {window.location.href = '//' + location.host;}}if (status.error_code == 20) {window.location.replace("//dp.g.doubleclick.net/apps/domainpark/domainpark.cgi?client=" + encodeURIComponent((pageOptions.pubid.match(/^ca-/i) ? "" : "ca-") + pageOptions.pubid) + "&domain_name=" + encodeURIComponent(domain) + "&output=html&drid=" + encodeURIComponent(pageOptions.domainRegistrant));}}if (status.needsreview === true || status.needsreview == "true") {ajaxQuery(scriptPath + "/munin/a/tr/needsreview?domain=" + encodeURIComponent(domain) + "&caf=1&toggle=needsreview&uid=" + encodeURIComponent(uniqueTrackingID));}if ((status.adult === true || status.adult == "true") && !isAdult) {ajaxQuery(scriptPath + "/munin/a/tr/adult?domain=" + encodeURIComponent(domain) + "&caf=1&toggle=adult&uid=" + encodeURIComponent(uniqueTrackingID));} else if ((status.adult === false || status.adult == "false") && isAdult) {ajaxQuery(scriptPath + "/munin/a/tr/nonadult?domain=" + encodeURIComponent(domain) + "&caf=1&toggle=nonadult&uid=" + encodeURIComponent(uniqueTrackingID));}if (requestAccepted) {if (status.feed) {ajaxQuery(scriptPath + "/munin/a/tr/feed?domain=" + encodeURIComponent(domain) + "&caf=1&toggle=feed&feed=" + encodeURIComponent(status.feed) + "&uid=" + encodeURIComponent(uniqueTrackingID));}if (status.error_code) {ajaxQuery(scriptPath + "/munin/a/tr/answercheck/error?domain=" + encodeURIComponent(domain) + "&caf=1&toggle=answercheck&answer=error_" + encodeURIComponent(status.error_code) + "&uid=" + encodeURIComponent(uniqueTrackingID));} else {ajaxQuery(scriptPath + "/munin/a/tr/answercheck/yes?domain=" + encodeURIComponent(domain) + "&caf=1&toggle=answercheck&answer=yes&uid=" + encodeURIComponent(uniqueTrackingID));}} else {ajaxQuery(scriptPath + "/munin/a/tr/answercheck/reject?domain=" + encodeURIComponent(domain) + "&caf=1&toggle=answercheck&answer=rejected&uid=" + encodeURIComponent(uniqueTrackingID));fallbackRedirect();}}};let x = function (obj1, obj2) {if (typeof obj1 != "object")obj1 = {};for (let key in obj2)obj1[key] = obj2[key];return obj1;};function getXMLhttp() {let xmlHttp = null;try {xmlHttp = new XMLHttpRequest();} catch (e) {try {xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");} catch (ex) {try {xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");} catch (exc) {}}}return xmlHttp;}function fallbackRedirect() {if (window.location.pathname !== '/zazu') {let fallbackRedirectUrl = '//' + domain + (window.location.port ? ':' + window.location.port : '') + '/zazu';window.location.replace(fallbackRedirectUrl);}}function ajaxQuery(url) {if (adtest == 'on') return false;xmlHttp = getXMLhttp();if (!xmlHttp) return ajaxBackfill(url);xmlHttp.open("GET", url, false);return xmlHttp.send(null);}function ajaxBackfill(url) {if (adtest == 'on') return false;if (url.indexOf("&toggle=browserjs") > -1) return false;try {let img = document.createElement('img');img.style.visibility = 'hidden';img.style.width = '1px';img.style.height = '1px';img.src = url + "&_t=" + new Date().getTime();document.body.appendChild(img);} catch (e) {}}ajaxQuery(scriptPath + "/munin/a/tr/browserjs?domain=" + encodeURIComponent(domain) + "&toggle=browserjs&uid=" + encodeURIComponent(uniqueTrackingID));x(pageOptions, {resultsPageBaseUrl: '//ra7.xyz/?ts=eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.142bxTPX8L4B795kG88cAtoUroL1GNSvE5DA3l2vqr23761Id7quoQ.Zg2mlhOxLB1ZrswSv6aJ2A.Ir4J6XwqTL8SvNa03X10xwnyV6xjdRy9eZH8BD51g83LaBzGC5NThUaWjdOqxNC7Vl9-EptuX6Oz0aHibVOSF0n4iFlazNc0Ke9yAI2sGL15Nfzc_AXj91y79BvhZOah5W5t80FgOnADr0CEse7JXZL3AY31HN8dqthQDdPJ2zzsSZHeA_t1s8W2GN6akrhFXK6poYGly3AR5nDLIM0RyeJcE3YYVS96OXKkVeBGE7VYIe1Z5lqQd-mrB6RnGDTDOCGcE2DIslw-v-_nrFQ39Nt_HOT15XlkRgdNWOvuT_BG3q_iVMOt1YnVebZD_kEWQRxHsFFYRGEI-uxOU50B0NUkeh8kJr9YukoJphBD9UqdvAyFMR1cOGO3GOFcXgPLDiCw4qzxR4ljF2o3tr3alhFX-X7nEKBaPjHnPCP2WQgbZMwDLGiSJtVMMRUs9812qa9GO89ysQvvxQa1c2ZoJ9ZCdPcUo_os-djBM2KTvuk-FOSt0w1HvpirJWHSanFFBMZ-icMmzIJ5PULwi3AEyNIu_dRN-OLm3XxdZBfbdPoZKnMS4BGMpCKPpMsbT5LXUD7bezUeotQZ1HE8rKF9MzZbAliqAPLE82wdQ9q_XMM6iRPnycvo_DbepEIAiVXD.VbngEghZp3tDi-oAxcxYnQ',hl: 'en',kw: '',terms: 'Italian live TV streaming,Online TV channel Italy,Italy TV guide',optimizeTerms: false, uiOptimize: true, channel: 'bucket007,bucket011,bucket077', pubId: 'dp-teaminternet09_3ph',adtest: 'off',personalizedAds: false,clicktrackUrl: 'https://ra7.xyz/munin/a/tr/click' + '?click=caf' + '&domain=ra7.xyz&uid=MTc2MzIxMTUwMS45MDIxOjg5YmI2NjY5NWRlNTU1OGM1OWY0MDcxOWY3MmZmNWI2OWM4MThkZmRkODQ3Y2M5MjQ2OWZkNTM1ZDI5MDI5MjA6NjkxODc4ZWRkYzNjOQ%3D%3D&ts=eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0.142bxTPX8L4B795kG88cAtoUroL1GNSvE5DA3l2vqr23761Id7quoQ.Zg2mlhOxLB1ZrswSv6aJ2A.Ir4J6XwqTL8SvNa03X10xwnyV6xjdRy9eZH8BD51g83LaBzGC5NThUaWjdOqxNC7Vl9-EptuX6Oz0aHibVOSF0n4iFlazNc0Ke9yAI2sGL15Nfzc_AXj91y79BvhZOah5W5t80FgOnADr0CEse7JXZL3AY31HN8dqthQDdPJ2zzsSZHeA_t1s8W2GN6akrhFXK6poYGly3AR5nDLIM0RyeJcE3YYVS96OXKkVeBGE7VYIe1Z5lqQd-mrB6RnGDTDOCGcE2DIslw-v-_nrFQ39Nt_HOT15XlkRgdNWOvuT_BG3q_iVMOt1YnVebZD_kEWQRxHsFFYRGEI-uxOU50B0NUkeh8kJr9YukoJphBD9UqdvAyFMR1cOGO3GOFcXgPLDiCw4qzxR4ljF2o3tr3alhFX-X7nEKBaPjHnPCP2WQgbZMwDLGiSJtVMMRUs9812qa9GO89ysQvvxQa1c2ZoJ9ZCdPcUo_os-djBM2KTvuk-FOSt0w1HvpirJWHSanFFBMZ-icMmzIJ5PULwi3AEyNIu_dRN-OLm3XxdZBfbdPoZKnMS4BGMpCKPpMsbT5LXUD7bezUeotQZ1HE8rKF9MzZbAliqAPLE82wdQ9q_XMM6iRPnycvo_DbepEIAiVXD.VbngEghZp3tDi-oAxcxYnQ&adtest=off' });x(pageOptions, [] );x(pageOptions, { domainRegistrant:'as-drid-2558334540730768' } );function loadFeed() {let s = document.createElement('script');let blurredTerms = document.getElementById('blurred-terms');if (blurredTerms !== null) {blurredTerms.style.display = "none";}s.src = '//www.google.com/adsense/domains/caf.js?abp=1&adsdeli=true';document.body.appendChild(s);let a = Array.prototype.slice.call(arguments);s.onload = function () {let c = google.ads.domains.Caf;switch (a.length) {case 1:return new c(a[0]);case 2:return new c(a[0], a[1]);case 3:return new c(a[0], a[1], a[2]);case 4:return new c(a[0], a[1], a[2], a[3]);case 5:return new c(a[0], a[1], a[2], a[3], a[4]);}return c.apply(null, a);};}</script>
-<script type="text/javascript">
-var ls = function(xhr, token) {
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status >= 200 && xhr.status <= 400) {
-                if (xhr.responseText.trim() === '') {
-                    return;
-                }
-    
-                console.log(JSON.parse(xhr.responseText))
-            } else {
-                console.log('There was a problem with the request.');
-            }
-        }
-    }
-    
-    xhr.open('GET', '/munin/a/l' + 's?t=691878ed&token=' + encodeURI(token), true);
-    xhr.send();
-};
-ls(new XMLHttpRequest(), 'a1f6aa55cbfcd1942c85c30d52f416ded2c7b673');
-if (typeof window.onRTBFailure === 'function') { window.onRTBFailure(); }
-</script>
-
-<script type='text/javascript'>x(pageOptions, { "styleId":5837883959});</script>
 <script>
-    function getLoadFeedArguments() {
-        let arguments = [
-            pageOptions
-        ];
-
-        let possibleArguments = ['adblock', 'adblock1', 'adblock2', 'tcblock', 'searchboxBlock', 'rtblock', 'rsblock', 'searchblock'];
-        for (let i = 0; i < possibleArguments.length; i++) {
-            if (typeof this[possibleArguments[i]] !== 'undefined') {
-                arguments.push(this[possibleArguments[i]]);
-            }
-        }
-
-        return arguments;
-    }
+    (function () {
+        document.getElementById("content").style.top = document.getElementById("content").previousElementSibling.clientHeight + "px";
+    })();
 </script>
-
-    <script>
-        loadFeed(...getLoadFeedArguments());
-    </script>
 </body>
 </html>
