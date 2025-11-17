@@ -3718,6 +3718,8 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 
 ^https?:\/\/mapiweb\.babytree\.com\/newapi\/luban\/behavior\/receive data-type=text data=""
 
+^https?:\/\/restapi\.iyunmai\.com\/fellow-service\/ios\/popUp data-type=text data="{}"
+
 ^https?:\/\/api\.kuaidihelp\.com\/g_order_core\/v\d\/mina\/User\/getBannerList data-type=text data="{}"
 
 ^https?:\/\/m\.sh\.189\.cn\/business-appletapi\/applet\/query\/(?>items|banners|getAdItemList) data-type=text data="{}"

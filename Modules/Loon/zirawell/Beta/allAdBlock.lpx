@@ -1,6 +1,6 @@
 #!name=allAdBlock
 #!desc=allAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1031.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1076.png
 #!tag=Jacob
 
 [Rule]
@@ -2860,6 +2860,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/xqimg\.imedao\.com\/[a-z0-9]{24}\.jpg$ mock-response-body data-type=text status-code=200
 ^https?:\/\/(cdn-)?api\.kkmh\.com\/v\d\/business\/fake_push\/info mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mapiweb\.babytree\.com\/newapi\/luban\/behavior\/receive mock-response-body data-type=text status-code=200
+^https?:\/\/restapi\.iyunmai\.com\/fellow-service\/ios\/popUp mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.kuaidihelp\.com\/g_order_core\/v\d\/mina\/User\/getBannerList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/m\.sh\.189\.cn\/business-appletapi\/applet\/query\/(?>items|banners|getAdItemList) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.zhihu\.com\/me\/guides mock-response-body data-type=text data="{}" status-code=200
