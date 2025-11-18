@@ -1801,7 +1801,7 @@ Tab = type=http-response, pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/s
 My Info = type=http-response, pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ifflagged/Module-Top/BiliBili.js, requires-body=true
 Tab = type=http-response, pattern=^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/core, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ifflagged/Module-Top/DiDi.js, requires-body=true
 # 12306_remove_ads
-移除12306开屏广告 = type=http-request, pattern=^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/12306_remove_ads/12306_remove_splashscreen_ads.js, requires-body=true
+移除12306开屏广告 = type=http-request, pattern=^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$, script-path=https://kelee.one/Resource/JavaScript/12306/12306_remove_splashscreen_ads.js, requires-body=true
 移除12306应用内广告 = type=http-request, pattern=^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/12306_remove_ads/12306_remove_ads.js
 # NoAds
 NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Yuheng0101/NoAds/NoAds.js, requires-body=true, max-size=-1, timeout=60
