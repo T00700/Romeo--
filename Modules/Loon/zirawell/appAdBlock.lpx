@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1050.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1009.png
 #!tag=Jacob
 
 [Rule]
@@ -1824,6 +1824,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/app\.variflight\.com(\/v\d)?\/ad - reject
 ^https?:\/\/music\.y\.qq\.com\/maproxy\/getPbCompressAd - reject
 ^https?:\/\/s3plus\.meituan\.net\/v\d\/mss_\w+\/brandcpt - reject
+^https?:\/\/api\.qbb6\.com\/mamiyin\/large\/view\/get - reject
 ^https?:\/\/api\.gongkaoleida\.com\/api\/\w+\/sets\/getAppVersion - reject
 ^https?:\/\/.+\.pstatp\.com\/obj\/mosaic-legacy\/.+\?from\=ad - reject
 ^https?:\/\/api\.xiachufang\.com\/v\d\/ad/ - reject
@@ -2778,6 +2779,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/staticlive\.douyucdn\.cn\/.+?\/getStartSend mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/apps\.teamair\.cn\/app\/version mock-response-body data-type=file data="https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/qi.json"
 ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.wireless\.home\.xianyu(\.my)?\.awesome\.get mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/api\.qbb6\.com\/timeline\/item\/list\/get mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/s3plus\.meituan\.net\/v\d\/mss_\w+\/goku\/(?>lottie|lucency) mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/api\.zhihu\.com\/ad mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/saas\.hpplay\.cn\/api\/lebo-desk\/endpoint\/app-resource\/app_home_tips mock-response-body data-type=text data="{}" status-code=200
