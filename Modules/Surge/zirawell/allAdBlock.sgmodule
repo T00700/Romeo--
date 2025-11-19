@@ -2231,6 +2231,8 @@ http-response ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banne
 
 ^https?:\/\/(cdn-)?api\.kkmh\.com\/v\d\/business\/mine\/business_config data-type=text data="{}" status-code=200
 
+^https?:\/\/api\.hellobike\.com\/api\?applet\.homepage\.medal\.activity data-type=text data="{}" status-code=200
+
 ^https?:\/\/api\.xueqiu\.com\/recommend-proxy\/card\/portfolio_tab_symbol data-type=text data="{}" status-code=200
 
 ^https?:\/\/apigateway\.gaodun\.com\/common-app\/version data-type=text data="{}" status-code=200
@@ -3108,6 +3110,8 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.00bang\.cn\/llb\/baseinfo\/advertise\/getAdvertiseByPageCode data-type=text data="" status-code=200
 
 ^https?:\/\/api\.51credit\.com\/bbs\/app\/api\/v\d\/task\/operationalCredit data-type=text data="{}" status-code=200
+
+^https?:\/\/api\.hellobike\.com\/api\?homepage\.newWelfare\.alipay data-type=text data="{}" status-code=200
 
 ^https?:\/\/api\.sogaha\.cn\/ssp\/ad\/get\?ip data-type=text data="{}" status-code=200
 
