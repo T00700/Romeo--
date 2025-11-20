@@ -2,7 +2,7 @@ name: Mirror ddgksf2013 Modules
 
 on:
   schedule:
-    - cron: '15 */12 * * *'  # 每 12 小时的 15 分执行
+    - cron: '15 */12 * * *'
   workflow_dispatch:
 
 env:
@@ -20,7 +20,7 @@ jobs:
         ports: [9100:9100, 9101:9101]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Git
         run: |
@@ -39,7 +39,7 @@ jobs:
           echo "Found URLs:"
           cat plugin_urls.txt
 
-      - name: Process files (Parallelized)
+      - name: Process files (Serialized for Stability)
         run: |
           category="Jacob"
           encoded_category=$(echo "$category" | jq -sRr @uri)
@@ -59,7 +59,7 @@ jobs:
             Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${plugin_url}/_end_/${encoded_Modules_name}.srmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
 
             echo "Processing ${Modules_name}..."
-
+            
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/${Modules_name}.sgmodule" "$Surge_url" || echo "Failed Surge"
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" || echo "Failed Surge Beta"
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/${Modules_name}.lpx" "$Loon_url" || echo "Failed Loon"
@@ -75,12 +75,14 @@ jobs:
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
           mkdir -p Modules/JS/${Author}
 
-          # 优化：只查找 Modules/Surge/${Author}，排除 Beta
-          find Modules/Surge/${Author} -type f -name "*.sgmodule" -not -path "*/Beta/*" | while read -r surge_file; do
+          # 优化：只查找 Modules/Surge/${Author}/Official 目录（这里其实是 Surge 的根目录，因为 ddgksf 没有 Official 子目录结构，是直接放在 Author 下的）
+          # 修正：根据上面的转换逻辑，Surge 文件是直接放在 Modules/Surge/${Author}/ 下的，所以这里 find 路径不需要 /Official
+          # 同时排除 Beta 目录
+          find Modules/Surge/${Author} -type f -name "*.sgmodule" -not -path "*/Beta/*" -print0 | while IFS= read -r -d '' surge_file; do
             module_folder=$(basename "$surge_file" .sgmodule)
             
-            # 核心修改：只提取 ddgksf2013 的链接
-            js_links=$(grep -v '#' "$surge_file" | grep -oP 'https?://[^ ]*ddgksf2013[^ ]+\.(json|js|jq)' || true)
+            # 提取链接 (保持原样，匹配所有 JS)
+            js_links=$(grep -v '#' "$surge_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || true)
 
             if [ -z "$js_links" ]; then
               continue
@@ -98,6 +100,7 @@ jobs:
               if curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                 
+                # 批量替换所有格式
                 find Modules -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" | \
                 xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
               fi
