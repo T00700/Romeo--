@@ -5,7 +5,7 @@ name: Download and Convert Kelee Plugins
 
 on:
   schedule:
-    - cron: '5,35 * * * *'  # 每小时 5 分 和 35 分执行
+    - cron: '5,35 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -71,7 +71,6 @@ jobs:
           while IFS= read -r url; do
             [ -z "$url" ] && continue
             
-            # 提取文件名
             filename=$(basename "${url%%\?*}")
             if [[ "$filename" != *".lpx" ]] && [[ "$filename" != *".plugin" ]]; then
                filename="${filename}.lpx"
@@ -143,37 +142,33 @@ jobs:
             Surge_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
             Loon_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
             Loon_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true"
-            Shadowrocket_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true"
-            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
+            Shadowrocket_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.srmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.srmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
 
             echo "Converting ${Modules_name}..."
             
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/${Modules_name}.sgmodule" "$Surge_url" || echo "Failed Surge"
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" || echo "Failed Surge Beta"
-            
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/${Modules_name}.lpx" "$Loon_url" || echo "Failed Loon"
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/Beta/${Modules_name}.lpx" "$Loon_Beta_url" || echo "Failed Loon Beta"
-            
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/${Modules_name}.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket"
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket Beta"
-            
           done
 
-      # === 7. JS 资源提取与替换 (应用镜像逻辑) ===
+      # === 7. JS 资源提取与替换 (应用镜像逻辑 + 全范围提取) ===
       - name: Find and replace external JS resources
         continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
-          
           mkdir -p Modules/JS/Kelee
-          
-          # 定义镜像源和 UA，与 Step 3 保持一致
           mirrors=("git.botrna.site" "git.boio.me" "git.repcz.link")
           UA="Loon/3.2.1 (iPhone; iOS 17.2; Scale/3.00)"
 
+          # 核心修正：查找 Official 目录下的所有 .lpx 文件
           find Modules/Loon/Kelee/Official -name "*.lpx" | while read plugin_file; do
             plugin_name=$(basename "$plugin_file" .lpx)
             
+            # 核心修正：提取所有 http...js 链接
             js_links=$(grep -v '#' "$plugin_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
 
             if [ -z "$js_links" ]; then continue; fi
@@ -187,9 +182,8 @@ jobs:
               mkdir -p "$(dirname "$local_js_path")"
               download_success=false
 
-              # === 核心修改：加入镜像下载逻辑 ===
+              # 镜像下载逻辑
               if [[ "$js_link" == *"kelee.one"* ]]; then
-                # 尝试镜像下载
                 for mirror in "${mirrors[@]}"; do
                   mirror_url="${js_link/https:\/\/kelee.one/https:\/\/$mirror/kelee.one}"
                   if curl -s -L -f --connect-timeout 10 --retry 2 -H "User-Agent: $UA" -o "$local_js_path" "$mirror_url"; then
@@ -201,7 +195,6 @@ jobs:
                   fi
                 done
               else
-                # 普通链接直接下载
                 if curl -s -L -f --connect-timeout 10 --retry 2 -H "User-Agent: $UA" -o "$local_js_path" "$js_link"; then
                    if [ -s "$local_js_path" ]; then
                       echo "  ✅ JS Downloaded direct: $js_filename"
@@ -210,14 +203,11 @@ jobs:
                 fi
               fi
 
-              # 只有下载成功才执行替换
+              # 批量替换逻辑
               if [ "$download_success" = true ]; then
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
-                
-                # 批量替换所有相关文件 (Surge/Loon/Shadowrocket)
                 find Modules -name "${plugin_name}.sgmodule" -o -name "${plugin_name}.lpx" -o -name "${plugin_name}.srmodule" | \
                 xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
-                
                 echo "  🔄 Replaced link in modules"
               else
                 echo "  ⚠️ Failed to download JS: $js_link"
