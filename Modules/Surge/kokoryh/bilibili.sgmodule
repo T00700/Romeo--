@@ -6,11 +6,11 @@
 #!arguments=动态最常访问:auto,创作中心:0,过滤置顶评论广告:1,空降助手:bilibili.airborne,日志等级:info
 
 [Rule]
-DOMAIN,api.biliapi.com,REJECT,extended-matching
-DOMAIN,app.biliapi.com,REJECT,extended-matching
-DOMAIN,api.biliapi.net,REJECT,extended-matching
-DOMAIN,app.biliapi.net,REJECT,extended-matching
-AND,((DOMAIN-SUFFIX,chat.bilibili.com),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,tracker)))),REJECT
+DOMAIN,api.biliapi.com,REJECT,extended-matching,pre-matching
+DOMAIN,app.biliapi.com,REJECT,extended-matching,pre-matching
+DOMAIN,api.biliapi.net,REJECT,extended-matching,pre-matching
+DOMAIN,app.biliapi.net,REJECT,extended-matching,pre-matching
+AND,((DOMAIN-SUFFIX,chat.bilibili.com),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,tracker)))),REJECT,pre-matching
 
 [URL Rewrite]
 ^https:\/\/api\.bilibili\.com\/pgc\/page\/channel\?(.*)&mobi_app=iphone&(.*)$ https://api.bilibili.com/pgc/page/channel?$1&mobi_app=iphone_i&$2 header
