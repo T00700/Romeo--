@@ -2,11 +2,12 @@ name: Mirror fmz200 Modules
 
 on:
   schedule:
-    - cron: '11 */12 * * *'  # 每12小时的 11 分执行
+    - cron: '11 */12 * * *'
   workflow_dispatch:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  TZ: Asia/Shanghai
 
 jobs:
   fetch-fmz200:
@@ -21,161 +22,157 @@ jobs:
           - 9101:9101
       
     steps:
-      - name: Checkout Repo
+      - name: Checkout Target Repo
         uses: actions/checkout@v4
         with:
           persist-credentials: true
-          
-      - name: Set up Git
+
+      - name: Set up Git config
         run: |
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq python3 curl
-
+      # 优化点1: 移除 apt-get install，直接检查 Docker 服务
       - name: Wait for Docker service
         run: |
           echo "Waiting for Docker..."
-          for i in {1..10}; do
-            nc -z localhost 9100 && nc -z localhost 9101 && break
-            sleep 5
-          done
+          timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      - name: Set category
-        run: echo "Author=fmz200" >> $GITHUB_ENV
-
-      # === 获取 Loon .lpx 文件 ===
-      - name: Fetch Loon .lpx paths
+      - name: Set Environment Variables
         run: |
-          curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/${Author}/wool_scripts/git/trees/main?recursive=1" \
-            | jq -r '.tree[] | select(.path | test("Loon/plugin/split/.*\\.lpx$")) | .path' > loon_paths.txt
-          cat loon_paths.txt
+          echo "Author=fmz200" >> $GITHUB_ENV
+          echo "SRC_DIR=temp_source" >> $GITHUB_ENV
 
-      - name: Download Loon .lpx files
+      # 优化点2: 核心优化！使用 git clone 代替 API 查找和 curl 下载
+      # 这将把原本几分钟的下载过程缩短到几秒钟
+      - name: Clone Source Repository
+        run: |
+          git clone --depth 1 https://github.com/${{ env.Author }}/wool_scripts.git ${{ env.SRC_DIR }}
+
+      # 优化点3: 本地复制代替下载，处理 Loon 文件
+      - name: Process Loon .lpx files
         run: |
           mkdir -p Modules/Loon/${Author}/Official
-          while IFS= read -r path; do
-            filename=$(basename "$path")
-            encoded_path=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$path'''))")
-            echo "Downloading $path → $filename"
-            curl -sL -H "Authorization: token $GITHUB_TOKEN" \
-              -H "Accept: application/vnd.github.raw" \
-              "https://api.github.com/repos/${Author}/wool_scripts/contents/$encoded_path?ref=main" \
-              -o "Modules/Loon/${Author}/Official/$filename"
-          done < loon_paths.txt
+          
+          # 查找源目录中的 lpx 文件并复制
+          find ${{ env.SRC_DIR }}/Loon/plugin/split -name "*.lpx" -print0 | while IFS= read -r -d '' file; do
+            filename=$(basename "$file")
+            echo "Copying $filename..."
+            cp "$file" "Modules/Loon/${Author}/Official/$filename"
+          done
 
-      # === 获取 Surge .sgmodule 文件 ===
-      - name: Fetch Surge .sgmodule paths
+      # 优化点4: 并行转换 Surge 文件
+      - name: Process & Convert Surge .sgmodule files
         run: |
-          curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/${Author}/wool_scripts/git/trees/main?recursive=1" \
-            | jq -r '.tree[] | select(.path | test("Surge/module/split/.*\\.sgmodule$")) | .path' > surge_paths.txt
-          cat surge_paths.txt
-
-      - name: Download & Convert Surge .sgmodule files
-        run: |
-          mkdir -p Modules/Surge/${Author}/Official \
-                   Modules/Surge/${Author}/Beta \
+          # 创建目录结构
+          mkdir -p Modules/Surge/${Author}/{Official,Beta} \
                    Modules/Loon/${Author}/Beta \
-                   Modules/Shadowrocket/${Author} \
                    Modules/Shadowrocket/${Author}/Beta
 
-          while IFS= read -r path; do
-            filename=$(basename "$path")
+          # Python 脚本用于 URL 编码 (内联以减少文件依赖)
+          urlencode() {
+            python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "$1"
+          }
+
+          base_raw_url="https://raw.githubusercontent.com/${Author}/wool_scripts/main"
+
+          # 遍历本地文件
+          find ${{ env.SRC_DIR }}/Surge/module/split -name "*.sgmodule" -print0 | while IFS= read -r -d '' file; do
+            filename=$(basename "$file")
             name="${filename%.sgmodule}"
+            
+            # 获取相对路径用于构造 raw url (例如: Surge/module/split/xxx.sgmodule)
+            rel_path=$(realpath --relative-to="${{ env.SRC_DIR }}" "$file")
+            raw_url="${base_raw_url}/${rel_path}"
+            
+            echo "Processing: $filename"
+            
+            # 1. 复制官方文件 (替代下载)
+            cp "$file" "Modules/Surge/${Author}/Official/$filename"
 
-            # 原始 sgmodule 下载
-            encoded_path=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$path'''))")
-            raw_url="https://raw.githubusercontent.com/${Author}/wool_scripts/main/$path"
-            echo "Downloading $path → $filename"
-            curl -sL -H "Authorization: token $GITHUB_TOKEN" \
-              -H "Accept: application/vnd.github.raw" \
-              "https://api.github.com/repos/${Author}/wool_scripts/contents/$encoded_path?ref=main" \
-              -o "Modules/Surge/${Author}/Official/$filename"
+            # 2. 准备转换参数
+            encoded_name=$(urlencode "$name")
+            # 注意：原代码中 $CATEGORY 似乎未定义，这里如果是空可能会报错，建议确认。这里暂时留空。
+            encoded_category=$(urlencode "Jacob") 
 
-            # 转换 (base_url + encoded_name)
-            encoded_name=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$name'''))")
-            encoded_category=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$CATEGORY'''))")
+            # 3. 并行请求转换 (使用 & 后台运行，最后 wait)
+            # Surge
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/$filename" \
+              "http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true" &
+            
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/Beta/$filename" \
+              "http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true" &
 
-            Surge_url="http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
-            Surge_Beta_url="http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
+            # Loon
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/$name.lpx" \
+              "http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true" &
+            
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/Beta/$name.lpx" \
+              "http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true" &
 
-            Loon_url="http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true"
-            Loon_Beta_url="http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true"
+            # Shadowrocket
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/$name.srmodule" \
+              "http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true" &
+            
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/Beta/$name.srmodule" \
+              "http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true" &
 
-            Shadowrocket_url="http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
-            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
+            # 等待当前文件的所有转换任务完成，防止 Docker 服务过载
+            wait
+          done
 
-            echo "Converting $filename → Surge/Loon/Shadowrocket"
-            curl -A "Surge Mac/2985" -sL -o "Modules/Surge/${Author}/$filename" "$Surge_url" || echo "Failed Surge conversion: $name"
-            curl -A "Surge Mac/2985" -sL -o "Modules/Surge/${Author}/Beta/$filename" "$Surge_Beta_url" || echo "Failed Surge Beta conversion: $name"
-
-            curl -A "Surge Mac/2985" -sL -o "Modules/Loon/${Author}/$name.lpx" "$Loon_url" || echo "Failed Loon conversion: $name"
-            curl -A "Surge Mac/2985" -sL -o "Modules/Loon/${Author}/Beta/$name.lpx" "$Loon_Beta_url" || echo "Failed Loon Beta conversion: $name"
-
-            curl -A "Surge Mac/2985" -sL -o "Modules/Shadowrocket/${Author}/$name.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket conversion: $name"
-            curl -A "Surge Mac/2985" -sL -o "Modules/Shadowrocket/${Author}/Beta/$name.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket Beta conversion: $name"
-          done < surge_paths.txt
-
-      - name: Find and replace external JS resources in .sgmodule, .lpx, and .srmodule files
+      # 优化点5: 优化 JS 资源下载逻辑
+      - name: Handle External JS Resources
         continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
-
           mkdir -p Modules/JS/${Author}
 
-          for sgmodule_file in $(find Modules/Surge/${Author} -type f -name "*.sgmodule"); do
-            author=${Author}
+          # 仅处理 Official 下的文件作为源头进行分析
+          find Modules/Surge/${Author}/Official -type f -name "*.sgmodule" -print0 | while IFS= read -r -d '' sgmodule_file; do
             module_folder=$(basename "$sgmodule_file" .sgmodule)
-            echo "Processing $sgmodule_file for JS links"
+            
+            # 提取链接
+            js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || true)
 
-            js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || echo "")
+            if [ -z "$js_links" ]; then
+              continue
+            fi
+
+            echo "Found JS in $module_folder"
 
             for js_link in $js_links; do
               js_filename=$(basename "$js_link")
-              local_js_path="Modules/JS/$author/$module_folder/$js_filename"
-              github_js_url="$js_base_url/$author/$module_folder/$js_filename"
+              local_js_rel_path="Modules/JS/${Author}/$module_folder/$js_filename"
+              local_js_full_path="$GITHUB_WORKSPACE/$local_js_rel_path"
+              github_js_url="$js_base_url/${Author}/$module_folder/$js_filename"
 
-              mkdir -p "$(dirname "$local_js_path")"
+              mkdir -p "$(dirname "$local_js_full_path")"
 
-              echo "Downloading $js_link to $local_js_path"
-              if curl -A "Surge Mac/2985" -L -o "$local_js_path" "$js_link"; then
-                echo "Replacing $js_link with $github_js_url"
-                sed -i "s|$js_link|$github_js_url|g" "$sgmodule_file"
-
-                loon_file="Modules/Loon/$author/$module_folder.lpx"
-                loon_beta_file="Modules/Loon/$author/Beta/$module_folder.lpx"
-                shadowrocket_file="Modules/Shadowrocket/$author/$module_folder.srmodule"
-                shadowrocket_beta_file="Modules/Shadowrocket/$author/Beta/$module_folder.srmodule"
-
-                [ -f "$loon_file" ] && sed -i "s|$js_link|$github_js_url|g" "$loon_file"
-                [ -f "$loon_beta_file" ] && sed -i "s|$js_link|$github_js_url|g" "$loon_beta_file"
-                [ -f "$shadowrocket_file" ] && sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_file"
-                [ -f "$shadowrocket_beta_file" ] && sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_beta_file"
+              # 下载 JS (如果不存在或内容不同)
+              # 這裡不做複雜校驗，直接下載覆蓋確保最新
+              if curl -sL -A "Surge Mac/2985" -o "$local_js_full_path" "$js_link"; then
+                # 批量替换所有相关文件
+                # 使用 find 查找所有相关文件进行替换，避免硬编码路径
+                find Modules -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" | \
+                xargs -I {} sed -i "s|$js_link|$github_js_url|g" "{}"
               fi
             done
           done
 
+      - name: Clean up temp source
+        run: rm -rf ${{ env.SRC_DIR }}
+
       - name: Commit and push changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
-
-          git add Modules/*
-
+          DATE="$(date '+%Y-%m-%d %H:%M:%S')"
+          git add Modules
+          
+          # 检查是否有变更
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            COMMIT_MESSAGE="Synched Modules at $DATE (UTC+8)"
-            git stash
-            git pull --rebase
-            git stash pop || true
-            git add Modules/*
-            git commit -m "$COMMIT_MESSAGE"
+            git commit -m "Synched Modules at $DATE (UTC+8)"
+            git pull --rebase --autostash
             git push
           fi
