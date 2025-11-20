@@ -1,3 +1,6 @@
+# https://github.com/bunizao/Mirrored/blob/main/.github/workflows/convert.yml
+# https://github.com/Qmxn/Tools/blob/X/.github/workflows/SyncPlugin.yml
+
 name: Download and Convert Kelee Plugins
 
 on:
@@ -22,71 +25,120 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # === 环境准备 ===
-      # 1. Python (运行下载脚本)
+      # === 1. 环境准备 (为了运行获取列表的 Python 脚本) ===
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      # 2. Node.js (Cloudscraper 必须依赖，用于绕过 WAF)
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # === 获取远程脚本 ===
       - name: Checkout private repository
         uses: actions/checkout@v4
         with:
           repository: "${{ github.actor }}/ShalalaLala"
           token: ${{ secrets.PERSONAL_TOKENS }}
           path: ShalalaLala
-          # 仅拉取需要的脚本文件，速度更快
           sparse-checkout: |
             Scripts/kelee-20251120.py
 
-      # === 安装依赖 ===
       - name: Install dependencies
-        run: |
-          # 必须安装 cloudscraper 才能运行 kelee-20251120.py
-          pip install cloudscraper requests
+        run: pip install cloudscraper requests
 
-      # === 步骤 1: 运行远程下载脚本 ===
-      - name: Run download script
+      # === 2. 获取下载链接列表 ===
+      - name: Generate Plugin.txt
         run: python ShalalaLala/Scripts/kelee-20251120.py
 
-      # === 步骤 2: 本地处理文件 (Move) ===
+      # === 3. 使用镜像并发下载 (核心新逻辑) ===
+      - name: Download Plugins via Mirrors
+        run: |
+          mkdir -p Plugin
+          Plugin_FILE_PATH="Plugin.txt"
+
+          if [ ! -f "$Plugin_FILE_PATH" ]; then
+            echo "❌ Error: Plugin.txt generation failed."
+            exit 1
+          fi
+
+          # 定义镜像列表 (参考你提供的 Sync Plugin)
+          mirrors=("git.botrna.site" "git.boio.me" "git.repcz.link")
+          UA="Loon/3.2.1 (iPhone; iOS 17.2; Scale/3.00)"
+
+          echo "📥 Starting download process..."
+
+          # 逐行读取链接
+          while IFS= read -r url; do
+            [ -z "$url" ] && continue
+            
+            # 提取文件名并确保后缀为 .lpx
+            filename=$(basename "${url%%\?*}") # 去掉问号参数
+            if [[ "$filename" != *".lpx" ]] && [[ "$filename" != *".plugin" ]]; then
+               filename="${filename}.lpx"
+            fi
+            
+            output_path="Plugin/$filename"
+            download_success=false
+            
+            echo "⚡ Processing: $filename"
+
+            # 判断是否需要走镜像 (只针对 kelee.one)
+            if [[ "$url" == *"kelee.one"* ]]; then
+              for mirror in "${mirrors[@]}"; do
+                # 替换域名: https://kelee.one -> https://mirror/kelee.one
+                mirror_url="${url/https:\/\/kelee.one/https:\/\/$mirror/kelee.one}"
+                
+                # 尝试下载
+                if curl -s -L -f --connect-timeout 10 --retry 2 -H "User-Agent: $UA" -o "$output_path" "$mirror_url"; then
+                  # 检查文件大小 (防止下载到空的或者错误也)
+                  if [ -s "$output_path" ]; then
+                    echo "  ✅ Downloaded via $mirror"
+                    download_success=true
+                    break
+                  fi
+                fi
+              done
+            else
+              # 其他域名的插件，直接下载
+              if curl -s -L -f --connect-timeout 10 --retry 2 -H "User-Agent: $UA" -o "$output_path" "$url"; then
+                 [ -s "$output_path" ] && download_success=true
+                 echo "  ✅ Downloaded direct"
+              fi
+            fi
+            
+            if [ "$download_success" = false ]; then
+              echo "  ❌ Failed to download: $filename"
+            fi
+
+          done < "$Plugin_FILE_PATH"
+          
+          echo "🎉 All downloads processed."
+
+      # === 4. 移动文件到 Official 目录 ===
       - name: Move .lpx files
         run: |
           mkdir -p Modules/Loon/Kelee/Official
-          # 检查目录是否存在
+          # 移动所有下载成功的 lpx/plugin 文件
           if [ -d "Plugin" ]; then
-            # 查找 Plugin 目录下所有的文件 (.lpx 或 .plugin)，统一重命名为 .lpx 并移动
             find Plugin -type f \( -name '*.lpx' -o -name '*.plugin' \) | while read file; do
               filename=$(basename "$file")
               target_name="${filename%.*}.lpx"
               cp "$file" "Modules/Loon/Kelee/Official/$target_name"
             done
-          else
-            echo "⚠️ Plugin directory not found (Download might have failed), skipping move."
           fi
 
-      # === 步骤 3: 本地处理 JS (JS Replace - 本地 Bash 实现) ===
+      # === 5. 本地替换 JS (Bash版，无需Python) ===
       - name: Find and replace external JS resources
         continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
           mkdir -p Modules/JS/Kelee
-          
-          # 伪装 UA
           UA="Surge Mac/2985"
 
-          # 遍历 Official 目录下的插件
           find Modules/Loon/Kelee/Official -name "*.lpx" | while read plugin_file; do
             plugin_name=$(basename "$plugin_file" .lpx)
-            
-            # 提取 http/https 链接 (后缀 .js .json .jq)
             js_links=$(grep -v '#' "$plugin_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
 
             if [ -z "$js_links" ]; then continue; fi
@@ -99,26 +151,21 @@ jobs:
               
               mkdir -p "$(dirname "$local_js_path")"
 
-              # 下载 JS
               if curl -sL -A "$UA" --retry 2 --connect-timeout 10 -o "$local_js_path" "$js_link"; then
-                # 转义链接中的特殊字符，防止 sed 报错
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
-                # 替换文件内容
                 sed -i "s|$escaped_link|$github_js_url|g" "$plugin_file"
                 echo "  ✅ Replaced $js_filename"
-              else
-                echo "  ⚠️ Failed to download JS: $js_link"
               fi
             done
           done
 
-      # === 步骤 4: 等待 Docker 服务 ===
+      # === 6. 等待 Docker ===
       - name: Wait for Docker services to be ready
         run: |
-          echo "Waiting for Docker services to be ready..."
+          echo "Waiting for Docker services..."
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      # === 步骤 5: 本地并发转换 (Convert) ===
+      # === 7. 并发转换格式 ===
       - name: Convert plugins (Parallelized)
         run: |
           plugin_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Loon/Kelee/Official/"
@@ -134,7 +181,6 @@ jobs:
             Modules_name=$(basename "$plugin_local_url" .lpx)
             encoded_Modules_name=$(echo "$Modules_name" | jq -sRr @uri)
 
-            # 构建转换 URL
             Surge_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=surge-module&category=${encoded_category}&nore=true"
             Surge_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
             Loon_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
@@ -144,20 +190,17 @@ jobs:
 
             echo "Converting ${Modules_name}..."
             
-            # 并发请求转换
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/${Modules_name}.sgmodule" "$Surge_url" &
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" &
-            
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/${Modules_name}.lpx" "$Loon_url" &
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/Beta/${Modules_name}.lpx" "$Loon_Beta_url" &
-            
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/${Modules_name}.srmodule" "$Shadowrocket_url" &
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" &
             
             wait
           done
 
-      # === 步骤 6: 提交更改 ===
+      # === 8. 提交 ===
       - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
