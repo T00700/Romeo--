@@ -1,5 +1,3 @@
-# https://github.com/bunizao/Mirrored/blob/main/.github/workflows/convert.yml
-
 name: Download and Convert Kelee Plugins
 
 on:
@@ -47,8 +45,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r ShalalaLala/Scripts/kelee-requirements.txt
-          sudo apt-get update
-          sudo apt-get install -y curl jq netcat-openbsd
+          # 优化点1: 移除 apt-get，ubuntu-latest 已预装 curl, jq, netcat
 
       - name: Run download script
         run: python ShalalaLala/Scripts/kelee-20250807.py
@@ -74,12 +71,10 @@ jobs:
       - name: Wait for Docker services to be ready
         run: |
           echo "Waiting for Docker services to be ready..."
-          for i in {1..10}; do
-            nc -z localhost 9100 && nc -z localhost 9101 && break
-            sleep 10
-          done
+          # 优化点2: 使用 timeout 防止死循环，缩短检测间隔
+          timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      - name: Convert plugins
+      - name: Convert plugins (Parallelized)
         run: |
           plugin_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Loon/Kelee/Official/"
           category="Jacob"
@@ -101,17 +96,19 @@ jobs:
             Shadowrocket_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true"
             Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
 
-            echo "Converting to ${Modules_name}.sgmodule"
-            curl -A "Surge Mac/2985" -L -o "Modules/Surge/Kelee/${Modules_name}.sgmodule" "$Surge_url" || echo "Failed ${Modules_name}.sgmodule"
-            curl -A "Surge Mac/2985" -L -o "Modules/Surge/Kelee/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" || echo "Failed ${Modules_name}.sgmodule"
+            echo "Converting ${Modules_name}..."
             
-            echo "Converting to ${Modules_name}.lpx"
-            curl -A "Surge Mac/2985" -L -o "Modules/Loon/Kelee/${Modules_name}.lpx" "$Loon_url" || echo "Failed ${Modules_name}.lpx"
-            curl -A "Surge Mac/2985" -L -o "Modules/Loon/Kelee/Beta/${Modules_name}.lpx" "$Loon_Beta_url" || echo "Failed ${Modules_name}.lpx"
+            # 优化点3: 并发执行 curl，大幅缩短转换时间
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/${Modules_name}.sgmodule" "$Surge_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" &
             
-            echo "Converting to ${Modules_name}.srmodule"
-            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/Kelee/${Modules_name}.srmodule" "$Shadowrocket_url" || echo "Failed ${Modules_name}.srmodule"
-            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/Kelee/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed ${Modules_name}.srmodule"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/${Modules_name}.lpx" "$Loon_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/Beta/${Modules_name}.lpx" "$Loon_Beta_url" &
+            
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/${Modules_name}.srmodule" "$Shadowrocket_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" &
+            
+            wait # 等待当前文件的所有版本转换完成
           done
 
       - name: Commit and push changes
@@ -129,10 +126,8 @@ jobs:
             echo "No changes to commit"
           else
             COMMIT_MESSAGE="Downloaded & Converted files at $DATE (UTC+8)"
-            git stash
-            git pull --rebase
-            git stash pop
-            git add Modules/*
+            # 优化 Git 提交逻辑
             git commit -m "$COMMIT_MESSAGE"
+            git pull --rebase --autostash || true
             git push
           fi
