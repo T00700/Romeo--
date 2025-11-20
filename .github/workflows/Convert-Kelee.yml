@@ -1,4 +1,5 @@
 # https://github.com/bunizao/Mirrored/blob/main/.github/workflows/convert.yml
+# https://github.com/Qmxn/Tools/blob/X/.github/workflows/SyncPlugin.yml
 
 name: Download and Convert Kelee Plugins
 
@@ -24,56 +25,117 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
+      # 优化点1: 彻底移除了 Python 环境设置、Checkout Private Repo 和 Pip Install
+      # 因为下载和替换逻辑都已改为 Bash 实现
 
-      - name: Checkout private repository
-        uses: actions/checkout@v3
-        with:
-          repository: "${{ github.actor }}/ShalalaLala"
-          token: ${{ secrets.PERSONAL_TOKENS }}
-          path: ShalalaLala
-
-      - name: Cache pip packages
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('ShalalaLala/Scripts/kelee-requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install dependencies
+      - name: Download Plugins via Mirrors
         run: |
-          pip install -r ShalalaLala/Scripts/kelee-requirements.txt
-          # 优化点1: 移除 apt-get，ubuntu-latest 已预装 curl, jq, netcat
+          mkdir -p Plugin
+          # 定义镜像列表
+          mirrors=("https://git.botrna.site/kelee.one" "https://git.boio.me/kelee.one" "https://git.repcz.link/kelee.one")
+          
+          # 1. 尝试下载 list.json
+          echo "🔍 正在尝试通过镜像获取插件列表..."
+          for mirror in "${mirrors[@]}"; do
+            target="$mirror/list.json"
+            if curl -s -f -L "$target" -o list.json; then
+              echo "✅ 成功从 $mirror 获取列表"
+              break
+            fi
+          done
 
-      - name: Run download script
-        run: python ShalalaLala/Scripts/kelee-20250807.py
-
-      - name: List downloaded files
-        run: |
-          if [ -d Plugin ]; then
-            ls -R Plugin
+          # 2. 解析 JSON 并下载插件
+          if [ -f list.json ]; then
+             # 提取所有 url 字段
+             urls=$(jq -r '.. | .url? // empty' list.json)
+             
+             for url in $urls; do
+               # 处理 loon:// 协议
+               if [[ "$url" == "loon://"* ]]; then
+                 clean_url=$(echo "$url" | sed 's/loon:\/\/import?plugin=//')
+               else
+                 clean_url="$url"
+               fi
+               
+               filename=$(basename "$clean_url")
+               if [[ "$filename" != *".plugin" ]] && [[ "$filename" != *".lpx" ]]; then
+                  filename="${filename}.lpx"
+               fi
+               
+               # 如果原链接是 kelee.one，替换为镜像
+               if [[ "$clean_url" == *"kelee.one"* ]]; then
+                 path_suffix=$(echo "$clean_url" | sed 's/https:\/\/.*kelee.one\///')
+                 
+                 for mirror in "${mirrors[@]}"; do
+                   mirror_url="$mirror/$path_suffix"
+                   echo "⬇️ 下载: $filename"
+                   if curl -s -L --connect-timeout 10 --retry 2 -o "Plugin/$filename" "$mirror_url"; then
+                     [ -s "Plugin/$filename" ] && break
+                   fi
+                 done
+               else
+                 # 非 kelee.one 链接直接下载
+                 curl -s -L -o "Plugin/$filename" "$clean_url"
+               fi
+             done
           else
-            echo "⚠️ 目录不存在"
+             echo "❌ 未找到 list.json，跳过下载步骤。"
           fi
 
       - name: Move .lpx files
         run: |
           mkdir -p Modules/Loon/Kelee/Official
-          find Plugin -name '*.lpx' | while read file; do
-            cp "$file" "Modules/Loon/Kelee/Official/"
+          # 查找 Plugin 目录下所有的文件（兼容 .plugin 和 .lpx），并统一重命名为 .lpx
+          find Plugin -type f \( -name '*.lpx' -o -name '*.plugin' \) | while read file; do
+            filename=$(basename "$file")
+            target_name="${filename%.*}.lpx"
+            cp "$file" "Modules/Loon/Kelee/Official/$target_name"
           done
 
-      - name: Replace JS links in all plugins
-        run: python3 ShalalaLala/Scripts/kelee_extract_and_replace-Romeo.py
+      # === 优化点2: 使用 Bash 替代 Python 脚本进行 JS 提取和替换 ===
+      - name: Find and replace external JS resources
+        continue-on-error: true
+        run: |
+          js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
+          mkdir -p Modules/JS/Kelee
+
+          # 遍历刚刚移动到 Official 目录下的所有插件
+          find Modules/Loon/Kelee/Official -name "*.lpx" | while read plugin_file; do
+            plugin_name=$(basename "$plugin_file" .lpx)
+            
+            # 提取 http/https 开头，以 .js, .json, .jq 结尾的链接
+            # grep -v '#' 忽略注释行
+            js_links=$(grep -v '#' "$plugin_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
+
+            if [ -z "$js_links" ]; then continue; fi
+
+            echo "Processing JS for $plugin_name"
+
+            for js_link in $js_links; do
+              js_filename=$(basename "$js_link")
+              local_js_path="Modules/JS/Kelee/$plugin_name/$js_filename"
+              github_js_url="$js_base_url/Kelee/$plugin_name/$js_filename"
+              
+              mkdir -p "$(dirname "$local_js_path")"
+
+              # 下载文件
+              if curl -sL -A "Surge Mac/2985" --retry 2 --connect-timeout 10 -o "$local_js_path" "$js_link"; then
+                # 转义 URL 中的特殊字符，防止 sed 报错
+                escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
+                
+                # 替换文件中的链接
+                sed -i "s|$escaped_link|$github_js_url|g" "$plugin_file"
+                echo "  ✅ Replaced $js_filename"
+              else
+                echo "  ⚠️ Failed to download $js_link"
+              fi
+            done
+          done
+      # === 优化结束 ===
 
       - name: Wait for Docker services to be ready
         run: |
           echo "Waiting for Docker services to be ready..."
-          # 优化点2: 使用 timeout 防止死循环，缩短检测间隔
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
       - name: Convert plugins (Parallelized)
@@ -100,7 +162,6 @@ jobs:
 
             echo "Converting ${Modules_name}..."
             
-            # 优化点3: 并发执行 curl，大幅缩短转换时间
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/${Modules_name}.sgmodule" "$Surge_url" &
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" &
             
@@ -110,7 +171,7 @@ jobs:
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/${Modules_name}.srmodule" "$Shadowrocket_url" &
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" &
             
-            wait # 等待当前文件的所有版本转换完成
+            wait
           done
 
       - name: Commit and push changes
@@ -128,7 +189,6 @@ jobs:
             echo "No changes to commit"
           else
             COMMIT_MESSAGE="Downloaded & Converted files at $DATE (UTC+8)"
-            # 优化 Git 提交逻辑
             git commit -m "$COMMIT_MESSAGE"
             git pull --rebase --autostash || true
             git push
