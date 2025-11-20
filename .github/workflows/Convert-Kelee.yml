@@ -143,8 +143,8 @@ jobs:
             Surge_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
             Loon_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
             Loon_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true"
-            Shadowrocket_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true"
-            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
+            Shadowrocket_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.srmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.rmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
 
             # 并发请求
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/${Modules_name}.sgmodule" "$Surge_url" &
