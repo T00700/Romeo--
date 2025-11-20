@@ -32,7 +32,6 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      # 优化点1: 移除 apt-get install，直接检查 Docker 服务
       - name: Wait for Docker service
         run: |
           echo "Waiting for Docker..."
@@ -43,17 +42,13 @@ jobs:
           echo "Author=fmz200" >> $GITHUB_ENV
           echo "SRC_DIR=temp_source" >> $GITHUB_ENV
 
-      # 优化点2: 核心优化！使用 git clone 代替 API 查找和 curl 下载
-      # 这将把原本几分钟的下载过程缩短到几秒钟
       - name: Clone Source Repository
         run: |
           git clone --depth 1 https://github.com/${{ env.Author }}/wool_scripts.git ${{ env.SRC_DIR }}
 
-      # 优化点3: 本地复制代替下载，处理 Loon 文件
       - name: Process Loon .lpx files
         run: |
           mkdir -p Modules/Loon/${Author}/Official
-          
           # 查找源目录中的 lpx 文件并复制
           find ${{ env.SRC_DIR }}/Loon/plugin/split -name "*.lpx" -print0 | while IFS= read -r -d '' file; do
             filename=$(basename "$file")
@@ -61,7 +56,6 @@ jobs:
             cp "$file" "Modules/Loon/${Author}/Official/$filename"
           done
 
-      # 优化点4: 并行转换 Surge 文件
       - name: Process & Convert Surge .sgmodule files
         run: |
           # 创建目录结构
@@ -69,33 +63,30 @@ jobs:
                    Modules/Loon/${Author}/Beta \
                    Modules/Shadowrocket/${Author}/Beta
 
-          # Python 脚本用于 URL 编码 (内联以减少文件依赖)
-          urlencode() {
-            python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "$1"
-          }
-
+          # 优化点1: 使用 jq 替代 python 进行 url 编码，速度更快
           base_raw_url="https://raw.githubusercontent.com/${Author}/wool_scripts/main"
+          
+          # 预先计算 Category 编码，避免循环内重复计算
+          encoded_category=$(printf 'Jacob' | jq -sRr @uri)
 
           # 遍历本地文件
           find ${{ env.SRC_DIR }}/Surge/module/split -name "*.sgmodule" -print0 | while IFS= read -r -d '' file; do
             filename=$(basename "$file")
             name="${filename%.sgmodule}"
             
-            # 获取相对路径用于构造 raw url (例如: Surge/module/split/xxx.sgmodule)
+            # 获取相对路径
             rel_path=$(realpath --relative-to="${{ env.SRC_DIR }}" "$file")
             raw_url="${base_raw_url}/${rel_path}"
             
             echo "Processing: $filename"
             
-            # 1. 复制官方文件 (替代下载)
+            # 1. 复制官方文件
             cp "$file" "Modules/Surge/${Author}/Official/$filename"
 
-            # 2. 准备转换参数
-            encoded_name=$(urlencode "$name")
-            # 注意：原代码中 $CATEGORY 似乎未定义，这里如果是空可能会报错，建议确认。这里暂时留空。
-            encoded_category=$(urlencode "Jacob") 
+            # 2. 准备转换参数 (使用 jq 编码)
+            encoded_name=$(printf '%s' "$name" | jq -sRr @uri)
 
-            # 3. 并行请求转换 (使用 & 后台运行，最后 wait)
+            # 3. 并行请求转换 (保持原有的稳定组并发逻辑)
             # Surge
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/$filename" \
               "http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true" &
@@ -117,18 +108,16 @@ jobs:
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/Beta/$name.srmodule" \
               "http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true" &
 
-            # 等待当前文件的所有转换任务完成，防止 Docker 服务过载
             wait
           done
 
-      # 优化点5: 优化 JS 资源下载逻辑
       - name: Handle External JS Resources
         continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
           mkdir -p Modules/JS/${Author}
 
-          # 仅处理 Official 下的文件作为源头进行分析
+          # 查找所有下载好的 Surge 文件进行分析
           find Modules/Surge/${Author}/Official -type f -name "*.sgmodule" -print0 | while IFS= read -r -d '' sgmodule_file; do
             module_folder=$(basename "$sgmodule_file" .sgmodule)
             
@@ -139,7 +128,7 @@ jobs:
               continue
             fi
 
-            echo "Found JS in $module_folder"
+            echo "Processing JS for $module_folder"
 
             for js_link in $js_links; do
               js_filename=$(basename "$js_link")
@@ -149,13 +138,28 @@ jobs:
 
               mkdir -p "$(dirname "$local_js_full_path")"
 
-              # 下载 JS (如果不存在或内容不同)
-              # 這裡不做複雜校驗，直接下載覆蓋確保最新
               if curl -sL -A "Surge Mac/2985" -o "$local_js_full_path" "$js_link"; then
-                # 批量替换所有相关文件
-                # 使用 find 查找所有相关文件进行替换，避免硬编码路径
-                find Modules -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" | \
-                xargs -I {} sed -i "s|$js_link|$github_js_url|g" "{}"
+                # 构建转义后的搜索字符串
+                escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
+                
+                # 优化点2: 直接指定文件路径进行替换，避免使用 find 全盘扫描
+                # 定义该模块涉及的所有文件列表
+                files_to_patch=(
+                  "Modules/Surge/${Author}/Official/${module_folder}.sgmodule"
+                  "Modules/Surge/${Author}/${module_folder}.sgmodule"
+                  "Modules/Surge/${Author}/Beta/${module_folder}.sgmodule"
+                  "Modules/Loon/${Author}/${module_folder}.lpx"
+                  "Modules/Loon/${Author}/Beta/${module_folder}.lpx"
+                  "Modules/Shadowrocket/${Author}/${module_folder}.srmodule"
+                  "Modules/Shadowrocket/${Author}/Beta/${module_folder}.srmodule"
+                )
+                
+                # 遍历列表，只有文件存在时才替换
+                for target_file in "${files_to_patch[@]}"; do
+                  if [ -f "$target_file" ]; then
+                    sed -i "s|$escaped_link|$github_js_url|g" "$target_file"
+                  fi
+                done
               fi
             done
           done
@@ -168,7 +172,6 @@ jobs:
           DATE="$(date '+%Y-%m-%d %H:%M:%S')"
           git add Modules
           
-          # 检查是否有变更
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
