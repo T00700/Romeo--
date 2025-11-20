@@ -16,23 +16,18 @@ window.onRTBSuccess = function (data) {
 var ls = function(xhr, token) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status >= 200 && xhr.status <= 400) {
-                if (xhr.responseText.trim() === '') {
-                    return;
-                }
-    
-                console.log(JSON.parse(xhr.responseText))
-            } else {
+            if (xhr.status < 200 || xhr.status >= 400) {
                 console.log('There was a problem with the request.');
             }
+            
+            if (typeof window.onRTBFailure === 'function') { window.onRTBFailure(); }
         }
     }
     
-    xhr.open('GET', '/munin/a/l' + 's?t=691dc090&token=' + encodeURI(token), true);
+    xhr.open('GET', '/munin/a/l' + 's?t=691f14e3&token=' + encodeURI(token), true);
     xhr.send();
 };
-ls(new XMLHttpRequest(), 'ab8671d6e303f8a9cc4c96c56d66747cd397c94d');
-if (typeof window.onRTBFailure === 'function') { window.onRTBFailure(); }
+ls(new XMLHttpRequest(), 'd0800d88ca85162988903ce5fcde55ff9596a038');
 </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -618,7 +613,7 @@ h1 {
         document.getElementById("content").style.top = document.getElementById("content").previousElementSibling.clientHeight + "px";
     })();
 </script>
-<script async src='https://euob.youstarsbuilding.com/sxp/i/25e455430bc0028d62ca88bfca3d4028.js' data-ch='AdsDeli - Blank Page' data-uvid="ab8671d6e303f8a9cc4c96c56d66747cd397c94d" class='ct_clicktrue_92099' data-jsonp="onCheqResponse"></script>
+<script async src='https://euob.youstarsbuilding.com/sxp/i/25e455430bc0028d62ca88bfca3d4028.js' data-ch='AdsDeli - Blank Page' data-uvid="d0800d88ca85162988903ce5fcde55ff9596a038" class='ct_clicktrue_92099' data-jsonp="onCheqResponse"></script>
 <noscript>
     <iframe src='https://obseu.youstarsbuilding.com/ns/25e455430bc0028d62ca88bfca3d4028.html?ch=AdsDeli%20-%20Blank%20Page' width='0' height='0' style='display:none'></iframe>
 </noscript></body>
