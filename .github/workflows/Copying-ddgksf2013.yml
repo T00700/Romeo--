@@ -20,41 +20,32 @@ jobs:
         ports: [9100:9100, 9101:9101]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4  # 升级到 v4
 
       - name: Set up Git
         run: |
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      # 优化点1: 移除 apt-get install，直接等待 Docker 就绪
-      # ubuntu-latest 预装了 netcat (nc)
+      # 优化点1: 移除 apt-get，使用 timeout 优化等待逻辑
       - name: Wait for Docker service
         run: |
           echo "Waiting for Docker..."
-          for i in {1..30}; do
-            if nc -z localhost 9100 && nc -z localhost 9101; then
-              echo "Docker services are ready!"
-              break
-            fi
-            sleep 2
-          done
+          timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
       - name: Download ddgksf2013 README & Extract URLs
         run: |
-          # 合并下载和提取步骤
           curl -s https://raw.githubusercontent.com/ddgksf2013/ddgksf2013/main/README.md > README.md
           grep -oP '(?<=href=")https?://[^"]+\.(sgmodule|snippet|conf|js)' README.md > plugin_urls.txt
           echo "Found URLs:"
           cat plugin_urls.txt
 
-      - name: Process files (Parallelized)
+      - name: Process files (Serialized for Stability)
         run: |
           category="Jacob"
-          # 预先计算 category 的编码，避免在循环中重复计算
           encoded_category=$(echo "$category" | jq -sRr @uri)
           
-          # 优化点2: 将 mkdir 移出循环，只执行一次
+          # 创建目录结构
           mkdir -p Modules/{Surge,Loon,Shadowrocket}/${Author}/Beta
 
           while read -r plugin_url; do
@@ -72,19 +63,18 @@ jobs:
 
             echo "Processing ${Modules_name}..."
 
-            # 优化点3: 使用 & 和 wait 实现单个插件的 6 个版本并发下载
-            # 这将大大减少等待 HTTP 响应的时间
-            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/${Modules_name}.sgmodule" "$Surge_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" &
+            # === 核心修改：串行执行 ===
+            # 移除了 & 和 wait，确保一个接一个下载，避免 script-hub 容器过载导致文件损坏或丢失
             
-            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/${Modules_name}.lpx" "$Loon_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/Beta/${Modules_name}.lpx" "$Loon_Beta_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/${Modules_name}.sgmodule" "$Surge_url" || echo "Failed Surge"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" || echo "Failed Surge Beta"
             
-            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/${Modules_name}.srmodule" "$Shadowrocket_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/${Modules_name}.lpx" "$Loon_url" || echo "Failed Loon"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/Beta/${Modules_name}.lpx" "$Loon_Beta_url" || echo "Failed Loon Beta"
+            
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/${Modules_name}.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket Beta"
 
-            # 等待当前插件的所有版本下载完成再处理下一个
-            wait
           done < plugin_urls.txt
 
       - name: Handle External JS Resources
@@ -115,10 +105,10 @@ jobs:
 
               # 下载 JS 文件
               if curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
-                # 构建转义后的搜索字符串，防止 sed 报错
+                # 构建转义后的搜索字符串
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                 
-                # 优化点4: 使用 find 一次性替换所有相关文件，代码更简洁
+                # 批量替换
                 find Modules -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" | \
                 xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
               fi
@@ -136,7 +126,6 @@ jobs:
           else
             COMMIT_MESSAGE="Synched Modules at $DATE (UTC+8)"
             
-            # 简单的 Pull-Rebase 策略
             git commit -m "$COMMIT_MESSAGE"
             git pull --rebase --autostash || true
             git push || echo "Push failed."
