@@ -31,7 +31,6 @@ jobs:
         with:
           python-version: '3.x'
 
-      # 必须：cloudscraper 依赖 Node 环境
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -45,31 +44,28 @@ jobs:
           token: ${{ secrets.PERSONAL_TOKENS }}
           path: ShalalaLala
           sparse-checkout: |
-            Scripts/Kelee_Download_20251121.py
+            Scripts/Kelee_lpx_Download_20251121.py
+            Scripts/Kelee_JS_Download_20251121.py
 
       - name: Install dependencies
         run: pip install cloudscraper requests
 
-      # === 3. 运行远程下载脚本 ===
-      # 脚本会自动处理 WAF、镜像回退，并将文件保存到 Plugin/ 目录
+      # === 3. 下载插件 (Python) ===
       - name: Run download script
         env:
           PYTHONUNBUFFERED: "1"
-        run: python ShalalaLala/Scripts/Kelee_Download_20251121.py
+        run: python ShalalaLala/Scripts/Kelee_lpx_Download_20251121.py
 
       # === 4. 移动文件 ===
       - name: Move .lpx files
         run: |
           mkdir -p Modules/Loon/Kelee/Official
           if [ -d "Plugin" ]; then
-            # 查找下载好的文件，兼容 .lpx 和 .plugin 后缀
             find Plugin -type f \( -name '*.lpx' -o -name '*.plugin' \) | while read file; do
               filename=$(basename "$file")
               target_name="${filename%.*}.lpx"
               cp "$file" "Modules/Loon/Kelee/Official/$target_name"
             done
-          else
-             echo "⚠️ Plugin directory is missing!"
           fi
 
       # === 5. 等待 Docker ===
@@ -78,8 +74,8 @@ jobs:
           echo "Waiting for Docker services..."
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      # === 6. 串行转换 (Serialized Convert) ===
-      - name: Convert plugins (Serialized for Stability)
+      # === 6. 串行转换 (Convert) ===
+      - name: Convert plugins (Serialized)
         run: |
           plugin_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Loon/Kelee/Official/"
           category="Jacob"
@@ -112,47 +108,11 @@ jobs:
             
           done
 
-      # === 7. JS 资源提取与替换 ===
+      # === 7. JS 资源提取与替换 (调用远程 Python 脚本) ===
       - name: Find and replace external JS resources
-        continue-on-error: true
-        run: |
-          # 使用通配符 URL 格式
-          js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
-          
-          mkdir -p Modules/JS/Kelee
-          UA="Surge Mac/2985"
-
-          # 在 Official 目录下查找
-          find Modules/Loon/Kelee/Official -name "*.lpx" | while read plugin_file; do
-            plugin_name=$(basename "$plugin_file" .lpx)
-            
-            # 匹配该文件内所有 JS 链接
-            js_links=$(grep -v '#' "$plugin_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
-
-            if [ -z "$js_links" ]; then continue; fi
-            echo "Processing JS for $plugin_name"
-
-            for js_link in $js_links; do
-              js_filename=$(basename "$js_link")
-              local_js_path="Modules/JS/Kelee/$plugin_name/$js_filename"
-              github_js_url="$js_base_url/Kelee/$plugin_name/$js_filename"
-              
-              mkdir -p "$(dirname "$local_js_path")"
-
-              # 下载 JS
-              if curl -sL -A "$UA" --retry 2 --connect-timeout 10 -o "$local_js_path" "$js_link"; then
-                escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
-                
-                # 批量替换
-                find Modules -name "${plugin_name}.sgmodule" -o -name "${plugin_name}.lpx" -o -name "${plugin_name}.srmodule" | \
-                xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
-                
-                echo "  ✅ Replaced $js_filename"
-              else
-                echo "  ⚠️ Failed to download JS: $js_link"
-              fi
-            done
-          done
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python ShalalaLala/Scripts/Kelee_JS_Download_20251121.py
 
       # === 8. 提交更改 ===
       - name: Commit and push changes
@@ -160,10 +120,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
-
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-
+          
           git add Modules/*
 
           if git diff --cached --quiet; then
