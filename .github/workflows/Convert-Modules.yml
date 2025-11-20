@@ -25,18 +25,13 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl jq netcat-openbsd
+      # 优化点1: 移除 apt-get，ubuntu-latest 已预装 curl, jq, netcat
 
       - name: Wait for Docker services to be ready
         run: |
           echo "Waiting for Docker services to be ready..."
-          for i in {1..10}; do
-            nc -z localhost 9100 && nc -z localhost 9101 && break
-            sleep 10
-          done
+          # 优化点2: 使用 timeout 防止死循环，缩短检测间隔
+          timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
       - name: Process Links and Download Files
         run: |
@@ -58,8 +53,7 @@ jobs:
             filename_noext=$(basename "$module_link" | sed 's/\(.*\)\..*/\1/')
             encoded_filename=$(echo "$filename_noext" | jq -sRr @uri)
             
-            # 创建文件夹
-            echo "Creating directories for $author"
+            # 创建文件夹 (mkdir -p 开销很小，保留在循环内无大碍)
             mkdir -p Modules/{Surge,Loon,Shadowrocket}/$author/Beta
             mkdir -p Modules/JS/$author/Beta
 
@@ -71,70 +65,76 @@ jobs:
             Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
             Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
 
-            # 下载各模块文件
-            echo "Downloading Surge file: $Surge_url"
-            curl -A "Surge Mac/2985" -L -o "Modules/Surge/$author/$filename_noext.sgmodule" "$Surge_url" || echo "Failed to download $filename_noext.sgmodule"
-            curl -A "Surge Mac/2985" -L -o "Modules/Surge/$author/Beta/$filename_noext.sgmodule" "$Surge_Beta_url" || echo "Failed to download $filename_noext.sgmodule"
+            echo "Processing $filename_noext by $author..."
 
-            echo "Downloading Loon file: $Loon_url"
-            curl -A "Surge Mac/2985" -L -o "Modules/Loon/$author/$filename_noext.lpx" "$Loon_url" || echo "Failed to download $filename_noext.lpx"
-            curl -A "Surge Mac/2985" -L -o "Modules/Loon/$author/Beta/$filename_noext.lpx" "$Loon_Beta_url" || echo "Failed to download $filename_noext.lpx"
+            # 优化点3: 使用 & 和 wait 实现单个模块的 6 个版本并发下载
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/$filename_noext.sgmodule" "$Surge_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/Beta/$filename_noext.sgmodule" "$Surge_Beta_url" &
 
-            echo "Downloading Shadowrocket file: $Shadowrocket_url"
-            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/$author/$filename_noext.srmodule" "$Shadowrocket_url" || echo "Failed to download $filename_noext.srmodule"
-            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/$author/Beta/$filename_noext.srmodule" "$Shadowrocket_Beta_url" || echo "Failed to download $filename_noext.srmodule"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/$filename_noext.lpx" "$Loon_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/Beta/$filename_noext.lpx" "$Loon_Beta_url" &
+
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/$filename_noext.srmodule" "$Shadowrocket_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/Beta/$filename_noext.srmodule" "$Shadowrocket_Beta_url" &
+            
+            wait # 等待当前模块所有下载完成
           done < Links/Modules-Links.txt
 
       - name: Collect authors
         run: |
           authors=$(grep -E '^https?://' Links/Modules-Links.txt | cut -d'/' -f4 | sort -u | tr '\n' ' ')
           echo "AUTHORS=$authors" >> $GITHUB_ENV
-          echo "Collected authors: $authors"
           
       - name: Find and replace external JS resources
-        continue-on-error: true  # 确保步骤在部分失败时继续执行
+        continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
 
           for author in $AUTHORS; do
+            # 避免 glob 匹配为空时报错
+            shopt -s nullglob
             for sgmodule_file in Modules/Surge/$author/*.sgmodule; do
+              [ -f "$sgmodule_file" ] || continue
 
               module_folder=$(basename "$sgmodule_file" .sgmodule)
-              echo "Processing $sgmodule_file from author $author for JS links"
-
+              
               # 查找 .sgmodule 文件中的 .js 和 .json 链接（不含#）
               js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || echo "")
-            
+              
+              if [ -z "$js_links" ]; then continue; fi
+
+              echo "Processing JS links for $module_folder..."
+
               # 下载和替换每个 JS 链接
               for js_link in $js_links; do
                 js_filename=$(basename "$js_link")
                 local_js_path="Modules/JS/$author/$module_folder/$js_filename"
                 github_js_url="$js_base_url/$author/$module_folder/$js_filename"
-  
-                # 创建文件夹（如果不存在）
+   
                 mkdir -p "$(dirname "$local_js_path")"
 
-                # 使用指定的 User-Agent 下载 .js 文件
-                echo "Downloading $js_link to $local_js_path"
-                if curl -A "Surge Mac/2985" -L -o "$local_js_path" "$js_link"; then
-                  echo "Download successful for $js_link"
+                # 下载 .js 文件
+                if curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
                   
-                  # 获取对应的 Loon 和 Shadowrocket 插件文件名
-                  surge_Beta_file="Modules/Surge/$author/Beta/$module_folder.sgmodule"
-                  loon_file="Modules/Loon/$author/$module_folder.lpx"
-                  loon_Beta_file="Modules/Loon/$author/Beta/$module_folder.lpx"
-                  shadowrocket_file="Modules/Shadowrocket/$author/$module_folder.srmodule"
-                  shadowrocket_Beta_file="Modules/Shadowrocket/$author/Beta/$module_folder.srmodule"
+                  # 优化点4: 转义 URL 中的特殊字符，防止 sed 报错
+                  escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
+                  
+                  # 定义所有需要替换的文件
+                  files_to_replace=(
+                    "$sgmodule_file"
+                    "Modules/Surge/$author/Beta/$module_folder.sgmodule"
+                    "Modules/Loon/$author/$module_folder.lpx"
+                    "Modules/Loon/$author/Beta/$module_folder.lpx"
+                    "Modules/Shadowrocket/$author/$module_folder.srmodule"
+                    "Modules/Shadowrocket/$author/Beta/$module_folder.srmodule"
+                  )
 
-                  # 替换文件中的 JS 链接
-                  sed -i "s|$js_link|$github_js_url|g" "$sgmodule_file" && echo "Replaced $sgmodule_file"
-                  sed -i "s|$js_link|$github_js_url|g" "$surge_Beta_file" && echo "Replaced $surge_Beta_file"
-                  sed -i "s|$js_link|$github_js_url|g" "$loon_file" && echo "Replaced $loon_file"
-                  sed -i "s|$js_link|$github_js_url|g" "$loon_Beta_file" && echo "Replaced $loon_Beta_file"
-                  sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_file" && echo "Replaced $shadowrocket_file"
-                  sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_Beta_file" && echo "Replaced $shadowrocket_Beta_file"
-                else
-                  echo "Failed to download $js_link, skipping..."
+                  # 遍历替换，只处理存在的文件
+                  for target_file in "${files_to_replace[@]}"; do
+                    if [ -f "$target_file" ]; then
+                      sed -i "s|$escaped_link|$github_js_url|g" "$target_file"
+                    fi
+                  done
                 fi
               done
             done
@@ -144,25 +144,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # 获取当前日期，设置为北京时间 (UTC+8)
           DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
-    
-          # 添加所有更改
+   
           git add Modules/*
-    
-          # 如果没有变化，跳过提交
+   
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            # 提交消息，包含动态的日期
             COMMIT_MESSAGE="Converted modules at $DATE (UTC+8)"
-      
-            # 确保仓库是最新的，避免冲突
+       
             git stash
-            git pull --rebase  # 同步远程仓库的最新更改
-            git stash pop  # 恢复之前的更改
-      
-            # 再次添加文件，进行提交
+            git pull --rebase --autostash || true
+            git stash pop || true
+       
             git add Modules/*
             git commit -m "$COMMIT_MESSAGE"
             git push
