@@ -20,14 +20,13 @@ jobs:
         ports: [9100:9100, 9101:9101]
 
     steps:
-      - uses: actions/checkout@v4  # 升级到 v4
+      - uses: actions/checkout@v3
 
       - name: Set up Git
         run: |
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      # 优化点1: 移除 apt-get，使用 timeout 优化等待逻辑
       - name: Wait for Docker service
         run: |
           echo "Waiting for Docker..."
@@ -40,12 +39,11 @@ jobs:
           echo "Found URLs:"
           cat plugin_urls.txt
 
-      - name: Process files (Serialized for Stability)
+      - name: Process files (Parallelized)
         run: |
           category="Jacob"
           encoded_category=$(echo "$category" | jq -sRr @uri)
           
-          # 创建目录结构
           mkdir -p Modules/{Surge,Loon,Shadowrocket}/${Author}/Beta
 
           while read -r plugin_url; do
@@ -53,7 +51,6 @@ jobs:
             Modules_name="${filename%.*}" 
             encoded_Modules_name=$(echo "$Modules_name" | jq -sRr @uri)
 
-            # 构造 URL
             Surge_url="http://localhost:9100/file/_start_/${plugin_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=surge-module&category=${encoded_category}&nore=true"
             Surge_Beta_url="http://localhost:9101/file/_start_/${plugin_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
             Loon_url="http://localhost:9100/file/_start_/${plugin_url}/_end_/${encoded_Modules_name}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
@@ -63,15 +60,10 @@ jobs:
 
             echo "Processing ${Modules_name}..."
 
-            # === 核心修改：串行执行 ===
-            # 移除了 & 和 wait，确保一个接一个下载，避免 script-hub 容器过载导致文件损坏或丢失
-            
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/${Modules_name}.sgmodule" "$Surge_url" || echo "Failed Surge"
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" || echo "Failed Surge Beta"
-            
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/${Modules_name}.lpx" "$Loon_url" || echo "Failed Loon"
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/Beta/${Modules_name}.lpx" "$Loon_Beta_url" || echo "Failed Loon Beta"
-            
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/${Modules_name}.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket"
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket Beta"
 
@@ -83,12 +75,12 @@ jobs:
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
           mkdir -p Modules/JS/${Author}
 
-          # 查找所有下载好的 Surge 文件进行分析
-          find Modules/Surge/${Author} -type f -name "*.sgmodule" | while read -r surge_file; do
+          # 优化：只查找 Modules/Surge/${Author}，排除 Beta
+          find Modules/Surge/${Author} -type f -name "*.sgmodule" -not -path "*/Beta/*" | while read -r surge_file; do
             module_folder=$(basename "$surge_file" .sgmodule)
             
-            # 提取链接
-            js_links=$(grep -v '#' "$surge_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || true)
+            # 核心修改：只提取 ddgksf2013 的链接
+            js_links=$(grep -v '#' "$surge_file" | grep -oP 'https?://[^ ]*ddgksf2013[^ ]+\.(json|js|jq)' || true)
 
             if [ -z "$js_links" ]; then
               continue
@@ -103,12 +95,9 @@ jobs:
    
               mkdir -p "$(dirname "$local_js_path")"
 
-              # 下载 JS 文件
               if curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
-                # 构建转义后的搜索字符串
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                 
-                # 批量替换
                 find Modules -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" | \
                 xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
               fi
@@ -118,14 +107,12 @@ jobs:
       - name: Commit and push changes
         run: |
           DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
-          
-          git add Modules/*
+          git add Modules
 
           if git diff --cached --quiet; then
             echo "✅ No changes to commit."
           else
             COMMIT_MESSAGE="Synched Modules at $DATE (UTC+8)"
-            
             git commit -m "$COMMIT_MESSAGE"
             git pull --rebase --autostash || true
             git push || echo "Push failed."
