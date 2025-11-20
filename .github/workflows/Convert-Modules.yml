@@ -25,12 +25,12 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      # 优化点1: 移除 apt-get，ubuntu-latest 已预装 curl, jq, netcat
+      # 优化1: 移除 apt-get install，因为 curl/jq/nc 已预装
 
       - name: Wait for Docker services to be ready
         run: |
           echo "Waiting for Docker services to be ready..."
-          # 优化点2: 使用 timeout 防止死循环，缩短检测间隔
+          # 优化2: 使用 timeout 优化等待逻辑
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
       - name: Process Links and Download Files
@@ -48,12 +48,12 @@ jobs:
             # 特殊URL 😂 处理
             encoded_module_link=$(echo "$module_link" | sed 's/😂/%F0%9F%98%82/g')
 
-            # 获取作者名（假设作者在 URL 中的第4部分）
+            # 获取作者名
             author=$(echo "$module_link" | cut -d'/' -f4)
             filename_noext=$(basename "$module_link" | sed 's/\(.*\)\..*/\1/')
             encoded_filename=$(echo "$filename_noext" | jq -sRr @uri)
             
-            # 创建文件夹 (mkdir -p 开销很小，保留在循环内无大碍)
+            # 创建文件夹
             mkdir -p Modules/{Surge,Loon,Shadowrocket}/$author/Beta
             mkdir -p Modules/JS/$author/Beta
 
@@ -62,22 +62,20 @@ jobs:
             Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
             Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
             Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true"
-            Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
-            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
+            Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
 
             echo "Processing $filename_noext by $author..."
 
-            # 优化点3: 使用 & 和 wait 实现单个模块的 6 个版本并发下载
-            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/$filename_noext.sgmodule" "$Surge_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/Beta/$filename_noext.sgmodule" "$Surge_Beta_url" &
+            curl -A "Surge Mac/2985" -L -o "Modules/Surge/$author/$filename_noext.sgmodule" "$Surge_url" || echo "Failed Surge Official"
+            curl -A "Surge Mac/2985" -L -o "Modules/Surge/$author/Beta/$filename_noext.sgmodule" "$Surge_Beta_url" || echo "Failed Surge Beta"
 
-            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/$filename_noext.lpx" "$Loon_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/Beta/$filename_noext.lpx" "$Loon_Beta_url" &
+            curl -A "Surge Mac/2985" -L -o "Modules/Loon/$author/$filename_noext.lpx" "$Loon_url" || echo "Failed Loon Official"
+            curl -A "Surge Mac/2985" -L -o "Modules/Loon/$author/Beta/$filename_noext.lpx" "$Loon_Beta_url" || echo "Failed Loon Beta"
 
-            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/$filename_noext.srmodule" "$Shadowrocket_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/Beta/$filename_noext.srmodule" "$Shadowrocket_Beta_url" &
+            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/$author/$filename_noext.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket Official"
+            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/$author/Beta/$filename_noext.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket Beta"
             
-            wait # 等待当前模块所有下载完成
           done < Links/Modules-Links.txt
 
       - name: Collect authors
@@ -91,21 +89,18 @@ jobs:
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
 
           for author in $AUTHORS; do
-            # 避免 glob 匹配为空时报错
             shopt -s nullglob
             for sgmodule_file in Modules/Surge/$author/*.sgmodule; do
               [ -f "$sgmodule_file" ] || continue
 
               module_folder=$(basename "$sgmodule_file" .sgmodule)
               
-              # 查找 .sgmodule 文件中的 .js 和 .json 链接（不含#）
               js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || echo "")
               
               if [ -z "$js_links" ]; then continue; fi
 
               echo "Processing JS links for $module_folder..."
 
-              # 下载和替换每个 JS 链接
               for js_link in $js_links; do
                 js_filename=$(basename "$js_link")
                 local_js_path="Modules/JS/$author/$module_folder/$js_filename"
@@ -113,13 +108,10 @@ jobs:
    
                 mkdir -p "$(dirname "$local_js_path")"
 
-                # 下载 .js 文件
                 if curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
                   
-                  # 优化点4: 转义 URL 中的特殊字符，防止 sed 报错
                   escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                   
-                  # 定义所有需要替换的文件
                   files_to_replace=(
                     "$sgmodule_file"
                     "Modules/Surge/$author/Beta/$module_folder.sgmodule"
@@ -129,7 +121,6 @@ jobs:
                     "Modules/Shadowrocket/$author/Beta/$module_folder.srmodule"
                   )
 
-                  # 遍历替换，只处理存在的文件
                   for target_file in "${files_to_replace[@]}"; do
                     if [ -f "$target_file" ]; then
                       sed -i "s|$escaped_link|$github_js_url|g" "$target_file"
