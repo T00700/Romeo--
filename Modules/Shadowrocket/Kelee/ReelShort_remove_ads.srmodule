@@ -16,9 +16,9 @@
 ^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/book\/getPayModeV2$ - reject-dict
 
 [Script]
-body_rewrite_14 = type=http-response, pattern=^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/book\/getBookDetailV2$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/ReelShort_remove_ads/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22data.ad_vip%22%5D%5D%5D
+body_rewrite_14 = type=http-response, pattern=^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/book\/getBookDetailV2$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22data.ad_vip%22%5D%5D%5D
 
-body_rewrite_16 = type=http-response, pattern=^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/hall\/infoV3$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/ReelShort_remove_ads/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22data.search_keyword_list%22%5D%5D%5D
+body_rewrite_16 = type=http-response, pattern=^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/hall\/infoV3$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22data.search_keyword_list%22%5D%5D%5D
 
 [MITM]
 hostname = %APPEND% v-api.crazymaplestudios.com, d1k8g7qaebqd28.cloudfront.net
