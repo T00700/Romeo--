@@ -19,9 +19,9 @@
 ^https:\/\/apps\.api\.ke\.com\/config\/config\/getactivityconfig\? - reject-dict
 
 [Script]
-http-response ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/initData\/mini\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_12, argument=%5B%5B%22json-del%22%2C%5B%22data.bootpage%22%2C%22data.bottom_bar_activity%22%5D%5D%5D
+http-response ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/homepage\/initData\/mini\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/Beike_remove_ads/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_12, argument=%5B%5B%22json-del%22%2C%5B%22data.bootpage%22%2C%22data.bottom_bar_activity%22%5D%5D%5D
 
-http-response ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/userCenter\/info\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_15, argument=%5B%5B%22json-del%22%2C%5B%22data.islandModule%22%5D%5D%5D
+http-response ^https:\/\/apps\.api\.ke\.com\/platform\/shellapp\/userCenter\/info\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/Beike_remove_ads/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_15, argument=%5B%5B%22json-del%22%2C%5B%22data.islandModule%22%5D%5D%5D
 
 [MITM]
 hostname = apps.api.ke.com
