@@ -13,9 +13,9 @@
 #!date=2025-07-08
 
 [Rule]
-IP-CIDR,1.202.85.193/32,REJECT,no-resolve
-DOMAIN,mdc.wallet.pbcdci.cn,REJECT,extended-matching
-DOMAIN,mdap.wallet.pbcdci.cn,REJECT,extended-matching
+IP-CIDR,1.202.85.193/32,REJECT,no-resolve,pre-matching
+DOMAIN,mdc.wallet.pbcdci.cn,REJECT,extended-matching,pre-matching
+DOMAIN,mdap.wallet.pbcdci.cn,REJECT,extended-matching,pre-matching
 
 [Script]
 ecny = type=http-response, pattern=^https?:\/\/mgs\.wallet\.pbcdci\.cn:\d+\/mgw\.htm$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/ecny/ecny.js, requires-body=true, max-size=0

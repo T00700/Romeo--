@@ -13,14 +13,14 @@
 #!date=2025-07-10
 
 [Rule]
-DOMAIN,ggx03.miguvideo.com,REJECT,extended-matching
-DOMAIN,ggic03.miguvideo.com,REJECT,extended-matching
-DOMAIN,ggmk.miguvideo.com,REJECT,extended-matching
-DOMAIN,ggadoffline.miguvideo.com,REJECT,extended-matching
-DOMAIN,ggc.cmvideo.cn,REJECT,extended-matching
-DOMAIN,ggv.cmvideo.cn,REJECT,extended-matching
-DOMAIN,ggx.cmvideo.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,ad.cmvideo.cn,REJECT,extended-matching
+DOMAIN,ggx03.miguvideo.com,REJECT,extended-matching,pre-matching
+DOMAIN,ggic03.miguvideo.com,REJECT,extended-matching,pre-matching
+DOMAIN,ggmk.miguvideo.com,REJECT,extended-matching,pre-matching
+DOMAIN,ggadoffline.miguvideo.com,REJECT,extended-matching,pre-matching
+DOMAIN,ggc.cmvideo.cn,REJECT,extended-matching,pre-matching
+DOMAIN,ggv.cmvideo.cn,REJECT,extended-matching,pre-matching
+DOMAIN,ggx.cmvideo.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,ad.cmvideo.cn,REJECT,extended-matching,pre-matching
 
 [Map Local]
 ^https?:\/\/ggc\.miguvideo\.com\/v\d\/iflyad\/deliverysystem\/direct\/ data-type=tiny-gif status-code=200

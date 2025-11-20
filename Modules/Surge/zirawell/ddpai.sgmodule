@@ -13,8 +13,8 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,api.htp.ad-scope.com.cn,REJECT,extended-matching
-DOMAIN,init.sms.mob.com,REJECT,extended-matching
+DOMAIN,api.htp.ad-scope.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,init.sms.mob.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/appgw\.ddpai\.com.*\/ad\/list.* - reject

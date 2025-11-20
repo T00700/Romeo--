@@ -10,16 +10,16 @@
 #!date=2025-07-17
 
 [Rule]
-DOMAIN,lookup.api.bsb.baidu.com,REJECT,extended-matching
-DOMAIN,safebrowsing.g.applimg.com,REJECT,extended-matching
-DOMAIN,safebrowsing.googleapis.com,REJECT,extended-matching
-DOMAIN,safebrowsing.urlsec.qq.com,REJECT,extended-matching
-DOMAIN-SUFFIX,safebrowsing.apple,REJECT,extended-matching
-DOMAIN-SUFFIX,u3.ucweb.com,REJECT,extended-matching
-IP-CIDR,119.29.29.98/32,REJECT,no-resolve
-IP-CIDR,119.29.29.99/32,REJECT,no-resolve
-IP-CIDR,81.71.61.216/32,REJECT,no-resolve
-DOMAIN,geo2.adobe.com,REJECT,extended-matching
+DOMAIN,lookup.api.bsb.baidu.com,REJECT,extended-matching,pre-matching
+DOMAIN,safebrowsing.g.applimg.com,REJECT,extended-matching,pre-matching
+DOMAIN,safebrowsing.googleapis.com,REJECT,extended-matching,pre-matching
+DOMAIN,safebrowsing.urlsec.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,safebrowsing.apple,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,u3.ucweb.com,REJECT,extended-matching,pre-matching
+IP-CIDR,119.29.29.98/32,REJECT,no-resolve,pre-matching
+IP-CIDR,119.29.29.99/32,REJECT,no-resolve,pre-matching
+IP-CIDR,81.71.61.216/32,REJECT,no-resolve,pre-matching
+DOMAIN,geo2.adobe.com,REJECT,extended-matching,pre-matching
 
 [Header Rewrite]
 # 解决github速率限制返回429问题

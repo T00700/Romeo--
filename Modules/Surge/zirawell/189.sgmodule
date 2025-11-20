@@ -13,15 +13,15 @@
 #!date=2025-07-09
 
 [Rule]
-DOMAIN,ad.21cn.com,REJECT,extended-matching
-DOMAIN,ad.k.21cn.com,REJECT,extended-matching
-DOMAIN,admarket.21cn.com,REJECT,extended-matching
-DOMAIN,adshows.21cn.com,REJECT,extended-matching
-DOMAIN,appgoad.189.cn,REJECT,extended-matching
-DOMAIN,appupdates.189.cn,REJECT,extended-matching
-DOMAIN,appgo.189.cn,REJECT,extended-matching
-IP-CIDR,122.229.8.47/32,REJECT,no-resolve
-IP-CIDR,122.229.29.89/32,REJECT,no-resolve
+DOMAIN,ad.21cn.com,REJECT,extended-matching,pre-matching
+DOMAIN,ad.k.21cn.com,REJECT,extended-matching,pre-matching
+DOMAIN,admarket.21cn.com,REJECT,extended-matching,pre-matching
+DOMAIN,adshows.21cn.com,REJECT,extended-matching,pre-matching
+DOMAIN,appgoad.189.cn,REJECT,extended-matching,pre-matching
+DOMAIN,appupdates.189.cn,REJECT,extended-matching,pre-matching
+DOMAIN,appgo.189.cn,REJECT,extended-matching,pre-matching
+IP-CIDR,122.229.8.47/32,REJECT,no-resolve,pre-matching
+IP-CIDR,122.229.29.89/32,REJECT,no-resolve,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/cloud\.189\.cn\/include\/splash\/ - reject

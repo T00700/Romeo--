@@ -13,14 +13,14 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,content-open.douyin.com,REJECT,extended-matching
-DOMAIN,webcast-open.douyin.com,REJECT,extended-matching
-DOMAIN,lf-webcast-gr-sourcecdn.bytegecko.com,REJECT,extended-matching
-DOMAIN,lf3-reading.fqnovelstatic.com,REJECT,extended-matching
-DOMAIN,log5-applog.fqnovel.com,REJECT,extended-matching
-DOMAIN,mon11-misc.fqnovel.com,REJECT,extended-matching
-DOMAIN,rtlog5-applog.fqnovel.com,REJECT,extended-matching
-DOMAIN,zlink.ugsdk.cn,REJECT,extended-matching
+DOMAIN,content-open.douyin.com,REJECT,extended-matching,pre-matching
+DOMAIN,webcast-open.douyin.com,REJECT,extended-matching,pre-matching
+DOMAIN,lf-webcast-gr-sourcecdn.bytegecko.com,REJECT,extended-matching,pre-matching
+DOMAIN,lf3-reading.fqnovelstatic.com,REJECT,extended-matching,pre-matching
+DOMAIN,log5-applog.fqnovel.com,REJECT,extended-matching,pre-matching
+DOMAIN,mon11-misc.fqnovel.com,REJECT,extended-matching,pre-matching
+DOMAIN,rtlog5-applog.fqnovel.com,REJECT,extended-matching,pre-matching
+DOMAIN,zlink.ugsdk.cn,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/.+\.pstatp\.com\/(obj|img)\/ad - reject

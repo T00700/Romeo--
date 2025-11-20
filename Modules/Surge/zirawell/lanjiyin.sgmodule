@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-KEYWORD,medicine.lanjiyin.com.cn,REJECT,extended-matching
+DOMAIN-KEYWORD,medicine.lanjiyin.com.cn,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/tk\.lanjiyin\.com\.cn\/ad\/getAdList - reject

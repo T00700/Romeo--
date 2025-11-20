@@ -13,5 +13,5 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,a.cpic.com.cn,REJECT,extended-matching
+DOMAIN,a.cpic.com.cn,REJECT,extended-matching,pre-matching
 

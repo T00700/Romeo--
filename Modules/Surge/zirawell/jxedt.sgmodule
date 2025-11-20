@@ -13,12 +13,12 @@
 #!date=2025-07-09
 
 [Rule]
-DOMAIN,richmanapi.jxedt.com,REJECT,extended-matching
-DOMAIN,richmanmain.jxedt.com,REJECT,extended-matching
-DOMAIN,richmanrules.jxedt.com,REJECT,extended-matching
-DOMAIN,richmanapi.ksedt.com,REJECT,extended-matching
-DOMAIN,richmanmain.ksedt.com,REJECT,extended-matching
-DOMAIN,richmanrules.ksedt.com,REJECT,extended-matching
+DOMAIN,richmanapi.jxedt.com,REJECT,extended-matching,pre-matching
+DOMAIN,richmanmain.jxedt.com,REJECT,extended-matching,pre-matching
+DOMAIN,richmanrules.jxedt.com,REJECT,extended-matching,pre-matching
+DOMAIN,richmanapi.ksedt.com,REJECT,extended-matching,pre-matching
+DOMAIN,richmanmain.ksedt.com,REJECT,extended-matching,pre-matching
+DOMAIN,richmanrules.ksedt.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/api\.jxedt\.com\/ad\/ - reject

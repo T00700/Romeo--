@@ -13,9 +13,9 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,badjs.weixinbridge.com,REJECT,extended-matching
-DOMAIN,dns.weixin.qq.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,wxs.qq.com,REJECT,extended-matching
+DOMAIN,badjs.weixinbridge.com,REJECT,extended-matching,pre-matching
+DOMAIN,dns.weixin.qq.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,wxs.qq.com,REJECT,extended-matching,pre-matching
 
 [Map Local]
 ^https?:\/\/mp\.weixin\.qq\.com\/mp\/(?>ad_|advertisement|getappmsgad|cps_product_info|masonryfeed|relatedarticle|relatedsearchword|searchkeywordreport|geticon|getainfo|jsmonitor) data-type=text data="{}" status-code=200

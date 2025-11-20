@@ -13,9 +13,9 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,api.zuihuimai.com,REJECT,extended-matching
-DOMAIN,analytics-api.smzdm.com,REJECT,extended-matching
-DOMAIN,ynuf.aliapp.org,REJECT,extended-matching
+DOMAIN,api.zuihuimai.com,REJECT,extended-matching,pre-matching
+DOMAIN,analytics-api.smzdm.com,REJECT,extended-matching,pre-matching
+DOMAIN,ynuf.aliapp.org,REJECT,extended-matching,pre-matching
 
 [Map Local]
 ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/other_modul\? data-type=text data="{}" status-code=200

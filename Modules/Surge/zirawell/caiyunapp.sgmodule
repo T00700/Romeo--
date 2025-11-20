@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,ad.cyapi.cn,REJECT,extended-matching
+DOMAIN,ad.cyapi.cn,REJECT,extended-matching,pre-matching
 
 [Map Local]
 ^https?:\/\/biz\.cyapi\.cn\/v\d\/product data-type=text data="{}" status-code=200

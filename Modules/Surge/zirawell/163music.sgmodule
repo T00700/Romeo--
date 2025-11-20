@@ -13,15 +13,15 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,ipv4.music.163.com,REJECT,extended-matching
-DOMAIN,ipv6.music.163.com,REJECT,extended-matching
-DOMAIN,iadmat.nosdn.127.net,REJECT,extended-matching
-DOMAIN,iadmatapk.nosdn.127.net,REJECT,extended-matching
-DOMAIN,admusicpic.music.126.net,REJECT,extended-matching
-DOMAIN-SUFFIX,163jiasu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,httpdns.music.163.com,REJECT,extended-matching
-DOMAIN-SUFFIX,iadmusicmatvideo.music.126.net,REJECT,extended-matching
-DOMAIN-SUFFIX,iadmusicmat.music.126.net,REJECT,extended-matching
+DOMAIN,ipv4.music.163.com,REJECT,extended-matching,pre-matching
+DOMAIN,ipv6.music.163.com,REJECT,extended-matching,pre-matching
+DOMAIN,iadmat.nosdn.127.net,REJECT,extended-matching,pre-matching
+DOMAIN,iadmatapk.nosdn.127.net,REJECT,extended-matching,pre-matching
+DOMAIN,admusicpic.music.126.net,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,163jiasu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,httpdns.music.163.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,iadmusicmatvideo.music.126.net,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,iadmusicmat.music.126.net,REJECT,extended-matching,pre-matching
 
 [Map Local]
 ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/(?>ad|abtest|store|mlog) data-type=text data="{}" status-code=200

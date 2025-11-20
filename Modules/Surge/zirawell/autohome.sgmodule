@@ -13,28 +13,28 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,rd.autohome.com.cn,REJECT,extended-matching
-DOMAIN,rdx.autohome.com.cn,REJECT,extended-matching
-DOMAIN,al.autohome.com.cn,REJECT,extended-matching
-DOMAIN,adm0.autoimg.cn,REJECT,extended-matching
-DOMAIN,adm1.autoimg.cn,REJECT,extended-matching
-DOMAIN,adm2.autoimg.cn,REJECT,extended-matching
-DOMAIN,adm3.autoimg.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,33.autohome.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,applogapi.autohome.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,c.autohome.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,cmx.autohome.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,dspmnt.autohome.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,pcd.autohome.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,pcmx.autohome.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,pvx.autohome.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,pv.alert.autohome.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,activity.app.autohome.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,public.app.autohome.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,push.app.autohome.com.cn,REJECT,extended-matching
-DOMAIN-KEYWORD,collectionpv.che168.com,REJECT,extended-matching
-DOMAIN-KEYWORD,adproxy.autohome.com,REJECT,extended-matching
-DOMAIN-KEYWORD,applogapi.autohome.com,REJECT,extended-matching
+DOMAIN,rd.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,rdx.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,al.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,adm0.autoimg.cn,REJECT,extended-matching,pre-matching
+DOMAIN,adm1.autoimg.cn,REJECT,extended-matching,pre-matching
+DOMAIN,adm2.autoimg.cn,REJECT,extended-matching,pre-matching
+DOMAIN,adm3.autoimg.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,33.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,applogapi.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,c.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,cmx.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,dspmnt.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,pcd.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,pcmx.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,pvx.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,pv.alert.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,activity.app.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,public.app.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,push.app.autohome.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,collectionpv.che168.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,adproxy.autohome.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,applogapi.autohome.com,REJECT,extended-matching,pre-matching
 
 [Map Local]
 ^https?:\/\/pcmx\.autohome\.com\.cn\/queryCreativeList data-type=text data="{}" status-code=200

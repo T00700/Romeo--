@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,ads.iconntech.com,REJECT,extended-matching
+DOMAIN,ads.iconntech.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/smkmp\.96225\.com\/smkcenter\/ad/ - reject

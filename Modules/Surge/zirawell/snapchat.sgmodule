@@ -13,6 +13,6 @@
 #!date=2025-07-15
 
 [Rule]
-DOMAIN,ads.snapchat.com,REJECT,extended-matching
-DOMAIN,adsapi.snapchat.com,REJECT,extended-matching
+DOMAIN,ads.snapchat.com,REJECT,extended-matching,pre-matching
+DOMAIN,adsapi.snapchat.com,REJECT,extended-matching,pre-matching
 

@@ -13,12 +13,12 @@
 #!date=2025-07-23
 
 [Rule]
-DOMAIN,ad-analysis.pconline.com.cn,REJECT,extended-matching
-DOMAIN,iad0ssl.pcauto.com.cn,REJECT,extended-matching
-DOMAIN,iad0ssl.pconline.com.cn,REJECT,extended-matching
-DOMAIN,imgad0.pcauto.com.cn,REJECT,extended-matching
-DOMAIN,imgad0.pconline.com.cn,REJECT,extended-matching
-DOMAIN,ivy.pchouse.com.cn,REJECT,extended-matching
+DOMAIN,ad-analysis.pconline.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,iad0ssl.pcauto.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,iad0ssl.pconline.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,imgad0.pcauto.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,imgad0.pconline.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,ivy.pchouse.com.cn,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/mrobot\.(?>pcauto|pconline)\.com\.cn\/v\d\/ad - reject

@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,news.ssp.qq.com,REJECT,extended-matching
+DOMAIN,news.ssp.qq.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/r\.inews\.qq\.com\/(?>adsBlacklist|getFullScreenPic|getQQNewsRemoteConfig) - reject

@@ -3,24 +3,24 @@
 #!category=Jacob
 
 [Rule]
-DOMAIN,ad-api.4pyun.com,REJECT,extended-matching
-DOMAIN,ad-files.4pyun.com,REJECT,extended-matching
-DOMAIN,ad.maoyan.com,REJECT,extended-matching
-DOMAIN,ads-shopping.shouqianba.com,REJECT,extended-matching
-DOMAIN,ads.ishansong.com,REJECT,extended-matching
-DOMAIN,api.hongyibo.com.cn,REJECT,extended-matching
-DOMAIN,api.zysdsk.cn,REJECT,extended-matching
-DOMAIN,bigdata-behaviordata.189.cn,REJECT,extended-matching
-DOMAIN,dsp.fcbox.com,REJECT,extended-matching
-DOMAIN,et.ykccn.com,REJECT,extended-matching
-DOMAIN,file.dian.so,REJECT,extended-matching
-DOMAIN,logs-bigdata.yeehaw.com.cn,REJECT,extended-matching
-DOMAIN,smarket.dian.so,REJECT,extended-matching
-DOMAIN,tracker-prd.aldi.com.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,ad.duoduo.link,REJECT,extended-matching
-DOMAIN-SUFFIX,wxsmsdy.video.qq.com,REJECT,extended-matching
-DOMAIN-SUFFIX,wxsnsdy.wxs.qq.com,REJECT,extended-matching
-DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com,REJECT,extended-matching
+DOMAIN,ad-api.4pyun.com,REJECT,extended-matching,pre-matching
+DOMAIN,ad-files.4pyun.com,REJECT,extended-matching,pre-matching
+DOMAIN,ad.maoyan.com,REJECT,extended-matching,pre-matching
+DOMAIN,ads-shopping.shouqianba.com,REJECT,extended-matching,pre-matching
+DOMAIN,ads.ishansong.com,REJECT,extended-matching,pre-matching
+DOMAIN,api.hongyibo.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,api.zysdsk.cn,REJECT,extended-matching,pre-matching
+DOMAIN,bigdata-behaviordata.189.cn,REJECT,extended-matching,pre-matching
+DOMAIN,dsp.fcbox.com,REJECT,extended-matching,pre-matching
+DOMAIN,et.ykccn.com,REJECT,extended-matching,pre-matching
+DOMAIN,file.dian.so,REJECT,extended-matching,pre-matching
+DOMAIN,logs-bigdata.yeehaw.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,smarket.dian.so,REJECT,extended-matching,pre-matching
+DOMAIN,tracker-prd.aldi.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,ad.duoduo.link,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,wxsmsdy.video.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,wxsnsdy.wxs.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/m\.mallcoo\.cn\/api\/content\/Ads - reject

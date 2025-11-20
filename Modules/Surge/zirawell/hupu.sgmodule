@@ -13,9 +13,9 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,adx.hupu.com,REJECT,extended-matching
-DOMAIN,adx-api.hupu.com,REJECT,extended-matching
-DOMAIN,goblin.hupu.com,REJECT,extended-matching
+DOMAIN,adx.hupu.com,REJECT,extended-matching,pre-matching
+DOMAIN,adx-api.hupu.com,REJECT,extended-matching,pre-matching
+DOMAIN,goblin.hupu.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/goblin\.hupu\.com\/.+\/interfaceAd\/ - reject

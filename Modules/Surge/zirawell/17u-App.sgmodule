@@ -13,7 +13,7 @@
 #!date=2025-07-10
 
 [Rule]
-DOMAIN,vstlog.17usoft.com,REJECT,extended-matching
+DOMAIN,vstlog.17usoft.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/wx\.17u\.cn\/xcxhomeapi\/((aggregator\/index)|(home\/(?>screen|banner|converge)))$ - reject

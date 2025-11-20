@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-SUFFIX,advert.mafengwo.cn,REJECT,extended-matching
+DOMAIN-SUFFIX,advert.mafengwo.cn,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/mapi\.mafengwo\.cn\/(travelguide\/)?ad - reject

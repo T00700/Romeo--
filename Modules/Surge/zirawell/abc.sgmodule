@@ -13,9 +13,9 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,imc.abchina.com.cn,REJECT,extended-matching
-DOMAIN,msmp.abchina.com.cn,REJECT,extended-matching
-DOMAIN,firefly.abchina.com.cn,REJECT,extended-matching
+DOMAIN,imc.abchina.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,msmp.abchina.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,firefly.abchina.com.cn,REJECT,extended-matching,pre-matching
 
 [Script]
 abc = type=http-response, pattern=^https?:\/\/mobilepaas\.abchina\.com\.cn:\d+\/mgw\.htm$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/abc/abc.js, max-size=0

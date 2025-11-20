@@ -13,8 +13,8 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,stun1.douyucdn.cn,REJECT,extended-matching
-DOMAIN,stun1.qvb.qcloud.com,REJECT,extended-matching
+DOMAIN,stun1.douyucdn.cn,REJECT,extended-matching,pre-matching
+DOMAIN,stun1.qvb.qcloud.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/daoyu\.sdo\.com\/api\/userCommon\/getAppStartAd - reject

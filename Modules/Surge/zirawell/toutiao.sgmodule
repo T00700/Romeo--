@@ -13,17 +13,17 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-SUFFIX,ad.toutiao.com,REJECT,extended-matching
-DOMAIN-SUFFIX,dm.toutiao.com,REJECT,extended-matching
-DOMAIN-SUFFIX,dsp.toutiao.com,REJECT,extended-matching
-DOMAIN-SUFFIX,adshare.toutiao.com,REJECT,extended-matching
-DOMAIN-SUFFIX,partner.toutiao.com,REJECT,extended-matching
-DOMAIN-SUFFIX,track.toutiao.com,REJECT,extended-matching
-DOMAIN-KEYWORD,s1.pstatp.com,REJECT,extended-matching
-DOMAIN-KEYWORD,s2.pstatp.com,REJECT,extended-matching
-DOMAIN-KEYWORD,s3.pstatp.com,REJECT,extended-matching
-DOMAIN-KEYWORD,a3.pstatp.com,REJECT,extended-matching
-DOMAIN-KEYWORD,a3.bytecdn.cn,REJECT,extended-matching
+DOMAIN-SUFFIX,ad.toutiao.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,dm.toutiao.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,dsp.toutiao.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,adshare.toutiao.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,partner.toutiao.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,track.toutiao.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,s1.pstatp.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,s2.pstatp.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,s3.pstatp.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,a3.pstatp.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,a3.bytecdn.cn,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/p(b)?\d\.pstatp.com\/origin - reject

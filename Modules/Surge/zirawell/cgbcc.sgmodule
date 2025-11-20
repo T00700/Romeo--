@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,union.chinalifeonline.com.cn,REJECT,extended-matching
+DOMAIN,union.chinalifeonline.com.cn,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/static\.95508\.com\/mmg\/images\/ads\/(?!(2024031|20241205)) - reject

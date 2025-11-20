@@ -13,10 +13,10 @@
 #!date=2025-07-15
 
 [Rule]
-DOMAIN,adservice.sigmob.cn,REJECT,extended-matching
-DOMAIN,iadsdk.qtlcdn.com.cdnmg.com,REJECT,extended-matching
-DOMAIN-SUFFIX,tobidad.cn,REJECT,extended-matching
-DOMAIN-SUFFIX,iadsdk.apple.com,REJECT,extended-matching
+DOMAIN,adservice.sigmob.cn,REJECT,extended-matching,pre-matching
+DOMAIN,iadsdk.qtlcdn.com.cdnmg.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,tobidad.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,iadsdk.apple.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/jz\.wacaijizhang\.com\/api\/banners - reject

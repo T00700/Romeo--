@@ -13,8 +13,8 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,ptom.caohua.com,REJECT,extended-matching
-DOMAIN,tracking.leiting.com,REJECT,extended-matching
-DOMAIN,ads.games.laohu.com,REJECT,extended-matching
-DOMAIN,shark-tracer.netease.com,REJECT,extended-matching
+DOMAIN,ptom.caohua.com,REJECT,extended-matching,pre-matching
+DOMAIN,tracking.leiting.com,REJECT,extended-matching,pre-matching
+DOMAIN,ads.games.laohu.com,REJECT,extended-matching,pre-matching
+DOMAIN,shark-tracer.netease.com,REJECT,extended-matching,pre-matching
 

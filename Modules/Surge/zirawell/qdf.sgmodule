@@ -13,11 +13,11 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,lwlog.laiwang.com,REJECT,extended-matching
-DOMAIN-SUFFIX,yksdks.com,REJECT,extended-matching
-DOMAIN-SUFFIX,cpatrk.net,REJECT,extended-matching
-DOMAIN-SUFFIX,mobsurl.com,REJECT,extended-matching
-IP-CIDR,114.67.227.198/32,REJECT,no-resolve
+DOMAIN,lwlog.laiwang.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,yksdks.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,cpatrk.net,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,mobsurl.com,REJECT,extended-matching,pre-matching
+IP-CIDR,114.67.227.198/32,REJECT,no-resolve,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/st7niu\.aicarmap\.com\/st_?!(a2|a3|e9)\w+\.webp$ - reject

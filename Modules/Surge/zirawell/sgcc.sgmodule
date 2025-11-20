@@ -13,8 +13,8 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,mdap.mpaas.cn-hangzhou.aliyuncs.com,REJECT,extended-matching
-DOMAIN,csc-apm.sgcc.com.cn,REJECT,extended-matching
+DOMAIN,mdap.mpaas.cn-hangzhou.aliyuncs.com,REJECT,extended-matching,pre-matching
+DOMAIN,csc-apm.sgcc.com.cn,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/(?>csc|osg)-service\.sgcc\.com\.cn:\d+\/emss-pfa-appset-front\/appForceUpdate - reject

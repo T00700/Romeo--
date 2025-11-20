@@ -13,5 +13,5 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,ad.life.360.cn,REJECT,extended-matching
+DOMAIN,ad.life.360.cn,REJECT,extended-matching,pre-matching
 

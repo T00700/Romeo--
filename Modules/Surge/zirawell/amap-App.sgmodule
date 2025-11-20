@@ -13,15 +13,15 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,amap-aos-info-nogw.amap.com,REJECT,extended-matching
-DOMAIN,free-aos-cdn-image.amap.com,REJECT,extended-matching
-DOMAIN,apiinit.amap.com,REJECT,extended-matching
-DOMAIN,icloud-amap.com,REJECT,extended-matching
-DOMAIN,optimus-ads.amap.com,REJECT,extended-matching
-DOMAIN-SUFFIX,adiu.amap.com,REJECT,extended-matching
-DOMAIN-SUFFIX,page.amap.com,REJECT,extended-matching
-DOMAIN-KEYWORD,logs.amap.com,REJECT,extended-matching
-DOMAIN-KEYWORD,ads.amap.com,REJECT,extended-matching
+DOMAIN,amap-aos-info-nogw.amap.com,REJECT,extended-matching,pre-matching
+DOMAIN,free-aos-cdn-image.amap.com,REJECT,extended-matching,pre-matching
+DOMAIN,apiinit.amap.com,REJECT,extended-matching,pre-matching
+DOMAIN,icloud-amap.com,REJECT,extended-matching,pre-matching
+DOMAIN,optimus-ads.amap.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,adiu.amap.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,page.amap.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,logs.amap.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,ads.amap.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt - reject

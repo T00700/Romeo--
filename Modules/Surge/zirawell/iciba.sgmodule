@@ -13,14 +13,14 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,ad-stat.ksosoft.com,REJECT,extended-matching
-DOMAIN,img.auction-ads.wpscdn.cn,REJECT,extended-matching
-DOMAIN,counter.kingsoft.com,REJECT,extended-matching
-DOMAIN,counter.ksosoft.com,REJECT,extended-matching
-DOMAIN,minfo.wps.cn,REJECT,extended-matching
-DOMAIN,mobad.ijinshan.com,REJECT,extended-matching
-DOMAIN,ups.ksmobile.net,REJECT,extended-matching
-DOMAIN,ws.ksmobile.net,REJECT,extended-matching
+DOMAIN,ad-stat.ksosoft.com,REJECT,extended-matching,pre-matching
+DOMAIN,img.auction-ads.wpscdn.cn,REJECT,extended-matching,pre-matching
+DOMAIN,counter.kingsoft.com,REJECT,extended-matching,pre-matching
+DOMAIN,counter.ksosoft.com,REJECT,extended-matching,pre-matching
+DOMAIN,minfo.wps.cn,REJECT,extended-matching,pre-matching
+DOMAIN,mobad.ijinshan.com,REJECT,extended-matching,pre-matching
+DOMAIN,ups.ksmobile.net,REJECT,extended-matching,pre-matching
+DOMAIN,ws.ksmobile.net,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/dict-mobile\.iciba\.com\/interface\/index\.php\?.+(?>c=ad|collectFeedsAdShowCount|KSFeedsAdCardViewController) - reject

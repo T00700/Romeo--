@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-SUFFIX,track.bankcomm.com,REJECT,extended-matching
+DOMAIN-SUFFIX,track.bankcomm.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/creditcard.*\.bankcomm\.(com|cn)\/.*Ads\.do - reject

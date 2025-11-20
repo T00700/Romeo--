@@ -3,7 +3,7 @@
 #!category=Jacob
 
 [Rule]
-DOMAIN,et.ykccn.com,REJECT,extended-matching
+DOMAIN,et.ykccn.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/gw3\.ykccn\.com\/activityServer\/app\/commandAd - reject

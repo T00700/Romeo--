@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,log.17gwx.com,REJECT,extended-matching
+DOMAIN,log.17gwx.com,REJECT,extended-matching,pre-matching
 
 [Map Local]
 ^https?:\/\/api\.17gwx\.com\/v\d\/base\/app\/ad data-type=text data="{}" status-code=200

@@ -13,19 +13,19 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-SUFFIX,ad.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,ads.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,aty.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,adnet.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,ad.mail.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,corp.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,cpc.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,go.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,hui.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,suvset.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,track.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,3rd.t.sohu.com,REJECT,extended-matching
-DOMAIN-SUFFIX,888.tv.sohu.com,REJECT,extended-matching
+DOMAIN-SUFFIX,ad.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,ads.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,aty.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,adnet.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,ad.mail.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,corp.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,cpc.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,go.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,hui.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,suvset.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,track.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,3rd.t.sohu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,888.tv.sohu.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/(api|api-bk\d+)\.tv\.sohu\.com\/agg\/api\/app\/config\/bootstrap - reject

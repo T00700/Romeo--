@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-SUFFIX,apilog.qbb6.com,REJECT,extended-matching
+DOMAIN-SUFFIX,apilog.qbb6.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/stlib\.qbb6\.com\/wclt\/js\/core\/popup - reject

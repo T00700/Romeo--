@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-SUFFIX,ad.10010.com,REJECT,extended-matching
+DOMAIN-SUFFIX,ad.10010.com,REJECT,extended-matching,pre-matching
 
 [Map Local]
 ^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(?>accountListData|get_client_adv|get_startadv) data-type=tiny-gif status-code=200

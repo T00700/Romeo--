@@ -13,12 +13,12 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,ad.api.moji.com,REJECT,extended-matching
-DOMAIN,adlaunch.moji.com,REJECT,extended-matching
-DOMAIN,ads.mojicdn.com,REJECT,extended-matching
-DOMAIN-SUFFIX,log.moji.com,REJECT,extended-matching
-DOMAIN-SUFFIX,fds.api.moji.com,REJECT,extended-matching
-DOMAIN-SUFFIX,me.api.moji.com,REJECT,extended-matching
+DOMAIN,ad.api.moji.com,REJECT,extended-matching,pre-matching
+DOMAIN,adlaunch.moji.com,REJECT,extended-matching,pre-matching
+DOMAIN,ads.mojicdn.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,log.moji.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,fds.api.moji.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,me.api.moji.com,REJECT,extended-matching,pre-matching
 
 [Map Local]
 ^https?:\/\/cdn\.moji\.com\/(adoss|adlink)\/ data-type=text data="" status-code=200

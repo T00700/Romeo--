@@ -13,13 +13,13 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,live-ads.huya.com,REJECT,extended-matching
-DOMAIN,pp-cdnfile2pcdn.msstatic.com,REJECT,extended-matching
-DOMAIN,livewebbs2pcdn.msstatic.com,REJECT,extended-matching
-DOMAIN,huyafile.msstatic.com,REJECT,extended-matching
-DOMAIN,livewebbs2.msstatic.com,REJECT,extended-matching
-DOMAIN,business.msstatic.com,REJECT,extended-matching
-DOMAIN-SUFFIX,v1d.szbdyd.com,REJECT,extended-matching
+DOMAIN,live-ads.huya.com,REJECT,extended-matching,pre-matching
+DOMAIN,pp-cdnfile2pcdn.msstatic.com,REJECT,extended-matching,pre-matching
+DOMAIN,livewebbs2pcdn.msstatic.com,REJECT,extended-matching,pre-matching
+DOMAIN,huyafile.msstatic.com,REJECT,extended-matching,pre-matching
+DOMAIN,livewebbs2.msstatic.com,REJECT,extended-matching,pre-matching
+DOMAIN,business.msstatic.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,v1d.szbdyd.com,REJECT,extended-matching,pre-matching
 
 [URL Rewrite]
 ^https?:\/\/cdn\.wup\.huya\.com\/launch\/queryHttpDns$ - reject
