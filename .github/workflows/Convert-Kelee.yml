@@ -5,7 +5,7 @@ name: Download and Convert Kelee Plugins
 
 on:
   schedule:
-    - cron: '5,35 * * * *'
+    - cron: '5,35 * * * *'  # 每小时 5 分 和 35 分执行
   workflow_dispatch:
 
 permissions:
@@ -48,13 +48,64 @@ jobs:
       - name: Install dependencies
         run: pip install cloudscraper requests
 
-      # === 2. 下载插件 (使用 Python + Cloudscraper) ===
-      - name: Run download script
-        env:
-          PYTHONUNBUFFERED: "1"
+      # === 2. 获取下载链接 (使用远程 Python 脚本) ===
+      - name: Generate Plugin.txt
         run: python ShalalaLala/Scripts/kelee-20251120.py
 
-      # === 3. 移动文件 ===
+      # === 3. 使用镜像并发下载 (本地 Bash) ===
+      - name: Download Plugins via Mirrors
+        run: |
+          mkdir -p Plugin
+          Plugin_FILE_PATH="Plugin.txt"
+
+          if [ ! -f "$Plugin_FILE_PATH" ]; then
+            echo "❌ Error: Plugin.txt not found."
+            exit 1
+          fi
+
+          mirrors=("git.botrna.site" "git.boio.me" "git.repcz.link")
+          UA="Loon/3.2.1 (iPhone; iOS 17.2; Scale/3.00)"
+
+          echo "📥 Starting download process..."
+
+          while IFS= read -r url; do
+            [ -z "$url" ] && continue
+            
+            # 提取文件名
+            filename=$(basename "${url%%\?*}")
+            if [[ "$filename" != *".lpx" ]] && [[ "$filename" != *".plugin" ]]; then
+               filename="${filename}.lpx"
+            fi
+            
+            output_path="Plugin/$filename"
+            download_success=false
+            
+            echo "⚡ Processing: $filename"
+
+            if [[ "$url" == *"kelee.one"* ]]; then
+              for mirror in "${mirrors[@]}"; do
+                mirror_url="${url/https:\/\/kelee.one/https:\/\/$mirror/kelee.one}"
+                if curl -s -L -f --connect-timeout 10 --retry 2 -H "User-Agent: $UA" -o "$output_path" "$mirror_url"; then
+                  if [ -s "$output_path" ]; then
+                    echo "  ✅ Downloaded via $mirror"
+                    download_success=true
+                    break
+                  fi
+                fi
+              done
+            else
+              if curl -s -L -f --connect-timeout 10 --retry 2 -H "User-Agent: $UA" -o "$output_path" "$url"; then
+                 [ -s "$output_path" ] && download_success=true
+                 echo "  ✅ Downloaded direct"
+              fi
+            fi
+            
+            if [ "$download_success" = false ]; then
+              echo "  ❌ Failed to download: $filename"
+            fi
+          done < "$Plugin_FILE_PATH"
+
+      # === 4. 移动文件 ===
       - name: Move .lpx files
         run: |
           mkdir -p Modules/Loon/Kelee/Official
@@ -66,15 +117,13 @@ jobs:
             done
           fi
 
-      # === 4. 等待 Docker ===
+      # === 5. 等待 Docker ===
       - name: Wait for Docker services to be ready
         run: |
           echo "Waiting for Docker services..."
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      # === 5. 并发转换 (Convert) ===
-      # 注意：此时转换的是基于 Repo 远程旧文件的内容，所以转换后的文件里 JS 链接还是旧的
-      # 我们将在下一步统一替换
+      # === 6. 并发转换 (Convert) ===
       - name: Convert plugins (Parallelized)
         run: |
           plugin_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Loon/Kelee/Official/"
@@ -100,7 +149,6 @@ jobs:
             # 并发请求
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/${Modules_name}.sgmodule" "$Surge_url" &
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" &
-            # Loon Official 已经是本地最新的了，这里重新下载其实是覆盖一遍，无大碍
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/${Modules_name}.lpx" "$Loon_url" &
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/Beta/${Modules_name}.lpx" "$Loon_Beta_url" &
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/${Modules_name}.srmodule" "$Shadowrocket_url" &
@@ -109,21 +157,19 @@ jobs:
             wait
           done
 
-      # === 6. JS 资源提取与替换 (修正版) ===
-      # 放在转换之后运行，确保所有生成的文件都能被修正
+      # === 7. JS 资源提取与替换 (使用你指定的 URL 格式) ===
       - name: Find and replace external JS resources
         continue-on-error: true
         run: |
-          # 使用标准的 raw.githubusercontent.com 路径，这是最稳健的写法
-          js_base_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/Modules/JS"
+          # 使用你指定的 URL 格式
+          js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
+          
           mkdir -p Modules/JS/Kelee
           UA="Surge Mac/2985"
 
-          # 1. 遍历所有下载下来的 Loon 插件 (.lpx)
           find Modules/Loon/Kelee/Official -name "*.lpx" | while read plugin_file; do
             plugin_name=$(basename "$plugin_file" .lpx)
             
-            # 提取 http/https 链接 (后缀 .js .json .jq)
             js_links=$(grep -v '#' "$plugin_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
 
             if [ -z "$js_links" ]; then continue; fi
@@ -139,12 +185,9 @@ jobs:
               # 下载 JS
               if curl -sL -A "$UA" --retry 2 --connect-timeout 10 -o "$local_js_path" "$js_link"; then
                 
-                # 转义链接，防止 sed 报错
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                 
-                # 核心修正：批量替换所有格式的文件
-                # 这会查找 Modules 目录下所有名字匹配 plugin_name 的 .sgmodule, .lpx, .srmodule 并进行替换
-                # 这样就保证了“一对一”的全平台替换
+                # 批量替换所有相关文件 (Surge/Loon/Shadowrocket)
                 find Modules -name "${plugin_name}.sgmodule" -o -name "${plugin_name}.lpx" -o -name "${plugin_name}.srmodule" | \
                 xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
                 
@@ -155,7 +198,7 @@ jobs:
             done
           done
 
-      # === 7. 提交更改 ===
+      # === 8. 提交更改 ===
       - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
