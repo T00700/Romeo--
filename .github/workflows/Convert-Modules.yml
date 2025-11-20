@@ -25,12 +25,11 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      # 优化1: 移除 apt-get install，因为 curl/jq/nc 已预装
+      # 优化1: 移除 apt-get install
 
       - name: Wait for Docker services to be ready
         run: |
           echo "Waiting for Docker services to be ready..."
-          # 优化2: 使用 timeout 优化等待逻辑
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
       - name: Process Links and Download Files
@@ -38,96 +37,75 @@ jobs:
           category="Jacob"
           encoded_category=$(echo "$category" | jq -sRr @uri)
           
-          # 处理每个链接
           while read -r module_link; do
-            # 跳过注释行和空白行
             if [[ "$module_link" =~ ^\s*#.* ]] || [[ -z "${module_link// }" ]]; then
               continue
             fi
             
-            # 特殊URL 😂 处理
             encoded_module_link=$(echo "$module_link" | sed 's/😂/%F0%9F%98%82/g')
-
-            # 获取作者名
             author=$(echo "$module_link" | cut -d'/' -f4)
             filename_noext=$(basename "$module_link" | sed 's/\(.*\)\..*/\1/')
             encoded_filename=$(echo "$filename_noext" | jq -sRr @uri)
             
-            # 创建文件夹
             mkdir -p Modules/{Surge,Loon,Shadowrocket}/$author/Beta
             mkdir -p Modules/JS/$author/Beta
 
-            # 构建模块的 URL
             Surge_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
             Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
             Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
             Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true"
-            Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
-            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
+            Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
 
             echo "Processing $filename_noext by $author..."
 
+            # 串行下载
             curl -A "Surge Mac/2985" -L -o "Modules/Surge/$author/$filename_noext.sgmodule" "$Surge_url" || echo "Failed Surge Official"
             curl -A "Surge Mac/2985" -L -o "Modules/Surge/$author/Beta/$filename_noext.sgmodule" "$Surge_Beta_url" || echo "Failed Surge Beta"
-
             curl -A "Surge Mac/2985" -L -o "Modules/Loon/$author/$filename_noext.lpx" "$Loon_url" || echo "Failed Loon Official"
             curl -A "Surge Mac/2985" -L -o "Modules/Loon/$author/Beta/$filename_noext.lpx" "$Loon_Beta_url" || echo "Failed Loon Beta"
-
             curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/$author/$filename_noext.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket Official"
             curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/$author/Beta/$filename_noext.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket Beta"
             
           done < Links/Modules-Links.txt
 
-      - name: Collect authors
-        run: |
-          authors=$(grep -E '^https?://' Links/Modules-Links.txt | cut -d'/' -f4 | sort -u | tr '\n' ' ')
-          echo "AUTHORS=$authors" >> $GITHUB_ENV
-          
+      # 优化：移除了 Collect authors 步骤，因为下一步直接从文件路径获取作者更准确
+
       - name: Find and replace external JS resources
         continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
+          
+          # 遍历 Modules/Surge 下的所有 .sgmodule 文件 (排除 Beta 目录)
+          find Modules/Surge -type f -name "*.sgmodule" -not -path "*/Beta/*" | while read sgmodule_file; do
+            
+            # 动态提取作者名 (路径格式: Modules/Surge/AuthorName/File.sgmodule)
+            author=$(echo "$sgmodule_file" | awk -F/ '{print $3}')
+            module_folder=$(basename "$sgmodule_file" .sgmodule)
+            
+            # 提取所有 JS 链接 (不限关键词)
+            js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
+            
+            if [ -z "$js_links" ]; then continue; fi
 
-          for author in $AUTHORS; do
-            shopt -s nullglob
-            for sgmodule_file in Modules/Surge/$author/*.sgmodule; do
-              [ -f "$sgmodule_file" ] || continue
+            echo "Processing JS for $author / $module_folder..."
 
-              module_folder=$(basename "$sgmodule_file" .sgmodule)
-              
-              js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || echo "")
-              
-              if [ -z "$js_links" ]; then continue; fi
-
-              echo "Processing JS links for $module_folder..."
-
-              for js_link in $js_links; do
-                js_filename=$(basename "$js_link")
-                local_js_path="Modules/JS/$author/$module_folder/$js_filename"
-                github_js_url="$js_base_url/$author/$module_folder/$js_filename"
+            for js_link in $js_links; do
+              js_filename=$(basename "$js_link")
+              local_js_path="Modules/JS/$author/$module_folder/$js_filename"
+              github_js_url="$js_base_url/$author/$module_folder/$js_filename"
    
-                mkdir -p "$(dirname "$local_js_path")"
+              mkdir -p "$(dirname "$local_js_path")"
 
-                if curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
-                  
-                  escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
-                  
-                  files_to_replace=(
-                    "$sgmodule_file"
-                    "Modules/Surge/$author/Beta/$module_folder.sgmodule"
-                    "Modules/Loon/$author/$module_folder.lpx"
-                    "Modules/Loon/$author/Beta/$module_folder.lpx"
-                    "Modules/Shadowrocket/$author/$module_folder.srmodule"
-                    "Modules/Shadowrocket/$author/Beta/$module_folder.srmodule"
-                  )
-
-                  for target_file in "${files_to_replace[@]}"; do
-                    if [ -f "$target_file" ]; then
-                      sed -i "s|$escaped_link|$github_js_url|g" "$target_file"
-                    fi
-                  done
-                fi
-              done
+              if curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
+                
+                escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
+                
+                # 批量替换：只查找当前作者($author)目录下的相关文件
+                find Modules -path "*/$author/*" \( -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" \) | \
+                xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
+                
+              fi
             done
           done
 
@@ -136,18 +114,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
-   
           git add Modules/*
-   
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             COMMIT_MESSAGE="Converted modules at $DATE (UTC+8)"
-       
             git stash
             git pull --rebase --autostash || true
             git stash pop || true
-       
             git add Modules/*
             git commit -m "$COMMIT_MESSAGE"
             git push
