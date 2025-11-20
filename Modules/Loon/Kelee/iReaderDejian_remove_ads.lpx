@@ -21,9 +21,9 @@ DOMAIN,saad.ms.zhangyue.net,REJECT
 ^https:\/\/dj\.palmestore\.com\/zybk\/api\/bookshelf\/index\? - reject-dict
 
 [Script]
-http-response ^https:\/\/dj\.palmestore\.com\/zybk\/api\/powerup\/userGroup\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/iReaderDejian_remove_ads/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_15, argument=%5B%5B%22json-del%22%2C%5B%22body.sevenDaysAd%22%2C%22body.shortPlayShow%22%2C%22body.sdkShortPlayAB%22%5D%5D%5D
+http-response ^https:\/\/dj\.palmestore\.com\/zybk\/api\/powerup\/userGroup\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_15, argument=%5B%5B%22json-del%22%2C%5B%22body.sevenDaysAd%22%2C%22body.shortPlayShow%22%2C%22body.sdkShortPlayAB%22%5D%5D%5D
 
-http-response ^https:\/\/dj\.palmestore\.com\/zybk\/api\/search\/index\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/iReaderDejian_remove_ads/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_19, argument=%5B%5B%22json-del%22%2C%5B%22body.keywords%22%5D%5D%5D
+http-response ^https:\/\/dj\.palmestore\.com\/zybk\/api\/search\/index\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_19, argument=%5B%5B%22json-del%22%2C%5B%22body.keywords%22%5D%5D%5D
 
 [MITM]
 hostname = dj.palmestore.com
