@@ -17,7 +17,7 @@ DOMAIN-SUFFIX,cm.game.bilibili.com,REJECT
 DOMAIN-SUFFIX,cm.track.biligame.bilibili.com,REJECT
 
 [Script]
-百度贴吧广告 = type=http-response, pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)$|tiebaads\/commonbatch|c\/s\/sync$), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Official/BaiduTieba/tieba-json.js, requires-body=true, timeout=60
+百度贴吧广告 = type=http-response, pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)$|tiebaads\/commonbatch|c\/s\/sync$), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/BaiduTieba/tieba-json.js, requires-body=true, timeout=60
 
-百度贴吧广告 = type=http-response, pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Official/BaiduTieba/tieba-proto.js, requires-body=true, binary-body-mode=true, timeout=60
+百度贴吧广告 = type=http-response, pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/BaiduTieba/tieba-proto.js, requires-body=true, binary-body-mode=true, timeout=60
 
