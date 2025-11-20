@@ -45,16 +45,16 @@ jobs:
             # 特殊URL 😂 处理
             encoded_module_link=$(echo "$Ruleset_link" | sed 's/😂/%F0%9F%98%82/g')
 
-            # 获取作者名（假设作者在 URL 中的第4部分）
+            # 获取作者名
             author=$(echo "$Ruleset_link" | cut -d'/' -f4)
             filename_noext=$(basename "$Ruleset_link" | sed 's/\(.*\)\..*/\1/')
             encoded_filename=$(echo "$filename_noext" | jq -sRr @uri)
             
-            # 创建文件夹
-            # echo "Creating directories for $author"
+            # 创建文件夹 (保持原逻辑)
+            echo "Processing $filename_noext by $author..."
             mkdir -p Rulesets/{Surge,Loon,Shadowrocket,Clash}/$author/Beta
 
-            # 构建模块的 URL
+            # 构建模块的 URL (完全保持原参数)
             Surge_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=surge-rule-set&nore=true"
             Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=surge-rule-set&nore=true&jqEnabled=true"
             Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lsr?type=rule-set&target=loon-rule-set&icon=Loon&nore=true"
@@ -64,22 +64,23 @@ jobs:
             Clash_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.yaml?type=rule-set&target=stash-rule-set&nore=true"
             Clash_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.yaml?type=rule-set&target=stash-rule-set&nore=true&jqEnabled=true"
 
-            echo "Downloading Rulesets for $filename_noext..."
+            # 下载各模块文件 (优化点3: 使用 & 后台下载，然后 wait 等待这一组完成)
+            # 这样既提速了，又保证了处理流程和原版完全一致（按链接顺序处理）
+            
+            curl -A "Surge Mac/2985" -L -o "Rulesets/Surge/$author/$filename_noext.list" "$Surge_url" &
+            curl -A "Surge Mac/2985" -L -o "Rulesets/Surge/$author/Beta/$filename_noext.list" "$Surge_Beta_url" &
 
-            # 优化点3: 8个文件并发下载，大幅减少等待时间
-            curl -sL -A "Surge Mac/2985" -o "Rulesets/Surge/$author/$filename_noext.list" "$Surge_url" &
-            curl -sL -A "Surge Mac/2985" -o "Rulesets/Surge/$author/Beta/$filename_noext.list" "$Surge_Beta_url" &
+            curl -A "Surge Mac/2985" -L -o "Rulesets/Loon/$author/$filename_noext.lsr" "$Loon_url" &
+            curl -A "Surge Mac/2985" -L -o "Rulesets/Loon/$author/Beta/$filename_noext.lsr" "$Loon_Beta_url" &
 
-            curl -sL -A "Surge Mac/2985" -o "Rulesets/Loon/$author/$filename_noext.lsr" "$Loon_url" &
-            curl -sL -A "Surge Mac/2985" -o "Rulesets/Loon/$author/Beta/$filename_noext.lsr" "$Loon_Beta_url" &
+            curl -A "Surge Mac/2985" -L -o "Rulesets/Shadowrocket/$author/$filename_noext.list" "$Shadowrocket_url" &
+            curl -A "Surge Mac/2985" -L -o "Rulesets/Shadowrocket/$author/Beta/$filename_noext.list" "$Shadowrocket_Beta_url" &
 
-            curl -sL -A "Surge Mac/2985" -o "Rulesets/Shadowrocket/$author/$filename_noext.list" "$Shadowrocket_url" &
-            curl -sL -A "Surge Mac/2985" -o "Rulesets/Shadowrocket/$author/Beta/$filename_noext.list" "$Shadowrocket_Beta_url" &
-
-            curl -sL -A "Surge Mac/2985" -o "Rulesets/Clash/$author/$filename_noext.yaml" "$Clash_url" &
-            curl -sL -A "Surge Mac/2985" -o "Rulesets/Clash/$author/Beta/$filename_noext.yaml" "$Clash_Beta_url" &
-
-            wait # 等待当前规则集的所有版本下载完成
+            curl -A "Surge Mac/2985" -L -o "Rulesets/Clash/$author/$filename_noext.yaml" "$Clash_url" &
+            curl -A "Surge Mac/2985" -L -o "Rulesets/Clash/$author/Beta/$filename_noext.yaml" "$Clash_Beta_url" &
+            
+            # 关键：等待当前这 8 个文件下载完毕，再进入下一次循环读取下一个链接
+            wait 
           done < Links/Rulesets-Links.txt
 
       - name: Commit and push changes
@@ -102,7 +103,7 @@ jobs:
             # 确保仓库是最新的，避免冲突
             git stash
             git pull --rebase  # 同步远程仓库的最新更改
-            git stash pop || true # 恢复之前的更改，允许失败(如果没有stash)
+            git stash pop || true # 恢复之前的更改
             
             # 再次添加文件，进行提交
             git add Rulesets/*
