@@ -4,6 +4,5 @@
 
 #-----------------以下为解析后的规则-----------------#
 
-payload:
-  - DOMAIN-SUFFIX,makifx.com
-  - DOMAIN-SUFFIX,nangua.de
+DOMAIN-SUFFIX,makifx.com
+DOMAIN-SUFFIX,nangua.de
