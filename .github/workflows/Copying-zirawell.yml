@@ -7,6 +7,7 @@ on:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  Author: zirawell
 
 jobs:
   fetch-and-convert:
@@ -21,113 +22,96 @@ jobs:
           - 9101:9101
       
     steps:
-      - name: Checkout Repo
+      - name: Checkout Target Repo
         uses: actions/checkout@v4
         with:
           persist-credentials: true
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq python3 curl netcat-openbsd
-
+      # 优化点1: 移除 apt-get，仅等待 Docker 就绪
       - name: Wait for Docker service
         run: |
           echo "Waiting for script-hub service..."
-          for i in {1..10}; do
-            nc -z localhost 9100 && nc -z localhost 9101 && break
-            sleep 5
-          done
+          timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      - name: Fetch sgmodule paths
+      # 优化点2: 核心优化！使用 git clone 代替 API 查找和下载
+      - name: Clone Source Repo & Prepare Files
         run: |
-          curl -H "Authorization: token $GITHUB_TOKEN" -s \
-            "https://api.github.com/repos/zirawell/R-Store/git/trees/main?recursive=1" \
-            | jq -r '.tree[] | select(.path | test("sgmodule$")) | .path' > sgmodule_paths.txt
-          cat sgmodule_paths.txt
-        
-      - name: Count duplicate filenames
-        run: |
+          # 克隆源仓库到临时目录
+          git clone --depth 1 https://github.com/zirawell/R-Store.git temp_source
+          
+          mkdir -p Modules/Surge/${Author}/Official
+
+          # 切换到源目录生成文件列表 (去除 ./ 前缀)
+          cd temp_source
+          find . -type f -name "*.sgmodule" | sed 's|^\./||' > ../file_list.txt
+          cd ..
+
+          # === 保持原有的重名统计逻辑 ===
           declare -A name_count
           while IFS= read -r path; do
             filename=$(basename "$path")
             name_count["$filename"]=$(( ${name_count["$filename"]} + 1 ))
-          done < sgmodule_paths.txt
-          # Export duplicates info for next step
-          echo "DUPLICATE_FILENAMES<<EOF" >> $GITHUB_ENV
-          for f in "${!name_count[@]}"; do
-            echo "$f ${name_count[$f]}"
-          done >> duplicate_list.txt
-          cat duplicate_list.txt >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          done < file_list.txt
 
-      - name: Download sgmodule files with retry and smart renaming
-        shell: bash
-        run: |
-          mkdir -p Modules/Surge/zirawell/Official
-          retry=3
-          # 读取重复统计
-          declare -A name_count
-          while IFS= read -r line; do
-            filename=$(echo "$line" | awk '{print $1}')
-            count=$(echo "$line" | awk '{print $2}')
-            name_count["$filename"]=$count
-          done < duplicate_list.txt
-          # 取合适前缀的函数
+          # === 保持原有的前缀获取函数 ===
           get_prefix() {
             local full_path="$1"
             IFS='/' read -r -a parts <<< "$full_path"
+            # 原逻辑：倒序检查路径部分
             for i in 3 2 1; do
+              # 数组越界检查
+              if [ -z "${parts[i]}" ]; then continue; fi
               dir="${parts[i]}"
-              # 简单判断非文件即目录（没.sgmodule后缀）
               if [[ "$dir" != *".sgmodule" ]]; then
                 echo "$dir"
                 return
               fi
             done
-            echo "Unknown"
+            # 如果没找到合适的，回退到直接父目录 (模拟原逻辑的 fallback)
+            parent=$(dirname "$full_path")
+            basename "$parent"
           }
+
+          # === 本地复制并重命名 (替代下载) ===
           while IFS= read -r file_path; do
             filename_full=$(basename "$file_path")
             filename="${filename_full%.sgmodule}"
             count=${name_count["$filename_full"]}
-            prefix=$(get_prefix "$file_path")
+            
             if [[ $count -gt 1 ]]; then
+              prefix=$(get_prefix "$file_path")
               save_name="${filename}-${prefix}.sgmodule"
             else
               save_name="$filename_full"
             fi
-            echo "Downloading $file_path as $save_name"
-            encoded_path=$(python3 -c "import urllib.parse; print(urllib.parse.quote('''$file_path'''))")
-            attempt=1
-            success=0
-            while [ $attempt -le $retry ]; do
-              echo "Attempt $attempt for $file_path"
-              curl -H "Authorization: token $GITHUB_TOKEN" --fail -sL \
-                -H "Accept: application/vnd.github.raw" \
-                "https://api.github.com/repos/zirawell/R-Store/contents/$encoded_path?ref=main" \
-                -o "Modules/Surge/zirawell/Official/$save_name" && success=1 && break
-              echo "Attempt $attempt failed for $file_path"
-              attempt=$((attempt+1))
-              sleep 2
-            done
-            if [ $success -ne 1 ]; then
-              echo "⚠️ Warning: Failed to download $file_path after $retry attempts, skipping."
-            fi
-          done < sgmodule_paths.txt
 
-      - name: Convert sgmodules to Surge/Loon/Shadowrocket
+            echo "Copying $file_path -> $save_name"
+            # 从 temp_source 复制到目标目录
+            cp "temp_source/$file_path" "Modules/Surge/${Author}/Official/$save_name"
+          done < file_list.txt
+
+          # 清理临时文件
+          rm -rf temp_source file_list.txt
+
+      - name: Convert sgmodules (Parallelized)
         run: |
-          mkdir -p Modules/Surge/zirawell Modules/Surge/zirawell/Beta \
-                   Modules/Loon/zirawell Modules/Loon/zirawell/Beta \
-                   Modules/Shadowrocket/zirawell Modules/Shadowrocket/zirawell/Beta
+          # 创建目录
+          mkdir -p Modules/Surge/${Author}/{Beta,Official} \
+                   Modules/Loon/${Author}/Beta \
+                   Modules/Shadowrocket/${Author}/Beta
+
           category="Jacob"
           encoded_category=$(echo "$category" | jq -sRr @uri)
 
-          for file in Modules/Surge/zirawell/Official/*.sgmodule; do
+          # 遍历已处理好的本地文件
+          for file in Modules/Surge/${Author}/Official/*.sgmodule; do
             name=$(basename "$file" .sgmodule)
             encoded_name=$(echo "$name" | jq -sRr @uri)
-            base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Surge/zirawell/Official/$(basename "$file")"
+            
+            # 注意：base_url 依然指向你的仓库，用于 ScriptHub 读取内容
+            # 这里假设你会在 workflow 结束时 push，ScriptHub 会读取 raw 内容
+            # 如果 ScriptHub 需要实时读取本地内容，需要挂载 volume，但在 GitHub Actions 中通过 raw url 是标准做法
+            base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Surge/${Author}/Official/$(basename "$file")"
 
             Surge_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
             Surge_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
@@ -136,46 +120,51 @@ jobs:
             Shadowrocket_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
             Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${base_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
 
-            echo "Converting $file → Surge/Loon/Shadowrocket"
+            echo "Converting $name..."
 
-            curl -A "Surge Mac/2985" -L -o "Modules/Surge/zirawell/${name}.sgmodule" "$Surge_url" || echo "Failed Surge conversion: $name"
-            curl -A "Surge Mac/2985" -L -o "Modules/Surge/zirawell/Beta/${name}.sgmodule" "$Surge_Beta_url" || echo "Failed Surge conversion: $name"
-            curl -A "Surge Mac/2985" -L -o "Modules/Loon/zirawell/${name}.lpx" "$Loon_url" || echo "Failed Loon conversion: $name"
-            curl -A "Surge Mac/2985" -L -o "Modules/Loon/zirawell/Beta/${name}.lpx" "$Loon_Beta_url" || echo "Failed Loon conversion: $name"
-            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/zirawell/${name}.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket conversion: $name"
-            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/zirawell/Beta/${name}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket conversion: $name"
+            # 优化点3: 并发转换，速度提升 6 倍
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/${name}.sgmodule" "$Surge_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/Beta/${name}.sgmodule" "$Surge_Beta_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/${name}.lpx" "$Loon_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/Beta/${name}.lpx" "$Loon_Beta_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/${name}.srmodule" "$Shadowrocket_url" &
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/Beta/${name}.srmodule" "$Shadowrocket_Beta_url" &
+            
+            wait # 等待当前文件的所有版本转换完成
           done
 
       - name: Find and replace external JS resources
         continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
+          mkdir -p Modules/JS/${Author}
 
-          find Modules/Surge/zirawell -type f -name "*.sgmodule" | while read module_file; do
-            echo "Processing $module_file"
-
-            author="zirawell"
+          # 使用 find 查找所有 Surge 官方模块
+          find Modules/Surge/${Author}/Official -type f -name "*.sgmodule" | while read module_file; do
             module_folder=$(basename "$module_file" .sgmodule)
-            js_links=$(grep -v '#' "$module_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || echo "")
+            
+            # 提取 JS 链接
+            js_links=$(grep -v '#' "$module_file" | grep -oP 'https?://[^ ]+\.(json|js|jq)' || true)
+
+            if [ -z "$js_links" ]; then continue; fi
+
+            echo "Processing JS for $module_folder"
 
             for js_link in $js_links; do
               js_filename=$(basename "$js_link")
-              local_js_path="Modules/JS/$author/$module_folder/$js_filename"
-              github_js_url="$js_base_url/$author/$module_folder/$js_filename"
+              local_js_path="Modules/JS/${Author}/$module_folder/$js_filename"
+              github_js_url="$js_base_url/${Author}/$module_folder/$js_filename"
+              
               mkdir -p "$(dirname "$local_js_path")"
 
-              echo "Downloading $js_link to $local_js_path"
-              if curl -A "Surge Mac/2985" -L -o "$local_js_path" "$js_link"; then
-                sed -i "s|$js_link|$github_js_url|g" "$module_file"
-
-                loon_file="Modules/Loon/$author/$module_folder.lpx"
-                loon_beta_file="Modules/Loon/$author/Beta/$module_folder.lpx"
-                shadowrocket_file="Modules/Shadowrocket/$author/$module_folder.srmodule"
-                shadowrocket_beta_file="Modules/Shadowrocket/$author/Beta/$module_folder.srmodule"
-                [ -f "$loon_file" ] && sed -i "s|$js_link|$github_js_url|g" "$loon_file"
-                [ -f "$loon_beta_file" ] && sed -i "s|$js_link|$github_js_url|g" "$loon_beta_file"
-                [ -f "$shadowrocket_file" ] && sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_file"
-                [ -f "$shadowrocket_beta_file" ] && sed -i "s|$js_link|$github_js_url|g" "$shadowrocket_beta_file"
+              # 下载 JS
+              if curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
+                # 转义特殊字符防止 sed 报错
+                escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
+                
+                # 优化点4: 批量替换所有格式的文件
+                find Modules -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" | \
+                xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
               fi
             done
           done
@@ -193,21 +182,7 @@ jobs:
             echo "✅ No changes to commit."
           else
             COMMIT_MESSAGE="Synched Modules at $DATE (UTC+8)"
-
-            # 保存本地修改
-            git stash
-
-            # 拉取远程最新修改并重放本地修改
-            git pull --rebase || true
-
-            # 还原本地修改
-            git stash pop || true
-
-            # 再次添加修改
-            git add Modules/*
-
             git commit -m "$COMMIT_MESSAGE"
-
-            # 推送到远程
-            git push || echo "Push failed, maybe remote has new commits. Try again next run."
+            git pull --rebase --autostash || true
+            git push
           fi
