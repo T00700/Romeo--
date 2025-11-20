@@ -25,90 +25,121 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 优化点1: 彻底移除了 Python 环境设置、Checkout Private Repo 和 Pip Install
-      # 因为下载和替换逻辑都已改为 Bash 实现
-
-      - name: Download Plugins via Mirrors
+      # 步骤1: 下载插件 (核心修改)
+      - name: Download Plugins via Bash
         run: |
           mkdir -p Plugin
-          # 定义镜像列表
-          mirrors=("https://git.botrna.site/kelee.one" "https://git.boio.me/kelee.one" "https://git.repcz.link/kelee.one")
           
-          # 1. 尝试下载 list.json
-          echo "🔍 正在尝试通过镜像获取插件列表..."
-          for mirror in "${mirrors[@]}"; do
-            target="$mirror/list.json"
-            if curl -s -f -L "$target" -o list.json; then
-              echo "✅ 成功从 $mirror 获取列表"
-              break
-            fi
-          done
-
-          # 2. 解析 JSON 并下载插件
-          if [ -f list.json ]; then
-             # 提取所有 url 字段
-             urls=$(jq -r '.. | .url? // empty' list.json)
-             
-             for url in $urls; do
-               # 处理 loon:// 协议
-               if [[ "$url" == "loon://"* ]]; then
-                 clean_url=$(echo "$url" | sed 's/loon:\/\/import?plugin=//')
-               else
-                 clean_url="$url"
-               fi
-               
-               filename=$(basename "$clean_url")
-               if [[ "$filename" != *".plugin" ]] && [[ "$filename" != *".lpx" ]]; then
-                  filename="${filename}.lpx"
-               fi
-               
-               # 如果原链接是 kelee.one，替换为镜像
-               if [[ "$clean_url" == *"kelee.one"* ]]; then
-                 path_suffix=$(echo "$clean_url" | sed 's/https:\/\/.*kelee.one\///')
-                 
-                 for mirror in "${mirrors[@]}"; do
-                   mirror_url="$mirror/$path_suffix"
-                   echo "⬇️ 下载: $filename"
-                   if curl -s -L --connect-timeout 10 --retry 2 -o "Plugin/$filename" "$mirror_url"; then
-                     [ -s "Plugin/$filename" ] && break
-                   fi
-                 done
-               else
-                 # 非 kelee.one 链接直接下载
-                 curl -s -L -o "Plugin/$filename" "$clean_url"
-               fi
-             done
-          else
-             echo "❌ 未找到 list.json，跳过下载步骤。"
+          # 1. 定义伪装头和镜像源
+          UA="Loon/3.2.1 (iPhone; iOS 17.2; Scale/3.00)"
+          mirrors=("https://git.botrna.site" "https://git.boio.me" "https://git.repcz.link")
+          JSON_URL="https://pluginhub.kelee.one/list.json"
+          
+          echo "🔍 正在获取插件列表: $JSON_URL"
+          
+          # 2. 下载 list.json (优先直连，带UA)
+          # -L 跟随重定向, -f 失败不输出内容
+          if ! curl -s -L -H "User-Agent: $UA" -o list.json "$JSON_URL"; then
+            echo "⚠️ 直连获取列表失败，尝试镜像..."
+            for mirror in "${mirrors[@]}"; do
+              # 尝试拼接镜像路径，假设镜像代理了 kelee.one
+              # 注意：具体镜像路径规则取决于镜像站，这里参考你提供的 successful script 逻辑
+              mirror_json_url="$mirror/kelee.one/list.json"
+              if curl -s -L -H "User-Agent: $UA" -o list.json "$mirror_json_url"; then
+                echo "✅ 通过镜像获取列表成功: $mirror"
+                break
+              fi
+            done
           fi
 
+          if [ ! -s list.json ]; then
+            echo "❌ 无法获取有效的 list.json，流程终止。"
+            exit 1
+          fi
+
+          # 3. 解析 JSON 并下载 (jq提取 lists 中的 url)
+          # 提取逻辑：找到 lists 数组 -> 取出 url 字段 -> 去掉 loon://import?plugin= 前缀
+          urls=$(jq -r '.lists[].url' list.json | sed 's/loon:\/\/import?plugin=//')
+          
+          echo "📦 找到插件链接，准备下载..."
+          
+          count=0
+          for url in $urls; do
+            # 提取文件名
+            filename=$(basename "$url")
+            # 确保后缀名为 .lpx
+            if [[ "$filename" != *".lpx" ]]; then filename="${filename}.lpx"; fi
+            
+            echo "⬇️ 正在处理: $filename"
+            
+            # 尝试下载逻辑函数
+            download_file() {
+              local target_url="$1"
+              local output_file="Plugin/$2"
+              
+              # 尝试 1: 直连下载 (带 UA)
+              if curl -s -L --connect-timeout 10 --retry 2 -H "User-Agent: $UA" -o "$output_file" "$target_url"; then
+                 # 检查文件是否为空或包含 HTML 错误页
+                 if [ -s "$output_file" ] && ! grep -q "<html" "$output_file"; then
+                   echo "  ✅ 直连下载成功"
+                   return 0
+                 fi
+              fi
+              
+              # 尝试 2: 镜像下载 (如果 URL 包含 kelee.one)
+              if [[ "$target_url" == *"kelee.one"* ]]; then
+                # 构造镜像 URL: 将 https://kelee.one 替换为 https://mirror/kelee.one
+                local path_part=$(echo "$target_url" | sed 's/^https:\/\/kelee.one\///')
+                
+                for mirror in "${mirrors[@]}"; do
+                  local mirror_url="$mirror/kelee.one/$path_part"
+                  echo "  ⚠️ 直连失败，尝试镜像: $mirror"
+                  if curl -s -L --connect-timeout 10 --retry 2 -H "User-Agent: $UA" -o "$output_file" "$mirror_url"; then
+                    if [ -s "$output_file" ] && ! grep -q "<html" "$output_file"; then
+                      echo "  ✅ 镜像下载成功"
+                      return 0
+                    fi
+                  fi
+                done
+              fi
+              
+              echo "  ❌ 所有方式下载失败"
+              return 1
+            }
+            
+            download_file "$url" "$filename"
+            count=$((count+1))
+          done
+          
+          echo "🎉 处理完成，共处理 $count 个插件。"
+
+      # 步骤2: 移动文件到指定目录 (保持原有逻辑)
       - name: Move .lpx files
         run: |
           mkdir -p Modules/Loon/Kelee/Official
-          # 查找 Plugin 目录下所有的文件（兼容 .plugin 和 .lpx），并统一重命名为 .lpx
-          find Plugin -type f \( -name '*.lpx' -o -name '*.plugin' \) | while read file; do
-            filename=$(basename "$file")
-            target_name="${filename%.*}.lpx"
-            cp "$file" "Modules/Loon/Kelee/Official/$target_name"
+          # 查找下载的文件并移动
+          find Plugin -type f -name '*.lpx' | while read file; do
+            cp "$file" "Modules/Loon/Kelee/Official/"
           done
 
-      # === 优化点2: 使用 Bash 替代 Python 脚本进行 JS 提取和替换 ===
+      # 步骤3: 替换 JS 链接 (Bash版，替代 Python 脚本)
       - name: Find and replace external JS resources
         continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
           mkdir -p Modules/JS/Kelee
 
-          # 遍历刚刚移动到 Official 目录下的所有插件
+          # 伪装 UA 防止下载 JS 时也被拦截
+          UA="Loon/3.2.1 (iPhone; iOS 17.2; Scale/3.00)"
+
           find Modules/Loon/Kelee/Official -name "*.lpx" | while read plugin_file; do
             plugin_name=$(basename "$plugin_file" .lpx)
             
-            # 提取 http/https 开头，以 .js, .json, .jq 结尾的链接
-            # grep -v '#' 忽略注释行
+            # 提取 http/https 链接 (js/json/jq)
             js_links=$(grep -v '#' "$plugin_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
 
             if [ -z "$js_links" ]; then continue; fi
-
+            
             echo "Processing JS for $plugin_name"
 
             for js_link in $js_links; do
@@ -118,26 +149,23 @@ jobs:
               
               mkdir -p "$(dirname "$local_js_path")"
 
-              # 下载文件
-              if curl -sL -A "Surge Mac/2985" --retry 2 --connect-timeout 10 -o "$local_js_path" "$js_link"; then
-                # 转义 URL 中的特殊字符，防止 sed 报错
+              # 下载 JS (同样加上 UA)
+              if curl -sL -H "User-Agent: $UA" --retry 2 --connect-timeout 10 -o "$local_js_path" "$js_link"; then
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
-                
-                # 替换文件中的链接
                 sed -i "s|$escaped_link|$github_js_url|g" "$plugin_file"
                 echo "  ✅ Replaced $js_filename"
               else
-                echo "  ⚠️ Failed to download $js_link"
+                echo "  ⚠️ Failed to download JS: $js_link"
               fi
             done
           done
-      # === 优化结束 ===
 
       - name: Wait for Docker services to be ready
         run: |
           echo "Waiting for Docker services to be ready..."
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
+      # 步骤4: 并发转换 (保持之前的优化)
       - name: Convert plugins (Parallelized)
         run: |
           plugin_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Loon/Kelee/Official/"
