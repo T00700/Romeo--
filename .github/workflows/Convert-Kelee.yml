@@ -25,121 +25,122 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 步骤1: 下载插件 (核心修改)
-      - name: Download Plugins via Bash
+      # === 阶段 1: 环境准备 (为了运行 cloudscraper) ===
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python dependencies
         run: |
-          mkdir -p Plugin
-          
-          # 1. 定义伪装头和镜像源
-          UA="Loon/3.2.1 (iPhone; iOS 17.2; Scale/3.00)"
-          mirrors=("https://git.botrna.site" "https://git.boio.me" "https://git.repcz.link")
-          JSON_URL="https://pluginhub.kelee.one/list.json"
-          
-          echo "🔍 正在获取插件列表: $JSON_URL"
-          
-          # 2. 下载 list.json (优先直连，带UA)
-          # -L 跟随重定向, -f 失败不输出内容
-          if ! curl -s -L -H "User-Agent: $UA" -o list.json "$JSON_URL"; then
-            echo "⚠️ 直连获取列表失败，尝试镜像..."
-            for mirror in "${mirrors[@]}"; do
-              # 尝试拼接镜像路径，假设镜像代理了 kelee.one
-              # 注意：具体镜像路径规则取决于镜像站，这里参考你提供的 successful script 逻辑
-              mirror_json_url="$mirror/kelee.one/list.json"
-              if curl -s -L -H "User-Agent: $UA" -o list.json "$mirror_json_url"; then
-                echo "✅ 通过镜像获取列表成功: $mirror"
-                break
-              fi
-            done
-          fi
+          # 安装 cloudscraper 用于绕过 WAF
+          pip install cloudscraper requests
 
-          if [ ! -s list.json ]; then
-            echo "❌ 无法获取有效的 list.json，流程终止。"
-            exit 1
-          fi
+      # === 阶段 2: 使用 Python + Cloudscraper 下载插件 ===
+      - name: Download Plugins (Python script)
+        run: |
+          # 创建 Python 脚本来处理下载
+          cat <<EOF > download_kelee.py
+          import os
+          import json
+          import cloudscraper
+          from urllib.parse import urlparse
 
-          # 3. 解析 JSON 并下载 (jq提取 lists 中的 url)
-          # 提取逻辑：找到 lists 数组 -> 取出 url 字段 -> 去掉 loon://import?plugin= 前缀
-          urls=$(jq -r '.lists[].url' list.json | sed 's/loon:\/\/import?plugin=//')
+          # 配置
+          LIST_URL = "https://pluginhub.kelee.one/list.json"
+          OUTPUT_DIR = "Plugin"
           
-          echo "📦 找到插件链接，准备下载..."
-          
-          count=0
-          for url in $urls; do
-            # 提取文件名
-            filename=$(basename "$url")
-            # 确保后缀名为 .lpx
-            if [[ "$filename" != *".lpx" ]]; then filename="${filename}.lpx"; fi
-            
-            echo "⬇️ 正在处理: $filename"
-            
-            # 尝试下载逻辑函数
-            download_file() {
-              local target_url="$1"
-              local output_file="Plugin/$2"
-              
-              # 尝试 1: 直连下载 (带 UA)
-              if curl -s -L --connect-timeout 10 --retry 2 -H "User-Agent: $UA" -o "$output_file" "$target_url"; then
-                 # 检查文件是否为空或包含 HTML 错误页
-                 if [ -s "$output_file" ] && ! grep -q "<html" "$output_file"; then
-                   echo "  ✅ 直连下载成功"
-                   return 0
-                 fi
-              fi
-              
-              # 尝试 2: 镜像下载 (如果 URL 包含 kelee.one)
-              if [[ "$target_url" == *"kelee.one"* ]]; then
-                # 构造镜像 URL: 将 https://kelee.one 替换为 https://mirror/kelee.one
-                local path_part=$(echo "$target_url" | sed 's/^https:\/\/kelee.one\///')
-                
-                for mirror in "${mirrors[@]}"; do
-                  local mirror_url="$mirror/kelee.one/$path_part"
-                  echo "  ⚠️ 直连失败，尝试镜像: $mirror"
-                  if curl -s -L --connect-timeout 10 --retry 2 -H "User-Agent: $UA" -o "$output_file" "$mirror_url"; then
-                    if [ -s "$output_file" ] && ! grep -q "<html" "$output_file"; then
-                      echo "  ✅ 镜像下载成功"
-                      return 0
-                    fi
-                  fi
-                done
-              fi
-              
-              echo "  ❌ 所有方式下载失败"
-              return 1
-            }
-            
-            download_file "$url" "$filename"
-            count=$((count+1))
-          done
-          
-          echo "🎉 处理完成，共处理 $count 个插件。"
+          # 初始化 scraper (模拟浏览器绕过 Cloudflare)
+          scraper = cloudscraper.create_scraper(
+              browser={
+                  'browser': 'chrome',
+                  'platform': 'ios',
+                  'desktop': False
+              }
+          )
 
-      # 步骤2: 移动文件到指定目录 (保持原有逻辑)
+          def download_plugins():
+              if not os.path.exists(OUTPUT_DIR):
+                  os.makedirs(OUTPUT_DIR)
+
+              print(f"🔍 正在获取插件列表: {LIST_URL}")
+              try:
+                  resp = scraper.get(LIST_URL)
+                  if resp.status_code != 200:
+                      print(f"❌ 获取列表失败: {resp.status_code}")
+                      return
+                  
+                  data = resp.json()
+                  plugins = data.get("lists", [])
+                  print(f"✅ 获取成功，共有 {len(plugins)} 个插件")
+
+                  for item in plugins:
+                      raw_url = item.get("url", "")
+                      if not raw_url:
+                          continue
+
+                      # 清理 URL: 去掉 loon://import?plugin=
+                      download_url = raw_url.replace("loon://import?plugin=", "")
+                      
+                      # 提取文件名
+                      path = urlparse(download_url).path
+                      filename = os.path.basename(path)
+                      if not filename.endswith(".lpx") and not filename.endswith(".plugin"):
+                          filename += ".lpx"
+
+                      save_path = os.path.join(OUTPUT_DIR, filename)
+                      
+                      print(f"⬇️ 正在下载: {filename}")
+                      try:
+                          # 使用 scraper 下载具体文件，防止文件下载也被拦截
+                          file_resp = scraper.get(download_url)
+                          if file_resp.status_code == 200:
+                              with open(save_path, 'wb') as f:
+                                  f.write(file_resp.content)
+                              print(f"  ✅ 保存成功")
+                          else:
+                              print(f"  ❌ 下载失败: {file_resp.status_code}")
+                      except Exception as e:
+                          print(f"  ⚠️ 下载异常: {e}")
+
+              except Exception as e:
+                  print(f"❌ 严重错误: {e}")
+
+          if __name__ == "__main__":
+              download_plugins()
+          EOF
+          
+          # 运行脚本
+          python download_kelee.py
+
+      # === 阶段 3: 回归你原来的 Bash 逻辑处理文件 ===
+      
       - name: Move .lpx files
         run: |
           mkdir -p Modules/Loon/Kelee/Official
-          # 查找下载的文件并移动
-          find Plugin -type f -name '*.lpx' | while read file; do
-            cp "$file" "Modules/Loon/Kelee/Official/"
+          # 查找 Plugin 目录下所有的文件
+          find Plugin -type f \( -name '*.lpx' -o -name '*.plugin' \) | while read file; do
+            filename=$(basename "$file")
+            target_name="${filename%.*}.lpx"
+            cp "$file" "Modules/Loon/Kelee/Official/$target_name"
           done
 
-      # 步骤3: 替换 JS 链接 (Bash版，替代 Python 脚本)
-      - name: Find and replace external JS resources
+      - name: Replace JS links in all plugins (Bash)
         continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
           mkdir -p Modules/JS/Kelee
-
-          # 伪装 UA 防止下载 JS 时也被拦截
-          UA="Loon/3.2.1 (iPhone; iOS 17.2; Scale/3.00)"
-
+          
+          # 使用 Cloudscraper 下载 JS 比较麻烦，这里 JS 一般存放在 Github Raw 或其他 CDN，
+          # 通常 curl 就能搞定。如果 JS 也在 kelee.one，可能需要特殊处理，
+          # 但一般插件引用的 JS 都是外部的。
+          
           find Modules/Loon/Kelee/Official -name "*.lpx" | while read plugin_file; do
             plugin_name=$(basename "$plugin_file" .lpx)
             
-            # 提取 http/https 链接 (js/json/jq)
             js_links=$(grep -v '#' "$plugin_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
 
             if [ -z "$js_links" ]; then continue; fi
-            
             echo "Processing JS for $plugin_name"
 
             for js_link in $js_links; do
@@ -149,8 +150,8 @@ jobs:
               
               mkdir -p "$(dirname "$local_js_path")"
 
-              # 下载 JS (同样加上 UA)
-              if curl -sL -H "User-Agent: $UA" --retry 2 --connect-timeout 10 -o "$local_js_path" "$js_link"; then
+              # JS 下载尝试 curl (带 UA)
+              if curl -sL -A "Surge Mac/2985" --retry 2 --connect-timeout 10 -o "$local_js_path" "$js_link"; then
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                 sed -i "s|$escaped_link|$github_js_url|g" "$plugin_file"
                 echo "  ✅ Replaced $js_filename"
@@ -165,7 +166,6 @@ jobs:
           echo "Waiting for Docker services to be ready..."
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      # 步骤4: 并发转换 (保持之前的优化)
       - name: Convert plugins (Parallelized)
         run: |
           plugin_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Loon/Kelee/Official/"
