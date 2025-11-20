@@ -3,7 +3,7 @@
 #!category=Jacob
 
 [Rule]
-DOMAIN,bigdata-behaviordata.189.cn,REJECT,extended-matching,pre-matching
+DOMAIN,bigdata-behaviordata.189.cn,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/m\.sh\.189\.cn\/business-appletapi\/packBinds\/getAadvertisement - reject

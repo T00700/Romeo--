@@ -13,7 +13,7 @@
 #!date=2025-07-11
 
 [Rule]
-DOMAIN,open-pixon.ads-pixiv.net,REJECT,extended-matching,pre-matching
+DOMAIN,open-pixon.ads-pixiv.net,REJECT,extended-matching
 
 [Map Local]
 ^https?:\/\/d\.socdm\.com\/adsv\/ data-type=text data="{}" status-code=200

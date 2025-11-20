@@ -13,9 +13,9 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,adv-adlog.variflight.com,REJECT,extended-matching,pre-matching
-DOMAIN,adv-ads.variflight.com,REJECT,extended-matching,pre-matching
-DOMAIN,app-ad.variflight.com,REJECT,extended-matching,pre-matching
+DOMAIN,adv-adlog.variflight.com,REJECT,extended-matching
+DOMAIN,adv-ads.variflight.com,REJECT,extended-matching
+DOMAIN,app-ad.variflight.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/api\.cdmcaac\.com\/ad - reject

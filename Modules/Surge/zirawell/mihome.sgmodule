@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,sdkconfig.ad.xiaomi.com,REJECT,extended-matching,pre-matching
+DOMAIN,sdkconfig.ad.xiaomi.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/home\.mi\.com\/cgi-op\/api\/v\d\/recommendation - reject

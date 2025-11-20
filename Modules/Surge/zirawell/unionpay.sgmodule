@@ -13,10 +13,10 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,switch.cup.com.cn,REJECT,extended-matching,pre-matching
-DOMAIN,ads.cup.com.cn,REJECT,extended-matching,pre-matching
-DOMAIN,analytics.95516.com,REJECT,extended-matching,pre-matching
-DOMAIN,tysdk.95516.com,REJECT,extended-matching,pre-matching
+DOMAIN,switch.cup.com.cn,REJECT,extended-matching
+DOMAIN,ads.cup.com.cn,REJECT,extended-matching
+DOMAIN,analytics.95516.com,REJECT,extended-matching
+DOMAIN,tysdk.95516.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/wallet\.95516\.com(:10533)?\/s\/wl\/icon\/large\/1 - reject

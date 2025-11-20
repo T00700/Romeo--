@@ -13,6 +13,6 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,track.tiara.daum.net,REJECT,extended-matching,pre-matching
-DOMAIN,track.tiara.kakao.com,REJECT,extended-matching,pre-matching
+DOMAIN,track.tiara.daum.net,REJECT,extended-matching
+DOMAIN,track.tiara.kakao.com,REJECT,extended-matching
 

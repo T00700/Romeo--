@@ -3,7 +3,7 @@
 #!category=Jacob
 
 [Rule]
-DOMAIN,ad.maoyan.com,REJECT,extended-matching,pre-matching
+DOMAIN,ad.maoyan.com,REJECT,extended-matching
 
 [Map Local]
 ^https?:\/\/wx\.maoyan\.com\/maoyansh\/api\/mobile\/(?>hotMatchList|eSportsIps) data-type=text data="{}" status-code=200

@@ -13,9 +13,9 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,trackercollect.ddxq.mobi,REJECT,extended-matching,pre-matching
-DOMAIN,ddfs-public.ddimg.mobi,REJECT,extended-matching,pre-matching
-DOMAIN,rttrack.ddxq.mobi,REJECT,extended-matching,pre-matching
+DOMAIN,trackercollect.ddxq.mobi,REJECT,extended-matching
+DOMAIN,ddfs-public.ddimg.mobi,REJECT,extended-matching
+DOMAIN,rttrack.ddxq.mobi,REJECT,extended-matching
 
 [URL Rewrite]
 # 开屏广告

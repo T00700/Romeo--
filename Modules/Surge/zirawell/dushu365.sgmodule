@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,popup.dushu365.com,REJECT,extended-matching,pre-matching
+DOMAIN,popup.dushu365.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/g(.*)\.dushu365\.com\/chief-orch\/config\/config\/v\d+\/(shortCut|appUpdateUnite|loadingAd|appConfig) - reject

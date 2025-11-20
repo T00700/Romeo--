@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-SUFFIX,ads.zhinengxiyifang.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,ads.zhinengxiyifang.cn,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/api-marketing\.zhinengxiyifang\.cn\/api\/v\d\/cloudcode\/wechat\/bid - reject

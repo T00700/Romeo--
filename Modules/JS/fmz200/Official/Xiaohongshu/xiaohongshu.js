@@ -67,6 +67,7 @@ if (url.includes("/system_service/splash_config")) {
 }
 
 if (url.includes("/note/imagefeed?") || url.includes("/note/feed?")) {
+  console.log('打印原body：' + JSON.stringify(obj));
   // 信息流 图片
   if (obj?.data?.length > 0) {
     if (obj.data[0]?.note_list?.length > 0) {
@@ -105,7 +106,7 @@ if (url.includes("/note/imagefeed?") || url.includes("/note/feed?")) {
 if (url.includes("/note/live_photo/save")) {
   console.log('原body：' + rsp_body);
   const rsp = $.getdata("fmz200.xiaohongshu.feed.rsp");
-  console.log("读取缓存key：fmz200.xiaohongshu.feed.rsp");
+  console.log("读取缓存key[fmz200.xiaohongshu.feed.rsp]的值：" + rsp);
   // console.log("读取缓存val：" + rsp);
   if (rsp == null || rsp.length === 0) {
     console.log('缓存无内容，返回原body');
@@ -392,10 +393,10 @@ function imageEnhance(jsonStr) {
   const imageQuality = $.getdata("fmz200.xiaohongshu.imageQuality");
   console.log(`Image Quality: ${imageQuality}`);
   if (imageQuality === "original") { // 原始分辨率，PNG格式的图片，占用空间比较大
-    console.log("画质修改为-原始分辨率");
+    console.log("画质设置为-原始分辨率");
     jsonStr = jsonStr.replace(/\?imageView2\/2[^&]*(?:&redImage\/frame\/0)/, "?imageView2/0/format/png&redImage/frame/0");
   } else { // 高像素输出
-    console.log("画质修改为-高像素输出");
+    console.log("画质设置为-高像素输出");
     const regex1 = /imageView2\/2\/w\/\d+\/format/g;
     jsonStr = jsonStr.replace(regex1, `imageView2/2/w/2160/format`);
 

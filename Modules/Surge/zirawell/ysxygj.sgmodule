@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,ads.ysepay.com,REJECT,extended-matching,pre-matching
+DOMAIN,ads.ysepay.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/ya-sdn\.ysepay\.com\/ma_gate\/advertisement - reject

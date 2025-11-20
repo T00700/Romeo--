@@ -3,7 +3,7 @@
 #!category=Jacob
 
 [Rule]
-DOMAIN,api.hongyibo.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,api.hongyibo.com.cn,REJECT,extended-matching
 
 [Map Local]
 ^https?:\/\/res\.hongyibo\.com\.cn\/os\/gs\/resapi\/activity data-type=text data="{}" status-code=200

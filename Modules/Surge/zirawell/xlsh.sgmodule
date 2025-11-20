@@ -13,5 +13,5 @@
 #!date=2025-07-09
 
 [Rule]
-DOMAIN-KEYWORD,mpos-pic.helipay.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,mpos-pic.helipay.com,REJECT,extended-matching
 

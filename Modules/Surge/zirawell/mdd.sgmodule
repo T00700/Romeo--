@@ -13,10 +13,10 @@
 #!date=2025-07-10
 
 [Rule]
-DOMAIN,toblog.ctobsnssdk.com,REJECT,extended-matching,pre-matching
-DOMAIN,t-dsp.pinduoduo.com,REJECT,extended-matching,pre-matching
-DOMAIN,sdk1xyajs.data.kuiniuca.com,REJECT,extended-matching,pre-matching
-DOMAIN,conf-darwin.xycdn.com,REJECT,extended-matching,pre-matching
+DOMAIN,toblog.ctobsnssdk.com,REJECT,extended-matching
+DOMAIN,t-dsp.pinduoduo.com,REJECT,extended-matching
+DOMAIN,sdk1xyajs.data.kuiniuca.com,REJECT,extended-matching
+DOMAIN,conf-darwin.xycdn.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/tower\.ubixioe\.com\/mob\/mediation - reject

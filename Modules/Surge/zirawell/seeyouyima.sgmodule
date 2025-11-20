@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,ad.seeyouyima.com,REJECT,extended-matching,pre-matching
+DOMAIN,ad.seeyouyima.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/x\.seeyouyima\.com\/adx\/staticstics\? - reject

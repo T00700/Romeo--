@@ -3,5 +3,5 @@
 #!category=Jacob
 
 [Rule]
-DOMAIN,tracker-prd.aldi.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,tracker-prd.aldi.com.cn,REJECT,extended-matching
 

@@ -13,26 +13,26 @@
 #!date=2025-07-10
 
 [Rule]
-DOMAIN,credits.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN,credits2.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN,credits3.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN,dflow.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN,encounter.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN,floor.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN,layer.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN,vip.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN,mob.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN,rc-topic-api.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN,rprain.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN,rc-topic-api.bz.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,imgaliyun.res.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,pcvideoaliyun.titan.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,mobaliyun.res.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,pcvideoyd.titan.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,pcweb.v1.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,cmop.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,da.mgtv.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,log.mgtv.com,REJECT,extended-matching,pre-matching
+DOMAIN,credits.bz.mgtv.com,REJECT,extended-matching
+DOMAIN,credits2.bz.mgtv.com,REJECT,extended-matching
+DOMAIN,credits3.bz.mgtv.com,REJECT,extended-matching
+DOMAIN,dflow.bz.mgtv.com,REJECT,extended-matching
+DOMAIN,encounter.bz.mgtv.com,REJECT,extended-matching
+DOMAIN,floor.bz.mgtv.com,REJECT,extended-matching
+DOMAIN,layer.bz.mgtv.com,REJECT,extended-matching
+DOMAIN,vip.bz.mgtv.com,REJECT,extended-matching
+DOMAIN,mob.bz.mgtv.com,REJECT,extended-matching
+DOMAIN,rc-topic-api.bz.mgtv.com,REJECT,extended-matching
+DOMAIN,rprain.bz.mgtv.com,REJECT,extended-matching
+DOMAIN,rc-topic-api.bz.mgtv.com,REJECT,extended-matching
+DOMAIN-SUFFIX,imgaliyun.res.mgtv.com,REJECT,extended-matching
+DOMAIN-SUFFIX,pcvideoaliyun.titan.mgtv.com,REJECT,extended-matching
+DOMAIN-SUFFIX,mobaliyun.res.mgtv.com,REJECT,extended-matching
+DOMAIN-SUFFIX,pcvideoyd.titan.mgtv.com,REJECT,extended-matching
+DOMAIN-SUFFIX,pcweb.v1.mgtv.com,REJECT,extended-matching
+DOMAIN-SUFFIX,cmop.mgtv.com,REJECT,extended-matching
+DOMAIN-SUFFIX,da.mgtv.com,REJECT,extended-matching
+DOMAIN-SUFFIX,log.mgtv.com,REJECT,extended-matching
 
 [URL Rewrite]
 # 无用请求

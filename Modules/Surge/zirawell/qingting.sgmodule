@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,ad.qingting.fm,REJECT,extended-matching,pre-matching
-DOMAIN,adlaunch.qingting.fm,REJECT,extended-matching,pre-matching
-DOMAIN,ad-cdn.qingting.fm,REJECT,extended-matching,pre-matching
+DOMAIN,ad.qingting.fm,REJECT,extended-matching
+DOMAIN,adlaunch.qingting.fm,REJECT,extended-matching
+DOMAIN,ad-cdn.qingting.fm,REJECT,extended-matching
 

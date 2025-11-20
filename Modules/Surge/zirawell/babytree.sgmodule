@@ -13,15 +13,15 @@
 #!date=2025-07-10
 
 [Rule]
-DOMAIN,m.meitun.com,REJECT,extended-matching,pre-matching
-DOMAIN,adx.babytree.com,REJECT,extended-matching,pre-matching
-DOMAIN,adx-backend.babytree.com,REJECT,extended-matching,pre-matching
-DOMAIN,ads.babytree.com,REJECT,extended-matching,pre-matching
-DOMAIN,bbtads.babytree.com,REJECT,extended-matching,pre-matching
-DOMAIN,tracking.babytree.com,REJECT,extended-matching,pre-matching
-DOMAIN,mobads-pre-config.cdn.bcebos.com,REJECT,extended-matching,pre-matching
-DOMAIN,titan.babytree.com,REJECT,extended-matching,pre-matching
-DOMAIN,titan01.babytree.com,REJECT,extended-matching,pre-matching
+DOMAIN,m.meitun.com,REJECT,extended-matching
+DOMAIN,adx.babytree.com,REJECT,extended-matching
+DOMAIN,adx-backend.babytree.com,REJECT,extended-matching
+DOMAIN,ads.babytree.com,REJECT,extended-matching
+DOMAIN,bbtads.babytree.com,REJECT,extended-matching
+DOMAIN,tracking.babytree.com,REJECT,extended-matching
+DOMAIN,mobads-pre-config.cdn.bcebos.com,REJECT,extended-matching
+DOMAIN,titan.babytree.com,REJECT,extended-matching
+DOMAIN,titan01.babytree.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/api\.babytree\.com\/api\/(?>advertising|mobile_activity) - reject

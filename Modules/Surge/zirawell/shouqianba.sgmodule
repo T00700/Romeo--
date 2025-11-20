@@ -3,5 +3,5 @@
 #!category=Jacob
 
 [Rule]
-DOMAIN,ads-shopping.shouqianba.com,REJECT,extended-matching,pre-matching
+DOMAIN,ads-shopping.shouqianba.com,REJECT,extended-matching
 

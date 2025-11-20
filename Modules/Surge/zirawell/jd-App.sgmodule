@@ -13,25 +13,25 @@
 #!date=2025-07-10
 
 [Rule]
-DOMAIN,dns.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN,waapdg.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN,dsp-x.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN,xlog.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN,janapi.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN,jdqd.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN,dgstatic.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN,wqs.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,jzt.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,img-x.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,du.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,c-nfa.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,cm.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,kepler.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,bdsp.x.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,keplerapi.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,mapi.m.jd.com,REJECT,extended-matching,pre-matching
-IP-CIDR,101.124.19.122/32,REJECT,no-resolve,pre-matching
-IP-CIDR6,2402:db40:5100:1011::5/128,REJECT,no-resolve,pre-matching
+DOMAIN,dns.jd.com,REJECT,extended-matching
+DOMAIN,waapdg.jd.com,REJECT,extended-matching
+DOMAIN,dsp-x.jd.com,REJECT,extended-matching
+DOMAIN,xlog.jd.com,REJECT,extended-matching
+DOMAIN,janapi.jd.com,REJECT,extended-matching
+DOMAIN,jdqd.jd.com,REJECT,extended-matching
+DOMAIN,dgstatic.jd.com,REJECT,extended-matching
+DOMAIN,wqs.jd.com,REJECT,extended-matching
+DOMAIN-SUFFIX,jzt.jd.com,REJECT,extended-matching
+DOMAIN-SUFFIX,img-x.jd.com,REJECT,extended-matching
+DOMAIN-SUFFIX,du.jd.com,REJECT,extended-matching
+DOMAIN-SUFFIX,c-nfa.jd.com,REJECT,extended-matching
+DOMAIN-SUFFIX,cm.jd.com,REJECT,extended-matching
+DOMAIN-KEYWORD,kepler.jd.com,REJECT,extended-matching
+DOMAIN-KEYWORD,bdsp.x.jd.com,REJECT,extended-matching
+DOMAIN-KEYWORD,keplerapi.jd.com,REJECT,extended-matching
+DOMAIN-KEYWORD,mapi.m.jd.com,REJECT,extended-matching
+IP-CIDR,101.124.19.122/32,REJECT,no-resolve
+IP-CIDR6,2402:db40:5100:1011::5/128,REJECT,no-resolve
 
 [URL Rewrite]
 # 屏蔽强制更新

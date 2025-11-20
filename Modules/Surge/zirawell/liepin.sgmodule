@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,apmplus.volces.com,REJECT,extended-matching,pre-matching
+DOMAIN,apmplus.volces.com,REJECT,extended-matching
 
 [Map Local]
 ^https?:\/\/api-c\.liepin\.com\/api\/com\.liepin\.pupa\.discover\.city\.get-ad-comps data-type=text data="{}" status-code=200

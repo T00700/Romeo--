@@ -3,5 +3,5 @@
 #!category=Jacob
 
 [Rule]
-DOMAIN,api.zysdsk.cn,REJECT,extended-matching,pre-matching
+DOMAIN,api.zysdsk.cn,REJECT,extended-matching
 

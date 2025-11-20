@@ -13,7 +13,7 @@
 #!date=2025-07-10
 
 [Rule]
-DOMAIN,ad.iot.360.cn,REJECT,extended-matching,pre-matching
+DOMAIN,ad.iot.360.cn,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/app\.home\.360\.cn\/v\d\/config\/custom_config - reject

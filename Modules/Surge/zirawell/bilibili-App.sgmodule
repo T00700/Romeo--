@@ -13,11 +13,11 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-KEYWORD,api.sobot.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,cm.ad.bilibili.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,cm.adcommon.bilibili.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,cm.game.bilibili.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,cm.track.biligame.bilibili.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,api.sobot.com,REJECT,extended-matching
+DOMAIN-SUFFIX,cm.ad.bilibili.com,REJECT,extended-matching
+DOMAIN-SUFFIX,cm.adcommon.bilibili.com,REJECT,extended-matching
+DOMAIN-SUFFIX,cm.game.bilibili.com,REJECT,extended-matching
+DOMAIN-SUFFIX,cm.track.biligame.bilibili.com,REJECT,extended-matching
 
 [Map Local]
 ^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\? data-type=text data="{}" status-code=200

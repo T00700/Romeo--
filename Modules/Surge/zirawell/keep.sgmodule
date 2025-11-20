@@ -13,9 +13,9 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,hc-ssp.sm.cn,REJECT,extended-matching,pre-matching
-DOMAIN,apm.gotokeep.com,REJECT,extended-matching,pre-matching
-DOMAIN,kad.gotokeep.com,REJECT,extended-matching,pre-matching
+DOMAIN,hc-ssp.sm.cn,REJECT,extended-matching
+DOMAIN,apm.gotokeep.com,REJECT,extended-matching
+DOMAIN,kad.gotokeep.com,REJECT,extended-matching
 
 [URL Rewrite]
 # 屏蔽应用内弹窗

@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-KEYWORD,adv.ccb.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,adv.ccb.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/image1\.ccb\.com\/newsinfo\/eBranch\/check\/(nf\/newfin\/activity|po\/poortheme\/activity)\/\w+\.png - reject

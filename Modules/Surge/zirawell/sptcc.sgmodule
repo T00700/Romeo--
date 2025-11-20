@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-SUFFIX,medproad.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,medproad.com,REJECT,extended-matching
 
 [URL Rewrite]
 # MITM域名中添加 itunes.apple.com 可屏蔽更新通知

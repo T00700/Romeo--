@@ -13,9 +13,9 @@
 #!date=2025-07-08
 
 [Rule]
-IP-CIDR,180.76.76.200/32,REJECT,no-resolve,pre-matching
-DOMAIN,afd.baidu.com,REJECT,extended-matching,pre-matching
-DOMAIN,mobads.baidu.com,REJECT,extended-matching,pre-matching
+IP-CIDR,180.76.76.200/32,REJECT,no-resolve
+DOMAIN,afd.baidu.com,REJECT,extended-matching
+DOMAIN,mobads.baidu.com,REJECT,extended-matching
 
 [Script]
 baidutieba = type=http-response, pattern=^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/(excellent\/personalized|frs\/(?>generalTabList|page|threadlist)|pb\/(pic)?page)$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/baidutieba/tiebaJson.js, requires-body=true, max-size=0

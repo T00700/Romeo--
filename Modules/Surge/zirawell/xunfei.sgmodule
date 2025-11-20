@@ -13,8 +13,8 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-SUFFIX,voiceads.cn,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,voiceads.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,iflyad.bj.openstorage.cn,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,ossp.voicecloud.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,voiceads.cn,REJECT,extended-matching
+DOMAIN-SUFFIX,voiceads.com,REJECT,extended-matching
+DOMAIN-SUFFIX,iflyad.bj.openstorage.cn,REJECT,extended-matching
+DOMAIN-KEYWORD,ossp.voicecloud.cn,REJECT,extended-matching
 

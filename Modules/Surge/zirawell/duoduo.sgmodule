@@ -3,5 +3,5 @@
 #!category=Jacob
 
 [Rule]
-DOMAIN-SUFFIX,ad.duoduo.link,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,ad.duoduo.link,REJECT,extended-matching
 

@@ -13,9 +13,9 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-SUFFIX,anythinktech.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,adkwai.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,mob.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,anythinktech.com,REJECT,extended-matching
+DOMAIN-SUFFIX,adkwai.com,REJECT,extended-matching
+DOMAIN-SUFFIX,mob.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/api\d\.bybutter\.com\/v\d\/app\/placements\/\d\/advertisements - reject

@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,adapi.izuiyou.com,REJECT,extended-matching,pre-matching
+DOMAIN,adapi.izuiyou.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/api\.izuiyou\.com\/ad\/ - reject

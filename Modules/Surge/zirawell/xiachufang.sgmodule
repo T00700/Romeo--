@@ -13,8 +13,8 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN-SUFFIX,baidu-union-js.xiachufang.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,baidu-union-pos.xiachufang.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,baidu-union-js.xiachufang.com,REJECT,extended-matching
+DOMAIN-SUFFIX,baidu-union-pos.xiachufang.com,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/api\.xiachufang\.com\/v\d\/ad/ - reject

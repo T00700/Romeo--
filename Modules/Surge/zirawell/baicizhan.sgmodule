@@ -13,8 +13,8 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,advertise.baicizhan.com,REJECT,extended-matching,pre-matching
-DOMAIN,advertise.baicizhan.org,REJECT,extended-matching,pre-matching
+DOMAIN,advertise.baicizhan.com,REJECT,extended-matching
+DOMAIN,advertise.baicizhan.org,REJECT,extended-matching
 
 [Map Local]
 ^https?:\/\/7n\.bczcdn\.com\/launchad\/ data-type=text data="" status-code=200

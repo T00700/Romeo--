@@ -13,8 +13,8 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,analytics.umetrip.com,REJECT,extended-matching,pre-matching
-DOMAIN,sensors.umetrip.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN,analytics.umetrip.com,REJECT,extended-matching
+DOMAIN,sensors.umetrip.com.cn,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native - reject

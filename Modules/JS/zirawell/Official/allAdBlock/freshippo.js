@@ -5,6 +5,8 @@ Please note that you may need to reinstall app for script to work.
 QuantumultX rewrite link:
 https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/QuanX/Adblock/App/H/盒马/rewrite/freshippo.conf
 
+Surge module link:
+https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/App/H/盒马/freshippo.sgmodule
 ********************************/
 
 const url = $request.url;
@@ -16,18 +18,27 @@ if (url.indexOf("queryindexpage") != -1) {
     "509",
     "738"
   ];
+  const spmcCode = [
+    "waterfall",          //瀑布流
+    //"channelsite",      //推荐坑位
+    //"growthhacking",    //用户增长
+    "category"            //分类
+
+  ];
+  /************* App *************/
+  // 首页栏目优化
   if (obj?.data?.scenes?.length > 0) {
-    let scenes = [];
-    for (let scene of obj.data.scenes) {
-      if (sceneTemplateId.includes(scene.sceneTemplateId)) {
-        scenes.push(scene);
-      }
-    }
-    obj.data.scenes = scenes;
+    obj.data.scenes = obj.data.scenes.filter(scene => sceneTemplateId.includes(scene.sceneTemplateId));
   }
   // 首页顶屏
   if (obj.data?.secondFloor) {
     obj.data.secondFloor = {};
+  }
+
+  /******** Wechat Applet ********/
+  // 首页栏目优化
+  if (obj?.data?.model?.scenes?.length > 0) {
+    obj.data.model.scenes = obj.data.model.scenes.filter(scene => spmcCode.includes(scene.spmc));
   }
 // 我的页
 } else if (url.indexOf("querymypage") != -1) {
@@ -46,13 +57,7 @@ if (url.indexOf("queryindexpage") != -1) {
     "350"
   ];
   if (obj?.data?.scenes?.length > 0) {
-    let scenes = [];
-    for (let scene of obj.data.scenes) {
-      if (sceneTemplateId.includes(scene.sceneTemplateId)) {
-        scenes.push(scene);
-      }
-    }
-    obj.data.scenes = scenes;
+    obj.data.scenes = obj.data.scenes.filter(scene => sceneTemplateId.includes(scene.sceneTemplateId));
   }
 
 } else if (url.indexOf("querytabfeedstream") != -1) {

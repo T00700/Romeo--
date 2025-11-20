@@ -13,8 +13,8 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,emdcadvertise.eastmoney.com,REJECT,extended-matching,pre-matching
-DOMAIN,emdcadvertisepj.eastmoney.com,REJECT,extended-matching,pre-matching
+DOMAIN,emdcadvertise.eastmoney.com,REJECT,extended-matching
+DOMAIN,emdcadvertisepj.eastmoney.com,REJECT,extended-matching
 
 [Map Local]
 ^https?:\/\/swdlcdn\.eastmoney\.com\/app\/adimg\/ data-type=text data="{}" status-code=200

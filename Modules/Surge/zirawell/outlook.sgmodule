@@ -13,7 +13,7 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,acdn.adnxs.com,REJECT,extended-matching,pre-matching
-DOMAIN,mediation.adnxs.com,REJECT,extended-matching,pre-matching
-DOMAIN,sin3-ib.adnxs.com,REJECT,extended-matching,pre-matching
+DOMAIN,acdn.adnxs.com,REJECT,extended-matching
+DOMAIN,mediation.adnxs.com,REJECT,extended-matching
+DOMAIN,sin3-ib.adnxs.com,REJECT,extended-matching
 

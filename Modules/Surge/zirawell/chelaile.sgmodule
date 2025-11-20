@@ -13,9 +13,9 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,atrace.chelaile.net.cn,REJECT,extended-matching,pre-matching
-DOMAIN,logs.chelaile.net.cn,REJECT,extended-matching,pre-matching
-DOMAIN,ad.chelaile.net.cn,REJECT,extended-matching,pre-matching
+DOMAIN,atrace.chelaile.net.cn,REJECT,extended-matching
+DOMAIN,logs.chelaile.net.cn,REJECT,extended-matching
+DOMAIN,ad.chelaile.net.cn,REJECT,extended-matching
 
 [URL Rewrite]
 ^https?:\/\/pic\d\.chelaile\.net\.cn\/adv\/ - reject

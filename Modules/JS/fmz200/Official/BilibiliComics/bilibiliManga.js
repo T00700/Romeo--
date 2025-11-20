@@ -5,6 +5,8 @@ Please note that you may need to reinstall app for script to work.
 QuantumultX rewrite link:
 https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/QuanX/Adblock/App/B/哔哩哔哩漫画/rewrite/bilibiliManga.conf
 
+Surge module link:
+https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/App/B/哔哩哔哩漫画/bilibiliManga.sgmodule
 ********************************/
 
 const url = $request.url;
@@ -42,6 +44,18 @@ if (url.includes("/UCenterConf")) {
     obj.data.feeds = obj.data.feeds.filter(feed => !feed.image.includes("/mall/"));
     //去除视频内容
     obj.data.feeds = obj.data.feeds.filter(feed => feed.inline_pv_card.bvid === "");
+  }
+//评论页置顶的哔漫小卖部
+} else if (url.includes("Comment/Main")) {
+  if (typeof obj?.data?.metainfo !== "undefined") {
+    let metainfo = JSON.parse(obj.data.metainfo);
+    if (typeof metainfo?.top !== "undefined") {
+      delete metainfo.top;
+    }
+    if (metainfo.top_replies?.length > 0) {
+      metainfo.top_replies = [];
+    }
+    obj.data.metainfo = JSON.stringify(metainfo);
   }
 }
 

@@ -13,10 +13,10 @@
 #!date=2025-07-08
 
 [Rule]
-DOMAIN,ads-img-qc.xhscdn.com,REJECT,extended-matching,pre-matching
-DOMAIN,ads-video-al.xhscdn.com,REJECT,extended-matching,pre-matching
-DOMAIN,ads-video-qc.xhscdn.com,REJECT,extended-matching,pre-matching
-DOMAIN,t-ads.xiaohongshu.com,REJECT,extended-matching,pre-matching
+DOMAIN,ads-img-qc.xhscdn.com,REJECT,extended-matching
+DOMAIN,ads-video-al.xhscdn.com,REJECT,extended-matching
+DOMAIN,ads-video-qc.xhscdn.com,REJECT,extended-matching
+DOMAIN,t-ads.xiaohongshu.com,REJECT,extended-matching
 
 [Map Local]
 # 笔记创作推荐
