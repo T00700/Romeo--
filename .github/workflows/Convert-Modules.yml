@@ -62,8 +62,8 @@ jobs:
             Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
             Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
             Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true"
-            Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
-            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
+            Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
 
             echo "Processing $filename_noext by $author..."
 
