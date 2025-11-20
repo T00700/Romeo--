@@ -49,6 +49,7 @@ jobs:
       - name: Process Loon .lpx files
         run: |
           mkdir -p Modules/Loon/${Author}/Official
+          # 查找源目录中的 lpx 文件并复制
           find ${{ env.SRC_DIR }}/Loon/plugin/split -name "*.lpx" -print0 | while IFS= read -r -d '' file; do
             filename=$(basename "$file")
             echo "Copying $filename..."
@@ -57,25 +58,35 @@ jobs:
 
       - name: Process & Convert Surge .sgmodule files
         run: |
+          # 创建目录结构
           mkdir -p Modules/Surge/${Author}/{Official,Beta} \
                    Modules/Loon/${Author}/Beta \
                    Modules/Shadowrocket/${Author}/Beta
 
+          # 优化点1: 使用 jq 替代 python 进行 url 编码，速度更快
           base_raw_url="https://raw.githubusercontent.com/${Author}/wool_scripts/main"
+          
+          # 预先计算 Category 编码，避免循环内重复计算
           encoded_category=$(printf 'Jacob' | jq -sRr @uri)
 
+          # 遍历本地文件
           find ${{ env.SRC_DIR }}/Surge/module/split -name "*.sgmodule" -print0 | while IFS= read -r -d '' file; do
             filename=$(basename "$file")
             name="${filename%.sgmodule}"
             
+            # 获取相对路径
             rel_path=$(realpath --relative-to="${{ env.SRC_DIR }}" "$file")
             raw_url="${base_raw_url}/${rel_path}"
             
             echo "Processing: $filename"
+            
+            # 1. 复制官方文件
             cp "$file" "Modules/Surge/${Author}/Official/$filename"
 
+            # 2. 准备转换参数 (使用 jq 编码)
             encoded_name=$(printf '%s' "$name" | jq -sRr @uri)
 
+            # 3. 并行请求转换 (保持原有的稳定组并发逻辑)
             # Surge
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/$filename" \
               "http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true" &
@@ -106,14 +117,17 @@ jobs:
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
           mkdir -p Modules/JS/${Author}
 
-          # 优化：只查找 Modules/Surge/${Author} 目录，并排除 Beta 目录
+          # 1. 锁定范围：只查找 Modules/Surge/${Author}，排除 Beta
+          # 2. 匹配内容：匹配所有 http...js/json/jq 链接
           find Modules/Surge/${Author} -type f -name "*.sgmodule" -not -path "*/Beta/*" -print0 | while IFS= read -r -d '' sgmodule_file; do
             module_folder=$(basename "$sgmodule_file" .sgmodule)
             
-            # 只提取 fmz200 的 JS 链接
-            js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]*fmz200[^ ]+\.(json|js|jq)' || true)
+            # 提取所有 JS 链接
+            js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || true)
 
-            if [ -z "$js_links" ]; then continue; fi
+            if [ -z "$js_links" ]; then
+              continue
+            fi
 
             echo "Processing JS for $module_folder"
 
@@ -126,8 +140,10 @@ jobs:
               mkdir -p "$(dirname "$local_js_full_path")"
 
               if curl -sL -A "Surge Mac/2985" -o "$local_js_full_path" "$js_link"; then
+                # 构建转义后的搜索字符串
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                 
+                # 直接指定文件路径进行替换，避免使用 find 全盘扫描
                 files_to_patch=(
                   "Modules/Surge/${Author}/Official/${module_folder}.sgmodule"
                   "Modules/Surge/${Author}/${module_folder}.sgmodule"
@@ -141,6 +157,7 @@ jobs:
                 for target_file in "${files_to_patch[@]}"; do
                   if [ -f "$target_file" ]; then
                     sed -i "s|$escaped_link|$github_js_url|g" "$target_file"
+                    # echo "Replaced in $target_file"
                   fi
                 done
               fi
