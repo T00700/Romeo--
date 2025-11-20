@@ -1,6 +1,3 @@
-# https://github.com/bunizao/Mirrored/blob/main/.github/workflows/convert.yml
-# https://github.com/Qmxn/Tools/blob/X/.github/workflows/SyncPlugin.yml
-
 name: Download and Convert Kelee Plugins
 
 on:
@@ -25,119 +22,71 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # === 阶段 1: 环境准备 (为了运行 cloudscraper) ===
+      # === 环境准备 ===
+      # 1. Python (运行下载脚本)
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Install Python dependencies
+      # 2. Node.js (Cloudscraper 必须依赖，用于绕过 WAF)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # === 获取远程脚本 ===
+      - name: Checkout private repository
+        uses: actions/checkout@v4
+        with:
+          repository: "${{ github.actor }}/ShalalaLala"
+          token: ${{ secrets.PERSONAL_TOKENS }}
+          path: ShalalaLala
+          # 仅拉取需要的脚本文件，速度更快
+          sparse-checkout: |
+            Scripts/kelee-20251120.py
+
+      # === 安装依赖 ===
+      - name: Install dependencies
         run: |
-          # 安装 cloudscraper 用于绕过 WAF
+          # 必须安装 cloudscraper 才能运行 kelee-20251120.py
           pip install cloudscraper requests
 
-      # === 阶段 2: 使用 Python + Cloudscraper 下载插件 ===
-      - name: Download Plugins (Python script)
-        run: |
-          # 创建 Python 脚本来处理下载
-          cat <<EOF > download_kelee.py
-          import os
-          import json
-          import cloudscraper
-          from urllib.parse import urlparse
+      # === 步骤 1: 运行远程下载脚本 ===
+      - name: Run download script
+        run: python ShalalaLala/Scripts/kelee-20251120.py
 
-          # 配置
-          LIST_URL = "https://pluginhub.kelee.one/list.json"
-          OUTPUT_DIR = "Plugin"
-          
-          # 初始化 scraper (模拟浏览器绕过 Cloudflare)
-          scraper = cloudscraper.create_scraper(
-              browser={
-                  'browser': 'chrome',
-                  'platform': 'ios',
-                  'desktop': False
-              }
-          )
-
-          def download_plugins():
-              if not os.path.exists(OUTPUT_DIR):
-                  os.makedirs(OUTPUT_DIR)
-
-              print(f"🔍 正在获取插件列表: {LIST_URL}")
-              try:
-                  resp = scraper.get(LIST_URL)
-                  if resp.status_code != 200:
-                      print(f"❌ 获取列表失败: {resp.status_code}")
-                      return
-                  
-                  data = resp.json()
-                  plugins = data.get("lists", [])
-                  print(f"✅ 获取成功，共有 {len(plugins)} 个插件")
-
-                  for item in plugins:
-                      raw_url = item.get("url", "")
-                      if not raw_url:
-                          continue
-
-                      # 清理 URL: 去掉 loon://import?plugin=
-                      download_url = raw_url.replace("loon://import?plugin=", "")
-                      
-                      # 提取文件名
-                      path = urlparse(download_url).path
-                      filename = os.path.basename(path)
-                      if not filename.endswith(".lpx") and not filename.endswith(".plugin"):
-                          filename += ".lpx"
-
-                      save_path = os.path.join(OUTPUT_DIR, filename)
-                      
-                      print(f"⬇️ 正在下载: {filename}")
-                      try:
-                          # 使用 scraper 下载具体文件，防止文件下载也被拦截
-                          file_resp = scraper.get(download_url)
-                          if file_resp.status_code == 200:
-                              with open(save_path, 'wb') as f:
-                                  f.write(file_resp.content)
-                              print(f"  ✅ 保存成功")
-                          else:
-                              print(f"  ❌ 下载失败: {file_resp.status_code}")
-                      except Exception as e:
-                          print(f"  ⚠️ 下载异常: {e}")
-
-              except Exception as e:
-                  print(f"❌ 严重错误: {e}")
-
-          if __name__ == "__main__":
-              download_plugins()
-          EOF
-          
-          # 运行脚本
-          python download_kelee.py
-
-      # === 阶段 3: 回归你原来的 Bash 逻辑处理文件 ===
-      
+      # === 步骤 2: 本地处理文件 (Move) ===
       - name: Move .lpx files
         run: |
           mkdir -p Modules/Loon/Kelee/Official
-          # 查找 Plugin 目录下所有的文件
-          find Plugin -type f \( -name '*.lpx' -o -name '*.plugin' \) | while read file; do
-            filename=$(basename "$file")
-            target_name="${filename%.*}.lpx"
-            cp "$file" "Modules/Loon/Kelee/Official/$target_name"
-          done
+          # 检查目录是否存在
+          if [ -d "Plugin" ]; then
+            # 查找 Plugin 目录下所有的文件 (.lpx 或 .plugin)，统一重命名为 .lpx 并移动
+            find Plugin -type f \( -name '*.lpx' -o -name '*.plugin' \) | while read file; do
+              filename=$(basename "$file")
+              target_name="${filename%.*}.lpx"
+              cp "$file" "Modules/Loon/Kelee/Official/$target_name"
+            done
+          else
+            echo "⚠️ Plugin directory not found (Download might have failed), skipping move."
+          fi
 
-      - name: Replace JS links in all plugins (Bash)
+      # === 步骤 3: 本地处理 JS (JS Replace - 本地 Bash 实现) ===
+      - name: Find and replace external JS resources
         continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
           mkdir -p Modules/JS/Kelee
           
-          # 使用 Cloudscraper 下载 JS 比较麻烦，这里 JS 一般存放在 Github Raw 或其他 CDN，
-          # 通常 curl 就能搞定。如果 JS 也在 kelee.one，可能需要特殊处理，
-          # 但一般插件引用的 JS 都是外部的。
-          
+          # 伪装 UA
+          UA="Surge Mac/2985"
+
+          # 遍历 Official 目录下的插件
           find Modules/Loon/Kelee/Official -name "*.lpx" | while read plugin_file; do
             plugin_name=$(basename "$plugin_file" .lpx)
             
+            # 提取 http/https 链接 (后缀 .js .json .jq)
             js_links=$(grep -v '#' "$plugin_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
 
             if [ -z "$js_links" ]; then continue; fi
@@ -150,9 +99,11 @@ jobs:
               
               mkdir -p "$(dirname "$local_js_path")"
 
-              # JS 下载尝试 curl (带 UA)
-              if curl -sL -A "Surge Mac/2985" --retry 2 --connect-timeout 10 -o "$local_js_path" "$js_link"; then
+              # 下载 JS
+              if curl -sL -A "$UA" --retry 2 --connect-timeout 10 -o "$local_js_path" "$js_link"; then
+                # 转义链接中的特殊字符，防止 sed 报错
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
+                # 替换文件内容
                 sed -i "s|$escaped_link|$github_js_url|g" "$plugin_file"
                 echo "  ✅ Replaced $js_filename"
               else
@@ -161,11 +112,13 @@ jobs:
             done
           done
 
+      # === 步骤 4: 等待 Docker 服务 ===
       - name: Wait for Docker services to be ready
         run: |
           echo "Waiting for Docker services to be ready..."
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
+      # === 步骤 5: 本地并发转换 (Convert) ===
       - name: Convert plugins (Parallelized)
         run: |
           plugin_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Loon/Kelee/Official/"
@@ -181,6 +134,7 @@ jobs:
             Modules_name=$(basename "$plugin_local_url" .lpx)
             encoded_Modules_name=$(echo "$Modules_name" | jq -sRr @uri)
 
+            # 构建转换 URL
             Surge_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=surge-module&category=${encoded_category}&nore=true"
             Surge_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
             Loon_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
@@ -190,6 +144,7 @@ jobs:
 
             echo "Converting ${Modules_name}..."
             
+            # 并发请求转换
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/${Modules_name}.sgmodule" "$Surge_url" &
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" &
             
@@ -202,6 +157,7 @@ jobs:
             wait
           done
 
+      # === 步骤 6: 提交更改 ===
       - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
