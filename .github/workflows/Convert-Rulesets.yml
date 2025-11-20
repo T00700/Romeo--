@@ -25,18 +25,13 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl jq netcat-openbsd
+      # 优化点1: 移除 apt-get，ubuntu-latest 已预装 curl, jq, netcat
 
       - name: Wait for Docker services to be ready
         run: |
           echo "Waiting for Docker services to be ready..."
-          for i in {1..10}; do
-            nc -z localhost 9100 && nc -z localhost 9101 && break
-            sleep 10
-          done
+          # 优化点2: 使用 timeout 防止死循环，缩短检测间隔
+          timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
       - name: Process Links and Download Files
         run: |
@@ -56,7 +51,7 @@ jobs:
             encoded_filename=$(echo "$filename_noext" | jq -sRr @uri)
             
             # 创建文件夹
-            echo "Creating directories for $author"
+            # echo "Creating directories for $author"
             mkdir -p Rulesets/{Surge,Loon,Shadowrocket,Clash}/$author/Beta
 
             # 构建模块的 URL
@@ -69,22 +64,22 @@ jobs:
             Clash_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=stash-rule-set&nore=true"
             Clash_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=stash-rule-set&nore=true&jqEnabled=true"
 
-            # 下载各模块文件
-            echo "Downloading Surge file: $Surge_url"
-            curl -A "Surge Mac/2985" -L -o "Rulesets/Surge/$author/$filename_noext.list" "$Surge_url" || echo "Failed to download $filename_noext.list"
-            curl -A "Surge Mac/2985" -L -o "Rulesets/Surge/$author/Beta/$filename_noext.list" "$Surge_Beta_url" || echo "Failed to download $filename_noext.list"
+            echo "Downloading Rulesets for $filename_noext..."
 
-            echo "Downloading Loon file: $Loon_url"
-            curl -A "Surge Mac/2985" -L -o "Rulesets/Loon/$author/$filename_noext.lsr" "$Loon_url" || echo "Failed to download $filename_noext.lsr"
-            curl -A "Surge Mac/2985" -L -o "Rulesets/Loon/$author/Beta/$filename_noext.lsr" "$Loon_Beta_url" || echo "Failed to download $filename_noext.lsr"
+            # 优化点3: 8个文件并发下载，大幅减少等待时间
+            curl -sL -A "Surge Mac/2985" -o "Rulesets/Surge/$author/$filename_noext.list" "$Surge_url" &
+            curl -sL -A "Surge Mac/2985" -o "Rulesets/Surge/$author/Beta/$filename_noext.list" "$Surge_Beta_url" &
 
-            echo "Downloading Shadowrocket file: $Shadowrocket_url"
-            curl -A "Surge Mac/2985" -L -o "Rulesets/Shadowrocket/$author/$filename_noext.list" "$Shadowrocket_url" || echo "Failed to download $filename_noext.list"
-            curl -A "Surge Mac/2985" -L -o "Rulesets/Shadowrocket/$author/Beta/$filename_noext.list" "$Shadowrocket_Beta_url" || echo "Failed to download $filename_noext.list"
+            curl -sL -A "Surge Mac/2985" -o "Rulesets/Loon/$author/$filename_noext.lsr" "$Loon_url" &
+            curl -sL -A "Surge Mac/2985" -o "Rulesets/Loon/$author/Beta/$filename_noext.lsr" "$Loon_Beta_url" &
 
-            echo "Downloading Clash file: $Clash_url"
-            curl -A "Surge Mac/2985" -L -o "Rulesets/Clash/$author/$filename_noext.yaml" "$Clash_url" || echo "Failed to download $filename_noext.yaml"
-            curl -A "Surge Mac/2985" -L -o "Rulesets/Clash/$author/Beta/$filename_noext.yaml" "$Clash_Beta_url" || echo "Failed to download $filename_noext.yaml"
+            curl -sL -A "Surge Mac/2985" -o "Rulesets/Shadowrocket/$author/$filename_noext.list" "$Shadowrocket_url" &
+            curl -sL -A "Surge Mac/2985" -o "Rulesets/Shadowrocket/$author/Beta/$filename_noext.list" "$Shadowrocket_Beta_url" &
+
+            curl -sL -A "Surge Mac/2985" -o "Rulesets/Clash/$author/$filename_noext.yaml" "$Clash_url" &
+            curl -sL -A "Surge Mac/2985" -o "Rulesets/Clash/$author/Beta/$filename_noext.yaml" "$Clash_Beta_url" &
+
+            wait # 等待当前规则集的所有版本下载完成
           done < Links/Rulesets-Links.txt
 
       - name: Commit and push changes
@@ -93,22 +88,22 @@ jobs:
         run: |
           # 获取当前日期，设置为北京时间 (UTC+8)
           DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
-    
+          
           # 添加所有更改
           git add Rulesets/*
-    
+          
           # 如果没有变化，跳过提交
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             # 提交消息，包含动态的日期
             COMMIT_MESSAGE="Converted Rulesets at $DATE (UTC+8)"
-      
+            
             # 确保仓库是最新的，避免冲突
             git stash
             git pull --rebase  # 同步远程仓库的最新更改
-            git stash pop  # 恢复之前的更改
-      
+            git stash pop || true # 恢复之前的更改，允许失败(如果没有stash)
+            
             # 再次添加文件，进行提交
             git add Rulesets/*
             git commit -m "$COMMIT_MESSAGE"
