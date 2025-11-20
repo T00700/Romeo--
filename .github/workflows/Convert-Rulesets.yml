@@ -61,8 +61,8 @@ jobs:
             Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lsr?type=rule-set&target=loon-rule-set&icon=Loon&nore=true&jqEnabled=true"
             Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=shadowrocket-rule-set&nore=true"
             Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=shadowrocket-rule-set&nore=true&jqEnabled=true"
-            Clash_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=stash-rule-set&nore=true"
-            Clash_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=stash-rule-set&nore=true&jqEnabled=true"
+            Clash_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.yaml?type=rule-set&target=stash-rule-set&nore=true"
+            Clash_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.yaml?type=rule-set&target=stash-rule-set&nore=true&jqEnabled=true"
 
             echo "Downloading Rulesets for $filename_noext..."
 
