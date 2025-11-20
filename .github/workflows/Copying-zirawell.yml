@@ -2,7 +2,7 @@ name: Mirror zirawell Modules
 
 on:
   schedule:
-    - cron: '7 */12 * * *'
+    - cron: '7 */12 * * *'  # 每 12 小时的 7 分执行
   workflow_dispatch:
 
 env:
@@ -119,16 +119,17 @@ jobs:
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
           mkdir -p Modules/JS/${Author}
 
-          # 优化：只查找 Modules/Surge/${Author}，排除 Beta
-          find Modules/Surge/${Author} -type f -name "*.sgmodule" -not -path "*/Beta/*" | while read module_file; do
+          # 1. 范围限制：只查找 zirawell 的 Official 目录
+          # 2. 内容匹配：恢复为匹配所有 http 开头的 js/json/jq 链接
+          find Modules/Surge/${Author}/Official -type f -name "*.sgmodule" | while read module_file; do
             module_folder=$(basename "$module_file" .sgmodule)
             
-            # 只提取 zirawell 的链接
-            js_links=$(grep -v '#' "$module_file" | grep -oP 'https?://[^ \"\)]*zirawell[^ \"\)]+\.(json|js|jq)' || true)
+            # 匹配所有 JS 链接
+            js_links=$(grep -v '#' "$module_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || true)
 
             if [ -z "$js_links" ]; then continue; fi
 
-            echo "Processing zirawell JS for $module_folder"
+            echo "Processing JS for $module_folder"
 
             for js_link in $js_links; do
               js_filename=$(basename "$js_link")
@@ -137,9 +138,12 @@ jobs:
               
               mkdir -p "$(dirname "$local_js_path")"
 
+              # 下载 JS
               if curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
+                # 转义特殊字符
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                 
+                # 批量替换所有格式的文件
                 find Modules -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" | \
                 xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
                 
@@ -151,8 +155,12 @@ jobs:
       - name: Commit and push changes
         run: |
           DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
-          git add Modules
           
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          
+          git add Modules/*
+
           if git diff --cached --quiet; then
             echo "✅ No changes to commit."
           else
