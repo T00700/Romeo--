@@ -93,7 +93,7 @@ jobs:
           # 清理临时文件
           rm -rf temp_source file_list.txt
 
-      - name: Convert sgmodules (Parallelized)
+      - name: Convert sgmodules (Serialized for Stability)
         run: |
           # 创建目录
           mkdir -p Modules/Surge/${Author}/{Beta,Official} \
@@ -108,9 +108,6 @@ jobs:
             name=$(basename "$file" .sgmodule)
             encoded_name=$(echo "$name" | jq -sRr @uri)
             
-            # 注意：base_url 依然指向你的仓库，用于 ScriptHub 读取内容
-            # 这里假设你会在 workflow 结束时 push，ScriptHub 会读取 raw 内容
-            # 如果 ScriptHub 需要实时读取本地内容，需要挂载 volume，但在 GitHub Actions 中通过 raw url 是标准做法
             base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Surge/${Author}/Official/$(basename "$file")"
 
             Surge_url="http://localhost:9100/file/_start_/${base_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
@@ -122,15 +119,18 @@ jobs:
 
             echo "Converting $name..."
 
-            # 优化点3: 并发转换，速度提升 6 倍
-            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/${name}.sgmodule" "$Surge_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/Beta/${name}.sgmodule" "$Surge_Beta_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/${name}.lpx" "$Loon_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/Beta/${name}.lpx" "$Loon_Beta_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/${name}.srmodule" "$Shadowrocket_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/Beta/${name}.srmodule" "$Shadowrocket_Beta_url" &
+            # === 核心修改：串行执行 ===
+            # 移除所有 & 和 wait，严格按顺序执行，确保容器稳定响应
             
-            wait # 等待当前文件的所有版本转换完成
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/${name}.sgmodule" "$Surge_url" || echo "Failed Surge"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/Beta/${name}.sgmodule" "$Surge_Beta_url" || echo "Failed Surge Beta"
+            
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/${name}.lpx" "$Loon_url" || echo "Failed Loon"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/Beta/${name}.lpx" "$Loon_Beta_url" || echo "Failed Loon Beta"
+            
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/${name}.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/Beta/${name}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket Beta"
+
           done
 
       - name: Find and replace external JS resources
