@@ -52,7 +52,7 @@ jobs:
       - name: Generate Plugin.txt
         run: python ShalalaLala/Scripts/kelee-20251120.py
 
-      # === 3. 使用镜像并发下载 (本地 Bash) ===
+      # === 3. 使用镜像下载 (本地 Bash) ===
       - name: Download Plugins via Mirrors
         run: |
           mkdir -p Plugin
@@ -123,8 +123,9 @@ jobs:
           echo "Waiting for Docker services..."
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      # === 6. 并发转换 (Convert) ===
-      - name: Convert plugins (Parallelized)
+      # === 6. 串行转换 (Serialized Convert) ===
+      # 核心修改：移除了 & 和 wait，改为串行执行
+      - name: Convert plugins (Serialized for Stability)
         run: |
           plugin_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Loon/Kelee/Official/"
           category="Jacob"
@@ -144,20 +145,23 @@ jobs:
             Loon_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
             Loon_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true"
             Shadowrocket_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.srmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true"
-            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.rmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.srmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
 
-            # 并发请求
-            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/${Modules_name}.sgmodule" "$Surge_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/${Modules_name}.lpx" "$Loon_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/Beta/${Modules_name}.lpx" "$Loon_Beta_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/${Modules_name}.srmodule" "$Shadowrocket_url" &
-            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" &
+            echo "Converting ${Modules_name}..."
             
-            wait
+            # 串行执行，确保每个文件都正确生成
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/${Modules_name}.sgmodule" "$Surge_url" || echo "Failed Surge"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/Kelee/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" || echo "Failed Surge Beta"
+            
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/${Modules_name}.lpx" "$Loon_url" || echo "Failed Loon"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/Kelee/Beta/${Modules_name}.lpx" "$Loon_Beta_url" || echo "Failed Loon Beta"
+            
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/${Modules_name}.srmodule" "$Shadowrocket_url" || echo "Failed Shadowrocket"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/Kelee/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed Shadowrocket Beta"
+            
           done
 
-      # === 7. JS 资源提取与替换 (使用你指定的 URL 格式) ===
+      # === 7. JS 资源提取与替换 ===
       - name: Find and replace external JS resources
         continue-on-error: true
         run: |
