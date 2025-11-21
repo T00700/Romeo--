@@ -1,17 +1,19 @@
-name: Mirror Shadowrocket-Specific Modules
+name: Mirror Specific Shadowrocket Modules
 
 on:
   schedule:
-    - cron: '0 20 * * *'  # 每天执行一次 (北京时间凌晨4点)
+    - cron: '0 20 * * *'  # 每天执行一次，时间可自行调整
   workflow_dispatch:
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
-  mirror-sr:
+  mirror-shadowrocket:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    # 不需要 Docker 服务，因为不需要格式转换
-
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,130 +24,123 @@ jobs:
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
       # === 任务 1: 处理 iab0x00 ===
-      - name: Process iab0x00 (Priority Logic)
+      # 逻辑：优先 .srmodule，无则取 .sgmodule 并改名
+      - name: Process iab0x00 (ProxyRules)
         run: |
           AUTHOR="iab0x00"
           TARGET_DIR="Modules/Shadowrocket/$AUTHOR"
           mkdir -p "$TARGET_DIR"
           
-          echo "🚀 Cloning $AUTHOR..."
+          echo "🚀 Cloning $AUTHOR/ProxyRules..."
           git clone --depth 1 -b main https://github.com/iab0x00/ProxyRules.git temp_iab
           
           # 进入 Rewrite 目录处理
           if [ -d "temp_iab/Rewrite" ]; then
             cd temp_iab/Rewrite
             
-            # 1. 先复制所有的 .srmodule (优先级高)
-            find . -maxdepth 1 -name "*.srmodule" | while read file; do
-              cp "$file" "../../$TARGET_DIR/"
-              echo "  ✅ Copied .srmodule: $file"
-            done
-            
-            # 2. 处理 .sgmodule (如果不存在同名 srmodule 则复制)
-            find . -maxdepth 1 -name "*.sgmodule" | while read file; do
-              filename=$(basename "$file" .sgmodule)
+            # 获取所有无后缀的文件名列表 (去重)
+            # 查找 .sgmodule 和 .srmodule，去掉后缀，排序去重
+            find . -maxdepth 1 -type f \( -name "*.sgmodule" -o -name "*.srmodule" \) | sed 's/\.[^.]*$//' | sort -u | while read basename_path; do
+              basename=$(basename "$basename_path")
               
-              # 检查是否存在同名的 .srmodule
-              if [ -f "../../$TARGET_DIR/$filename.srmodule" ]; then
-                echo "  ⏭️ Skipped .sgmodule (srmodule exists): $file"
-              else
-                cp "$file" "../../$TARGET_DIR/"
-                echo "  ✅ Copied .sgmodule: $file"
+              # 优先级判断逻辑
+              if [ -f "${basename}.srmodule" ]; then
+                echo "  ✅ Found .srmodule: ${basename}.srmodule"
+                cp "${basename}.srmodule" "../../$TARGET_DIR/${basename}.srmodule"
+              elif [ -f "${basename}.sgmodule" ]; then
+                echo "  🔄 Found .sgmodule, renaming: ${basename}.sgmodule -> .srmodule"
+                cp "${basename}.sgmodule" "../../$TARGET_DIR/${basename}.srmodule"
               fi
             done
-            
             cd ../..
           else
-            echo "⚠️ Directory Rewrite not found in iab0x00/ProxyRules"
+            echo "⚠️ Rewrite directory not found in iab0x00/ProxyRules"
           fi
           
           rm -rf temp_iab
 
       # === 任务 2: 处理 LOWERTOP ===
-      - name: Process LOWERTOP (Rename Logic)
+      # 逻辑：下载 .sgmodule -> 重命名为 .srmodule
+      - name: Process LOWERTOP (Shadowrocket-First)
         run: |
           AUTHOR="LOWERTOP"
           TARGET_DIR="Modules/Shadowrocket/$AUTHOR"
           mkdir -p "$TARGET_DIR"
           
-          echo "🚀 Cloning $AUTHOR..."
+          echo "🚀 Cloning $AUTHOR/Shadowrocket-First..."
           git clone --depth 1 -b main https://github.com/LOWERTOP/Shadowrocket-First.git temp_lowertop
           
-          cd temp_lowertop
-          
-          # 查找 .sgmodule 并重命名为 .srmodule
-          find . -maxdepth 1 -name "*.sgmodule" | while read file; do
+          # 查找根目录下的 sgmodule 并改名复制
+          find temp_lowertop -maxdepth 1 -type f -name "*.sgmodule" | while read file; do
             filename=$(basename "$file" .sgmodule)
-            
-            cp "$file" "../../$TARGET_DIR/$filename.srmodule"
-            echo "  ✅ Renamed & Copied: $filename.sgmodule -> $filename.srmodule"
+            echo "  🔄 Converting: $filename.sgmodule -> .srmodule"
+            cp "$file" "$TARGET_DIR/$filename.srmodule"
           done
           
-          cd ..
           rm -rf temp_lowertop
 
-      # === 任务 3: JS 替换 (仅针对这两个作者) ===
+      # === 任务 3: 统一替换 JS 链接 ===
       - name: Find and replace external JS resources
         continue-on-error: true
         run: |
-          # 定义 JS 存储的基础 URL
-          js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
-          UA="Shadowrocket/2036"  # 模拟 Shadowrocket UA
-
-          # 定义要处理的作者列表
+          # 设置基础 URL
+          js_base_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/Modules/JS"
+          
+          # 定义需要扫描的作者目录
           AUTHORS=("iab0x00" "LOWERTOP")
-
+          
           for author in "${AUTHORS[@]}"; do
+            echo "🔍 Scanning JS for author: $author"
             mkdir -p "Modules/JS/$author"
-            echo "🔍 Scanning modules for $author..."
             
-            # 扫描该作者目录下的所有模块文件 (.srmodule 或 .sgmodule)
-            find "Modules/Shadowrocket/$author" -type f \( -name "*.srmodule" -o -name "*.sgmodule" \) | while read module_file; do
+            # 扫描该作者目录下的所有 .srmodule 文件
+            find "Modules/Shadowrocket/$author" -name "*.srmodule" | while read module_file; do
+              module_folder=$(basename "$module_file" .srmodule)
               
-              module_name=$(basename "$module_file")
-              # 去掉后缀获取纯文件名，用于创建 JS 子目录
-              module_folder="${module_name%.*}"
-              
-              # 提取 http...js 链接
+              # 提取 JS 链接 (兼容 json/js/jq)
               js_links=$(grep -v '#' "$module_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
-
+              
               if [ -z "$js_links" ]; then continue; fi
               
-              echo "  Processing JS for $module_name"
-
+              echo "  Processing JS in: $module_folder"
+              
               for js_link in $js_links; do
                 js_filename=$(basename "$js_link")
-                # 路径结构: Modules/JS/作者/模块名/脚本.js
+                # JS 保存路径
                 local_js_path="Modules/JS/$author/$module_folder/$js_filename"
+                # 这里的 GitHub Raw 地址
                 github_js_url="$js_base_url/$author/$module_folder/$js_filename"
                 
                 mkdir -p "$(dirname "$local_js_path")"
-
+                
                 # 下载 JS
-                if curl -sL -A "$UA" --retry 2 --connect-timeout 10 -o "$local_js_path" "$js_link"; then
-                  
+                if curl -sL -A "Surge Mac/2985" --connect-timeout 10 --retry 2 -o "$local_js_path" "$js_link"; then
+                  # 转义链接用于 sed
                   escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                   
-                  # 仅替换当前文件
+                  # 替换文件中的链接
                   sed -i "s|$escaped_link|$github_js_url|g" "$module_file"
-                  
-                  echo "    ✅ Replaced $js_filename"
+                  echo "    ✅ Replaced: $js_filename"
                 else
-                  echo "    ⚠️ Failed to download JS: $js_link"
+                  echo "    ⚠️ Failed to download: $js_link"
                 fi
               done
             done
           done
 
       - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          DATE="$(date '+%Y-%m-%d %H:%M:%S')"
-          git add Modules
+          DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
+          
+          git add Modules/*
           
           if git diff --cached --quiet; then
             echo "✅ No changes to commit."
           else
             COMMIT_MESSAGE="Mirror Shadowrocket Modules at $DATE (UTC+8)"
+            
             git commit -m "$COMMIT_MESSAGE"
             git pull --rebase --autostash || true
             git push
