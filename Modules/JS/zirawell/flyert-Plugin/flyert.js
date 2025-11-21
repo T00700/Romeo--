@@ -51,7 +51,7 @@ if (typeof $request !== 'undefined') {
 function checkIn() {
     const param = JSON.parse(paramVal);
     let flyert = {
-        url: `https://www.flyert.com.cn/plugin.php?id=k_misign:sign&operation=qiandao&from=insign&version=${param.version}&appcan=${param.appcan}&appkey=${param.appkey}&appversion=${param.appversion}&formhash=${param.formhash}`,
+        url: `https://www.flyert.com.cn/api/mobile/index.php?module=plugin&id=k_misign:sign&operation=qiandao&from=insign&appcan=${param.appcan}&check=getstatus&version=${param.version}&appkey=${param.appkey}&appversion=${param.appversion}`,
         headers: {Cookie: cookieVal}
     }
     flyert.headers['Accept'] = `*/*`;

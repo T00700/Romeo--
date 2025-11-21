@@ -1,10 +1,11 @@
 #!name=hellobike-Applet
 #!desc=hellobike-Applet
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1096.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1079.png
 #!tag=Jacob
 
 [Rewrite]
-^https?:\/\/api\.hellobike\.com\/api\?adx mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/api\.hellobike\.com\/api\?homepage\.newWelfare\.alipay mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/api\.hellobike\.com\/api\?applet\.homepage\.medal\.activity mock-response-body data-type=text data="{}" status-code=200
 
 [MITM]
 hostname = api.hellobike.com

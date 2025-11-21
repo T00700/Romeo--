@@ -1,11 +1,11 @@
 #!name=cainiao-Applet
 #!desc=cainiao-Applet
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1008.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1045.png
 #!tag=Jacob
 
 [Rewrite]
-^https?:\/\/cn-acs\.m\.cainiao\.com\/h5\/mtop\.cainiao\.guoguo\.tdwxgateway\.ads mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads mock-response-body data-type=text data="{}" status-code=200
 
 [MITM]
-hostname = cn-acs.m.cainiao.com
+hostname = guide-acs.m.taobao.com
 
