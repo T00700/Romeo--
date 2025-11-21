@@ -156,6 +156,7 @@ Modules/Surge/zirawell/yitao.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/unionpay.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/ejoy-App.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/ejoy-Applet.sgmodule # Loon,Shadowrocket
+Modules/Surge/zirawell/ys7.sgmodule # Loon,Shadowrocket
 
 # Z #
 Modules/Surge/fmz200/ChinaMobile.sgmodule # Loon,Shadowrocket
