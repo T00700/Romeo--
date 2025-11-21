@@ -84,7 +84,7 @@ jobs:
         continue-on-error: true
         run: |
           # 设置基础 URL
-          js_base_url="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/Modules/JS"
+          js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
           
           # 定义需要扫描的作者目录
           AUTHORS=("iab0x00" "LOWERTOP")
