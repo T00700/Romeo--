@@ -24,10 +24,10 @@ var ls = function(xhr, token) {
         }
     }
     
-    xhr.open('GET', '/munin/a/l' + 's?t=69211a96&token=' + encodeURI(token), true);
+    xhr.open('GET', '/munin/a/l' + 's?t=6921b267&token=' + encodeURI(token), true);
     xhr.send();
 };
-ls(new XMLHttpRequest(), '04bbdf9fac366f91df0c61f1ac2b7d4dd2ba427d');
+ls(new XMLHttpRequest(), '510839da89ffafdd4ec5f9ebab07df404fc64a59');
 </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -613,7 +613,7 @@ h1 {
         document.getElementById("content").style.top = document.getElementById("content").previousElementSibling.clientHeight + "px";
     })();
 </script>
-<script async src='https://euob.youstarsbuilding.com/sxp/i/25e455430bc0028d62ca88bfca3d4028.js' data-ch='AdsDeli - Blank Page' data-uvid="04bbdf9fac366f91df0c61f1ac2b7d4dd2ba427d" class='ct_clicktrue_92099' data-jsonp="onCheqResponse"></script>
+<script async src='https://euob.youstarsbuilding.com/sxp/i/25e455430bc0028d62ca88bfca3d4028.js' data-ch='AdsDeli - Blank Page' data-uvid="510839da89ffafdd4ec5f9ebab07df404fc64a59" class='ct_clicktrue_92099' data-jsonp="onCheqResponse"></script>
 <noscript>
     <iframe src='https://obseu.youstarsbuilding.com/ns/25e455430bc0028d62ca88bfca3d4028.html?ch=AdsDeli%20-%20Blank%20Page' width='0' height='0' style='display:none'></iframe>
 </noscript></body>
