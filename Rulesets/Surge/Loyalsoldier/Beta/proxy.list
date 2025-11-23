@@ -1,4 +1,4 @@
-#规则数量:26207
+#规则数量:26209
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -1613,6 +1613,7 @@ DOMAIN-SUFFIX,ahtops.com
 DOMAIN-SUFFIX,ahtranny.com
 DOMAIN-SUFFIX,ahvideosexe.com
 DOMAIN-SUFFIX,ahxxx.club
+DOMAIN-SUFFIX,ai-sdk.dev
 DOMAIN-SUFFIX,ai.binwang.me
 DOMAIN-SUFFIX,ai.dev
 DOMAIN-SUFFIX,ai7995.site
@@ -17758,6 +17759,7 @@ DOMAIN-SUFFIX,origin.com
 DOMAIN-SUFFIX,origin.tv
 DOMAIN-SUFFIX,originalhulu.com
 DOMAIN-SUFFIX,originalindianporn.com
+DOMAIN-SUFFIX,originlab.com
 DOMAIN-SUFFIX,orithegame.com
 DOMAIN-SUFFIX,orl.ly
 DOMAIN-SUFFIX,orlandohurricane.com
