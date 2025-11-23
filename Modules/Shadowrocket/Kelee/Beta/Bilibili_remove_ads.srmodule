@@ -10,10 +10,11 @@
 #!system_version=15
 #!loon_version=3.2.9(837)
 #!homepage=https://hub.kelee.one
-#!date=2025-11-20 01:32:11
+#!date=2025-11-23 20:50:36
 #!arguments=showUpList:"auto",purifyTopReplies:true,airborne:false,logLevel:"off"
 
 [Rule]
+DOMAIN,bsbsb.top,PROXY
 DOMAIN,api.biliapi.com,REJECT
 DOMAIN,app.biliapi.com,REJECT
 DOMAIN,api.biliapi.net,REJECT
