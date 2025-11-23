@@ -53,7 +53,7 @@ Modules/Surge/zirawell/didi-Applet.sgmodule # Shadowrocket
 Modules/Loon/Kelee/DiDi_remove_ads.lpx
 # https://github.com/ifflagged/Neverflagged/raw/main/Loon/Plugin/DiDi.plugin
 Modules/Surge/fmz200/DianPing.sgmodule # Loon,Shadowrocket
-Modules/Surge/Kelee/HKDouYin_remove_ads.sgmodule # Loon,Shadowrocket
+# Modules/Surge/Kelee/HKDouYin_remove_ads.sgmodule # Loon,Shadowrocket
 
 # E #
 Modules/Surge/zirawell/eleme-App.sgmodule # Loon,Shadowrocket
@@ -69,10 +69,11 @@ Modules/Surge/zirawell/amap-App.sgmodule # Loon,Shadowrocket
 # Modules/Surge/zirawell/rsscc.sgmodule # Loon,Shadowrocket
 
 # H #
-Modules/Surge/Kelee/Umetrip_remove_ads.sgmodule # Loon,Shadowrocket
+# Modules/Surge/Kelee/Umetrip_remove_ads.sgmodule # Loon,Shadowrocket
 # Modules/Surge/Yuheng0101/heiliao.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/ehaier.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/haiersmarthomes.sgmodule # Loon,Shadowrocket
+Modules/Surge/zirawell/umetrip.sgmodule # Loon,Shadowrocket
 
 # I #
 
