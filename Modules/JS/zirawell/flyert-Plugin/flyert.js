@@ -55,9 +55,9 @@ function checkIn() {
         headers: {Cookie: cookieVal}
     }
     flyert.headers['Accept'] = `*/*`;
-    flyert.headers['Accept-Language'] = `zh-Hans-CN;q=1`;
+    flyert.headers['Accept-Language'] = `zh-Hans-CN;q=1, en-CN;q=0.9`;
     flyert.headers['Host'] = `www.flyert.com.cn`;
-    flyert.headers['User-Agent'] = `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0`;
+    flyert.headers['User-Agent'] = `FKForum/7.53.1 (iPhone 14 Pro; iOS 17.6; Scale/3.00)`;
     flyert.headers['Accept-Encoding'] = `gzip, deflate, br`;
     flyert.headers['Connection'] = `keep-alive`;
     $.get(flyert, async function (error, response, data) {
