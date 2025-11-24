@@ -8,11 +8,14 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-11-25 00:12:43
+#!date=2025-11-25 00:31:11
 
 [Body Rewrite]
 http-response-jq ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ 'delpaths([["data","global","s_vertical_homepage_ai_ask_float"]])'
-http-response-jq ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ '.data.data | {s_vertical_homepage_cheap_bottom_gap, s_vertical_homepage_topservice_layout, s_vertical_homepage_searchbar_placeholder, root, s_share_guessyoulike_home_rec_tab_gul_tab_2024, s_share_guessyoulike_tabcontent_2021_5, s_vertical_homepage_inner_scroll_layout, s_vertical_homepage_kingkong_2023, s_share_guessyoulike_home_rec_tab_gul_tab_2024}'
+http-response-jq ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ 'delpaths([["data","global","s_vertical_homepage_searchbar_h5_double11"]])'
+http-response-jq ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ '.data.data | {s_vertical_homepage_cheap_bottom_gap, s_vertical_homepage_topservice_layout, s_vertical_homepage_searchbar_placeholder, root, s_share_guessyoulike_home_rec_tab_gul_tab_2024, s_share_guessyoulike_tabcontent_2021_5, s_vertical_homepage_inner_scroll_layout, s_vertical_homepage_kingkong_2023, s_share_guessyoulike_home_rec_tab_gul_tab_2024, s_vertical_homepage_1_4_enter}'
+http-response-jq ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.my\.myzonemiscnew\/ 'delpaths([["data","newData","myWallet","iconList"]])'
+http-response-jq ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.my\.myzonemiscnew\/ 'delpaths([["data","newData","freshZoneV2"]])'
 
 [Map Local]
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.allresource\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
@@ -20,6 +23,12 @@ http-response-jq ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.predict\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.tripzoo\.new\.couponlist\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.my\.recommendcard\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.recommend\.common\.guess\.tab\.feeds\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 [MITM]
 hostname = %APPEND% acs.m.taobao.com

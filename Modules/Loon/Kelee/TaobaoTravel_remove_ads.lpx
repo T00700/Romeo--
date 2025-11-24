@@ -8,16 +8,21 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-11-25 00:12:43
+#!date=2025-11-25 00:31:11
 
 [Rewrite]
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ response-body-json-jq '.data.data | {s_vertical_homepage_cheap_bottom_gap, s_vertical_homepage_topservice_layout, s_vertical_homepage_searchbar_placeholder, root, s_share_guessyoulike_home_rec_tab_gul_tab_2024, s_share_guessyoulike_tabcontent_2021_5, s_vertical_homepage_inner_scroll_layout, s_vertical_homepage_kingkong_2023, s_share_guessyoulike_home_rec_tab_gul_tab_2024}'
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ response-body-json-jq '.data.data | {s_vertical_homepage_cheap_bottom_gap, s_vertical_homepage_topservice_layout, s_vertical_homepage_searchbar_placeholder, root, s_share_guessyoulike_home_rec_tab_gul_tab_2024, s_share_guessyoulike_tabcontent_2021_5, s_vertical_homepage_inner_scroll_layout, s_vertical_homepage_kingkong_2023, s_share_guessyoulike_home_rec_tab_gul_tab_2024, s_vertical_homepage_1_4_enter}'
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.allresource\/ - reject-dict
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.predict\/ - reject-dict
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.tripzoo\.new\.couponlist\/ - reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ - reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.my\.recommendcard\/ - reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.recommend\.common\.guess\.tab\.feeds\/ - reject-dict
 
 [Script]
-http-response ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_15, argument=%5B%5B%22json-del%22%2C%5B%22data.global.s_vertical_homepage_ai_ask_float%22%5D%5D%5D
+http-response ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_15, argument=%5B%5B%22json-del%22%2C%5B%22data.global.s_vertical_homepage_ai_ask_float%22%2C%22data.global.s_vertical_homepage_searchbar_h5_double11%22%5D%5D%5D
+
+http-response ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.my\.myzonemiscnew\/ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_20, argument=%5B%5B%22json-del%22%2C%5B%22data.newData.myWallet.iconList%22%2C%22data.newData.freshZoneV2%22%5D%5D%5D
 
 [MITM]
 hostname = acs.m.taobao.com
