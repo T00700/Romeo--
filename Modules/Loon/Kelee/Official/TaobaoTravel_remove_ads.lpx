@@ -8,7 +8,7 @@
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/TaobaoTravel.png
-#!date=2025-11-25 00:12:43
+#!date=2025-11-25 00:31:11
 
 [Rewrite]
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.allresource\/ reject-dict
@@ -16,9 +16,16 @@
 
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.tripzoo\.new\.couponlist\/ reject-dict
 
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ response-body-json-del data.global.s_vertical_homepage_ai_ask_float
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ response-body-json-del data.global.s_vertical_homepage_ai_ask_float data.global.s_vertical_homepage_searchbar_h5_double11
 
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ response-body-json-jq '.data.data | {s_vertical_homepage_cheap_bottom_gap, s_vertical_homepage_topservice_layout, s_vertical_homepage_searchbar_placeholder, root, s_share_guessyoulike_home_rec_tab_gul_tab_2024, s_share_guessyoulike_tabcontent_2021_5, s_vertical_homepage_inner_scroll_layout, s_vertical_homepage_kingkong_2023, s_share_guessyoulike_home_rec_tab_gul_tab_2024}'
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ response-body-json-jq '.data.data | {s_vertical_homepage_cheap_bottom_gap, s_vertical_homepage_topservice_layout, s_vertical_homepage_searchbar_placeholder, root, s_share_guessyoulike_home_rec_tab_gul_tab_2024, s_share_guessyoulike_tabcontent_2021_5, s_vertical_homepage_inner_scroll_layout, s_vertical_homepage_kingkong_2023, s_share_guessyoulike_home_rec_tab_gul_tab_2024, s_vertical_homepage_1_4_enter}'
+
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home\/ reject-dict
+
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.my\.recommendcard\/ reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.recommend\.common\.guess\.tab\.feeds\/ reject-dict
+
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.my\.myzonemiscnew\/ response-body-json-del data.newData.myWallet.iconList data.newData.freshZoneV2
 
 [MitM]
 hostname=acs.m.taobao.com
