@@ -1,4 +1,4 @@
-#规则数量:26204
+#规则数量:26201
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -4088,7 +4088,6 @@ payload:
   - DOMAIN-SUFFIX,bing.com
   - DOMAIN-SUFFIX,bing.net
   - DOMAIN-SUFFIX,bing123.com
-  - DOMAIN-SUFFIX,bingads.com
   - DOMAIN-SUFFIX,bingagencyawards.com
   - DOMAIN-SUFFIX,bingapis.com
   - DOMAIN-SUFFIX,bingapistatistics.com
@@ -8725,7 +8724,6 @@ payload:
   - DOMAIN-SUFFIX,facebook30.net
   - DOMAIN-SUFFIX,facebook30.org
   - DOMAIN-SUFFIX,facebook4business.com
-  - DOMAIN-SUFFIX,facebookads.com
   - DOMAIN-SUFFIX,facebookadvertisingsecrets.com
   - DOMAIN-SUFFIX,facebookappcenter.info
   - DOMAIN-SUFFIX,facebookappcenter.net
@@ -15376,7 +15374,6 @@ payload:
   - DOMAIN-SUFFIX,microsoft365.com
   - DOMAIN-SUFFIX,microsoftaccountguard.com
   - DOMAIN-SUFFIX,microsoftadc.com
-  - DOMAIN-SUFFIX,microsoftads.com
   - DOMAIN-SUFFIX,microsoftadvertising.com
   - DOMAIN-SUFFIX,microsoftadvertisingregionalawards.com
   - DOMAIN-SUFFIX,microsoftaffiliates.com
@@ -16126,7 +16123,6 @@ payload:
   - DOMAIN-SUFFIX,ms365surfaceoffer.com
   - DOMAIN-SUFFIX,ms4dre.com
   - DOMAIN-SUFFIX,msa-it.org
-  - DOMAIN-SUFFIX,msads.net
   - DOMAIN-SUFFIX,msauth.net
   - DOMAIN-SUFFIX,mschallenge2018.com
   - DOMAIN-SUFFIX,msdn.com
@@ -20242,6 +20238,7 @@ payload:
   - DOMAIN-SUFFIX,sensualgirls.org
   - DOMAIN-SUFFIX,sensualmothers.com
   - DOMAIN-SUFFIX,sensueel.net
+  - DOMAIN-SUFFIX,sentry-cdn.com
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,senzuritv.net
   - DOMAIN-SUFFIX,seqing.one
