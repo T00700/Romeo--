@@ -1,4 +1,4 @@
-#规则数量:26219
+#规则数量:26222
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -258,6 +258,8 @@ payload:
   - DOMAIN,notary-submissions-prod.s3.us-west-2.amazonaws.com
   - DOMAIN,notify.ppy.sh
   - DOMAIN,np-edge.itunes.apple.com
+  - DOMAIN,ntdofifreepc-tgc.cdn.hinet.net
+  - DOMAIN,ntdofifreevcpc-tgc.cdn.hinet.net
   - DOMAIN,ntp-b.nist.gov
   - DOMAIN,ntp-c.colorado.edu
   - DOMAIN,ntp-d.nist.gov
@@ -17504,6 +17506,7 @@ payload:
   - DOMAIN-SUFFIX,offrezdesipods.com
   - DOMAIN-SUFFIX,offworldindustries.com
   - DOMAIN-SUFFIX,offworldindustries.net
+  - DOMAIN-SUFFIX,ofiii.com
   - DOMAIN-SUFFIX,ofile.org
   - DOMAIN-SUFFIX,ogakikyoritsu.co.jp
   - DOMAIN-SUFFIX,ogameblog.com
