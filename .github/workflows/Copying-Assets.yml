@@ -1,4 +1,4 @@
-name: Extract and Process Modules
+name: Mirror Modules
 
 on:
   schedule:
