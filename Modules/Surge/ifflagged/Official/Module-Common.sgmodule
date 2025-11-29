@@ -38,7 +38,7 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 [Script]
 # ➡️ J ⬅️ #
 # 京粉 //api.m.jd.com
-JD-Share = type=http-response,pattern=^https:\/\/api\.m\.jd\.com\/\?functionId=union_exhibition_bff&client=apple&clientVer,requires-body=1,max-size=0,script-path=https://github.com/ifflagged/Neverflagged/raw/main/Surge/Scripts/JD-JF.js
+JD-Share = type=http-response,pattern=^https:\/\/api\.m\.jd\.com\/\?functionId=union_exhibition_bff&client=apple&clientVer,requires-body=1,max-size=0,script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ifflagged/Module-Common/JD-JF.js
 
 # ➡️ G ⬅️ #
 # Gentler Streak //api.revenuecat.com
@@ -46,8 +46,8 @@ JD-Share = type=http-response,pattern=^https:\/\/api\.m\.jd\.com\/\?functionId=u
 # Gentler Streak = type=http-request,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers\/(\$RCAnonymousID%)?([\u4E00-\u9FA5A-Za-z0-9-_]+))$,requires-body=0,max-size=0,script-path=https://github.com/89996462/Quantumult-X/raw/main/ycdz/GentlerStreak.js,script-update-interval=0
 
 # NSFW // *.pornhub.com, 91porn.com
-Pornhub = type=http-response,pattern=^https?:/\/(cn|www)\.pornhub\.com\/($|(view|video).*$),requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/pornhub.js,script-update-interval=0
-91Porn = type=http-response,pattern=https?:\/\/91porn\.com\/(index|view_video|login|search_result)\.php,requires-body=1,max-size=0,script-path=https://github.com/Yuheng0101/X/raw/main/Scripts/91porn.js,script-update-interval=0
+Pornhub = type=http-response,pattern=^https?:/\/(cn|www)\.pornhub\.com\/($|(view|video).*$),requires-body=1,max-size=0,script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ifflagged/Module-Common/pornhub.js,script-update-interval=0
+91Porn = type=http-response,pattern=https?:\/\/91porn\.com\/(index|view_video|login|search_result)\.php,requires-body=1,max-size=0,script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ifflagged/Module-Common/91porn.js,script-update-interval=0
 
 [Map Local]
 
