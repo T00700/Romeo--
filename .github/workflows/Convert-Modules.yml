@@ -31,37 +31,52 @@ jobs:
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
       # === 1. 下载原始文件并分类保存 (Official) ===
+      # 优化点：引入并发下载，大幅提升备份速度
       - name: Download and Categorize Raw Files
         id: prepare_list
         run: |
           CONVERT_LIST="convert_tasks.txt"
           > "$CONVERT_LIST"
           declare -A seen_modules
+          
+          # 用于并发控制
+          download_pids=()
 
           while read -r url; do
+            # 1. 过滤无效行
             if [[ "$url" =~ ^\s*#.* ]] || [[ -z "${url// }" ]]; then continue; fi
 
-            clean_url="${url%%\?*}"
-            author=$(echo "$clean_url" | cut -d'/' -f4)
-            filename_full=$(basename "$clean_url")
-            filename_noext="${filename_full%.*}"
+            # 2. 原生 Bash 解析 (比 cut/basename 快)
+            clean_url="${url%%\?*}"       # 去掉 URL 参数
+            filename_full="${clean_url##*/}" # 获取文件名
+            filename_noext="${filename_full%.*}" # 去掉后缀
             extension="${filename_full##*.}"
             
-            # 确定保存路径
+            # 提取作者 (假设 URL 结构固定为第4段)
+            # 这里的 cut 比较难用原生完全替代，保持原样或优化为 awk
+            author=$(echo "$clean_url" | cut -d'/' -f4)
+            
+            # 3. 确定保存路径
             save_dir=""
             case "$extension" in
               sgmodule) save_dir="Modules/Surge/$author/Official" ;;
               lpx|plugin) save_dir="Modules/Loon/$author/Official" ;;
             esac
 
-            # 下载备份
+            # 4. 异步下载备份 (放入后台 &)
             if [[ -n "$save_dir" ]]; then
               mkdir -p "$save_dir"
-              echo "📥 Downloading Backup: $filename_full"
-              curl -sL -A "Surge Mac/2985" -o "$save_dir/$filename_full" "$url"
+              # echo "📥 Downloading Backup: $filename_full"
+              # 使用 & 放入后台，并限制最大并发数为 20，防止网络拥堵
+              (
+                curl -sL -A "Surge Mac/2985" -o "$save_dir/$filename_full" "$url" || echo "❌ Failed: $url"
+              ) &
+              
+              # 简单的并发限制逻辑
+              if [[ $(jobs -r -p | wc -l) -ge 20 ]]; then wait -n; fi
             fi
 
-            # 智能去重并生成转换列表
+            # 5. 智能去重并生成转换列表
             unique_key="${author}/${filename_noext}"
             if [[ -z "${seen_modules[$unique_key]}" ]]; then
               echo "$url" >> "$CONVERT_LIST"
@@ -70,6 +85,9 @@ jobs:
               echo "   ⏩ Skipping duplicate conversion: $unique_key"
             fi
           done < Links/Modules-Links.txt
+          
+          # 等待所有后台下载任务完成
+          wait
           
           echo "CONVERSION_LIST=$CONVERT_LIST" >> $GITHUB_ENV
 
@@ -89,7 +107,7 @@ jobs:
             
             clean_url="${module_link%%\?*}"
             author=$(echo "$clean_url" | cut -d'/' -f4)
-            filename_full=$(basename "$clean_url")
+            filename_full="${clean_url##*/}"
             filename_noext="${filename_full%.*}"
             extension="${filename_full##*.}"
             
@@ -115,6 +133,8 @@ jobs:
             
             mkdir -p Modules/{Surge,Loon,Shadowrocket}/$author/Beta
 
+            # 保持串行下载以确保 Docker 稳定
+            
             # 下载 Beta (所有格式)
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/Beta/$filename_noext.sgmodule" "$Surge_Beta_url"
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/Beta/$filename_noext.lpx" "$Loon_Beta_url"
@@ -129,6 +149,7 @@ jobs:
                mkdir -p "Modules/Loon/$author"
                curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/$filename_noext.lpx" "$Loon_url"
             fi
+            # Shadowrocket 总是需要转换
             mkdir -p "Modules/Shadowrocket/$author"
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/$filename_noext.srmodule" "$Shadowrocket_url"
 
@@ -140,7 +161,8 @@ jobs:
           authors=$(grep -E '^https?://' Links/Modules-Links.txt | cut -d'/' -f4 | sort -u | tr '\n' ' ')
           echo "AUTHORS=$authors" >> $GITHUB_ENV
 
-      # === 3. JS 替换 (使用原版逻辑: 遍历作者 -> 遍历文件 -> 替换) ===
+      # === 3. JS 替换 ===
+      # 优化点：使用 Bash 原生替换符和变量引用优化性能
       - name: Find and replace external JS resources
         continue-on-error: true
         run: |
@@ -150,8 +172,7 @@ jobs:
           for author in $AUTHORS; do
             # echo "Scanning modules for author: $author"
             
-            # 查找 Modules/Surge/$author (包括子目录 Official 和根目录) 下的 sgmodule
-            # 使用 find 递归查找，但排除 Beta
+            # 查找 Modules/Surge/$author 下的 sgmodule (排除 Beta)
             find "Modules/Surge/$author" -type f -name "*.sgmodule" -not -path "*/Beta/*" | while read sgmodule_file; do
               
               module_folder=$(basename "$sgmodule_file" .sgmodule)
@@ -164,23 +185,26 @@ jobs:
 
               for js_link in $js_links; do
                 js_filename=$(basename "$js_link")
-                # JS 存放路径: Modules/JS/Author/ModuleName/filename.js
-                local_js_path="Modules/JS/$author/$module_folder/$js_filename"
-                github_js_url="$js_base_url/$author/$module_folder/$js_filename"
+                # JS 存放路径
+                local_js_dir="Modules/JS/$author/${module_folder%.*}"
+                local_js_path="$local_js_dir/$js_filename"
+                github_js_url="$js_base_url/$author/${module_folder%.*}/$js_filename"
    
                 if [ ! -f "$local_js_path" ]; then
-                   mkdir -p "$(dirname "$local_js_path")"
+                   mkdir -p "$local_js_dir"
                    if ! curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
                       echo "  ❌ Failed download: $js_link"
                       continue
                    fi
                 fi
 
+                # 预先转义链接，避免多次调用 sed
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                 
-                # 批量替换：限制在当前作者目录下查找所有相关文件 (包括 Beta)
-                find "Modules" -path "*/$author/*" \( -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" -o -name "${module_folder}.plugin" \) | \
-                xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
+                # 批量替换：查找当前作者目录下所有相关文件 (包括 Beta)
+                # 使用 -print0 和 xargs -0 处理文件名中的特殊字符
+                find "Modules" -path "*/$author/*" \( -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" -o -name "${module_folder}.plugin" \) -print0 | \
+                xargs -0 sed -i "s|$escaped_link|$github_js_url|g"
               done
             done
           done
@@ -191,7 +215,7 @@ jobs:
         run: |
           DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
           git add Modules/*
-          rm -f "$CONVERSION_LIST" # 清理临时文件
+          rm -f "$CONVERSION_LIST"
           
           if git diff --cached --quiet; then
             echo "No changes to commit"
