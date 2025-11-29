@@ -1,25 +1,3 @@
-Skip to content
-Navigation Menu
-ifflagged
-Romeo
-
-Type / to search
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-2
-Insights
-Settings
-Extract and Process Modules
-Extract and Process Modules #3487
-Jobs
-Run details
-Workflow file for this run
-.github/workflows/Copying-Assets.yml at d1730e5
 name: Extract and Process Modules
 
 on:
