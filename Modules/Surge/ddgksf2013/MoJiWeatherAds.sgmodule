@@ -6,6 +6,9 @@
 # > 开屏广告@ddgksf2013
 DOMAIN-SUFFIX,adlaunch.moji.com,REJECT
 
+[Body Rewrite]
+http-response-jq ^https?:\/\/.*api\.moji\.com\/json\/entrance\/list '.entrance_region_res_list |= map(select(.region_name | IN("工具区", "我页面灯泡", "banner区") | not))'
+
 [Map Local]
 # > 首页顶部浮窗推广@ddgksf2013
 ^https?:\/\/.*api\.moji\.com\/flycard\/flyCard data-type=text data=" " status-code=200

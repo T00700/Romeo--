@@ -14,6 +14,10 @@
 # > 浮ICON推广@ddgksf2013
 ^https?:\/\/appconf\.mail\.163\.com\/mailmaster\/api\/config\/function\.do - reject-dict
 
+[Body Rewrite]
+http-response-jq ^https?:\/\/appconf\.mail\.163\.com\/mailmaster\/api\/page\/.*conf\.do '.data |= del(.masterLoginGuideList, .masterOperatorList, .functionOperatorInfoList, .memberOperator, .activityTabInfoList, .extList)'
+http-response-jq ^https?:\/\/mail\.163\.com\/fgw\/mailsrv-webrobot\/.*user\/info '.result |= del(.assistantInfo, .quotaData)'
+
 [MITM]
 hostname = %APPEND% dashi.163.com, appconf.mail.163.com, mail.163.com
 

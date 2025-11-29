@@ -20,6 +20,9 @@ DOMAIN-SUFFIX,adlaunch.moji.com,REJECT
 # > DNS处理@ddgksf2013
 ^https:\/\/tnc.*zijieapi\.com\/get_domains - reject-200
 
+[Body Rewrite]
+http-response-jq ^https?:\/\/.*api\.moji\.com\/json\/entrance\/list '.entrance_region_res_list |= map(select(.region_name | IN("工具区", "我页面灯泡", "banner区") | not))'
+
 [MITM]
 hostname = %APPEND% *.api.moji.com, tnc*-*.zijieapi.com
 

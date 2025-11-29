@@ -43,6 +43,9 @@ DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
 # > 微博国际版_屏蔽热推荐@ddgksf2013
 ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/ad\/weibointl\? - reject-dict
 
+[Body Rewrite]
+http-response-jq ^https?:\/\/api\.weibo\.cn\/\d\/ug\/checkin\/stream '.items |= map(select(.category != "card"))'
+
 [Script]
 # > 微博_详情页及评论区@ddgksf2013
 weibo_json = type=http-response, pattern=^https?:\/\/api\.weibo\.cn\/\d\/statuses\/container_detail, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/WeiboAds/weibo_json.js, requires-body=true, max-size=-1, timeout=60

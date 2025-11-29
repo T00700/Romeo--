@@ -11,6 +11,9 @@
 # > 知乎_首页右下角悬浮窗@blackmatrix7
 ^https?:\/\/api\.zhihu\.com\/commercial_api\/app_float_layer - reject
 
+[Body Rewrite]
+http-response-jq ^https?:\/\/.*zhihu.com\/(answers|articles)\/v\d '.third_business |= del(.related_queries, .ring)'
+
 [Map Local]
 # > 知乎_拦截DNS解析@blackmatrix7
 ^https?:\/\/118\.89\.204\.198 data-type=text data=" " status-code=200

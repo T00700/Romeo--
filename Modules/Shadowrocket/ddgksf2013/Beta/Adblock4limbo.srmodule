@@ -42,14 +42,14 @@ https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Adblock4limbo/
 https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Adblock4limbo/master.spot.js - reject
 https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Adblock4limbo/jads.js - reject
 https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Adblock4limbo/ad-provider.js - reject
-https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Adblock4limbo/code.js - reject
+https://ra7.xyz/z/.*/code.js - reject
 https://(www|zhuanlan)\.zhihu\.com/api/v4/questions/\d+/related-readings - reject
 https://(www|zhuanlan)\.zhihu\.com/api/v4/answers/\d+/related-readings - reject
 #https://(www|zhuanlan)\.zhihu\.com/api/v4/hot_recommendation - reject
 #https://(www|zhuanlan)\.zhihu\.com/api/v4/hot_recommendation url reject
 https://(www|zhuanlan)\.zhihu\.com/commercial_api/banners_v3/(mobile_banner|mobile_question) - reject
 https://(www|zhuanlan)\.zhihu\.com/api/articles/\d+/recommendation - reject
-https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Adblock4limbo/lib.js - reject
+https://creative.live.missav.com/widgets/Spot/lib.js - reject
 ^https?:\/\/www\.pornhub\.com$ https://cn.pornhub.com 307
 # url https://$2 (https:\/\/\w{2,3}\.)(jable\.tv.*)
 ^https?:\/\/www\.javlibrary\.com\/img\/.*\.gif https://www.javlibrary.com/favicon.ico 307

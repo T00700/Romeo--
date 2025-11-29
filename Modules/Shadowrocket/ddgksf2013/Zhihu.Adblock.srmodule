@@ -52,6 +52,9 @@
 # > 知乎_我的页面底部@ddgksf2013
 ^https?:\/\/www\.zhihu\.com\/appview\/v\d\/zhmore - reject-200
 
+[Body Rewrite]
+http-response-jq ^https?:\/\/.*zhihu.com\/(answers|articles)\/v\d '.third_business |= del(.related_queries, .ring)'
+
 [Script]
 # > 知乎_我的页面开通会员CARD@ddgksf2013
 Zhihu.Adblock = type=http-response, pattern=^https?:\/\/api\.zhihu\.com\/unlimited/go/my_card, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Zhihu.Adblock/Zhihu.Adblock.js, requires-body=true, max-size=-1, timeout=60
