@@ -155,7 +155,7 @@ jobs:
               
               module_folder=$(basename "$sgmodule_file" .sgmodule)
               
-              js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
+              js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ \"\),\s]+\.(json|js|jq)' || echo "")
               
               if [ -z "$js_links" ]; then continue; fi
 
