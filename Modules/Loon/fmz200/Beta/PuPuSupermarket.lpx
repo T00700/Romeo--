@@ -1,7 +1,7 @@
 #!name=朴朴超市
 #!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
 #!author=奶思
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1026.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1072.png
 #!tag=Jacob
 #!homepage=https://github.com/fmz200/wool_scripts
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Surge/module/split/partP/PuPuSupermarket.sgmodule
@@ -18,7 +18,7 @@ pupuicui_enable=switch,"true","false",tag=pupuicui_enable, desc=pupuicui_enable
 ^http:\/\/101\.42\.130\.147\/httpdns\/resolve\/ - reject
 # 主页实惠卡横幅
 ^https:\/\/j1\.pupuapi\.com\/client\/member_card\/index\/my - reject
-^https:\/\/j1\.pupuapi\.com\/client\/notification\/message_center\/unread_number response-body-json-jq .data = []
+^https:\/\/j1\.pupuapi\.com\/client\/notification\/message_center\/unread_number response-body-json-jq '.data = []'
 # 搜索框页面热榜
 ^https:\/\/j1\.pupuapi\.com\/client\/marketing\/advertisement\/search_input_ranking mock-response-body data-type=text data="{}" status-code=200
 # 朴朴超市订单待收货页右下角悬浮广告
