@@ -54,7 +54,7 @@ jobs:
               lpx|plugin) save_dir="Modules/Loon/$author/Official" ;;
             esac
 
-            # 下载备份
+            # 下载备份 (只下载，不影响转换逻辑)
             if [[ -n "$save_dir" ]]; then
               mkdir -p "$save_dir"
               echo "📥 Downloading Backup: $filename_full"
@@ -102,31 +102,35 @@ jobs:
               *) src_type="surge-module" ;;
             esac
 
-            Surge_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=${src_type}&target=surge-module&category=${encoded_category}&nore=true"
-            Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=${src_type}&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
-            Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=${src_type}&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
-            Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=${src_type}&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true"
-            Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=${src_type}&target=shadowrocket-module&category=${encoded_category}&nore=true"
-            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=${src_type}&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
+            # 构造 URL (增加了 keepHeader 参数)
+            Surge_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=${src_type}&target=surge-module&category=${encoded_category}&nore=true&keepHeader=true"
+            Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=${src_type}&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true"
+            Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=${src_type}&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&keepHeader=true"
+            Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=${src_type}&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true&keepHeader=true"
+            Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=${src_type}&target=shadowrocket-module&category=${encoded_category}&nore=true&keepHeader=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=${src_type}&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true"
 
             echo "🔄 Converting: $filename_noext ($author)"
             
             mkdir -p Modules/{Surge,Loon,Shadowrocket}/$author/Beta
 
-            # 下载 Beta
+            # 1. 下载 Beta 版
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/Beta/$filename_noext.sgmodule" "$Surge_Beta_url"
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/Beta/$filename_noext.lpx" "$Loon_Beta_url"
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/Beta/$filename_noext.srmodule" "$Shadowrocket_Beta_url"
 
-            # 生成非 Beta (Official 补充)
-            if [[ "$extension" != "sgmodule" ]]; then
-               mkdir -p "Modules/Surge/$author"
-               curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/$filename_noext.sgmodule" "$Surge_url"
-            fi
-            if [[ "$extension" != "lpx" && "$extension" != "plugin" ]]; then
-               mkdir -p "Modules/Loon/$author"
-               curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/$filename_noext.lpx" "$Loon_url"
-            fi
+            # 2. 生成/覆盖 正式版 (Official 转换版)
+            # 核心修改：无论原文件是什么格式，都强制生成所有平台的正式版文件到根目录
+            
+            # Surge
+            mkdir -p "Modules/Surge/$author"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/$filename_noext.sgmodule" "$Surge_url"
+            
+            # Loon
+            mkdir -p "Modules/Loon/$author"
+            curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/$filename_noext.lpx" "$Loon_url"
+            
+            # Shadowrocket
             mkdir -p "Modules/Shadowrocket/$author"
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/$filename_noext.srmodule" "$Shadowrocket_url"
 
@@ -138,7 +142,7 @@ jobs:
           authors=$(grep -E '^https?://' Links/Modules-Links.txt | cut -d'/' -f4 | sort -u | tr '\n' ' ')
           echo "AUTHORS=$authors" >> $GITHUB_ENV
 
-      # === 4. JS 替换 (逻辑还原) ===
+      # === 4. JS 替换 ===
       - name: Find and replace external JS resources
         continue-on-error: true
         run: |
@@ -146,8 +150,7 @@ jobs:
           mkdir -p Modules/JS
 
           for author in $AUTHORS; do
-            # 扫描 Modules/Surge/$author 目录 (递归，包括 Official)
-            # -not -path "*/Beta/*" 排除 Beta 目录
+            # 扫描该作者 Surge 目录下(含Official)的所有 sgmodule (排除 Beta)
             find "Modules/Surge/$author" -type f -name "*.sgmodule" -not -path "*/Beta/*" | while read sgmodule_file; do
               
               module_folder=$(basename "$sgmodule_file" .sgmodule)
@@ -174,7 +177,7 @@ jobs:
 
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                 
-                # 批量替换：在当前作者目录下的所有文件 (包括 Beta) 中替换
+                # 批量替换：在当前作者目录下(包含Beta)的所有格式文件中替换
                 find "Modules" -path "*/$author/*" \( -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" -o -name "${module_folder}.plugin" \) | \
                 xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
               done
