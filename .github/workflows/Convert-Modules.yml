@@ -30,8 +30,6 @@ jobs:
           echo "Waiting for Docker services to be ready..."
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      ---
-
       ## 💾 1. 下载原始文件并分类保存 (根据后缀)
       - name: Download and Categorize Raw Files
         id: download_files
@@ -100,8 +98,6 @@ jobs:
           # 将 conversion_links_file 保存到环境变量供后续步骤使用
           echo "CONVERSION_LINKS_FILE=$conversion_links_file" >> $GITHUB_ENV
 
-      ---
-
       ## ⚙️ 2. 执行模块格式转换 (基于收集的链接)
       - name: Convert Modules
         run: |
@@ -159,8 +155,6 @@ jobs:
             
           done < "$CONVERSION_LINKS_FILE"
 
-      ---
-      
       # 恢复：收集作者列表 (继续使用 Modules-Links.txt 作为源，保持一致性)
       - name: Collect authors
         run: |
