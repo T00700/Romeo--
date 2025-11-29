@@ -25,41 +25,32 @@ jobs:
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      # 优化点1: 移除 apt-get，ubuntu-latest 已预装必要工具
-      
       - name: Wait for Docker services to be ready
         run: |
           echo "Waiting for Docker services to be ready..."
-          # 优化点2: 使用 timeout 和更短的间隔
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
       - name: Download assets
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # 初始化变量
           touch No_link_provided_for_srmodule.txt
-          
-          # 预先创建所有可能的目录，避免循环中重复创建
           mkdir -p Modules/Surge/{NSRingo,BiliUniverse,DualSubs,VirgilClyne} \
                    Modules/Loon/{NSRingo,BiliUniverse,DualSubs,VirgilClyne} \
                    Modules/Shadowrocket/{NSRingo,BiliUniverse,DualSubs}
 
-          # === 处理 VirgilClyne (使用 Git Clone 替代 API 遍历) ===
+          # === 处理 VirgilClyne ===
           echo "Processing repository: VirgilClyne/GetSomeFries"
           git clone --depth 1 https://github.com/VirgilClyne/GetSomeFries.git temp_virgil
           
-          # 1. 处理 sgmodule
           if [ -d "temp_virgil/sgmodule" ]; then
             cp temp_virgil/sgmodule/*.sgmodule Modules/Surge/VirgilClyne/
-            # 记录 URL 用于后续转换，保持原逻辑
             for f in temp_virgil/sgmodule/*.sgmodule; do
               filename=$(basename "$f")
               echo "https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/sgmodule/$filename" >> No_link_provided_for_srmodule.txt
             done
           fi
           
-          # 2. 处理 plugin (重命名为 .lpx)
           if [ -d "temp_virgil/plugin" ]; then
             for f in temp_virgil/plugin/*.plugin; do
               filename=$(basename "$f" .plugin)
@@ -77,39 +68,28 @@ jobs:
 
           for REPO in "${REPOS[@]}"; do
             echo "Processing repository: $REPO"
-            
-            # 获取 Release 信息
             RELEASE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/repos/$REPO/releases/latest")
             
-            # 简单校验
             if [ -z "$RELEASE" ] || [ "$RELEASE" == "null" ] || [[ "$(echo "$RELEASE" | jq -r '.message')" == "Not Found" ]]; then
               echo "Release not found for $REPO, skipping."
               continue
             fi
 
-            # 提取 Assets 并在后台并发下载
             echo "$RELEASE" | jq -c '.assets[]' | while IFS= read -r ASSET; do
               ASSET_NAME=$(echo "$ASSET" | jq -r '.name')
               ASSET_URL=$(echo "$ASSET" | jq -r '.url')
-              # Browser download url 用于后续记录
               ASSET_BROWSER_URL=$(echo "$ASSET" | jq -r '.browser_download_url')
               
               EXTENSION="${ASSET_NAME##*.}"
               OUTPUT_DIR=""
               SAVE_NAME="$ASSET_NAME"
 
-              # 确定目录和文件名逻辑 (保持原逻辑)
-              if [[ "$REPO" == "NSRingo"* ]]; then
-                BASE_DIR="NSRingo"
-              elif [[ "$REPO" == "BiliUniverse"* ]]; then
-                BASE_DIR="BiliUniverse"
-              elif [[ "$REPO" == "DualSubs"* ]]; then
-                BASE_DIR="DualSubs"
-              fi
+              if [[ "$REPO" == "NSRingo"* ]]; then BASE_DIR="NSRingo"; 
+              elif [[ "$REPO" == "BiliUniverse"* ]]; then BASE_DIR="BiliUniverse"; 
+              elif [[ "$REPO" == "DualSubs"* ]]; then BASE_DIR="DualSubs"; fi
 
               if [ "$EXTENSION" == "sgmodule" ]; then
                 OUTPUT_DIR="./Modules/Surge/$BASE_DIR"
-                # 检查是否存在对应的 srmodule
                 CORRESPONDING_SRMODULE=$(echo "$RELEASE" | jq -r --arg name "$ASSET_NAME" '.assets[] | select(.name == ($name | sub(".sgmodule"; ".srmodule"))) | .browser_download_url')
                 if [ -z "$CORRESPONDING_SRMODULE" ]; then
                   echo "$ASSET_BROWSER_URL" >> No_link_provided_for_srmodule.txt
@@ -121,17 +101,13 @@ jobs:
                 OUTPUT_DIR="./Modules/Shadowrocket/$BASE_DIR"
               fi
 
-              # 执行下载
               if [ -n "$OUTPUT_DIR" ]; then
                 echo "Downloading $SAVE_NAME to $OUTPUT_DIR..."
                 curl -sL -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/octet-stream" "$ASSET_URL" -o "$OUTPUT_DIR/$SAVE_NAME" &
               fi
             done
-            # 每个 Repo 处理完等待一下，避免瞬间并发过高（可选，通常 GitHub Actions 扛得住）
             wait 
           done
-          
-          # 确保所有下载任务完成
           wait
 
       - name: Handling unprovided srmodule modules (Parallelized)
@@ -151,11 +127,8 @@ jobs:
 
               mkdir -p Modules/Shadowrocket/$author
               echo "Converting $filename_noext..."
-              
-              # 优化点3: 并发转换
               curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/$filename_noext.srmodule" "$Shadowrocket_url" &
             done < No_link_provided_for_srmodule.txt
-            
             wait
           fi
 
@@ -163,41 +136,56 @@ jobs:
         continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
+          
+          # 定义需要处理的作者目录
+          TARGET_AUTHORS="NSRingo BiliUniverse DualSubs VirgilClyne"
           mkdir -p Modules/JS/{NSRingo,BiliUniverse,DualSubs,VirgilClyne}
 
-          # 优化点4: 优化查找和替换逻辑
-          find Modules/Surge -type f -name "*.sgmodule" -not -path "*/Beta/*" | while read sgmodule_file; do
-            author=$(dirname "$sgmodule_file" | sed 's|^Modules/Surge/||')
-            module_folder=$(basename "$sgmodule_file" .sgmodule)
-
-            js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]+\.(json|js)' || echo "")
-
-            if [ -z "$js_links" ]; then continue; fi
-
-            for js_link in $js_links; do
-              js_filename=$(basename "$js_link")
-              local_js_path="Modules/JS/$author/$module_folder/$js_filename"
-              github_js_url="$js_base_url/${author}/$module_folder/$js_filename"
+          # 仅遍历指定的作者目录
+          for author in $TARGET_AUTHORS; do
+            echo "Scanning JS for $author..."
+            
+            # 使用 find 查找该作者目录下的所有 .sgmodule 文件
+            find "Modules/Surge/$author" -type f -name "*.sgmodule" | while read sgmodule_file; do
               
-              mkdir -p "$(dirname "$local_js_path")"
-              curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"
+              module_folder=$(basename "$sgmodule_file" .sgmodule)
+              
+              # 提取 JS 链接
+              js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ ]+\.(json|js)' || echo "")
 
-              # 批量替换所有格式
-              escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
-              
-              # 查找同名的其他格式文件并替换
-              loon_file="Modules/Loon/$author/$module_folder.lpx"
-              shadowrocket_file="Modules/Shadowrocket/$author/$module_folder.srmodule"
-              
-              sed -i "s|$escaped_link|$github_js_url|g" "$sgmodule_file"
-              [ -f "$loon_file" ] && sed -i "s|$escaped_link|$github_js_url|g" "$loon_file"
-              [ -f "$shadowrocket_file" ] && sed -i "s|$escaped_link|$github_js_url|g" "$shadowrocket_file"
+              if [ -z "$js_links" ]; then continue; fi
+
+              for js_link in $js_links; do
+                js_filename=$(basename "$js_link")
+                local_js_path="Modules/JS/$author/$module_folder/$js_filename"
+                github_js_url="$js_base_url/${author}/$module_folder/$js_filename"
+                
+                mkdir -p "$(dirname "$local_js_path")"
+                curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"
+
+                escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
+                
+                # 仅替换当前模块的各平台文件
+                # 明确指定查找路径：Modules/Surge/$author, Modules/Loon/$author, Modules/Shadowrocket/$author
+                # 避免全盘 find
+                
+                # Surge
+                sed -i "s|$escaped_link|$github_js_url|g" "$sgmodule_file"
+                
+                # Loon
+                loon_file="Modules/Loon/$author/$module_folder.lpx"
+                [ -f "$loon_file" ] && sed -i "s|$escaped_link|$github_js_url|g" "$loon_file"
+                
+                # Shadowrocket
+                shadowrocket_file="Modules/Shadowrocket/$author/$module_folder.srmodule"
+                [ -f "$shadowrocket_file" ] && sed -i "s|$escaped_link|$github_js_url|g" "$shadowrocket_file"
+              done
             done
           done
 
-      #- name: Modify sgmodule files after sync
-      #  run: |
-      #    find Modules/Surge -type f -name "*.sgmodule" -not -path "*/Beta/*" -exec sed -i 's/,pre-matching//g' {} +
+      - name: Modify sgmodule files after sync
+        run: |
+          find Modules/Surge -type f -name "*.sgmodule" -not -path "*/Beta/*" -exec sed -i 's/,pre-matching//g' {} +
 
       - name: Commit and push changes
         env:
@@ -211,7 +199,7 @@ jobs:
             COMMIT_MESSAGE="Synched assets at $DATE (UTC+8)"
             git stash
             git pull --rebase
-            git stash pop || true # 防止 stash pop 失败导致 action 停止
+            git stash pop || true 
             git add Modules/*
             git commit -m "$COMMIT_MESSAGE"
             git push
