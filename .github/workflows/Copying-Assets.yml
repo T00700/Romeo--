@@ -123,7 +123,7 @@ jobs:
               filename_noext=$(basename "$module_link" | sed 's/\(.*\)\..*/\1/')
               encoded_filename=$(echo "$filename_noext" | jq -sRr @uri)
 
-              Shadowrocket_url="http://localhost:9100/file/_start_/${module_link}/_end_/${encoded_filename}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
+              Shadowrocket_url="http://localhost:9100/file/_start_/${module_link}/_end_/${encoded_filename}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true"
 
               mkdir -p Modules/Shadowrocket/$author
               echo "Converting $filename_noext..."
