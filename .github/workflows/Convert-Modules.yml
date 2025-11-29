@@ -30,192 +30,157 @@ jobs:
           echo "Waiting for Docker services..."
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      - name: Download Official Files & Prepare Conversion
-        id: prepare
+      # === 1. 下载原始文件并分类保存 (Official) ===
+      - name: Download and Categorize Raw Files
+        id: prepare_list
         run: |
-          # 转换任务列表
           CONVERT_LIST="convert_tasks.txt"
           > "$CONVERT_LIST"
-          
-          # 去重记录表 (Key: Author_Filename)
-          declare -A seen_keys
-          # 读取链接文件
-          while read -r raw_url; do
-            # 1. 过滤无效行
-            if [[ "$raw_url" =~ ^\s*#.* ]] || [[ -z "${raw_url// }" ]]; then continue; fi
-            # 2. URL 清洗 (去掉 ? 后面的参数，否则无法识别后缀)
-            clean_url="${raw_url%%\?*}"
-            
-            # 3. 解析信息
-            # 假设链接格式 github.com/Author/... 或 raw/Author/...
-            # 这里的 cut -f4 取决于你的链接格式，如果是 raw.githubusercontent.com/Author/Repo... 则是 f4
-            # 建议用更通用的方式提取作者（假设是路径中的某一部分，或者保持原样）
-            # 这里沿用你之前的逻辑：cut -d'/' -f4
+          declare -A seen_modules
+
+          while read -r url; do
+            if [[ "$url" =~ ^\s*#.* ]] || [[ -z "${url// }" ]]; then continue; fi
+
+            clean_url="${url%%\?*}"
             author=$(echo "$clean_url" | cut -d'/' -f4)
-            
             filename_full=$(basename "$clean_url")
-            extension="${filename_full##*.}"
             filename_noext="${filename_full%.*}"
+            extension="${filename_full##*.}"
             
-            # 4. 确定下载目标 (Official 备份)
-            should_download=false
-            target_dir=""
-            
+            # 确定保存路径
+            save_dir=""
             case "$extension" in
-              sgmodule)
-                target_dir="Modules/Surge/$author/Official"
-                should_download=true
-                ;;
-              lpx|plugin)
-                target_dir="Modules/Loon/$author/Official"
-                should_download=true
-                ;;
-              *)
-                # 其他格式不存 Official，但要转换
-                should_download=false
-                ;;
+              sgmodule) save_dir="Modules/Surge/$author/Official" ;;
+              lpx|plugin) save_dir="Modules/Loon/$author/Official" ;;
             esac
-            # 5. 执行下载 (备份原文件)
-            if [ "$should_download" = true ]; then
-              mkdir -p "$target_dir"
-              echo "📥 Downloading Backup: $filename_full -> $target_dir"
-              curl -sL -A "Surge Mac/2985" -o "$target_dir/$filename_full" "$raw_url"
+
+            # 下载备份
+            if [[ -n "$save_dir" ]]; then
+              mkdir -p "$save_dir"
+              echo "📥 Downloading Backup: $filename_full"
+              curl -sL -A "Surge Mac/2985" -o "$save_dir/$filename_full" "$url"
             fi
-            # 6. 生成转换任务 (智能去重)
-            # 唯一Key: 作者/文件名 (不含后缀)
+
+            # 智能去重并生成转换列表
             unique_key="${author}/${filename_noext}"
-            if [[ -z "${seen_keys[$unique_key]}" ]]; then
-              # 记录任务: 原始链接 (带参数的)
-              echo "$raw_url" >> "$CONVERT_LIST"
-              seen_keys["$unique_key"]=1
-              echo "   ✅ Added to convert queue: $unique_key"
+            if [[ -z "${seen_modules[$unique_key]}" ]]; then
+              echo "$url" >> "$CONVERT_LIST"
+              seen_modules["$unique_key"]=1
             else
-              echo "   ⏩ Duplicate detected, skipping conversion: $unique_key"
+              echo "   ⏩ Skipping duplicate conversion: $unique_key"
             fi
           done < Links/Modules-Links.txt
           
           echo "CONVERSION_LIST=$CONVERT_LIST" >> $GITHUB_ENV
 
-      - name: Debug - List Files
-        run: |
-          echo "=== Checking Modules Directory Structure ==="
-          if [ -d "Modules" ]; then
-            find Modules -maxdepth 4 -not -path '*/.*'
-          else
-            echo "❌ Modules directory was not created!"
-          fi
-          echo "=========================================="
-
-      - name: Convert Modules
+      # === 2. 转换模块 ===
+      - name: Convert Modules (Serialized)
         run: |
           category="Jacob"
           encoded_category=$(echo "$category" | jq -sRr @uri)
           
           if [ ! -f "$CONVERSION_LIST" ]; then
-            echo "No conversion tasks."
+            echo "No tasks."
             exit 0
           fi
+
           while read -r module_link; do
             [ -z "$module_link" ] && continue
-            # 清洗 & 解析
+            
             clean_url="${module_link%%\?*}"
             author=$(echo "$clean_url" | cut -d'/' -f4)
             filename_full=$(basename "$clean_url")
             filename_noext="${filename_full%.*}"
             extension="${filename_full##*.}"
             
-            # URL 编码
             encoded_module_link=$(echo "$module_link" | sed 's/😂/%F0%9F%98%82/g')
             encoded_filename=$(echo "$filename_noext" | jq -sRr @uri)
-            # 根据原始文件类型设置 type 参数
-            # 如果不指定，script-hub 会尝试自动探测，但指定更稳
+            
+            # 设置源类型
             case "$extension" in
               sgmodule) src_type="surge-module" ;;
               lpx|plugin) src_type="loon-plugin" ;;
-              *) src_type="surge-module" ;; # 默认回退
+              *) src_type="surge-module" ;;
             esac
-            # 构造 Script-Hub URL
+
+            # 构造 URL
             Surge_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=${src_type}&target=surge-module&category=${encoded_category}&nore=true"
             Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=${src_type}&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
-            
             Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=${src_type}&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
             Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=${src_type}&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true"
-            
             Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=${src_type}&target=shadowrocket-module&category=${encoded_category}&nore=true"
             Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=${src_type}&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
+
             echo "🔄 Converting: $filename_noext ($author)"
             
-            # 创建 Beta 目录 (Beta文件总是要生成的)
             mkdir -p Modules/{Surge,Loon,Shadowrocket}/$author/Beta
-            # 下载转换后的文件
-            # 1. 生成 Beta 版 (必须)
+
+            # 下载 Beta (所有格式)
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/Beta/$filename_noext.sgmodule" "$Surge_Beta_url"
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/Beta/$filename_noext.lpx" "$Loon_Beta_url"
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/Beta/$filename_noext.srmodule" "$Shadowrocket_Beta_url"
-            # 2. 生成/补充 Official 版 (非Beta)
-            # 如果该格式的 Official 目录里没有原文件（比如原文件是sgmodule，现在要生成srmodule），则下载
-            # 为了简单逻辑：我们总是尝试生成对应的“转换版”到根目录 (Modules/Surge/$author/$file)，除非那是原文件存放的 Official 目录
-            
-            # Surge
+
+            # 下载 非Beta (如果 Official 没存过)
             if [[ "$extension" != "sgmodule" ]]; then
                mkdir -p "Modules/Surge/$author"
                curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/$filename_noext.sgmodule" "$Surge_url"
             fi
-            
-            # Loon
             if [[ "$extension" != "lpx" && "$extension" != "plugin" ]]; then
                mkdir -p "Modules/Loon/$author"
                curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/$filename_noext.lpx" "$Loon_url"
             fi
-            
-            # Shadowrocket (总是生成，因为没有 Shadowrocket 的 Official 原文件来源)
             mkdir -p "Modules/Shadowrocket/$author"
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/$filename_noext.srmodule" "$Shadowrocket_url"
+
           done < "$CONVERSION_LIST"
 
+      # === 恢复：收集作者列表 ===
       - name: Collect authors
         run: |
           authors=$(grep -E '^https?://' Links/Modules-Links.txt | cut -d'/' -f4 | sort -u | tr '\n' ' ')
           echo "AUTHORS=$authors" >> $GITHUB_ENV
-          
+
+      # === 3. JS 替换 (使用原版逻辑: 遍历作者 -> 遍历文件 -> 替换) ===
       - name: Find and replace external JS resources
         continue-on-error: true
         run: |
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
+          mkdir -p Modules/JS
 
-          # 遍历每个作者
           for author in $AUTHORS; do
-            echo "Scanning modules for author: $author"
+            # echo "Scanning modules for author: $author"
             
-            # 核心修改：只扫描 Modules/Surge/$author 目录
-            # -maxdepth 1 确保不扫描子目录（如 Beta），只处理根目录下的正式版文件
-            find "Modules/Surge/$author" -maxdepth 1 -type f -name "*.sgmodule" | while read sgmodule_file; do
+            # 查找 Modules/Surge/$author (包括子目录 Official 和根目录) 下的 sgmodule
+            # 使用 find 递归查找，但排除 Beta
+            find "Modules/Surge/$author" -type f -name "*.sgmodule" -not -path "*/Beta/*" | while read sgmodule_file; do
               
               module_folder=$(basename "$sgmodule_file" .sgmodule)
               
-              # 提取 JS 链接 (不限关键词，匹配所有 http js)
               js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
               
               if [ -z "$js_links" ]; then continue; fi
 
-              echo "Processing JS links for $module_folder..."
+              echo "Processing JS links for $module_folder ($author)..."
 
               for js_link in $js_links; do
                 js_filename=$(basename "$js_link")
+                # JS 存放路径: Modules/JS/Author/ModuleName/filename.js
                 local_js_path="Modules/JS/$author/$module_folder/$js_filename"
                 github_js_url="$js_base_url/$author/$module_folder/$js_filename"
    
-                mkdir -p "$(dirname "$local_js_path")"
-
-                if curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
-                  
-                  escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
-                  
-                  # 批量替换：限制在当前作者目录下查找相关文件
-                  find "Modules" -path "*/$author/*" \( -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" \) | \
-                  xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
-                  
+                if [ ! -f "$local_js_path" ]; then
+                   mkdir -p "$(dirname "$local_js_path")"
+                   if ! curl -sL -A "Surge Mac/2985" -o "$local_js_path" "$js_link"; then
+                      echo "  ❌ Failed download: $js_link"
+                      continue
+                   fi
                 fi
+
+                escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
+                
+                # 批量替换：限制在当前作者目录下查找所有相关文件 (包括 Beta)
+                find "Modules" -path "*/$author/*" \( -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" -o -name "${module_folder}.plugin" \) | \
+                xargs -I {} sed -i "s|$escaped_link|$github_js_url|g" "{}"
               done
             done
           done
@@ -226,6 +191,7 @@ jobs:
         run: |
           DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
           git add Modules/*
+          rm -f "$CONVERSION_LIST" # 清理临时文件
           
           if git diff --cached --quiet; then
             echo "No changes to commit"
