@@ -183,10 +183,6 @@ jobs:
             done
           done
 
-      - name: Modify sgmodule files after sync
-        run: |
-          find Modules/Surge -type f -name "*.sgmodule" -not -path "*/Beta/*" -exec sed -i 's/,pre-matching//g' {} +
-
       - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
