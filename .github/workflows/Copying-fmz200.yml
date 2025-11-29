@@ -89,24 +89,24 @@ jobs:
             # 3. 并行请求转换 (保持原有的稳定组并发逻辑)
             # Surge
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/$filename" \
-              "http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true" &
+              "http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true" &
             
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/${Author}/Beta/$filename" \
-              "http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true" &
+              "http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true" &
 
             # Loon
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/$name.lpx" \
-              "http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true" &
+              "http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true" &
             
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/${Author}/Beta/$name.lpx" \
-              "http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true" &
+              "http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.lpx?type=surge-module&target=loon-plugin&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true" &
 
             # Shadowrocket
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/$name.srmodule" \
-              "http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true" &
+              "http://localhost:9100/file/_start_/${raw_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true" &
             
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/${Author}/Beta/$name.srmodule" \
-              "http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true" &
+              "http://localhost:9101/file/_start_/${raw_url}/_end_/${encoded_name}.srmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true" &
 
             wait
           done
