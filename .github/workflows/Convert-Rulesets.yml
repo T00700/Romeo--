@@ -55,14 +55,14 @@ jobs:
             mkdir -p Rulesets/{Surge,Loon,Shadowrocket,Clash}/$author/Beta
 
             # 构建模块的 URL
-            Surge_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=surge-rule-set&nore=true"
-            Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=surge-rule-set&nore=true&jqEnabled=true"
-            Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lsr?type=rule-set&target=loon-rule-set&icon=Loon&nore=true"
-            Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lsr?type=rule-set&target=loon-rule-set&icon=Loon&nore=true&jqEnabled=true"
-            Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=shadowrocket-rule-set&nore=true"
-            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=shadowrocket-rule-set&nore=true&jqEnabled=true"
-            Clash_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.yaml?type=rule-set&target=stash-rule-set&nore=true"
-            Clash_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.yaml?type=rule-set&target=stash-rule-set&nore=true&jqEnabled=true"
+            Surge_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=surge-rule-set&nore=true&jqEnabled=true"
+            Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=surge-rule-set&nore=true&jqEnabled=true&jqEnabled=true"
+            Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lsr?type=rule-set&target=loon-rule-set&icon=Loon&nore=true&jqEnabled=true"
+            Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lsr?type=rule-set&target=loon-rule-set&icon=Loon&nore=true&jqEnabled=true&jqEnabled=true"
+            Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=shadowrocket-rule-set&nore=true&jqEnabled=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=shadowrocket-rule-set&nore=true&jqEnabled=true&jqEnabled=true"
+            Clash_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.yaml?type=rule-set&target=stash-rule-set&nore=true&jqEnabled=true"
+            Clash_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.yaml?type=rule-set&target=stash-rule-set&nore=true&jqEnabled=true&jqEnabled=true"
             
             # Surge
             curl -A "Surge Mac/2985" -L -o "Rulesets/Surge/$author/$filename_noext.list" "$Surge_url" || echo "Failed Surge Official"
