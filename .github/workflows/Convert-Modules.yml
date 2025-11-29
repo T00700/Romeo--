@@ -27,63 +27,79 @@ jobs:
 
       - name: Wait for Docker services to be ready
         run: |
-          echo "Waiting for Docker services..."
+          echo "Waiting for Docker services to be ready..."
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      # === 1. 下载原始文件并分类保存 (Official) ===
-      - name: Download and Categorize Raw Files
-        id: prepare_list
+      # === 1. 下载备份 & 生成去重后的转换列表 ===
+      - name: Download Backup & Deduplicate
+        id: prepare
         run: |
           CONVERT_LIST="convert_tasks.txt"
           > "$CONVERT_LIST"
-          declare -A seen_modules
           
-          # 用于并发控制
-          download_pids=()
+          # 关联数组用于去重 Key = Author/Filename
+          declare -A seen_modules
 
           while read -r url; do
+            # 1. 基础过滤
             if [[ "$url" =~ ^\s*#.* ]] || [[ -z "${url// }" ]]; then continue; fi
-
-            clean_url="${url%%\?*}"
+            
+            # 2. 解析信息
+            clean_url="${url%%\?*}" # 去掉URL参数
             filename_full="${clean_url##*/}"
             filename_noext="${filename_full%.*}"
             extension="${filename_full##*.}"
+            # 获取作者 (假设是第4段)
             author=$(echo "$clean_url" | cut -d'/' -f4)
-            
+
+            # 3. 备份逻辑：根据后缀决定存放位置
             save_dir=""
             case "$extension" in
-              sgmodule) save_dir="Modules/Surge/$author/Official" ;;
-              lpx|plugin) save_dir="Modules/Loon/$author/Official" ;;
+              sgmodule)
+                save_dir="Modules/Surge/$author/Official"
+                ;;
+              lpx|plugin)
+                save_dir="Modules/Loon/$author/Official"
+                ;;
+              # 其他格式不备份到Official，但可能需要转换
             esac
 
             if [[ -n "$save_dir" ]]; then
               mkdir -p "$save_dir"
-              (
-                curl -sL -A "Surge Mac/2985" -o "$save_dir/$filename_full" "$url" || echo "❌ Failed: $url"
-              ) &
-              if [[ $(jobs -r -p | wc -l) -ge 20 ]]; then wait -n; fi
+              echo "📥 Backup: $filename_full -> $save_dir"
+              # 放入后台下载，不阻塞
+              curl -sL -A "Surge Mac/2985" -o "$save_dir/$filename_full" "$url" &
             fi
 
+            # 4. 去重逻辑
             unique_key="${author}/${filename_noext}"
+            
             if [[ -z "${seen_modules[$unique_key]}" ]]; then
+              # 如果是第一次遇到这个模块 -> 加入转换列表
               echo "$url" >> "$CONVERT_LIST"
               seen_modules["$unique_key"]=1
+              echo "   ✅ Added to convert queue: $unique_key ($extension)"
             else
-              echo "   ⏩ Skipping duplicate conversion: $unique_key"
+              # 如果已经遇到过 -> 跳过转换 (但上面的备份逻辑依然会执行)
+              echo "   ⏩ Duplicate detected, skipping conversion: $unique_key"
             fi
+
+            # 简单的并发控制，防止备份下载积压太多
+            if [[ $(jobs -r -p | wc -l) -ge 20 ]]; then wait -n; fi
+
           done < Links/Modules-Links.txt
           
-          wait
+          wait # 等待所有备份下载完成
           echo "CONVERSION_LIST=$CONVERT_LIST" >> $GITHUB_ENV
 
-      # === 2. 转换模块 ===
+      # === 2. 执行转换 (使用去重后的列表) ===
       - name: Convert Modules (Serialized)
         run: |
           category="Jacob"
           encoded_category=$(echo "$category" | jq -sRr @uri)
           
           if [ ! -f "$CONVERSION_LIST" ]; then
-            echo "No tasks."
+            echo "No tasks found."
             exit 0
           fi
 
@@ -99,27 +115,34 @@ jobs:
             encoded_module_link=$(echo "$module_link" | sed 's/😂/%F0%9F%98%82/g')
             encoded_filename=$(echo "$filename_noext" | jq -sRr @uri)
             
+            # 确定源类型
             case "$extension" in
               sgmodule) src_type="surge-module" ;;
               lpx|plugin) src_type="loon-plugin" ;;
               *) src_type="surge-module" ;;
             esac
 
+            # 构造 URL (保留了你添加的 jqEnabled 和 keepHeader)
             Surge_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=${src_type}&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true"
-            Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=${src_type}&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true&jqEnabled=true"
+            Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=${src_type}&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true"
             Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=${src_type}&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true&keepHeader=true"
-            Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=${src_type}&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true&keepHeader=true&jqEnabled=true"
+            Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=${src_type}&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true&keepHeader=true"
             Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=${src_type}&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true"
-            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=${src_type}&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true&jqEnabled=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.srmodule?type=${src_type}&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true&keepHeader=true"
 
             echo "🔄 Converting: $filename_noext ($author)"
             
             mkdir -p Modules/{Surge,Loon,Shadowrocket}/$author/Beta
 
+            # 串行下载 Beta
             curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/Beta/$filename_noext.sgmodule" "$Surge_Beta_url"
             curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/Beta/$filename_noext.lpx" "$Loon_Beta_url"
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/Beta/$filename_noext.srmodule" "$Shadowrocket_Beta_url"
 
+            # 生成非 Beta 版 (如果原文件不是该格式，则生成)
+            # 这里的逻辑是：不管原文件有没有，都生成一遍放在根目录(Modules/Surge/$author/)，
+            # 如果原文件在 Official，那这里生成的其实是一个“转换版”或者“副本”。
+            # 根据你之前的逻辑，这里是需要的：
             if [[ "$extension" != "sgmodule" ]]; then
                mkdir -p "Modules/Surge/$author"
                curl -sL -A "Surge Mac/2985" -o "Modules/Surge/$author/$filename_noext.sgmodule" "$Surge_url"
@@ -128,10 +151,16 @@ jobs:
                mkdir -p "Modules/Loon/$author"
                curl -sL -A "Surge Mac/2985" -o "Modules/Loon/$author/$filename_noext.lpx" "$Loon_url"
             fi
+            # Shadowrocket 没有 Official 概念，总是生成
             mkdir -p "Modules/Shadowrocket/$author"
             curl -sL -A "Surge Mac/2985" -o "Modules/Shadowrocket/$author/$filename_noext.srmodule" "$Shadowrocket_url"
 
           done < "$CONVERSION_LIST"
+
+      - name: Collect authors
+        run: |
+          authors=$(grep -E '^https?://' Links/Modules-Links.txt | cut -d'/' -f4 | sort -u | tr '\n' ' ')
+          echo "AUTHORS=$authors" >> $GITHUB_ENV
 
       # === 3. JS 替换 ===
       - name: Find and replace external JS resources
@@ -140,14 +169,19 @@ jobs:
           js_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/JS"
           mkdir -p Modules/JS
 
-          # 修复作者变量来源
-          authors=$(grep -E '^https?://' Links/Modules-Links.txt | cut -d'/' -f4 | sort -u)
-
-          for author in $authors; do
+          # 遍历作者
+          for author in $AUTHORS; do
+            # 扫描该作者 Surge Official 目录下的文件，以及根目录下的转换文件 (排除 Beta)
+            # 使用 -maxdepth 2 可能会扫到 Official 和 根目录，我们分开写更精确
             
-            find "Modules/Surge/$author" -type f -name "*.sgmodule" -not -path "*/Beta/*" | while read sgmodule_file; do
+            # 1. 查找 Official 目录
+            find "Modules/Surge/$author/Official" -type f -name "*.sgmodule" 2>/dev/null > files_to_scan.txt
+            # 2. 查找转换生成的根目录文件 (非 Official, 非 Beta)
+            find "Modules/Surge/$author" -maxdepth 1 -type f -name "*.sgmodule" 2>/dev/null >> files_to_scan.txt
+
+            while read sgmodule_file; do
+              [ -f "$sgmodule_file" ] || continue
               
-              # 这里 basename 获取到的就是 Bilibili.Helper (不带后缀)
               module_folder=$(basename "$sgmodule_file" .sgmodule)
               
               js_links=$(grep -v '#' "$sgmodule_file" | grep -oP 'https?://[^ \"\)]+\.(json|js|jq)' || echo "")
@@ -158,9 +192,6 @@ jobs:
 
               for js_link in $js_links; do
                 js_filename=$(basename "$js_link")
-                
-                # === 核心修正 ===
-                # 直接使用 module_folder，不要再去除 .*, 否则 Bilibili.Helper 会变成 Bilibili
                 local_js_dir="Modules/JS/$author/$module_folder"
                 local_js_path="$local_js_dir/$js_filename"
                 github_js_url="$js_base_url/$author/$module_folder/$js_filename"
@@ -175,10 +206,11 @@ jobs:
 
                 escaped_link=$(printf '%s' "$js_link" | sed 's/[.[\*^$(){}+?|]/\\&/g')
                 
+                # 批量替换：限制在当前作者目录下查找所有相关文件 (包括 Beta)
                 find "Modules" -path "*/$author/*" \( -name "${module_folder}.sgmodule" -o -name "${module_folder}.lpx" -o -name "${module_folder}.srmodule" -o -name "${module_folder}.plugin" \) -print0 | \
                 xargs -0 sed -i "s|$escaped_link|$github_js_url|g"
               done
-            done
+            done < files_to_scan.txt
           done
 
       - name: Commit and push changes
@@ -187,7 +219,7 @@ jobs:
         run: |
           DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
           git add Modules/*
-          rm -f "$CONVERSION_LIST"
+          rm -f "$CONVERSION_LIST" files_to_scan.txt
           
           if git diff --cached --quiet; then
             echo "No changes to commit"
