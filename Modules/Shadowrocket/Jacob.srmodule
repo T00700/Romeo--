@@ -151,7 +151,7 @@ DOMAIN-SUFFIX,admobile.net.cn,REJECT
 DOMAIN-SUFFIX,popadshop.com,REJECT
 DOMAIN-SUFFIX,admobile.vip,REJECT
 DOMAIN-SUFFIX,yksdks.com,REJECT
-DOMAIN-SUFFIX,dutils.com,REJECT,extended-matching
+DOMAIN-SUFFIX,dutils.com,REJECT
 DOMAIN-SUFFIX,mob.com,REJECT
 DOMAIN-SUFFIX,jiguang.cn,REJECT,extended-matching
 DOMAIN-SUFFIX,jpush.cn,REJECT,extended-matching
