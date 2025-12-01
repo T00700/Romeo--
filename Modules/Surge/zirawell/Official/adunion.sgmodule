@@ -69,6 +69,7 @@ DOMAIN-SUFFIX, zhengxiaoliu.top, REJECT, extended-matching, pre-matching
 DOMAIN-SUFFIX, shuzilm.cn, REJECT, extended-matching, pre-matching
 DOMAIN-SUFFIX, u51.me, REJECT, extended-matching, pre-matching
 DOMAIN-SUFFIX, ubixioe.com, REJECT, extended-matching, pre-matching
+DOMAIN-SUFFIX, dutils.com, REJECT, extended-matching, pre-matching
 DOMAIN-SUFFIX, hiaiabc.com, REJECT, extended-matching, pre-matching
 DOMAIN-SUFFIX, uyunad.com, REJECT, extended-matching, pre-matching
 DOMAIN-SUFFIX, beizi.biz, REJECT, extended-matching, pre-matching

@@ -1,7 +1,7 @@
 #!name=广告联盟 - ADUNION
 #!desc=功能类插件
 #!author=zirawell[https://github.com/zirawell]
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1097.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1036.png
 #!tag=Jacob
 
 #!tag=去广告
@@ -45,7 +45,6 @@ DOMAIN-SUFFIX,zhengxiaoliu.top,REJECT
 DOMAIN-SUFFIX,shuzilm.cn,REJECT
 DOMAIN-SUFFIX,u51.me,REJECT
 DOMAIN-SUFFIX,ubixioe.com,REJECT
-DOMAIN-SUFFIX,dutils.com,REJECT
 DOMAIN-SUFFIX,hiaiabc.com,REJECT
 DOMAIN-SUFFIX,uyunad.com,REJECT
 DOMAIN-SUFFIX,beizi.biz,REJECT
