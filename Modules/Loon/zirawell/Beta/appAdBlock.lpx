@@ -1,6 +1,6 @@
 #!name=appAdBlock
 #!desc=appAdBlock
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1075.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1048.png
 #!tag=Jacob
 
 [Rule]
@@ -749,6 +749,7 @@ DOMAIN-SUFFIX,corp.sohu.com,REJECT
 DOMAIN-SUFFIX,count.game.pps.tv,REJECT
 DOMAIN-SUFFIX,count.video.sina.com.cn,REJECT
 DOMAIN-SUFFIX,counter.sina.com.cn,REJECT
+DOMAIN-SUFFIX,cpatrk.net,REJECT
 DOMAIN-SUFFIX,cpc.sogou.com,REJECT
 DOMAIN-SUFFIX,cpc.sohu.com,REJECT
 DOMAIN-SUFFIX,cpro.baidu.cn,REJECT
@@ -815,6 +816,7 @@ DOMAIN-SUFFIX,du.jd.com,REJECT
 DOMAIN-SUFFIX,duapps.com,REJECT
 DOMAIN-SUFFIX,duclick.baidu.com,REJECT
 DOMAIN-SUFFIX,duiwai.baidu.com,REJECT
+DOMAIN-SUFFIX,dutils.com,REJECT
 DOMAIN-SUFFIX,dxp.baidu.com,REJECT
 DOMAIN-SUFFIX,dynamic.zol.com.cn,REJECT
 DOMAIN-SUFFIX,dzl.baidu.com,REJECT

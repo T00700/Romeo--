@@ -15,6 +15,7 @@
 [Rule]
 DOMAIN,lwlog.laiwang.com,REJECT
 DOMAIN-SUFFIX,yksdks.com,REJECT
+DOMAIN-SUFFIX,cpatrk.net,REJECT
 DOMAIN-SUFFIX,mobsurl.com,REJECT
 IP-CIDR,114.67.227.198/32,REJECT,no-resolve
 

@@ -748,6 +748,7 @@ DOMAIN-SUFFIX,corp.sohu.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,count.game.pps.tv,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,count.video.sina.com.cn,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,counter.sina.com.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,cpatrk.net,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,cpc.sogou.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,cpc.sohu.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,cpro.baidu.cn,REJECT,extended-matching,pre-matching
@@ -814,6 +815,7 @@ DOMAIN-SUFFIX,du.jd.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,duapps.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,duclick.baidu.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,duiwai.baidu.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,dutils.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,dxp.baidu.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,dynamic.zol.com.cn,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,dzl.baidu.com,REJECT,extended-matching,pre-matching
