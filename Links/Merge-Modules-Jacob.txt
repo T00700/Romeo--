@@ -134,6 +134,7 @@ Modules/Surge/zirawell/tfilm.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/Weibo_remove_ads.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/Weixin_external_links_unlock.sgmodule # Loon,Shadowrocket
 Modules/Surge/ZenmoFeiShi/WxPureDominion.sgmodule # Loon,Shadowrocket
+Modules/Surge/zirawell/wallstreetcn.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/wechatAppletGeneral.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/wechat.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/sgcc.sgmodule # Loon,Shadowrocket
