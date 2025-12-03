@@ -1,7 +1,7 @@
 #!name=广告联盟 - ADUNION
 #!desc=功能类插件
 #!author=zirawell[https://github.com/zirawell]
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1086.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1083.png
 #!tag=Jacob
 
 #!tag=去广告
@@ -171,6 +171,7 @@ DOMAIN,webproxy-advp.iad-apple.com.akadns.net,REJECT
 DOMAIN-SUFFIX,advp.apple.com,REJECT
 DOMAIN-SUFFIX,iad-apple.com,REJECT
 DOMAIN-SUFFIX,iadsdk.apple.com,REJECT
+DOMAIN-KEYWORD,inappcheck,REJECT
 DOMAIN,admarketing.yahoo.net,REJECT
 DOMAIN,ads.auctions.yahoo.com,REJECT
 DOMAIN,ads.finance.yahoo.com,REJECT
