@@ -1,4 +1,4 @@
-#规则数量:117009
+#规则数量:117008
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -48,7 +48,6 @@ payload:
   - DOMAIN,b.c2r.ts.cdn.office.net
   - DOMAIN,bag-cdn.itunes-apple.com.akadns.net
   - DOMAIN,bag.itunes.apple.com
-  - DOMAIN,bbs.ztedevices.com
   - DOMAIN,beacons.gcp.gvt2.com
   - DOMAIN,beacons.gvt2.com
   - DOMAIN,beacons2.gvt2.com
@@ -588,7 +587,6 @@ payload:
   - DOMAIN,www.pxcc.com
   - DOMAIN,www.recaptcha.net
   - DOMAIN,www.support.apple.com
-  - DOMAIN,www.ztedevices.com
   - DOMAIN,www4-static.gog-statics.com
   - DOMAIN,xn--flw351e.com
   - DOMAIN,xp.apple.com
@@ -45162,6 +45160,7 @@ payload:
   - DOMAIN-SUFFIX,hapingapp.com
   - DOMAIN-SUFFIX,hapipixia.com
   - DOMAIN-SUFFIX,hapiyixia.com
+  - DOMAIN-SUFFIX,hapjs.org
   - DOMAIN-SUFFIX,haplat.net
   - DOMAIN-SUFFIX,happi123.com
   - DOMAIN-SUFFIX,happigo.com
