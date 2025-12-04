@@ -1514,9 +1514,9 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? - reject-dict
 ^https:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\? - reject-dict
 ^https:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\? - reject-dict
-^https:\/\/ai\.amap\.com\/v1\/ai_rec\/home_qs\? - reject-dict
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:order\/car\/(?:feedback\/get_card_questions|feedback\/viptips|king_toolbox_car_bubble|remark\/satisfactionConf|rights_information)|tips\/onscene_visual_optimization) - reject-dict
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:pay\/web\/paySuccess\/info\/request|transportation\/diversion\/resource\/driving) - reject-dict
+^https:\/\/ai\.amap\.com\/v1\/ai_rec\/home_qs\? - reject-dict
 # amap-App
 ^https?:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt - reject
 ^https?:\/\/m\d\.amap\.com\/ws\/valueadded\/ - reject
@@ -1704,7 +1704,7 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https:\/\/api\.weibo\.cn\/2\/search\/container_discover\? - reject-dict
 ^https:\/\/api\.weibo\.cn\/2\/hot\/hours_spotlight\? - reject-dict
 ^https:\/\/api\.weibo\.cn\/2\/video\/redpacket\? - reject-dict
-^https:\/\/api\.weibo\.cn\/!\/(?:sug\/list\/finderchange|was\/finder\/searchbarchange)\? - reject-dict
+^https:\/\/api\.weibo\.cn\/2\/!\/(?:search\/finder_nav_polling|sug\/list\/finderchange|was\/finder\/searchbarchange)\? - reject-dict
 ^https:\/\/api\.weibo\.cn\/2\/video\/tiny_video_info_show\? - reject-dict
 ^https:\/\/bootrealtime\.uve\.weibo\.com\/v[23]\/ad\/realtime - reject-dict
 ^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/(?:get-lbs-cell-info\.php|sdkconfig\.php) - reject-dict
@@ -1770,6 +1770,7 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.community\/ response-body-json-jq '.data.feedsList |= map(select(.template.name == "idlefish_home_new_commodity_card" or .template.name == "idlefish_home_new_content_card"))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.newitem\.page\/ response-body-json-jq '.data.sections |= map(select(.data.clickParam.args.cardType as $ct | $ct != "banner" and $ct != "mamaAD"))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.flow\.plat\.section\/ response-body-json-jq '.data.data.components |= map(select(.data and (.data|type=="object") and .data.template and (.data.template|type=="object") and .data.template.name and (.data.template.name|type=="string") and (.data.template.name|contains("fish_city_kingkong"))))'
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\.top\/ response-body-json-jq '.data.data.components |= map(select(.key == "fish_home_second_stage_top_cardV3"))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ response-body-json-jq '.data.sections |= map(select((.template.cardEnum != "ads") and (.cardType == "common")))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ response-body-json-jq '.data.container.sections |= map(select(.template.name as $name | ["my_fy25_header","my_fy25_user_info","my_fy25_trade","my_fy25_appraise","my_fy25_tools"] | index($name))) | .data.container.sections |= map(.item |= (if .level and .level.exContent and (.level.exContent | has("tips")) then del(.level) else . end))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ response-body-json-jq jq-path="https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/FleaMarket_remove_ads/adapter_FleaMarket_remove_ads.jq"
