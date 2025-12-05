@@ -39,8 +39,8 @@ SiriResponseLanguageVariant = select,"zh_CN","OFF","AUTO","zh_TW","yue_CN","zh_H
 # bilibili
 displayUpList=select,"show","hide","auto",tag=[动态]中[最常访问]的显示方式
 purifyComment=switch,true,tag=[评论区]过滤置顶评论广告
-sponsorBlock=switch,true,tag=空降助手
 optimizeRequest=switch,true,tag=优化评论区加载
+sponsorBlock=switch,true,tag=空降助手
 logLevel=select,"error","warn","info","debug","off",tag=日志等级
 # BiliBili.ADBlock
 Splash = switch,true,tag=[开屏] 去除广告,desc=是否启用此处修改
