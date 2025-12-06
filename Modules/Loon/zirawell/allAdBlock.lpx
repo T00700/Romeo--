@@ -8,7 +8,7 @@
 #!basedOn=iOS
 #!surge_version=5.14.2(Build3405,SDK18.2)
 #!homepage=https://github.com/zirawell/R-Store/tree/main/Rule/Surge/README.md
-#!date=2025-12-05 08:56:16
+#!date=2025-12-05 14:16:36
 
 [Rule]
 IP-CIDR,1.202.85.193/32,REJECT,no-resolve
@@ -2006,6 +2006,7 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do response-body-replace-regex "imgUrl19_5x9":".+?" "imgUrl19_5x9":""
 ^https?:\/\/membase-yxapp\.feiniu\.com\/misc\/memberIndex response-body-replace-regex myADArray myADArray0
 ^https?:\/\/waimai-guide\.ele\.me\/h5\/mtop\.alsc\.eleme\.miniapp\.homepage response-body-replace-regex wechat_miniapp_scene_card_template zirawell
+^https?:\/\/wcmp\.189\.cn\/xcxApiService\/api\/gateway response-body-replace-regex adItems random_body
 ^https?:\/\/api\.boohee\.com\/meta-interface\/v\d\/index\/record_index response-body-replace-regex articles random_body
 ^https?:\/\/www\.i3zh\.com response-body-replace-regex cm-pop-up-banners random_body
 ^https?:\/\/bd-api\.kuwo\.cn\/api\/service\/global\/config\/scene response-body-json-jq '.data.showShopEntry=false|.data.idolTabShow=true'
@@ -2015,7 +2016,6 @@ DOMAIN-KEYWORD,wan.sogou.com,REJECT
 ^https?:\/\/(h3\.)?open\.taou\.com\/maimai\/feed\/v\d\/detail_recommend_feeds response-body-replace-regex feeds random_body
 ^https?:\/\/www\.flyert(rip)?\.com(\.cn)?\/.*\.php\?.*module=basicdata&type=forumlist response-body-replace-regex adv adv0
 ^https?:\/\/bd-api\.kuwo\.cn\/api\/service\/resource\/recommend response-body-json-jq '.data.resourceList[] |= del(.resource)'
-^https?:\/\/wcmp\.189\.cn\/xcxApiService\/api\/gateway response-body-replace-regex adItems random_body
 ^https?:\/\/lcen\.xiaote\.net\/api\/graphql response-body-replace-regex screenSplashAd random-response
 ^https?:\/\/api\.swiftgram\.app\/v0\/settings response-body-replace-regex announcements_data random_body
 ^https?:\/\/m\.lkcoffee\.com\/ecapi\/resource\/m\/member\/exchange\/page response-body-replace-regex \{.+\} {"status":"SUCCESS"}
