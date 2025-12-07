@@ -28,7 +28,6 @@ Modules/Surge/ifflagged/Plugin-Top.sgmodule # Loon,Shadowrocket
 # 1 #
 Modules/Surge/zirawell/12123.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/12306_remove_ads.sgmodule # Loon,Shadowrocket
-Modules/Surge/Yuheng0101/NoAds.sgmodule # Loon,Shadowrocket
 
 # A #
 
