@@ -1,6 +1,6 @@
 #!name=小桔充电去广告
 #!desc=移除开屏广告、应用内悬浮窗、弹窗广告、横幅广告，精简我的页面。
-#!openUrl=https://apps.apple.com/app/id593811445
+#!openUrl=https://apps.apple.com/app/id1670782986
 #!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
 #!tag=去广告
 #!system=
@@ -8,16 +8,18 @@
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/XiaojukejiCharge.png
-#!date=2025-05-13 15:17:08
+#!date=2025-12-07 21:33:56
 
 [Rewrite]
 ^https:\/\/energy\.xiaojukeji\.com\/energy\/hummer\/api\/resource\/display($|\?) reject-dict
 
-^https:\/\/energy\.xiaojukeji\.com\/am\/marketing\/api\/member\/facade\/charge\/personal\/center\? reject-dict
+^https:\/\/energy\.xiaojukeji\.com\/am\/marketing\/api\/member\/facade\/charge\/personal\/center\? response-body-json-del data
+
+^https:\/\/am\.didistatic\.com\/static\/am\/cf-terminal\/epower\/epower-thanos-app\/\d+\.\d+\.\d+\/pages\/people\/index\.js$ reject
 
 ^https:\/\/energy\.xiaojukeji\.com\/lego\/api\/orderSprint\/stair\/info($|\?) reject-dict
 
 ^https:\/\/energy\.xiaojukeji\.com\/station-api\/search\/preWords$ reject-dict
 
 [MitM]
-hostname=energy.xiaojukeji.com
+hostname=energy.xiaojukeji.com, am.didistatic.com
