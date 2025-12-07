@@ -1,6 +1,6 @@
 #!name= 黑料不打烊
 #!desc= 去除烦人的广告
-#!date= 2025-12-07 08:13:32
+#!date= 2025-12-07 12:18:55
 
 [MITM]
 hostname = %APPEND% 18hlw.com,api*.hlwapi*.com
