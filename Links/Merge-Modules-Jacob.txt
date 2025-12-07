@@ -123,7 +123,6 @@ Modules/Surge/zirawell/samsclub.sgmodule # Loon,Shadowrocket
 
 # T #
 Modules/Surge/zirawell/twitter.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/tfsmy.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/tft.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/taobao.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/tfilm.sgmodule # Loon,Shadowrocket
