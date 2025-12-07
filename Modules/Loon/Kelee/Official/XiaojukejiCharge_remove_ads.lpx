@@ -8,7 +8,7 @@
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/XiaojukejiCharge.png
-#!date=2025-12-07 22:37:57
+#!date=2025-12-07 23:17:44
 
 [Rewrite]
 ^https:\/\/energy\.xiaojukeji\.com\/energy\/hummer\/api\/resource\/display($|\?) reject-dict
@@ -19,8 +19,7 @@
 
 ^https:\/\/energy\.xiaojukeji\.com\/station-api\/search\/preWords$ reject-dict
 
-[Script]
-http-response ^https:\/\/am\.didistatic\.com\/static\/am\/cf-terminal\/epower\/epower-thanos-app\/\d+\.\d+\.\d+\/pages\/people\/index\.js$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/XiaojukejiCharge_remove_ads/XiaojukejiCharge_remove_ads.js, requires-body=true, tag=精简我的页面
+^https:\/\/am\.didistatic\.com\/static\/am\/cf-terminal\/epower\/epower-thanos-app\/\d+\.\d+\.\d+\/pages\/people\/index\.js$ mock-response-body data-type=text data-path="https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/XiaojukejiCharge_remove_ads/XiaojukejiCharge_remove_ads.js" status-code=200
 
 [MitM]
 hostname=energy.xiaojukeji.com, am.didistatic.com
