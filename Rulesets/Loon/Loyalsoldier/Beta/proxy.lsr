@@ -1,4 +1,4 @@
-#规则数量:26290
+#规则数量:26291
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -19449,6 +19449,7 @@ DOMAIN-SUFFIX,r18.com
 DOMAIN-SUFFIX,r18av.com
 DOMAIN-SUFFIX,r18lu-avi.shop
 DOMAIN-SUFFIX,r18lu.com
+DOMAIN-SUFFIX,r2.dev
 DOMAIN-SUFFIX,r34porn.net
 DOMAIN-SUFFIX,rabbitscams.com
 DOMAIN-SUFFIX,rabbitscams.sex
