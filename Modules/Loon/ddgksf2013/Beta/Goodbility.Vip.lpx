@@ -1,21 +1,7 @@
-#!name=Goodbility
-#!desc=解锁GoodNotes&Notability内购会员
-#!author=𝐝𝐝𝐠𝐤𝐬𝐟𝟐𝟎𝟏𝟑
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
-#!tag=Jacob
+Goodbility.Vip%0A：Error: Response code 404 (Not Found)
 
-#!tgchannel=https://t.me/ddgksf2021
-#!moduleUrl=https://github.com/ddgksf2013/Modules/raw/main/Goodbility.Vip.sgmodule
-#!howtouse=小火箭、Surge用户直接添加模块，QuantumultX用户添加重写时打开解析器
 
-[Script]
-# > Goodbility@ddgksf2013
-http-response ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts$|subscribers\/[^/]+$) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Goodbility.Vip/Goodbility.Vip.js, requires-body=true, timeout=60, tag=Goodbility.Vip1
 
-http-request ^https:\/\/isi\.csan.[a-z.]+\/.+\/(receipts|subscribers) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Goodbility.Vip/deleteHeader.js, timeout=60, tag=Goodbility.Vip2
 
-http-response ^https?:\/\/notability\.com\/global script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Goodbility.Vip/Goodbility.Vip.js, requires-body=true, timeout=60, tag=Goodbility.Vip3
 
-[MITM]
-hostname = isi.csan.*, notability.com
-
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
