@@ -1,4 +1,4 @@
-#规则数量:117008
+#规则数量:117007
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -7933,7 +7933,6 @@ payload:
   - DOMAIN-SUFFIX,75ll.com
   - DOMAIN-SUFFIX,75n474.com
   - DOMAIN-SUFFIX,75pk.com
-  - DOMAIN-SUFFIX,75team.com
   - DOMAIN-SUFFIX,75ww.com
   - DOMAIN-SUFFIX,75xn.com
   - DOMAIN-SUFFIX,76065.com

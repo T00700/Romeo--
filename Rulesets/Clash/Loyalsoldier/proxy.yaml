@@ -1,4 +1,4 @@
-#规则数量:26291
+#规则数量:26292
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -19343,6 +19343,7 @@ payload:
   - DOMAIN-SUFFIX,qmp4.com
   - DOMAIN-SUFFIX,qmttqg3k.me
   - DOMAIN-SUFFIX,qnap.com
+  - DOMAIN-SUFFIX,qobuz.com
   - DOMAIN-SUFFIX,qombol.com
   - DOMAIN-SUFFIX,qoo10.jp
   - DOMAIN-SUFFIX,qooqlevideo.com
