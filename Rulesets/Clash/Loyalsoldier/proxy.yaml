@@ -1,4 +1,4 @@
-#规则数量:26292
+#规则数量:26296
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -18589,7 +18589,10 @@ payload:
   - DOMAIN-SUFFIX,poecdn.net
   - DOMAIN-SUFFIX,pogo.com
   - DOMAIN-SUFFIX,pogobeta.com
+  - DOMAIN-SUFFIX,poi.icu
   - DOMAIN-SUFFIX,poi.moe
+  - DOMAIN-SUFFIX,poi6.net
+  - DOMAIN-SUFFIX,poihub.com
   - DOMAIN-SUFFIX,points-media.com
   - DOMAIN-SUFFIX,poisontube.com
   - DOMAIN-SUFFIX,pojapp.cfd
@@ -19143,6 +19146,7 @@ payload:
   - DOMAIN-SUFFIX,product.co.jp
   - DOMAIN-SUFFIX,profilemaster.com
   - DOMAIN-SUFFIX,profreeporno.com
+  - DOMAIN-SUFFIX,project-poi.com
   - DOMAIN-SUFFIX,project-syndicate.org
   - DOMAIN-SUFFIX,projectapex.com
   - DOMAIN-SUFFIX,projectara.com
