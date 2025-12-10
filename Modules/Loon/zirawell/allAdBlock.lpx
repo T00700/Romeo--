@@ -8,7 +8,7 @@
 #!basedOn=iOS
 #!surge_version=5.14.2(Build3405,SDK18.2)
 #!homepage=https://github.com/zirawell/R-Store/tree/main/Rule/Surge/README.md
-#!date=2025-12-09 08:16:35
+#!date=2025-12-09 15:49:48
 
 [Rule]
 IP-CIDR,1.202.85.193/32,REJECT,no-resolve
@@ -2221,7 +2221,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/cy\.cloud\.ccb\.com\/\/gateway\/user-server\/user\/qyCenter\/getCustomizedAdv mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mgesq\.api\.mgtv\.com\/user\/center\/config mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/img\.yun\.01zhuanche\.com\/statics\/app\/advertisement\/.+?-750-1334 mock-response-body data-type=tiny-gif status-code=200
-^https?:\/\/wx\.17u\.cn\/wechatmypubapi\/myInfo\/(?>orderRemind|icons|memberShow|memberInfo|messageBox) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/search-yxapp\.feiniu\.com\/recommend\/memberIndexGoodsList mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/pt-starimg\.didistatic\.com\/static\/starimg\/node\/.*.(?>jpg|png|gif) mock-response-body data-type=text status-code=200
@@ -3388,9 +3387,9 @@ http-response ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.nbfriend\.message\.
 
 http-response ^https?:\/\/vip\d\.kuwo\.cn\/vip\/(enc\/user\/vip\?op=ui|v\d\/theme\?op=gd) script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/kuwo.js, requires-body=true, tag=kuwo
 
-http-response ^https?:\/\/iqushangwang\.8quan\.com\/index\.php\/i\/index\/index script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/quda.js, requires-body=true, tag=quda
-
 http-response ^https?:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/cntv.js, requires-body=true, tag=youku
+
+http-response ^https?:\/\/iqushangwang\.8quan\.com\/index\.php\/i\/index\/index script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/quda.js, requires-body=true, tag=quda
 
 http-response ^https?:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v\d script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/wechatApplet.js, requires-body=true, tag=lawson
 

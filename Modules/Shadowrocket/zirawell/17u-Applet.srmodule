@@ -10,8 +10,6 @@
 
 ^https?:\/\/wx\.17u\.cn\/homemarketapi\/(aggregator\/index|search\/recommend) data-type=text data="{}"
 
-^https?:\/\/wx\.17u\.cn\/wechatmypubapi\/myInfo\/(?>orderRemind|icons|memberShow|memberInfo|messageBox) data-type=text data="{}"
-
 ^https?:\/\/wx\.17u\.cn\/mytourapi\/mytrip\/(?>blankflight|toptips) data-type=text data="{}"
 
 ^https?:\/\/wx\.17u\.cn\/mytourapi\/blankpage\/recommendList data-type=text data="{}"
