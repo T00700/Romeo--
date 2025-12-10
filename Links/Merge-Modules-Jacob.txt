@@ -103,8 +103,8 @@ Modules/Surge/zirawell/mcd-App.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/mcd-Applet.sgmodule # Loon,Shadowrocket
 
 # P #
-Modules/Surge/Kelee/PinDuoDuo_remove_ads.sgmodule # Loon,Shadowrocket
-# Modules/Surge/ZenmoFeiShi/Pinduoduo.sgmodule # Loon,Shadowrocket
+# Modules/Surge/Kelee/PinDuoDuo_remove_ads.sgmodule # Loon,Shadowrocket
+Modules/Surge/ZenmoFeiShi/Pinduoduo.sgmodule # Loon,Shadowrocket
 # Modules/Surge/zirawell/pdd.sgmodule # Loon,Shadowrocket
 
 # Q #
