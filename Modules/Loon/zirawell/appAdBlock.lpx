@@ -8,7 +8,7 @@
 #!basedOn=iOS
 #!surge_version=5.14.2(Build3405,SDK18.2)
 #!homepage=https://github.com/zirawell/R-Store/tree/main/Rule/Surge/README.md
-#!date=2025-12-11 15:48:50
+#!date=2025-12-12 10:17:47
 
 [Rule]
 IP-CIDR,1.202.85.193/32,REJECT,no-resolve
@@ -2231,6 +2231,7 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlecommerce\.splash mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mall\.meituan\.com\/api\/c\/homepage\/bubble\/operate\/info mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/app\.badmintoncn\.com\/mag\/operative\/v\d\/ad\/listNotEndByPlace\?place=first_page mock-response-body data-type=text status-code=200
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.mimir\.recommend(?!\.hgitems) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mobile\.cmbchina\.com\/dcardmanage\/salary-welfare\/get-recommend mock-response-body data-type=file data="https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/appAdBlock/cmb.json"
 ^https?:\/\/kano\.guahao\.cn\/[a-zA-Z0-9]{12} mock-response-body data-type=text status-code=200
 ^https?:\/\/hoapp\.juneyaoair\.com\/version mock-response-body data-type=text status-code=200
@@ -2749,7 +2750,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/imgcache\.qq\.com\/qqlive\/ mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/rsb\.pingan\.com\.cn\/brcp\/bds\/cust\/ygfz\/up mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wallet\.lakala\.com\/m\/a\/lama\/mgt\/activity\/biz\/query\/byMerInfo mock-response-body data-type=text data="{}" status-code=200
-^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.mimir\.recommend mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/apapia-sqk\.manmanbuy\.com\/index_json\.ashx$ mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mgesq\.api\.mgtv\.com\/v\d\/goods\/guess_you_like mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.touker\.com\/v\d\/IAdvertisementAPI\.queryStartAdvertisement mock-response-body data-type=text status-code=200
