@@ -116,7 +116,7 @@ Modules/Surge/zirawell/lkcoffee-Applet.sgmodule # Loon,Shadowrocket
 
 # S #
 Modules/Surge/Kelee/smzdm_remove_ads.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/samsclub.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/SamClub.sgmodule # Loon,Shadowrocket
 
 # T #
 Modules/Surge/zirawell/twitter.sgmodule # Loon,Shadowrocket
