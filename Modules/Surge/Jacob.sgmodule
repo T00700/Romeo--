@@ -1,7 +1,7 @@
 #!name=  Jacob
 #!desc= Merged Jacob for Surge
 #!category= Jacob
-#!arguments= DataSets:"airQuality,currentWeather,forecastDaily,forecastHourly,forecastNextHour,locationInfo,news,historicalComparisons,weatherAlerts,weatherChanges",Weather.Provider:"WeatherKit",NextHour.Provider:"ColorfulClouds",AQI.Provider:"ColorfulClouds",AQI.ReplaceProviders:"QWeather",AQI.ComparisonProvider:"Auto",AQI.Local.ReplaceScales:"HJ6332012",AQI.Local.Scale:"EPA_NowCast",AQI.Local.ConvertUnits:false,API.ColorfulClouds.Token:"",API.QWeather.Host:"devapi.qweather.com",API.QWeather.Token:"",API.WAQI.Token:"",LogLevel:"WARN", GeoCountryCode:"US",Dispatcher.Hybrid:true,LogLevel:"WARN", GeoManifest.Dynamic.Config.CountryCode:"CN",UrlInfoSet.Dispatcher:"AutoNavi",UrlInfoSet.Directions:"AutoNavi",UrlInfoSet.RAP:"Apple",UrlInfoSet.LocationShift:"AUTO",TileSet.Earth:"AUTO",TileSet.Roads:"AUTO",TileSet.Satellite:"HYBRID",LogLevel:"WARN", CountryCode:"US",SiriLocale:"zh_CN",Region:"OFF",SiriResponseLanguageVariant:"zh_CN",LogLevel:"WARN", 动态最常访问:auto,创作中心:0,过滤置顶评论广告:1,优化评论区加载:bilibili.request,空降助手:bilibili.airborne,空降助手策略:DIRECT,日志等级:4, Splash:true,Feed.AD:true,Feed.Activity:false,Feed.Vertical:false,Feed.BlockUpLiveList:"",Feed.Story:true,Search.AD:true,Search.HotSearch:true,PGC.AD:true,Xlive.AD:true,Dynamic.HotTopics:true,Dynamic.MostVisited:false,Dynamic.AdCard:true,View.AD:true,DM.Command:false,DM.Colorful:false,Reply.AD:true,LogLevel:"WARN", Home.Tab:"直播tab,推荐tab,hottopic,bangumi,anime,film,koreavtw",Home.Tab_default:"推荐tab",Home.Top_left:"mine",Home.Top:"消息Top",Bottom:"home,dynamic,ogv,会员购Bottom,我的Bottom",LogLevel:"WARN", Host.Akamaized:"upos-sz-mirrorali.bilivideo.com",Host.BStar:"upos-sz-mirrorali.bilivideo.com",Host.PCDN:"upos-sz-mirrorali.bilivideo.com",Host.MCDN:"proxy-tf-all-ws.bilivideo.com",LogLevel:"WARN", davsdmpk_enable:true, MMMCK_SCRIPT:慢慢买CK, 屏蔽上传按钮:true,屏蔽选段按钮:true,屏蔽Shorts按钮:false,字幕翻译语言:off,歌词翻译语言:off,启用调试模式:false, Types:"Translate,External",Languages[0]:"AUTO",Languages[1]:"ZH",Vendor:"Google",LrcVendor:"NeteaseMusic",LogLevel:"WARN"
+#!arguments= DataSets:"airQuality,currentWeather,forecastDaily,forecastHourly,forecastNextHour,locationInfo,news,historicalComparisons,weatherAlerts,weatherChanges",Weather.Provider:"WeatherKit",NextHour.Provider:"ColorfulClouds",AQI.Provider:"ColorfulClouds",AQI.ReplaceProviders:"QWeather",AQI.ComparisonProvider:"Auto",AQI.Local.ReplaceScales:"HJ6332012",AQI.Local.Scale:"EPA_NowCast",AQI.Local.ConvertUnits:false,API.ColorfulClouds.Token:"",API.QWeather.Host:"devapi.qweather.com",API.QWeather.Token:"",API.WAQI.Token:"",LogLevel:"WARN", GeoCountryCode:"US",Dispatcher.Hybrid:true,LogLevel:"WARN", GeoManifest.Dynamic.Config.CountryCode:"CN",UrlInfoSet.Dispatcher:"AutoNavi",UrlInfoSet.Directions:"AutoNavi",UrlInfoSet.RAP:"Apple",UrlInfoSet.LocationShift:"AUTO",TileSet.Earth:"AUTO",TileSet.Roads:"AUTO",TileSet.Satellite:"HYBRID",LogLevel:"WARN", CountryCode:"US",SiriLocale:"zh_CN",Region:"OFF",SiriResponseLanguageVariant:"zh_CN",LogLevel:"WARN", 动态最常访问:auto,创作中心:0,过滤置顶评论广告:1,优化评论区加载:bilibili.request,空降助手:bilibili.airborne,空降助手策略:DIRECT,日志等级:4, Splash:true,Feed.AD:true,Feed.Activity:false,Feed.Vertical:false,Feed.BlockUpLiveList:"",Feed.Story:true,Search.AD:true,Search.HotSearch:true,PGC.AD:true,Xlive.AD:true,Dynamic.HotTopics:true,Dynamic.MostVisited:false,Dynamic.AdCard:true,View.AD:true,DM.Command:false,DM.Colorful:false,Reply.AD:true,LogLevel:"WARN", Home.Tab:"直播tab,推荐tab,hottopic,bangumi,anime,film,koreavtw",Home.Tab_default:"推荐tab",Home.Top_left:"mine",Home.Top:"消息Top",Bottom:"home,dynamic,ogv,会员购Bottom,我的Bottom",LogLevel:"WARN", Host.Akamaized:"upos-sz-mirrorali.bilivideo.com",Host.BStar:"upos-sz-mirrorali.bilivideo.com",Host.PCDN:"upos-sz-mirrorali.bilivideo.com",Host.MCDN:"proxy-tf-all-ws.bilivideo.com",LogLevel:"WARN", davsdmpk_enable:true, MMMCK_SCRIPT:慢慢买CK, meiyou_enable:true, 屏蔽上传按钮:true,屏蔽选段按钮:true,屏蔽Shorts按钮:false,字幕翻译语言:off,歌词翻译语言:off,启用调试模式:false, Types:"Translate,External",Languages[0]:"AUTO",Languages[1]:"ZH",Vendor:"Google",LrcVendor:"NeteaseMusic",LogLevel:"WARN"
 #!arguments-desc= # iRingo.WeatherKit\nDataSets: [数据集]\n    ├ airQuality: 空气质量\n    ├ currentWeather: 当前天气\n    ├ forecastDaily: 每日预报\n    ├ forecastHourly: 每小时预报\n    ├ forecastNextHour: 未来一小时降水强度\n    ├ locationInfo: 位置信息\n    ├ news: 新闻\n    ├ historicalComparisons: 历史对比\n    ├ weatherAlerts: 天气预警\n    └ weatherChanges: 天气变化\n选中的数据集会被包含在请求中。\n\nWeather.Provider: [天气] 数据源\n    ├ WeatherKit: WeatherKit (不进行替换)\n    ├ ColorfulClouds: 彩云天气\n    └ QWeather: 和风天气\n始终会使用选定的数据源，替换天气数据。\n\nNextHour.Provider: [未来一小时降水强度] 数据源\n    ├ WeatherKit: WeatherKit (不进行替换)\n    ├ ColorfulClouds: 彩云天气\n    └ QWeather: 和风天气\n始终会使用选定的数据源，填补无降水监测地区的数据。\n\nAQI.Provider: [空气质量] 数据源\n    ├ WeatherKit: WeatherKit (不进行替换)\n    ├ ColorfulClouds: 彩云天气\n    ├ QWeather: 和风天气\n    └ WAQI: The World Air Quality Project\n始终会使用选定的数据源，填补无空气质量监测地区的数据。\n\nAQI.ReplaceProviders: [空气质量] 需要替换的供应商\n    ├ QWeather: 和风天气\n    ├ BreezoMeter: BreezoMeter\n    └ TWC: The Weather Channel\n选中的空气质量数据源会被替换。\n\nAQI.ComparisonProvider: [空气质量] 对比昨日数据源\n    ├ Auto: 自动选择 (与[空气质量] 数据源一致)\n    ├ WeatherKit: WeatherKit (不进行替换)\n    ├ ColorfulClouds: 彩云天气\n    └ QWeather: 和风天气\n始终会使用选定的数据源，填补无对比昨日地区的数据。\n\nAQI.Local.ReplaceScales: [空气质量] 需要修改的标准\n    ├ HJ6332012: 中国 (HJ 633—2012)\n    └ EPA_NowCast: 美国 (EPA NowCast)\n选中的空气质量标准会被替换。请注意各国监测的污染物种类可能有所不同，转换算法或API未必适合当地。\n\nAQI.Local.Scale: [空气质量] 本地替换算法\n    ├ NONE: None (不进行替换)\n    ├ EPA_NowCast: 美国 (EPA NowCast)\n    └ WAQI_InstantCast: WAQI InstantCast\n本地替换时使用的算法\n\nAQI.Local.ConvertUnits: [空气质量] 转换污染物计量单位\n将污染物数据替换为转换单位后的数据，方便对照转换后的标准。（不推荐。不同单位互转可能会损失精度，导致数值偏大）\n\nAPI.ColorfulClouds.Token: [API] 彩云天气令牌\n彩云天气 API 令牌\n\nAPI.QWeather.Host: [API] 和风天气主机\n和风天气 API 使用的主机名\n\nAPI.QWeather.Token: [API] 和风天气令牌\n和风天气 API 令牌\n\nAPI.WAQI.Token: [API] WAQI 令牌\nWAQI API 令牌，填写此字段将自动使用WAQI高级API\n\nLogLevel: [调试] 日志等级\n    ├ OFF: 关闭\n    ├ ERROR: ❌ 错误\n    ├ WARN: ⚠️ 警告\n    ├ INFO: ℹ️ 信息\n    ├ DEBUG: 🅱️ 调试\n    └ ALL: 全部\n选择脚本日志的输出等级，低于所选等级的日志将全部输出。\n\n\n# iRingo.LocationService\nGeoCountryCode: [地区检测] 地理国家或地区代码\n    ├ AUTO: 🇺🇳自动（跟随地区检测结果）\n    ├ CN: 🇨🇳中国大陆\n    ├ HK: 🇭🇰中国香港\n    ├ TW: 🇹🇼中国台湾\n    ├ SG: 🇸🇬新加坡\n    ├ US: 🇺🇸美国\n    ├ JP: 🇯🇵日本\n    ├ AU: 🇦🇺澳大利亚\n    ├ GB: 🇬🇧英国\n    ├ KR: 🇰🇷韩国\n    ├ CA: 🇨🇦加拿大\n    └ IE: 🇮🇪爱尔兰\n要更改为的地区或国家，此选项影响GPS/Wi-Fi/有线网络下国家和地区检测的结果。\n\nDispatcher.Hybrid: [调度器] 融合数据\n地点数据接口，此选项影响公共指南，兴趣点(POI)与位置信息等功能。(注：使用国际版调度器时，不会进行数据融合）\n\nLogLevel: [调试] 日志等级\n    ├ OFF: 关闭\n    ├ ERROR: ❌ 错误\n    ├ WARN: ⚠️ 警告\n    ├ INFO: ℹ️ 信息\n    ├ DEBUG: 🅱️ 调试\n    └ ALL: 全部\n选择脚本日志的输出等级，低于所选等级的日志将全部输出。\n\n\n# iRingo.Maps\nGeoManifest.Dynamic.Config.CountryCode: [动态配置] 资源清单的国家或地区代码\n    ├ AUTO: 🇺🇳自动（跟随用户当前所在地区）\n    ├ CN: 🇨🇳中国大陆\n    ├ HK: 🇭🇰中国香港\n    ├ TW: 🇹🇼中国台湾\n    ├ SG: 🇸🇬新加坡\n    ├ US: 🇺🇸美国\n    ├ JP: 🇯🇵日本\n    ├ AU: 🇦🇺澳大利亚\n    ├ GB: 🇬🇧英国\n    ├ KR: 🇰🇷韩国\n    ├ CA: 🇨🇦加拿大\n    └ IE: 🇮🇪爱尔兰\n此选项影响“地图”整体配置内容，包括以下的地图功能与服务。\n\nUrlInfoSet.Dispatcher: [URL信息集] 调度器\n    ├ AUTO: 🇺🇳自动（随[动态配置]版本自动选择）\n    ├ AutoNavi: 🧭高德（🇨🇳:互动百科/大众点评/携程 | 🇺🇳:维基百科/Yelp/Booking）\n    └ Apple: Apple（维基百科/Yelp/Booking）\n地点数据接口，此选项影响公共指南，兴趣点(POI)与位置信息等功能。\n\nUrlInfoSet.Directions: [URL信息集] 导航与ETA\n    ├ AUTO: 🇺🇳自动（随[动态配置]版本自动选择）\n    ├ AutoNavi: 🧭高德（🇨🇳:高德地图 | 🇺🇳:TomTom）\n    └ Apple: Apple（🇨🇳:🈚️ | 🇺🇳:TomTom）\n导航与ETA服务接口，此选项影响导航与ETA(到达时间)等功能。\n\nUrlInfoSet.RAP: [URL信息集] 评分和照片\n    ├ AUTO: 🇺🇳自动（随[动态配置]版本自动选择）\n    ├ AutoNavi: 🧭高德（🇨🇳:🈶️但未开放 | 🇺🇳:🈚️）\n    └ Apple: Apple（🇨🇳:🈚️ | 🇺🇳:🈶️）\n评分和照片服务接口，此选项影响评分和照片服务以及照片使用。\n\nUrlInfoSet.LocationShift: [URL信息集] 定位漂移\n    ├ AUTO: 🇺🇳自动（随[动态配置]版本自动选择）\n    ├ AutoNavi: 🧭高德（🈚️坐标，使用🇨🇳GCJ-02坐标）\n    └ Apple: Apple（🈶️坐标，使用🇺🇳WGS-84坐标）\n定位漂移修正服务接口，控制定位漂移和🧭指南针与📍坐标的经纬度。\n\nTileSet.Earth: [瓦片数据集] 地球图像\n    ├ AUTO: 🇺🇳自动（随[动态配置]版本自动选择）\n    ├ AutoNavi: 🧭高德版（主要显示国家与国界）\n    └ Apple: Apple（主要显示城市与地貌）\n此选项影响地球视图下行政区划、地貌等信息的显示。\n\nTileSet.Roads: [瓦片数据集] 道路图像与四处看看\n    ├ AUTO: 🇺🇳自动（随[动态配置]版本自动选择）\n    ├ CN: 🇨🇳中国（🇨🇳:卫星视图道路正确 | 🇺🇳:无四处看看）\n    └ XX: Apple（🇨🇳:卫星视图道路偏移 | 🇺🇳:有四处看看）\n此选项影响卫星视图下的道路图像与四处看看可用路段。\n\nTileSet.Satellite: [瓦片数据集] 卫星图像\n    ├ AUTO: 🇺🇳自动（随[动态配置]版本自动选择）\n    ├ HYBRID: 混合（🇨🇳:2D较新 | 🇺🇳:主要城市3D）\n    ├ CN: 🇨🇳中国四维（🇨🇳:2D较新 | 🇺🇳:🈚️）\n    └ XX: 🇺🇳DigitalGlobe（🇨🇳:2D较旧 | 🇺🇳:2D+主要城市3D）\n此选项影响所列位图、影像与模型数据。\n\nLogLevel: [调试] 日志等级\n    ├ OFF: 关闭\n    ├ ERROR: ❌ 错误\n    ├ WARN: ⚠️ 警告\n    ├ INFO: ℹ️ 信息\n    ├ DEBUG: 🅱️ 调试\n    └ ALL: 全部\n选择脚本日志的输出等级，低于所选等级的日志将全部输出。\n\n\n# iRingo.Siri\nCountryCode: 国家或地区代码\n    ├ OFF: 🔴 关闭（不修改）\n    ├ AUTO: 🇺🇳 自动（跟随系统地区设置）\n    ├ CN: 🇨🇳 中国大陆\n    ├ HK: 🇭🇰 中国香港\n    ├ TW: 🇹🇼 中国台湾\n    ├ SG: 🇸🇬 新加坡\n    ├ US: 🇺🇸 美国\n    ├ JP: 🇯🇵 日本\n    ├ AU: 🇦🇺 澳大利亚\n    ├ GB: 🇬🇧 英国\n    ├ KR: 🇰🇷 韩国\n    ├ CA: 🇨🇦 加拿大\n    └ IE: 🇮🇪 爱尔兰\n不同国家或地区提供的内容或有差别，此选项同时会影响分配给您不同地区的 Siri 服务器。\n\nSiriLocale: Siri 区域\n    ├ OFF: 🔴 关闭（不修改）\n    ├ AUTO: 🇺🇳 自动 (跟随“Siri”的“语言”设置)\n    ├ zh_CN: 🇨🇳 中文 (普通话 - 中国大陆)\n    ├ zh_TW: 🇹🇼 中文 (普通话 - 台湾)\n    ├ yue_CN: 🇨🇳 中文 (粤语 - 中国大陆)\n    ├ zh_HK: 🇭🇰 中文 (粤语 - 香港)\n    ├ ja_JP: 🇯🇵 日语\n    ├ en_CA: 🇨🇦 英语 (加拿大)\n    ├ en_SG: 🇸🇬 英语 (新加坡)\n    ├ en_AU: 🇦🇺 英语 (澳大利亚)\n    ├ en_IE: 🇮🇪 英语 (爱尔兰)\n    ├ en_US: 🇺🇸 英语 (美国)\n    ├ en_GB: 🇬🇧 英语 (英国)\n    └ ko_KR: 🇰🇷 韩语\n忽略系统中“Siri”的“语言”设置，强制采用这里的设置。\n\nRegion: 区域\n    ├ OFF: 🔴 关闭（不修改）\n    ├ AUTO: 🇺🇳 自动（跟随系统地区设置）\n    ├ CN: 🇨🇳 中国大陆\n    ├ HK: 🇭🇰 中国香港\n    ├ TW: 🇹🇼 中国台湾\n    ├ SG: 🇸🇬 新加坡\n    ├ US: 🇺🇸 美国\n    ├ JP: 🇯🇵 日本\n    ├ AU: 🇦🇺 澳大利亚\n    ├ GB: 🇬🇧 英国\n    ├ KR: 🇰🇷 韩国\n    ├ CA: 🇨🇦 加拿大\n    └ IE: 🇮🇪 爱尔兰\n作用未知，待测试。\n\nSiriResponseLanguageVariant: Siri 响应语言修改\n    ├ OFF: 🔴 关闭（不修改）\n    ├ AUTO: 🇺🇳 自动 (跟随“Siri”的“语言”设置)\n    ├ zh_CN: 🇨🇳 中文 (普通话 - 中国大陆)\n    ├ zh_TW: 🇹🇼 中文 (普通话 - 台湾)\n    ├ yue_CN: 🇨🇳 中文 (粤语 - 中国大陆)\n    ├ zh_HK: 🇭🇰 中文 (粤语 - 香港)\n    ├ ja_JP: 🇯🇵 日语\n    ├ en_CA: 🇨🇦 英语 (加拿大)\n    ├ en_SG: 🇸🇬 英语 (新加坡)\n    ├ en_AU: 🇦🇺 英语 (澳大利亚)\n    ├ en_IE: 🇮🇪 英语 (爱尔兰)\n    ├ en_US: 🇺🇸 英语 (美国)\n    ├ en_GB: 🇬🇧 英语 (英国)\n    └ ko_KR: 🇰🇷 韩语\n自定义 Siri 回复时使用的语言。\n\nLogLevel: [调试] 日志等级\n    ├ OFF: 🔴 关闭\n    ├ ERROR: ❌ 错误\n    ├ WARN: ⚠️ 警告\n    ├ INFO: ℹ️ 信息\n    ├ DEBUG: 🅱️ 调试\n    └ ALL: 全部\n选择脚本日志的输出等级，低于所选等级的日志将全部输出。\n\n\n# bilibili\n动态最常访问: [auto, show, hide]\n- auto: 仅当列表中存在直播状态时显示\n- show: 始终显示\n- hide: 始终隐藏\n\n创作中心: [1, 0]\n- 1: 显示\n- 0: 隐藏\n\n过滤置顶评论广告: [1, 0]\n- 1: 开启\n- 0: 关闭\n\n优化评论区加载: 默认开启，配置为"#"时关闭\n\n空降助手: 默认开启，配置为"#"时关闭\n\n空降助手策略: 默认直连，建议配置为代理策略\n\n日志等级: [off: 5, error: 4, warn: 3, info: 2, debug: 1]\n\n# BiliBili.ADBlock\nSplash: [开屏] 去除广告\n是否启用此处修改\n\nFeed.AD: [推荐] 去除广告\n是否启用此处修改\n\nFeed.Activity: [推荐] 去除“活动大图”\n是否启用此处修改\n\nFeed.Vertical: [推荐] 去除竖屏视频\n是否启用此处修改\n\nFeed.BlockUpLiveList: [推荐] 屏蔽UP主直播推广\n填写up主uid，以英文逗号隔开。\n\nFeed.Story: [首页] 去除短视频流广告\n是否启用此处修改\n\nSearch.AD: [搜索] 去除广告\n是否启用此处修改\n\nSearch.HotSearch: [搜索] 去除“热搜”\n是否启用此处修改\n\nPGC.AD: [番剧电影] 去除广告\n是否启用此处修改\n\nXlive.AD: [直播] 去除广告\n是否启用此处修改\n\nDynamic.HotTopics: [动态] 去除“热门话题”\n是否启用此处修改\n\nDynamic.MostVisited: [动态] 去除“最常访问”\n是否启用此处修改\n\nDynamic.AdCard: [动态] 去除广告卡片\n是否启用此处修改\n\nView.AD: [用户投稿] 去除视频广告\n是否启用此处修改\n\nDM.Command: [弹幕] 去除交互式弹幕\n是否启用此处修改\n\nDM.Colorful: [弹幕] 替换彩色弹幕\n是否启用此处修改\n\nReply.AD: [评论] 去除广告\n是否启用此处修改\n\nLogLevel: [调试] 日志等级\n    ├ OFF: 🔴 关闭\n    ├ ERROR: ❌ 错误\n    ├ WARN: ⚠️ 警告\n    ├ INFO: ℹ️ 信息\n    ├ DEBUG: 🅱️ 调试\n    └ ALL: 全部\n选择脚本日志的输出等级，低于所选等级的日志将全部输出。\n\n\n# BiliBili.Enhanced\nHome.Tab: [首页] 标签页\n    ├ 直播tab: 直播\n    ├ 推荐tab: 推荐\n    ├ hottopic: 热门\n    ├ bangumi: 番剧\n    ├ anime: 动画（港澳台）\n    ├ film: 影视\n    ├ koreavtw: 韩综（港澳台）\n    ├ game: 游戏\n    ├ mctab: minecraft\n    ├ dhtr: 动画同人\n    ├ gaoxiao: 搞笑\n    ├ school: 校园\n    └ kj: 数码\n请选择启用的首页标签页，建议不超过7个。\n\nHome.Tab_default: [首页] 默认标签页\n    ├ 直播tab: 直播\n    ├ 推荐tab: 推荐\n    ├ hottopic: 热门\n    ├ bangumi: 番剧\n    ├ anime: 动画（港澳台）\n    ├ film: 影视\n    ├ koreavtw: 韩综（港澳台）\n    ├ game: 游戏\n    ├ mctab: minecraft\n    ├ dhtr: 动画同人\n    ├ gaoxiao: 搞笑\n    ├ school: 校园\n    └ kj: 数码\n请选择启动APP时默认展示的标签页，需选择已启用的标签页。\n\nHome.Top_left: [首页] 顶栏（左侧）按钮（用户头像）\n    ├ mine: 用户中心-我的\n    └ videoshortcut: 短视频\n请选择顶栏（左侧）按钮（用户头像）的作用（在biliBili粉色版中无法修改）。\n\nHome.Top: [首页] 顶栏（右侧）按钮\n    ├ 游戏中心Top: 游戏中心\n    ├ 会员购Top: 会员购\n    └ 消息Top: 消息\n请选择启用的顶栏（右侧）按钮。\n\nBottom: [底部] 导航栏按钮\n    ├ home: 首页\n    ├ 频道Bottom: 频道\n    ├ dynamic: 动态\n    ├ publish: 发布\n    ├ ogv: 节目（港澳台）\n    ├ 会员购Bottom: 会员购\n    ├ 消息Bottom: 消息\n    └ 我的Bottom: 我的\n请选择启用的底部导航栏按钮，最多6个。\n\nLogLevel: [调试] 日志等级\n    ├ OFF: 关闭\n    ├ ERROR: ❌ 错误\n    ├ WARN: ⚠️ 警告\n    ├ INFO: ℹ️ 信息\n    ├ DEBUG: 🅱️ 调试\n    └ ALL: 全部\n选择脚本日志的输出等级，低于所选等级的日志将全部输出。\n\n\n# BiliBili.Redirect\nHost.Akamaized: [主机名] 重定向 Akamaized CDN (港澳台)\n    ├ upos-sz-mirrorali.bilivideo.com: 阿里云 CDN\n    ├ upos-sz-mirrorcos.bilivideo.com: 腾讯云 CDN\n    ├ upos-sz-mirrorhw.bilivideo.com: 华为云 CDN，融合 CDN\n    ├ upos-sz-mirroraliov.bilivideo.com: 阿里云 CDN，海外\n    ├ upos-sz-mirrorcosov.bilivideo.com: 腾讯云 CDN，海外\n    └ upos-sz-mirrorhwov.bilivideo.com: 华为云 CDN，海外\n请选择 Akamaized 要重定向的主机名。\n\nHost.BStar: [主机名] 重定向 BStar CDN (国际版)\n    ├ upos-sz-mirrorali.bilivideo.com: 阿里云 CDN\n    ├ upos-sz-mirrorcos.bilivideo.com: 腾讯云 CDN\n    ├ upos-sz-mirrorhw.bilivideo.com: 华为云 CDN，融合 CDN\n    ├ upos-sz-mirroraliov.bilivideo.com: 阿里云 CDN，海外\n    ├ upos-sz-mirrorcosov.bilivideo.com: 腾讯云 CDN，海外\n    └ upos-sz-mirrorhwov.bilivideo.com: 华为云 CDN，海外\n请选择 BStar 要重定向的主机名。\n\nHost.PCDN: [主机名] 重定向 PCDN 主机名 (中国大陆)\n    ├ upos-sz-mirrorali.bilivideo.com: 阿里云 CDN\n    ├ upos-sz-mirrorcos.bilivideo.com: 腾讯云 CDN\n    ├ upos-sz-mirrorhw.bilivideo.com: 华为云 CDN，融合 CDN\n    ├ upos-sz-mirroraliov.bilivideo.com: 阿里云 CDN，海外\n    ├ upos-sz-mirrorcosov.bilivideo.com: 腾讯云 CDN，海外\n    └ upos-sz-mirrorhwov.bilivideo.com: 华为云 CDN，海外\n请选择 PCDN 要重定向的主机名。\n\nHost.MCDN: [主机名] 重定向 MCDN 主机名 (中国大陆)\n    └ proxy-tf-all-ws.bilivideo.com: proxy-tf-all-ws.bilivideo.com\n请选择 MCDN 要重定向的主机名。\n\nLogLevel: [调试] 日志等级\n    ├ OFF: 关闭\n    ├ ERROR: ❌ 错误\n    ├ WARN: ⚠️ 警告\n    ├ INFO: ℹ️ 信息\n    ├ DEBUG: 🅱️ 调试\n    └ ALL: 全部\n选择脚本日志的输出等级，低于所选等级的日志将全部输出。\n\n\n# jd_price2\n[参数设置]\n1. MMMCK_SCRIPT:慢慢买CK 脚本前往慢慢买App获取Cookie\n2.避免不必要的重写，禁用请设置为"#"\n\n# YouTube.Enhance\n- 屏蔽参数：[true, false] \n- 翻译参数：[语言代码, off] \n\n1. 语言代码遵循 Google Translate Languages Codes, 当填入 off 时关闭翻译\n2. 开启调试模式用于输出更多日志\n\n# DualSubs.Spotify\nTypes: [歌词] 启用类型（多选）\n    ├ Translate: 翻译歌词（翻译器）\n    └ External: 外部歌词（外部源）\n请选择要添加的歌词选项，如果为多选，则会自动决定提供的歌词类型。\n\nLanguages[0]: [翻译器] 主语言（源语言）\n    ├ AUTO: 自动 - Automatic\n    ├ ZH: 中文（自动）\n    ├ ZH-HANS: 中文（简体）\n    ├ ZH-HK: 中文（香港）\n    ├ ZH-HANT: 中文（繁体）\n    ├ EN: English - 英语（自动）\n    ├ ES: Español - 西班牙语（自动）\n    ├ JA: 日本語 - 日语\n    ├ KO: 한국어 - 韩语\n    ├ DE: Deutsch - 德语\n    ├ FR: Français - 法语\n    ├ TR: Türkçe - 土耳其语\n    └ KM: ភាសាខ្មែរ - 高棉语\n仅当源语言识别不准确时更改此选项。\n\nLanguages[1]: [翻译器] 副语言（目标语言）\n    ├ ZH: 中文（自动）\n    ├ ZH-HANS: 中文（简体）\n    ├ ZH-HK: 中文（香港）\n    ├ ZH-HANT: 中文（繁体）\n    ├ EN: English - 英语（自动）\n    ├ ES: Español - 西班牙语（自动）\n    ├ JA: 日本語 - 日语\n    ├ KO: 한국어 - 韩语\n    ├ DE: Deutsch - 德语\n    ├ FR: Français - 法语\n    ├ TR: Türkçe - 土耳其语\n    └ KM: ភាសាខ្មែរ - 高棉语\n请指定翻译歌词的目标语言。\n\nVendor: [翻译器] 服务商API\n    ├ Google: Google Translate\n    └ Microsoft: Microsoft Translator（需填写API）\n请选择翻译器所使用的服务商API，更多翻译选项请使用BoxJs。\n\nLrcVendor: [歌词] 服务商API\n    ├ NeteaseMusic: 网易云音乐（官方）\n    ├ QQMusic: QQ音乐（官方）\n    └ NeteaseMusicNodeJS: 网易云音乐 NodeJS API\n请选择外部源所使用的服务商API。\n\nLogLevel: [调试] 日志等级\n    ├ OFF: 🔴 关闭\n    ├ ERROR: ❌ 错误\n    ├ WARN: ⚠️ 警告\n    ├ INFO: ℹ️ 信息\n    ├ DEBUG: 🅱️ 调试\n    └ ALL: 全部\n选择脚本日志的输出等级，低于所选等级的日志将全部输出。\n
 
 [General]
@@ -293,10 +293,10 @@ DOMAIN,babel-statistics-android.d.meituan.net,REJECT
 DOMAIN,maplocatesdksnapshot.d.meituan.net,REJECT
 DOMAIN,metrics-picture.d.meituan.net,REJECT
 DOMAIN,route-stats.d.meituan.net,REJECT
-DOMAIN,dsp-x.jd.com,REJECT,extended-matching,pre-matching
+DOMAIN,dsp-x.jd.com,REJECT
 DOMAIN,im-x.jd.com,REJECT
-DOMAIN,xlog.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN,janapi.jd.com,REJECT,extended-matching,pre-matching
+DOMAIN,xlog.jd.com,REJECT
+DOMAIN,janapi.jd.com,REJECT
 DOMAIN-SUFFIX,toponadss.com,REJECT
 DOMAIN-SUFFIX,motowoo.com,REJECT
 DOMAIN,guide2.bianxianmao.com,REJECT
@@ -382,6 +382,382 @@ DOMAIN-SUFFIX,applvn.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,moloco.com,REJECT
 DOMAIN-SUFFIX,rayjump.com,REJECT
 DOMAIN-SUFFIX,rixengine.com,REJECT
+# AffiliateMarketing
+DOMAIN-KEYWORD,-tos.pstatp.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,pangolin-sdk-toutiao,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,pglstatp-toutiao,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,pangolin.snssdk.com,REJECT,extended-matching,pre-matching
+DOMAIN-KEYWORD,video-cn.snssdk.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,gepush.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,log.aliyuncs.com,REJECT
+DOMAIN-SUFFIX,zlsdk.1rtb.net,REJECT
+DOMAIN-SUFFIX,cdntips.net,REJECT
+DOMAIN-SUFFIX,tfogc.com,REJECT
+AND,((NOT,((DOMAIN,volcengine-kdocs-cache.wpscdn.cn))),(NOT,((DOMAIN,vod-settings.volcvod.com))),(NOT,((DOMAIN,volcengine-kdocs-cache.wpscdn.cn))),(OR,((DOMAIN-KEYWORD,volc)))),REJECT
+DOMAIN-KEYWORD,umeng,REJECT
+DOMAIN-SUFFIX,ad-stir.com,REJECT
+DOMAIN-SUFFIX,adadapted.com,REJECT
+DOMAIN-SUFFIX,ads.adadapted.com,REJECT
+DOMAIN-SUFFIX,adchina.com,REJECT
+DOMAIN-SUFFIX,adchina.io,REJECT
+DOMAIN-SUFFIX,addthis.com,REJECT
+DOMAIN-SUFFIX,addthisedge.com,REJECT
+DOMAIN-KEYWORD,adform,REJECT
+DOMAIN-SUFFIX,ad.adhouyi.cn,REJECT
+DOMAIN-SUFFIX,adhouyi.com,REJECT
+DOMAIN-SUFFIX,adinall.com,REJECT
+DOMAIN-SUFFIX,ad8.adfarm1.adition.com,REJECT
+DOMAIN-SUFFIX,dsp.adfarm1.adition.com,REJECT
+DOMAIN-SUFFIX,adjust.io,REJECT
+DOMAIN-SUFFIX,admarvel.com,REJECT
+DOMAIN-SUFFIX,adroll.com,REJECT
+DOMAIN-SUFFIX,adtaily.com,REJECT
+DOMAIN-SUFFIX,fota4.adups.cn,REJECT
+DOMAIN-SUFFIX,adups.com,REJECT
+DOMAIN-SUFFIX,adview.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,adwo.com,REJECT
+DOMAIN-SUFFIX,adzerk.net,REJECT
+DOMAIN-SUFFIX,sync-dsp.ad-m.asia,REJECT
+DOMAIN-SUFFIX,adcolony.com,REJECT
+DOMAIN-SUFFIX,aerserv.com,REJECT
+DOMAIN-SUFFIX,airpush.com,REJECT
+DOMAIN-SUFFIX,app-adforce.jp,REJECT
+DOMAIN-SUFFIX,appadhoc.com,REJECT
+DOMAIN-SUFFIX,sdk.appadhoc.com,REJECT
+DOMAIN-SUFFIX,appsflyer.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,appdriver.cn,REJECT
+DOMAIN-SUFFIX,appdriver.com.cn,REJECT
+DOMAIN-SUFFIX,ad.cacafly.com,REJECT
+DOMAIN-SUFFIX,cacafly.net,REJECT
+DOMAIN-SUFFIX,casalemedia.com,REJECT
+DOMAIN-SUFFIX,as.casalemedia.com,REJECT
+DOMAIN-SUFFIX,ssum.casalemedia.com,REJECT
+DOMAIN-SUFFIX,chartboost.com,REJECT
+DOMAIN-SUFFIX,clicki.cn,REJECT
+DOMAIN-SUFFIX,cnzz.com,REJECT
+DOMAIN-SUFFIX,s96.cnzz.com,REJECT
+DOMAIN-SUFFIX,criteo.com,REJECT
+DOMAIN-SUFFIX,criteo.net,REJECT
+DOMAIN-SUFFIX,dis.crieto.com,REJECT
+DOMAIN-SUFFIX,cas.criteo.com,REJECT
+DOMAIN-SUFFIX,dis.criteo.com,REJECT
+DOMAIN-SUFFIX,gum.criteo.com,REJECT
+DOMAIN-SUFFIX,rtax.criteo.com,REJECT
+DOMAIN-SUFFIX,widget.criteo.com,REJECT
+DOMAIN-SUFFIX,dis.us.criteo.com,REJECT
+DOMAIN-SUFFIX,scorecardresearch.com,REJECT
+DOMAIN-SUFFIX,b.scorecardresearch.com,REJECT
+DOMAIN-SUFFIX,sb.scorecardresearch.com,REJECT
+DOMAIN-SUFFIX,udm.scorecardresearch.com,REJECT
+DOMAIN-SUFFIX,dianjoy.com,REJECT
+DOMAIN-SUFFIX,a.dianjoy.com,REJECT
+DOMAIN-SUFFIX,fast-cdn.dianjoy.com,REJECT
+DOMAIN-SUFFIX,dianru.com,REJECT
+DOMAIN-SUFFIX,api.dianru.com,REJECT
+DOMAIN-SUFFIX,api.android.dianru.com,REJECT
+DOMAIN-KEYWORD,dtscout,REJECT
+DOMAIN-SUFFIX,dtscout.com,REJECT
+DOMAIN-SUFFIX,main.exoclick.com,REJECT
+DOMAIN-SUFFIX,syndication.exoclick.com,REJECT
+DOMAIN-SUFFIX,exosrv.com,REJECT
+DOMAIN-SUFFIX,ads.exosrv.com,REJECT
+DOMAIN-SUFFIX,flurry.com,REJECT
+DOMAIN-SUFFIX,ad.flurry.com,REJECT
+DOMAIN-SUFFIX,adlog.flurry.com,REJECT
+DOMAIN-SUFFIX,proton.flurry.com,REJECT
+DOMAIN-SUFFIX,flurry.cachefly.net,REJECT
+DOMAIN-SUFFIX,guomob.com,REJECT
+DOMAIN-SUFFIX,giocdn.com,REJECT
+DOMAIN-SUFFIX,growingio.com,REJECT
+DOMAIN-SUFFIX,api.growingio.com,REJECT
+DOMAIN-SUFFIX,apihk.growingio.com,REJECT
+DOMAIN-SUFFIX,crashapi.growingio.com,REJECT
+DOMAIN-SUFFIX,t.growingio.com,REJECT
+DOMAIN-SUFFIX,tags.growingio.com,REJECT
+DOMAIN-SUFFIX,mfan.iclick.com.cn,REJECT
+DOMAIN-SUFFIX,innity.com,REJECT
+DOMAIN-SUFFIX,avn.innity.com,REJECT
+DOMAIN-SUFFIX,cast.innity.com,REJECT
+DOMAIN-SUFFIX,innity.net,REJECT
+DOMAIN-SUFFIX,cdn.innity.net,REJECT
+DOMAIN-SUFFIX,cdn.media.innity.net,REJECT
+DOMAIN-SUFFIX,ssl-cdn.media.innity.net,REJECT
+DOMAIN-SUFFIX,business.inveno.com,REJECT
+DOMAIN-SUFFIX,malacca.inveno.com,REJECT
+DOMAIN-SUFFIX,zuimeitianqi.inveno.com,REJECT
+DOMAIN-SUFFIX,inmobicdn.cn,REJECT
+DOMAIN-SUFFIX,inmobi.net,REJECT
+DOMAIN-SUFFIX,ironsrc.com,REJECT
+DOMAIN-SUFFIX,supersonic.com,REJECT
+DOMAIN-SUFFIX,ipinyou.com,REJECT
+DOMAIN-SUFFIX,jesgoo.com,REJECT
+DOMAIN-SUFFIX,cdn.jesgoo.com,REJECT
+DOMAIN-SUFFIX,rcv.jesgoo.com,REJECT
+DOMAIN-SUFFIX,juicyads.com,REJECT
+DOMAIN-SUFFIX,juicyads.in,REJECT
+DOMAIN-SUFFIX,adserver.juicyads.com,REJECT
+DOMAIN-SUFFIX,img.jizzads.com,REJECT
+DOMAIN-SUFFIX,kejet.com,REJECT
+DOMAIN-SUFFIX,as.kejet.com,REJECT
+DOMAIN-SUFFIX,code.kejet.com,REJECT
+DOMAIN-SUFFIX,dmacore.kejet.com,REJECT
+DOMAIN-SUFFIX,kejet.net,REJECT
+DOMAIN-SUFFIX,as.kejet.net,REJECT
+DOMAIN-SUFFIX,aw.kejet.net,REJECT
+DOMAIN-SUFFIX,ck.kejet.net,REJECT
+DOMAIN-SUFFIX,cmarket.kejet.net,REJECT
+DOMAIN-SUFFIX,dmacore.kejet.net,REJECT
+DOMAIN-SUFFIX,dmp.kejet.net,REJECT
+DOMAIN-SUFFIX,ec.kejet.net,REJECT
+DOMAIN-SUFFIX,hzdmacore.kejet.net,REJECT
+DOMAIN-SUFFIX,m.kejet.net,REJECT
+DOMAIN-SUFFIX,rtb-p.kejet.net,REJECT
+DOMAIN-SUFFIX,keyrun.cn,REJECT
+DOMAIN-SUFFIX,c1.keyrun.cn,REJECT
+DOMAIN-SUFFIX,keyrun.com,REJECT
+DOMAIN-SUFFIX,kissmetrics.com,REJECT
+DOMAIN-SUFFIX,krux.net,REJECT
+DOMAIN-SUFFIX,config.kuyun.com,REJECT
+DOMAIN-SUFFIX,logonext.tv.kuyun.com,REJECT
+DOMAIN-SUFFIX,kochava.com,REJECT
+DOMAIN-SUFFIX,leadbolt.net,REJECT
+DOMAIN-SUFFIX,ad.leadbolt.net,REJECT
+DOMAIN-SUFFIX,api.leadbolt.net,REJECT
+DOMAIN-SUFFIX,leadboltads.net,REJECT
+DOMAIN-SUFFIX,ad.leadboltads.net,REJECT
+DOMAIN-SUFFIX,leadboltapps.net,REJECT
+DOMAIN-SUFFIX,ad.leadboltapps.net,REJECT
+DOMAIN-SUFFIX,leadboltmobile.net,REJECT
+DOMAIN-SUFFIX,ad.leadboltmobile.net,REJECT
+DOMAIN-SUFFIX,localytics.com,REJECT
+DOMAIN-SUFFIX,madserving.com,REJECT
+DOMAIN-SUFFIX,ad.madserving.com,REJECT
+DOMAIN-SUFFIX,adv.madserving.com,REJECT
+DOMAIN-SUFFIX,appsrv1.madserving.com,REJECT
+DOMAIN-SUFFIX,appsrv4.madserving.com,REJECT
+DOMAIN-SUFFIX,clk.madserving.com,REJECT
+DOMAIN-SUFFIX,imp.madserving.com,REJECT
+DOMAIN-SUFFIX,clk.pdb.madserving.com,REJECT
+DOMAIN-SUFFIX,imp.pdb.madserving.com,REJECT
+DOMAIN-SUFFIX,madhouse.cn,REJECT
+DOMAIN-SUFFIX,marketgid.com,REJECT
+DOMAIN-SUFFIX,ag-gb.marketgid.com,REJECT
+DOMAIN-SUFFIX,cdn.marketgid.com,REJECT
+DOMAIN-SUFFIX,counter.marketgid.com,REJECT
+DOMAIN-SUFFIX,imgg.marketgid.com,REJECT
+DOMAIN-SUFFIX,jsc.marketgid.com,REJECT
+DOMAIN-SUFFIX,wsp.marketgid.com,REJECT
+DOMAIN-SUFFIX,mediav.com,REJECT
+DOMAIN-SUFFIX,mgid.com,REJECT
+DOMAIN-SUFFIX,aa-gb.mgid.com,REJECT
+DOMAIN-SUFFIX,ab-gb.mgid.com,REJECT
+DOMAIN-SUFFIX,ac-gb.mgid.com,REJECT
+DOMAIN-SUFFIX,ad-gb.mgid.com,REJECT
+DOMAIN-SUFFIX,ae-gb.mgid.com,REJECT
+DOMAIN-SUFFIX,aj-gb.mgid.com,REJECT
+DOMAIN-SUFFIX,imgg.mgid.com,REJECT
+DOMAIN-SUFFIX,jsc.mgid.com,REJECT
+DOMAIN-SUFFIX,usr.mgid.com,REJECT
+DOMAIN-SUFFIX,aa.goodsblock.mgid.com,REJECT
+DOMAIN-SUFFIX,ab.goodsblock.mgid.com,REJECT
+DOMAIN-SUFFIX,millennialmedia.com,REJECT
+DOMAIN-SUFFIX,cdn.millennialmedia.com,REJECT
+DOMAIN-SUFFIX,images.millennialmedia.com,REJECT
+DOMAIN-SUFFIX,mxpnl.com,REJECT
+DOMAIN-SUFFIX,moatads.com,REJECT
+DOMAIN-SUFFIX,geo.moatads.com,REJECT
+DOMAIN-SUFFIX,js.moatads.com,REJECT
+DOMAIN-SUFFIX,px.moatads.com,REJECT
+DOMAIN-SUFFIX,z.moatads.com,REJECT
+DOMAIN-SUFFIX,cca.mob.com,REJECT
+DOMAIN-SUFFIX,api.cmt.mob.com,REJECT
+DOMAIN-SUFFIX,c.data.mob.com,REJECT
+DOMAIN-SUFFIX,devs.data.mob.com,REJECT
+DOMAIN-SUFFIX,m.data.mob.com,REJECT
+DOMAIN-SUFFIX,api.exc.mob.com,REJECT
+DOMAIN-SUFFIX,api.share.mob.com,REJECT
+DOMAIN-SUFFIX,mobfox.com,REJECT
+DOMAIN-SUFFIX,my.mobfox.com,REJECT
+DOMAIN-SUFFIX,magicwindow.cn,REJECT
+DOMAIN-KEYWORD,mathtag,REJECT
+DOMAIN-SUFFIX,mathtag.com,REJECT
+DOMAIN-SUFFIX,pixel.mathtag.com,REJECT
+DOMAIN-SUFFIX,sync.mathtag.com,REJECT
+DOMAIN-SUFFIX,mobisage.cn,REJECT
+DOMAIN-SUFFIX,config.mobisage.cn,REJECT
+DOMAIN-SUFFIX,mopub.com,REJECT
+DOMAIN-SUFFIX,networkbench.com,REJECT
+DOMAIN,ads.nicovideo.jp,REJECT
+DOMAIN-SUFFIX,onetad.com,REJECT
+DOMAIN-SUFFIX,code11.onetad.com,REJECT
+DOMAIN-SUFFIX,code12.onetad.com,REJECT
+DOMAIN-SUFFIX,pic1.onetad.com,REJECT
+DOMAIN-SUFFIX,pic2.onetad.com,REJECT
+DOMAIN-SUFFIX,pic3.onetad.com,REJECT
+DOMAIN-SUFFIX,pic8.onetad.com,REJECT
+DOMAIN-SUFFIX,ww10.onetad.com,REJECT
+DOMAIN-SUFFIX,ww101.onetad.com,REJECT
+DOMAIN-SUFFIX,ww11.onetad.com,REJECT
+DOMAIN-SUFFIX,ww12.onetad.com,REJECT
+DOMAIN-SUFFIX,ww13.onetad.com,REJECT
+DOMAIN-SUFFIX,ww202.onetad.com,REJECT
+DOMAIN-SUFFIX,ww34.onetad.com,REJECT
+DOMAIN-SUFFIX,ww346.onetad.com,REJECT
+DOMAIN-SUFFIX,ww360.onetad.com,REJECT
+DOMAIN-SUFFIX,ww363.onetad.com,REJECT
+DOMAIN-SUFFIX,ww366.onetad.com,REJECT
+DOMAIN-SUFFIX,ww78.onetad.com,REJECT
+DOMAIN-SUFFIX,ww8.onetad.com,REJECT
+DOMAIN-SUFFIX,ww9.onetad.com,REJECT
+DOMAIN-SUFFIX,wwv.onetad.com,REJECT
+DOMAIN-SUFFIX,openx.net,REJECT
+DOMAIN-SUFFIX,optimizelyapis.com,REJECT
+DOMAIN-SUFFIX,bluekai.com,REJECT
+DOMAIN-SUFFIX,pagechoice.com,REJECT
+DOMAIN-SUFFIX,pagechoice.net,REJECT
+DOMAIN-SUFFIX,col.pagechoice.net,REJECT
+DOMAIN-SUFFIX,dap.pagechoice.net,REJECT
+DOMAIN-SUFFIX,images.pagechoice.net,REJECT
+DOMAIN-SUFFIX,motu.pagechoice.net,REJECT
+DOMAIN-SUFFIX,sit.pagechoice.net,REJECT
+DOMAIN-SUFFIX,plista.com,REJECT
+DOMAIN-SUFFIX,click-cn.plista.com,REJECT
+DOMAIN-SUFFIX,farm-cn.plista.com,REJECT
+DOMAIN-SUFFIX,pubnative.net,REJECT
+DOMAIN-SUFFIX,popads.net,REJECT
+DOMAIN-SUFFIX,c1.popads.net,REJECT
+DOMAIN-SUFFIX,c2.popads.net,REJECT
+DOMAIN-SUFFIX,serve.popads.net,REJECT
+DOMAIN-SUFFIX,pubmatic.com,REJECT
+DOMAIN-SUFFIX,qtmojo.cn,REJECT
+DOMAIN-SUFFIX,1.qtmojo.cn,REJECT
+DOMAIN-SUFFIX,creatim.qtmojo.cn,REJECT
+DOMAIN-SUFFIX,wmcdn.qtmojo.cn,REJECT
+DOMAIN-SUFFIX,qtmojo.com,REJECT
+DOMAIN-SUFFIX,qumi.com,REJECT
+DOMAIN-SUFFIX,apt.qumi.com,REJECT
+DOMAIN-SUFFIX,cut.qumi.com,REJECT
+DOMAIN-SUFFIX,exp.qumi.com,REJECT
+DOMAIN-SUFFIX,quantcount.com,REJECT
+DOMAIN-SUFFIX,quantserve.com,REJECT
+DOMAIN-SUFFIX,cms.quantserve.com,REJECT
+DOMAIN-SUFFIX,edge.quantserve.com,REJECT
+DOMAIN-SUFFIX,pixel.quantserve.com,REJECT
+DOMAIN-SUFFIX,secure.quantserve.com,REJECT
+DOMAIN-SUFFIX,net.rayjump.com,REJECT
+DOMAIN-SUFFIX,setting.rayjump.com,REJECT
+DOMAIN-SUFFIX,rubiconproject.com,REJECT
+DOMAIN-SUFFIX,beacon-us-sjc1.rubiconproject.com,REJECT
+DOMAIN-SUFFIX,eus.rubiconproject.com,REJECT
+DOMAIN-SUFFIX,optimized-by.rubiconproject.com,REJECT
+DOMAIN-SUFFIX,pixel.rubiconproject.com,REJECT
+DOMAIN-SUFFIX,secure-assets.rubiconproject.com,REJECT
+DOMAIN-SUFFIX,tap.rubiconproject.com,REJECT
+DOMAIN-SUFFIX,tap-cdn.rubiconproject.com,REJECT
+DOMAIN-SUFFIX,tap-t.rubiconproject.com,REJECT
+DOMAIN-SUFFIX,token.rubiconproject.com,REJECT
+DOMAIN-SUFFIX,usync.aws.rubiconproject.com,REJECT
+DOMAIN-SUFFIX,smartadserver.com,REJECT
+DOMAIN-SUFFIX,cdn1.smartadserver.com,REJECT
+DOMAIN-SUFFIX,ww251.smartadserver.com,REJECT
+DOMAIN-SUFFIX,ww881.smartadserver.com,REJECT
+DOMAIN-SUFFIX,www6.smartadserver.com,REJECT
+DOMAIN-SUFFIX,snap.snapmobile.asia,REJECT
+DOMAIN-SUFFIX,snapmobileasia.net,REJECT
+DOMAIN-SUFFIX,selfie.snapmobileasia.net,REJECT
+DOMAIN-SUFFIX,statcounter.com,REJECT
+DOMAIN-SUFFIX,c.statcounter.com,REJECT
+DOMAIN-SUFFIX,c1.statcounter.com,REJECT
+DOMAIN-SUFFIX,c2.statcounter.com,REJECT
+DOMAIN-SUFFIX,secure.statcounter.com,REJECT
+DOMAIN-SUFFIX,segment.com,REJECT
+DOMAIN-SUFFIX,segment.io,REJECT
+DOMAIN-SUFFIX,cdn-settings.segment.com,REJECT
+DOMAIN-SUFFIX,mobile-service.segment.com,REJECT
+DOMAIN-SUFFIX,adservice.sigmob.cn,REJECT
+DOMAIN-SUFFIX,serving-sys.com,REJECT
+DOMAIN-SUFFIX,activity.serving-sys.com,REJECT
+DOMAIN-SUFFIX,bs.serving-sys.com,REJECT
+DOMAIN-SUFFIX,bsch.serving-sys.com,REJECT
+DOMAIN-SUFFIX,datacapture.serving-sys.com,REJECT
+DOMAIN-SUFFIX,ds.serving-sys.com,REJECT
+DOMAIN-SUFFIX,ds-ll.serving-sys.com,REJECT
+DOMAIN-SUFFIX,secure-ds.serving-sys.com,REJECT
+DOMAIN-SUFFIX,us.bs.serving-sys.com,REJECT
+DOMAIN-SUFFIX,smaato.net,REJECT
+DOMAIN-SUFFIX,startapp.com,REJECT
+DOMAIN-SUFFIX,startappexchange.com,REJECT
+DOMAIN-SUFFIX,startappservice.com,REJECT
+DOMAIN-SUFFIX,lp.startapp.com,REJECT
+DOMAIN-SUFFIX,init.startappexchange.com,REJECT
+DOMAIN-SUFFIX,dts.akamai.startappexchange.com,REJECT
+DOMAIN-SUFFIX,images.startappservice.com,REJECT
+DOMAIN-SUFFIX,req.startappservice.com,REJECT
+DOMAIN-SUFFIX,clk.taptica.com,REJECT
+DOMAIN-SUFFIX,vista.tgbusdata.cn,REJECT
+DOMAIN-SUFFIX,vista.tgbus.com,REJECT
+DOMAIN-SUFFIX,touclick.com,REJECT
+DOMAIN-SUFFIX,cap.touclick.com,REJECT
+DOMAIN-SUFFIX,ver.touclick.com,REJECT
+DOMAIN-SUFFIX,trafficfactory.biz,REJECT
+DOMAIN-SUFFIX,media.trafficfactory.biz,REJECT
+DOMAIN-SUFFIX,rpc-php.trafficfactory.biz,REJECT
+DOMAIN-SUFFIX,trafficjunky.com,REJECT
+DOMAIN-SUFFIX,trafficjunky.net,REJECT
+DOMAIN-SUFFIX,media.trafficjunky.net,REJECT
+DOMAIN-SUFFIX,vz-cdn.trafficjunky.net,REJECT
+DOMAIN-SUFFIX,talkingdata.com,REJECT
+DOMAIN-SUFFIX,talkingdata.net,REJECT
+DOMAIN-SUFFIX,tenddata.com,REJECT
+DOMAIN-SUFFIX,gaandroid.talkingdata.net,REJECT
+DOMAIN-SUFFIX,tdcv3.talkingdata.net,REJECT
+DOMAIN-SUFFIX,u.talkingdata.net,REJECT
+DOMAIN-SUFFIX,cpatrk.net,REJECT
+DOMAIN-SUFFIX,pixel.tapad.com,REJECT
+DOMAIN-SUFFIX,tapjoy.cn,REJECT
+DOMAIN-SUFFIX,tapjoyads.com,REJECT
+DOMAIN-SUFFIX,ws.tapjoyads.com,REJECT
+DOMAIN-SUFFIX,engine.tuia.cn,REJECT
+DOMAIN-SUFFIX,yun.tuia.cn,REJECT
+DOMAIN-SUFFIX,viglink.com,REJECT
+DOMAIN-SUFFIX,api.viglink.com,REJECT
+DOMAIN-SUFFIX,cdn.viglink.com,REJECT
+DOMAIN,apicdn.viglink.com,REJECT
+DOMAIN,mc.viglink.com,REJECT
+DOMAIN,ns2.viglink.com,REJECT
+DOMAIN,ns3.viglink.com,REJECT
+DOMAIN,ns4.viglink.com,REJECT
+DOMAIN,qa.viglink.com,REJECT
+DOMAIN-SUFFIX,agr.voiceads.cn,REJECT
+DOMAIN-SUFFIX,ws.voiceads.cn,REJECT
+DOMAIN-SUFFIX,voiceads.com,REJECT
+DOMAIN-SUFFIX,vungle.cn,REJECT
+DOMAIN-SUFFIX,vpon.com,REJECT
+DOMAIN-SUFFIX,beta.vpon.com,REJECT
+DOMAIN-SUFFIX,biz.vpon.com,REJECT
+DOMAIN-SUFFIX,fw.vpon.com,REJECT
+DOMAIN-SUFFIX,jira.vpon.com,REJECT
+DOMAIN-SUFFIX,m.vpon.com,REJECT
+DOMAIN-SUFFIX,tw.adon.vpon.com,REJECT
+DOMAIN-SUFFIX,tw.api.vpon.com,REJECT
+DOMAIN-SUFFIX,cn.pub.vpon.com,REJECT
+DOMAIN-SUFFIX,tw.pub.vpon.com,REJECT
+DOMAIN-SUFFIX,st.yandexadexchange.net,REJECT
+DOMAIN-SUFFIX,ads.yandex.com,REJECT
+DOMAIN-SUFFIX,st.yengo.com,REJECT
+DOMAIN-SUFFIX,yiqifa.com,REJECT
+DOMAIN-SUFFIX,youxiaoad.com,REJECT
+DOMAIN-SUFFIX,api.youxiaoad.com,REJECT
+DOMAIN-SUFFIX,source.youxiaoad.com,REJECT
+DOMAIN-SUFFIX,ssp.youxiaoad.com,REJECT
+DOMAIN-SUFFIX,sspapi.youxiaoad.com,REJECT
+DOMAIN-SUFFIX,zhidian3g.cn,REJECT
+DOMAIN-SUFFIX,ad.zhidian3g.cn,REJECT
+DOMAIN-SUFFIX,soft.zhidian3g.cn,REJECT
+DOMAIN,zgsdk.zhugeio.com,REJECT
+DOMAIN-SUFFIX,zedo.com,REJECT
+DOMAIN-SUFFIX,d8.zedo.com,REJECT
+DOMAIN-SUFFIX,z1.zedo.com,REJECT
 # functional
 DOMAIN,lookup.api.bsb.baidu.com,REJECT,extended-matching,pre-matching
 DOMAIN,safebrowsing.g.applimg.com,REJECT,extended-matching,pre-matching
@@ -416,7 +792,6 @@ DOMAIN-SUFFIX,apkevery.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,xwpbj.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,qiyukf.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,qttunion.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,adview.cn,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,ttayy.cn,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,tobidad.cn,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,zhengxiaoliu.top,REJECT,extended-matching,pre-matching
@@ -425,7 +800,6 @@ DOMAIN-SUFFIX,u51.me,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,hiaiabc.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,fstats.xyz,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,doubleclick.net,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,appsflyer.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,ad.gameley.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,app-measurement.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,appier.net,REJECT,extended-matching,pre-matching
@@ -472,16 +846,11 @@ DOMAIN-SUFFIX,ic.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,analytics.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,-normal-lq.zijieapi.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,-lq.snssdk.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,video-cn.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,log.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,ad-sign.byteimg.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,-pack.byteimg.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,-analytics.bytescm.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,-tos.pstatp.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,p3.pstatp.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,pangolin-sdk-toutiao,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,pangolin.snssdk.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,pglstatp-toutiao,REJECT,extended-matching,pre-matching
 DOMAIN,open.kuaishou.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,kuaishouzt.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,googleadsserving.cn,REJECT,extended-matching,pre-matching
@@ -528,7 +897,6 @@ DOMAIN-SUFFIX,advertising.yahoo.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,gemini.yahoo.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,ads.yahoo,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,mobileservice.cn,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,gepush.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,unityads.unity3d.com,REJECT,extended-matching,pre-matching
 DOMAIN,dns.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN,mazu.m.qq.com,REJECT,extended-matching,pre-matching
@@ -818,6 +1186,12 @@ DOMAIN-SUFFIX,s.img.mix.sina.com.cn,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,u1.img.mobile.sina.cn,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,motu.p4p.sina.com.cn,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,count.video.sina.com.cn,REJECT,extended-matching,pre-matching
+# 12123
+DOMAIN-SUFFIX,v3.fstats.xyz,REJECT
+DOMAIN-SUFFIX,wss.haoyundmn.com,REJECT
+DOMAIN-SUFFIX,new.xiongzhangad.com,REJECT
+DOMAIN-SUFFIX,alexametrics.com,REJECT
+DOMAIN-KEYWORD,in-page-push,REJECT
 # 12306_remove_ads
 DOMAIN,ad.12306.cn,DIRECT
 # bilibili
@@ -840,31 +1214,22 @@ DOMAIN,gwp.xiaojukeji.com,REJECT
 AND,((IP-ASN,45090,no-resolve),(DEST-PORT,25641),(PROTOCOL,TCP)),REJECT
 AND,((IP-ASN,55990,no-resolve),(DEST-PORT,25641),(PROTOCOL,TCP)),REJECT
 AND,((IP-ASN,63646,no-resolve),(DEST-PORT,25641),(PROTOCOL,TCP)),REJECT
+# Eleme
+DOMAIN-SUFFIX,app-monitor.ele.me,REJECT
+DOMAIN-SUFFIX,client-api.ele.me,REJECT
+DOMAIN-SUFFIX,grand.ele.me,REJECT
+DOMAIN-SUFFIX,mobile-pubt.ele.me,REJECT
+DOMAIN-SUFFIX,newton-api.ele.me,REJECT
 # Amap_remove_ads
 DOMAIN,amap-aos-info-nogw.amap.com,REJECT
 DOMAIN,free-aos-cdn-image.amap.com,REJECT
 DOMAIN-SUFFIX,v.smtcdns.com,REJECT
+# Umetrip_remove_ads
+URL-REGEX,"^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native",REJECT
 # ehaier
 DOMAIN-SUFFIX,ehaier.com,REJECT,extended-matching,pre-matching
-# umetrip
-DOMAIN,analytics.umetrip.com,REJECT,extended-matching,pre-matching
-DOMAIN,sensors.umetrip.com.cn,REJECT,extended-matching,pre-matching
 # JD_remove_ads
 URL-REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
-# jd-App
-DOMAIN,waapdg.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN,jdqd.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN,dgstatic.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN,wqs.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,jzt.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,img-x.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,du.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,c-nfa.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,cm.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,kepler.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,bdsp.x.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,keplerapi.jd.com,REJECT,extended-matching,pre-matching
-DOMAIN-KEYWORD,mapi.m.jd.com,REJECT,extended-matching,pre-matching
 # outlook
 DOMAIN,acdn.adnxs.com,REJECT,extended-matching,pre-matching
 DOMAIN,mediation.adnxs.com,REJECT,extended-matching,pre-matching
@@ -890,8 +1255,8 @@ DOMAIN,gg.meitu.com,REJECT,extended-matching,pre-matching
 DOMAIN,message.meitu.com,REJECT,extended-matching,pre-matching
 DOMAIN,tuiguang.meitu.com,REJECT,extended-matching,pre-matching
 DOMAIN,stat.meitudata.com,REJECT,extended-matching,pre-matching
-# seeyouyima
-DOMAIN,ad.seeyouyima.com,REJECT,extended-matching,pre-matching
+# Meiyou
+DOMAIN,ad.seeyouyima.com,REJECT
 # beautycam
 DOMAIN,aaid.uyunad.com,REJECT,extended-matching,pre-matching
 # Pinduoduo
@@ -1294,7 +1659,7 @@ ad.aggrxinc.com, - reject
 ^https?:\/\/g1.163.com\/madfeedback - reject
 ^https?:\/\/c\.m\.163\.com\/nc\/gl\/ - reject
 # 12123
-^https?:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery\/adver - reject
+^https?:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery\/adver$ - reject
 # bilibili
 ^https:\/\/api\.bilibili\.com\/pgc\/page\/channel\?(.*)&mobi_app=iphone&(.*)$ https://api.bilibili.com/pgc/page/channel?$1&mobi_app=iphone_i&$2 header
 # BiliBili.ADBlock
@@ -1304,8 +1669,6 @@ ad.aggrxinc.com, - reject
 ^https:\/\/spamblocker-api\.zeekstudio\.com\/checkVersion - reject
 ^https:\/\/(cn|www)\.pornhub\.com\/_xa\/ads - reject
 https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
-# dewu
-^https?:\/\/app\.dewu\.com\/api\/v\d\/app\/advertisement(?!\/new\/activity\/receiveCoupon) - reject
 # DianPing
 ^https?:\/\/103\.37\.155\.60\/fetch - reject
 ^https?:\/\/catdot\.dianping\.com\/broker-service\/hijack - reject
@@ -1320,25 +1683,18 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https?:\/\/awp-assets\.meituan\.net\/hfe\/fep\/\w+\.json - reject
 ^https?:\/\/s3plus\.meituan\.net\/ocean-blk-index\/index\/blk_conf - reject
 ^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/(?>ehc|titansx|ddblue|edfu)\/ - reject
-# eleme-App
+# Eleme
 ^https?:\/\/elemecdn\.com\/.+\/sitemap - reject
-^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/(640|750)\/h\/\d{3,4} - reject
-^https?:\/\/www1\.elecfans\.com\/www\/delivery\/ - reject
-^https?:\/\/cube\.elemecdn\.com\/\w\/\w{2}\/\w+mp4\.mp4\? - reject
+^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/640\/h\/\d{3,4} - reject
+^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/750\/h\/\d{3,4} - reject
 ^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_1\d{3},h_2\d{3}\/format,webp\/ - reject
 ^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_6\d{2},h_8\d{2}\/format,webp\/ - reject
 ^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{3},h_\d{4}\/format,webp\/ - reject
+^https?:\/\/cube\.elemecdn\.com\/\w\/\w{2}\/\w+mp4\.mp4\? - reject
+^https?:\/\/www1\.elecfans\.com\/www\/delivery\/ - reject
 ^https?:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{4,},h_\d{4,}\/($|format,webp\/$) - reject
 # eleme-Applet
 ^https?:\/\/waimai-guide\.ele\.me\/(gw|h5)\/mtop\.alsc\.eleme\.trigger\.respond - reject
-# umetrip
-^https?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native - reject
-# jd-App
-^https?:\/\/api\.m\.jd\.com\/openUpgrade - reject
-^https?:\/\/\w{32}\.jddebug\.com\/diagnose\? - reject
-^https?:\/\/storage\.360buyimg\.com\/app\.m\.jd\.com\/lottie - reject
-^https?:\/\/storage\.360buyimg\.com\/dynamicConfig\/binary - reject
-^https?:\/\/img\d+\.360buyimg\.com\/jddjadvertise\/ - reject
 # jparking
 ^https?:\/\/e\.jparking\.cn\/abTest-gateway\/abTest-api - reject
 ^https?:\/\/sytgate\.jslife\.com\.cn\/base-gateway\/config\/queryAppNewVersion - reject
@@ -1347,10 +1703,12 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https?:\/\/home\.mi\.com\/cgi-op\/api\/v\d\/recommendation - reject
 # meitu
 ^https?:\/\/mea\.meitudata\.com\/kaiping - reject
-# seeyouyima
-^https?:\/\/x\.seeyouyima\.com\/adx\/staticstics\? - reject
-^https?:\/\/axxd\.xmseeyouyima\.com\/ad - reject
-^https?:\/\/axxd\.xmseeyouyima\.com\/.*getad\? - reject
+# Meiyou
+^http:\/\/x\.seeyouyima\.com\/adx\/staticstics\? - reject
+^https:\/\/axxd\.xmseeyouyima\.com\/ad\/ - reject
+^https:\/\/axxd\.xmseeyouyima\.com\/ad_statistics\? - reject
+^https:\/\/axxd\.xmseeyouyima\.com\/v1\/getad\? - reject
+^https:\/\/axxd\.xmseeyouyima\.com\/pregetad\? - reject
 # qunar
 ^https?:\/\/client\.qunar\.com\/pitcher-proxy\?qrt=p_splashAd - reject
 # lkcoffee-App
@@ -1372,10 +1730,6 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https?:\/\/(?>csc|osg)-service\.sgcc\.com\.cn:\d+\/emss-pfa-appset-front\/appForceUpdate - reject
 ^https?:\/\/(?>csc|osg)-service\.sgcc\.com\.cn:\d+\/emss-pfa-appset-front\/appSync\/getAppForceUpgrade - reject
 ^https?:\/\/(?>csc|osg)-service\.sgcc\.com\.cn:\d+\/.*\/inner\/cache - reject
-# goofish
-^https?:\/\/h5\.m\.goofish\.com\/app\/idleFish-F2e\/idlefish-pop - reject
-^https?:\/\/dinamicx\.alibabausercontent\.com\/pub\/fish_home_top_kingkong_new\/ - reject
-^https?:\/\/g\.alicdn\.com\/IdleFish-F2e\/idlefish-workers\/[0-9.]+\/smartLoader - reject
 # yitao
 # unionpay
 ^https?:\/\/wallet\.95516\.com(:10533)?\/s\/wl\/icon\/large\/1 - reject
@@ -1394,6 +1748,10 @@ http-response-jq ^https:\/\/api\.bilibili\.com\/x\/pd-proxy\/tracker\? '.data[][
 http-response-jq ^https:\/\/api\.bilibili\.com\/pgc\/view\/v2\/app\/season\? 'del(.data.payment)'
 http-response-jq ^https:\/\/api\.live\.bilibili\.com\/xlive\/(app-interface\/v2\/index\/feed|app-room\/v1\/index\/getInfoBy(Room|User))\? '.data |= (del(.play_together_info, .play_together_info_v2, .activity_banner_info) | if .function_card then .function_card[] = null end | if .new_tab_info.outer_list then .new_tab_info.outer_list |= map(select(.biz_id != 33)) end | if .card_list then .card_list |= map(select(.card_type | IN("banner_v2", "activity_card_v1") | not)) end | reduce ([["show_reserve_status"], false], [["reserve_info", "show_reserve_status"], false], [["shopping_info", "is_show"], 0]) as [$path, $value] (.; if getpath($path) then setpath($path; $value) end))'
 # BiliBili.ADBlock
+# Dewu_remove_ads
+http-response-jq ^https:\/\/app\.dewu\.com\/api\/v1\/app\/biz-aggregate\/me\/user-index\? '.data.modules |= map(if .key == "wallet" then .data.menus |= map(select(.key == "coupon" or .key == "allowance" or .key == "gift" or .key == "balance")) else . end) | .data.modules |= map(select(.key != "merchant" and .key != "discountCoupon"))'
+http-response-jq ^https:\/\/app\.dewu\.com\/api\/v1\/app\/account\/wallet\/page\/entrance\? '.data.groupInfoDTOS |= map(.moduleInfoDTO = {assetModule: .moduleInfoDTO.assetModule}) | .data.moduleNames = [.data.moduleNames[] | select(. == "assetModule")] | . as $full | $full | .data.groupNames |= (map(select(. == "MAIN" or . == "ASYNC_COMMON" or . == "ASYNC_GOODS_FEEDS")))'
+http-response-jq ^https:\/\/app\.dewu\.com\/identify-discovery\/v1\/discovery\/index\? '.data.groups |= map(.items |= map(select(.title == "消息中心")))'
 # DiDi_remove_ads
 http-response-jq ^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/core\? '.data.disorder_cards.bottom_nav_list.data |= map(select(.id == "home_page" or .id == "user_center")) | .data.order_cards.nav_list_card.data |= map(select(.nav_id == "dache_anycar" or .nav_id == "carmate" or .nav_id == "driverservice" or .nav_id == "zhandianbashi" or .nav_id == "yuancheng" or .nav_id == "pincheche" or .nav_id == "bike" or .nav_id == "special_ride" or .nav_id == "nav_more_v3"))'
 http-response-jq ^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/other\/fast\? 'delpaths([["data","disorder_cards","communicate_card"]])'
@@ -1540,14 +1898,20 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Acc
 ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/Flash data-type=text data="{}" header="application/json"
 ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/ListFlash data-type=text data="{}" header="application/json"
 ^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? data-type=text data="{}" header="application/json"
-# byd
-^https?:\/\/cache\.bydauto\.com\.cn\/dilink_user_upload\/20 data-type=text data="" status-code=200
+# BYDDynasty
+^https:\/\/cache\.bydauto\.com\.cn\/dilink_user_upload\/20 data-type=text data=" " status-code=200
 # Module-Common
 ^https:\/\/api\.m\.jd\.com\/api\?functionId=union_exhibition_bff data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 # Plugin-Common
 ^https:\/\/api\.pinduoduo\.com\/api\/alexa\/cells\/hub\/v3\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-# dewu
-^https?:\/\/cdn\.poizon\.com\/node-common\/.*.jpg data-type=text data="" status-code=200
+# Dewu_remove_ads
+^https:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/app\.dewu\.com\/hacking-newbie\/v1\/app\/coupon\/module\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/app\.dewu\.com\/api\/v1\/app\/search\/lexicon\/v3\/background_words\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/app\.dewu\.com\/api\/v1\/app\/search\/lexicon\/v1\/rank_words\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/app\.dewu\.com\/sns-rec\/v1\/attention\/feed\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/app\.dewu\.com\/sns-rec\/v1\/search\/word-skip\/new-list\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/app\.dewu\.com\/sns-rec\/v1\/search\/hotword-list\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 # DiDi_remove_ads
 ^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/lion\.didialift\.com\/broker\/\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
@@ -1560,7 +1924,7 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Acc
 ^https?:\/\/rms\.meituan\.com\/api\/v\d\/rmsmina\/c\/queryWechatAdvertisement data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/p\d\.meituan\.net\/nrpresourcevenus\/\w+\.gif data-type=tiny-gif status-code=200
 ^https?:\/\/p\d\.meituan\.net\/travelcube\/(?!c129a661)\w+\.gif data-type=tiny-gif status-code=200
-# eleme-App
+# Eleme
 ^https?:\/\/fuss10\.elemecdn\.com\/.+?\.mp4 data-type=tiny-gif status-code=200
 # eleme-Applet
 ^https?:\/\/shopping\.ele\.me\/(gw|h5)\/mtop\.o2o\.ad\.exposure\.get data-type=text data="{}" status-code=200
@@ -1596,21 +1960,16 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Acc
 ^https?:\/\/zj\.haier\.net\/omssceneapi\/house\/v\d\/recommend\/listByRoom$ data-type=text data="" status-code=200
 # haiersmarthomes
 ^https?:\/\/service\.haiersmarthomes\.com\/management\/banner\/getBannerList\?source=4 data-type=text data="{}" status-code=200
-# umetrip
-^https?:\/\/oss\.umetrip\.com\/fs\/advert\/polite data-type=text data="{}" status-code=200
 # JD_remove_ads
 ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06]) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-# jd-App
-^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?>searchBoxWord|xview2Config|stationPullService|getWidget|widget|hybrid|jdDiscoveryRedPoint|queryMaterialAdverts|apollo_style|jdaPreDownload) data-type=text data="" status-code=200
-^https?:\/\/(bdsp-x|dsp-x)\.jd\.com\/adx\/ data-type=text data="" status-code=200
 # jd-Applet
 ^https?:\/\/api\.m\.jd\.com\/\?loginType=11 data-type=text data="{}" status-code=200
 # jparking
 ^https?:\/\/e\.jparking\.cn\/ad-api data-type=text data="{}" status-code=200
-# leoao
-^https?:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v\d\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew data-type=text data="{}" status-code=200
-^https?:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v\d\/com\.lefit\.dubbo\.cms\.api\.bff\.ClientFrontFacade\/queryHomeMiddleInfo data-type=text data="{}" status-code=200
-^https?:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v\d\/com\.lefit\.dubbo\.cms\.api\.front\.AdvertiseConfigFrontService\/getAdvertiseConfigNew data-type=text data="{}" status-code=200
+# LeKe
+^https?:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.bff\.ClientFrontFacade\/queryHomeMiddleInfo data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AdvertiseConfigFrontService\/getAdvertiseConfigNew data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 # mstand
 ^https?:\/\/api\.prod\.dj\.mstand\.cn\/scrm\/app\/mdm\/index\/listAdv\?types data-type=text data="{}" status-code=200
 ^https?:\/\/api\.prod\.dj\.mstand\.cn\/system\/dms\/dmsAdSetting\/issue data-type=text data="{}" status-code=200
@@ -1766,24 +2125,12 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Acc
 ^https:\/\/www\.xiaohongshu\.com\/api\/sns\/(?:v1\/ads\/resource|v2\/hey\/\w+\/hey_gallery) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 # hilton
 ^https?:\/\/wcprd\.hilton\.com\.cn\/app-middleware\/graphql\?type=splashAd data-type=text data="" status-code=200
-# goofish
-^https?:\/\/h5\.m\.goofish\.com\/wow\/moyu\/moyu-project\/idle-xy-seller-home\/pages\/dress-pop data-type=text data="{}" status-code=200
-^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.wireless\.home\.xianyu(\.my)?\.awesome\.get data-type=text data="{}" status-code=200
-^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.live\.home\.ads\.material\.get data-type=text data="{}" status-code=200
-^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\. data-type=text data="{}" status-code=200
-^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.topic\.banner\/ data-type=text data="{}" status-code=200
-^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.resell\.recommendorhotcate data-type=text data="{}" status-code=200
-^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlecommerce\.splash data-type=text data="{}" status-code=200
-^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.idle\.coin\.nextfresh\/ data-type=text data="{}" status-code=200
-^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\/ data-type=text data="{}" status-code=200
-^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.(discover|shade)\/ data-type=text data="{}" status-code=200
 # YouTube.Enhance
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data="" status-code=200
 # AtourSplash
 ^https?:\/\/api2\.yaduo\.com\/atourlife\/activity\/appLaunch data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-# ejoy-App
-^https?:\/\/a\.sinopecsales\.com\/app\/cms data-type=text data="{}" status-code=200
 # ejoy-Applet
+^https?:\/\/a\.sinopecsales\.com\/app\/cms data-type=text data="{}" status-code=200
 ^https?:\/\/ocrifs\.ejoy\.sinopec\.com\/advertitfs\/advert\/findAdvertInfo data-type=text data="" status-code=200
 # ys7
 ^https?:\/\/\w+\.ys7\.com\/api\/user\/tabList data-type=text data="{}" status-code=200
@@ -1894,24 +2241,25 @@ eleme = type=http-response, pattern=^https?:\/\/waimai-guide\.ele\.me\/(gw|h5)\/
 移除打车页推广卡片、弹窗 = type=http-response, pattern=^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:car\/order\/content_info|order_web\/friendly_information), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/Amap_remove_ads/Amap_remove_ads.js, requires-body=true
 移除打车页红点角标、天气图标 = type=http-response, pattern=^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource(\/home)?\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/Amap_remove_ads/Amap_remove_ads.js, requires-body=true
 移除导航详情页推广 = type=http-response, pattern=^https:\/\/(?:info|m5)\.amap\.com\/ws\/shield\/search\/(?:common\/coupon\/info|poi\/detail), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/Amap_remove_ads/Amap_remove_ads.js, requires-body=true
+# Umetrip_remove_ads
+移除首页广告 = type=http-response, pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/Umetrip_remove_ads/Umetrip_remove_ads.js
 # ehaier
 ehaier = type=http-response, pattern=^https?:\/\/oss-zjrs\.haier\.net\/resource\/confFile\/\d{22}\.json$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/ehaier/haier.js, requires-body=true, max-size=0
 ehaier = type=http-response, pattern=^https?:\/\/zj\.haier\.net\/omsappapi\/resource\/v\d\/get\/resourceBag$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/ehaier/haier.js, requires-body=true, max-size=0
-# umetrip
-umetrip = type=http-response, pattern="^https?:\/\/(bkclient|umerp|home)\.umetrip\.com(\.cn){0,1}\/gateway\/api\/umetrip\/native", script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/umetrip/umetrip.js, max-size=0
 # jd_price2
 {{{MMMCK_SCRIPT}}} = type=http-request, pattern=^https?:\/\/apapia-sqk-weblogic\.manmanbuy\.com\/baoliao\/center\/menu$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/githubdulong/jd_price2/jd_price.js, requires-body=true, max-size=-1, timeout=60
 京东比价 = type=http-response, pattern=^https?:\/\/in\.m\.jd\.com\/product\/graphext\/\d+\.html, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/githubdulong/jd_price2/jd_price.js, requires-body=true, max-size=-1, timeout=60
 # JD_remove_ads
 移除京东广告 = type=http-response, pattern=^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/JD_remove_ads/JD_remove_ads.js, requires-body=true
-# jd-App
-jd = type=http-response, pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?>deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/jd-App/jd.js, requires-body=true, max-size=0
 # mstand
 mstand = type=http-response, pattern=^https?:\/\/api\.prod\.dj\.mstand\.cn\/scrm\/mini\/app\/index\/info, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/mstand/wechatApplet.js, requires-body=true, max-size=0
 # manner
 manner = type=http-response, pattern=^https?:\/\/triangle\.wearemanner\.com\/mp-api\/v\d\/ads, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/manner/manner.js, requires-body=true, max-size=0
 # meitu
 meitu = type=http-response, pattern=^https?:\/\/((h5|api)\.xiuxiu|api-sub|api\.posters)\.meitu\.com\/.+\/(vip|user|h\d|center|home), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/meitu/meitu.js, requires-body=true, max-size=0
+# Meiyou
+美柚App净化 = type=http-response, pattern=^https:\/\/config-service\.seeyouyima\.com\/api\/configs\/batch\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Meiyou/meiyou_ads.js, requires-body=true, timeout=60
+美柚App净化 = type=http-response, pattern=^https:\/\/config-service\.seeyouyima\.com\/api\/configs\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/fmz200/Meiyou/meiyou_ads.js, requires-body=true, timeout=60
 # taobao
 taobao = type=http-response, pattern=^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/taobao/taobao.js, requires-body=true, max-size=0
 taobao = type=http-response, pattern=^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/taobao/taobao.js, requires-body=true, max-size=0
@@ -1957,10 +2305,6 @@ wechat = type=http-response, pattern=^https?:\/\/(weixin110\.qq|security.wechat)
 移除图片和视频水印 = type=http-response, pattern=^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/(?:v2\/note\/feed|v3\/note\/videofeed), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/RedPaper_remove_ads/RedPaper_remove_ads.js, requires-body=true
 移除信息流广告 = type=http-response, pattern=^https:\/\/(?:edith|rec)\.xiaohongshu\.com\/api\/sns\/v6\/homefeed\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/RedPaper_remove_ads/RedPaper_remove_ads.js, requires-body=true
 移除视频水印 = type=http-response, pattern=^https:\/\/(?:edith|rec|www)\.xiaohongshu\.com\/api\/sns\/(?:v4\/note\/videofeed|v10\/note\/video\/save), script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/RedPaper_remove_ads/RedPaper_remove_ads.js, requires-body=true
-# goofish
-goofish = type=http-response, pattern=^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/goofish/goofish.js, requires-body=true, max-size=0
-goofish = type=http-response, pattern=^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/goofish/goofish.js, requires-body=true, max-size=0
-goofish = type=http-response, pattern=^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/goofish/goofish.js, requires-body=true, max-size=0
 # YouTube.Enhance
 youtube.response = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Maasea/YouTube.Enhance/youtube.response.js, requires-body=true, binary-body-mode=true, max-size=-1, argument="{"lyricLang":"{{{歌词翻译语言}}}","captionLang":"{{{字幕翻译语言}}}","blockUpload":{{{屏蔽上传按钮}}},"blockImmersive":{{{屏蔽选段按钮}}},"blockShorts":{{{屏蔽Shorts按钮}}},"debug":{{{启用调试模式}}}}"
 # DualSubs.Spotify
@@ -1975,6 +2319,6 @@ youtube.response = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.
 ys7 = type=http-response, pattern=^https?:\/\/\w+\.ys7\.com\/v\d\/valueadded\/operation\/config\/master\/station, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/ys7/ys7.js, requires-body=true, max-size=0
 
 [MITM]
-hostname = %APPEND% *-spclient.spotify.com, *.amap.com, *.dianping.com, *.googlevideo.com, *.httpdns.pro, *.jddebug.com, *.mcdn.bilivideo.cn, *.pornhub.com, *.weibo.cn, *.weibo.com, -*.facebook.com, -*.instagram.com, -*.pstatp.com, -*.snssdk.com, -*.twitter.com, -mobile.12306.cn, 103.37.155.60, 119.29.29.*, 119.29.29.98, 119.29.29.99, 91porn.com, a.sinopecsales.com, a1d5b283e-wx621112590b635086.sh.wxgateway.com, acs.m.goofish.com, acs.m.taobao.com, ad.12306.cn, afd.baidu.com, amdc-sibling.alipay.com.cn, amdc.alipay.com, amdc.m.taobao.com, ams-cdn.cdtft.cn, apapia-sqk-weblogic.manmanbuy.com, apapia-sqk.manmanbuy.com, api*.musical.ly, api-*.smoot.apple.com, api-access.pangolin-sdk-toutiao.com, api-one-wscn.awtmt.com, api-sams.walmartmobile.cn, api-sub.meitu.com, api.biliapi.net, api.bilibili.com, api.live.bilibili.com, api.m.jd.com, api.mcd.cn, api.pinduoduo.com, api.posters.meitu.com, api.prod.dj.mstand.cn, api.spotify.com, api.udache.com, api.vc.bilibili.com, api.wallstcn.com, api.wallstreetcn.com, api.xiuxiu.meitu.com, api.ys7.com, api2.helper.qq.com, api2.smoot.apple.com, api2.yaduo.com, apimobile.meituan.com, app-api.smzdm.com, app.10086.cn, app.biliapi.net, app.bilibili.com, app.dewu.com, article-api.smzdm.com, as.xiaojukeji.com, awp-assets.meituan.net, axxd.xmseeyouyima.com, bdsp-x.jd.com, bk.bingo.qq.com, bkclient.umetrip.com.cn, bla.gtimg.com, c.m.163.com, cache.bydauto.com.cn, capi.lkcoffee.com, cdn.api.fotoable.com, cdn.poizon.com, ci.xiaohongshu.com, client.app.coc.10086.cn, client.qunar.com, cloud.bluecardsoft.com, common.diditaxi.com.cn, conf.diditaxi.com.cn, configuration.ls.apple.com, cover.baidu.com, csc-service.sgcc.com.cn, ct.xiaojukeji.com, cube.elemecdn.com, cy.cloud.ccb.com, ddplus.meituan.net, dinamicx.alibabausercontent.com, discardrp.umetrip.com, discuz.gtimg.cn, dispatcher.is.autonavi.com, dns.jd.com, dsp-x.jd.com, dualstack*.amap.com, e.jparking.cn, ecapi.lkcoffee.com, edith.xiaohongshu.com, elemecdn.com, energy.xiaojukeji.com, fcvbjbcebos.baidu.com, flowplus.meituan.net, fuss10.elemecdn.com, g-acs.m.goofish.com, g.alicdn.com, g1.163.com, gab.122.gov.cn, gist.githubusercontent.com, github.com, grpc.biliapi.net, gspe1-ssl.ls.apple.com, gspe35-ssl.ls.apple.com, guide-acs.m.taobao.com, guzzoni.smoot.apple.com, gw.alicdn.com, gw3.ykccn.com, h5.m.goofish.com, h5.smzdm.com, h5.xiuxiu.meitu.com, haojia-api.smzdm.com, haojia-cdn.smzdm.com, haojia.m.smzdm.com, heic.alicdn.com, home.mi.com, home.umetrip.com, homefront.qunar.com, homepage-api.smzdm.com, i.ys7.com, image1.ccb.com, imageadv.ccb.com, images.pinduoduo.com, img*.360buyimg.com, img*.lkcoffee.com, img.meituan.net, img1.126.net, imgcache.qq.com, in.m.jd.com, is.snssdk.com, issuecdn.baidupcs.com, l*.51fanli.net, lens.leoao.com, line3-h5-mobile-api.biligame.com, lion.didialift.com, m.lkcoffee.com, manga.bilibili.com, mapi.dianping.com, mbs.boc.cn, mdn.alicdn.com, mea.meitudata.com, mi.gdt.qq.com, miniapp.qmai.cn, mmgr.gtimg.com, mobile.12306.cn, mobile.cmbchina.com, mp.weixin.qq.com, mtteve.beacon.qq.com, nex.163.com, npay.meituan.com, nr-op.elemecdn.com, ocrifs.ejoy.sinopec.com, osg-service.sgcc.com.cn, oss-zjrs.haier.net, oss.umetrip.com, p*.meituan.net, p.meituan.com, pan.baidu.com, poplayer.template.alibaba.com, post.m.smzdm.com, qde.qunar.com, qimgs.qunarzz.com, qt.qq.com, qzonestyle.gtimg.cn, raw.githubusercontent.com, rec.xiaohongshu.com, res.xiaojukeji.com, rms.meituan.com, router.com, s-api.smzdm.com, s3plus.meituan.net, security.wechat.com, service.haiersmarthomes.com, shopping.ele.me, spamblocker-api.zeekstudio.com, spclient.wg.spotify.com, splashqqlive.gtimg.com, startup.umetrip.com, storage.360buyimg.com, sytgate.jslife.com.cn, t-dsp.pinduoduo.com, triangle.wearemanner.com, umerp.umetrip.com, umerp.umetrip.com.cn, update.pan.baidu.com, upos-*-mirrorakam.akamaized.net, upos-sz-mirror*bstar1.bilivideo.com, user-api.smzdm.com, video-dsp.pddpic.com, vv.video.qq.com, waimai-guide.ele.me, wallet.95516.com, wcprd.hilton.com.cn, weatherkit.apple.com, web.meituan.com, webapi.qmai.cn, webappcfg.paas.cmbchina.com, weibo.com, weixin110.qq.com, www.baidu.com, www.dpfile.com, www.google.com, www.router.com, www.xiaohongshu.com, www1.elecfans.com, wx.17u.cn, wxa.wxs.qq.com, wximg.wxs.qq.com, wxproj.seeyouyima.com, wxsmw.wxs.qq.com, x.seeyouyima.com, y.gtimg.cn, yixiu-abtest.alicdn.com, youtubei.googleapis.com, zj.haier.net
+hostname = %APPEND% *-spclient.spotify.com, *.amap.com, *.dianping.com, *.googlevideo.com, *.httpdns.pro, *.mcdn.bilivideo.cn, *.pornhub.com, *.weibo.cn, *.weibo.com, -*.facebook.com, -*.instagram.com, -*.pstatp.com, -*.snssdk.com, -*.twitter.com, -mobile.12306.cn, 103.37.155.60, 114.115.217.129, 119.29.29.*, 119.29.29.98, 119.29.29.99, 91porn.com, a.sinopecsales.com, a1d5b283e-wx621112590b635086.sh.wxgateway.com, acs.m.goofish.com, acs.m.taobao.com, ad.12306.cn, afd.baidu.com, amdc-sibling.alipay.com.cn, amdc.alipay.com, amdc.m.taobao.com, ams-cdn.cdtft.cn, apapia-sqk-weblogic.manmanbuy.com, apapia-sqk.manmanbuy.com, api*.musical.ly, api-*.smoot.apple.com, api-access.pangolin-sdk-toutiao.com, api-one-wscn.awtmt.com, api-sams.walmartmobile.cn, api-sub.meitu.com, api.biliapi.net, api.bilibili.com, api.live.bilibili.com, api.m.jd.com, api.mcd.cn, api.pinduoduo.com, api.posters.meitu.com, api.prod.dj.mstand.cn, api.spotify.com, api.udache.com, api.vc.bilibili.com, api.wallstcn.com, api.wallstreetcn.com, api.xiuxiu.meitu.com, api.ys7.com, api2.helper.qq.com, api2.smoot.apple.com, api2.yaduo.com, apimobile.meituan.com, app-api.smzdm.com, app.10086.cn, app.biliapi.net, app.bilibili.com, app.dewu.com, article-api.smzdm.com, as.xiaojukeji.com, awp-assets.meituan.net, axxd.xmseeyouyima.com, bk.bingo.qq.com, bla.gtimg.com, c.m.163.com, cache.bydauto.com.cn, capi.lkcoffee.com, cdn.api.fotoable.com, ci.xiaohongshu.com, client.app.coc.10086.cn, client.qunar.com, cloud.bluecardsoft.com, common.diditaxi.com.cn, conf.diditaxi.com.cn, config-service.seeyouyima.com, configuration.ls.apple.com, cover.baidu.com, csc-service.sgcc.com.cn, ct.xiaojukeji.com, cube.elemecdn.com, cy.cloud.ccb.com, ddplus.meituan.net, discuz.gtimg.cn, dispatcher.is.autonavi.com, dns.jd.com, dualstack*.amap.com, e.jparking.cn, ecapi.lkcoffee.com, edith.xiaohongshu.com, elemecdn.com, energy.xiaojukeji.com, fcvbjbcebos.baidu.com, flowplus.meituan.net, fuss10.elemecdn.com, g-acs.m.goofish.com, g.alicdn.com, g1.163.com, gab.122.gov.cn, gist.githubusercontent.com, github.com, grpc.biliapi.net, gspe1-ssl.ls.apple.com, gspe35-ssl.ls.apple.com, guide-acs.m.taobao.com, guzzoni.smoot.apple.com, gw.alicdn.com, gw3.ykccn.com, h5.smzdm.com, h5.xiuxiu.meitu.com, haojia-api.smzdm.com, haojia-cdn.smzdm.com, haojia.m.smzdm.com, heic.alicdn.com, home.mi.com, home.umetrip.com, homefront.qunar.com, homepage-api.smzdm.com, i.ys7.com, image1.ccb.com, imageadv.ccb.com, images.pinduoduo.com, img*.lkcoffee.com, img.meituan.net, img1.126.net, imgcache.qq.com, in.m.jd.com, is.snssdk.com, issuecdn.baidupcs.com, l*.51fanli.net, lens.leoao.com, line3-h5-mobile-api.biligame.com, lion.didialift.com, m.lkcoffee.com, manga.bilibili.com, mapi.dianping.com, mbs.boc.cn, mdn.alicdn.com, mea.meitudata.com, mi.gdt.qq.com, miniapp.qmai.cn, mmgr.gtimg.com, mobile.12306.cn, mobile.cmbchina.com, mp.weixin.qq.com, mtteve.beacon.qq.com, nex.163.com, npay.meituan.com, nr-op.elemecdn.com, ocrifs.ejoy.sinopec.com, osg-service.sgcc.com.cn, oss-zjrs.haier.net, p*.meituan.net, p.meituan.com, pan.baidu.com, poplayer.template.alibaba.com, post.m.smzdm.com, qde.qunar.com, qimgs.qunarzz.com, qt.qq.com, qzonestyle.gtimg.cn, raw.githubusercontent.com, rec.xiaohongshu.com, res.xiaojukeji.com, rms.meituan.com, router.com, s-api.smzdm.com, s3plus.meituan.net, security.wechat.com, service.haiersmarthomes.com, shopping.ele.me, spamblocker-api.zeekstudio.com, spclient.wg.spotify.com, splashqqlive.gtimg.com, sytgate.jslife.com.cn, t-dsp.pinduoduo.com, triangle.wearemanner.com, update.pan.baidu.com, upos-*-mirrorakam.akamaized.net, upos-sz-mirror*bstar1.bilivideo.com, user-api.smzdm.com, video-dsp.pddpic.com, vv.video.qq.com, waimai-guide.ele.me, wallet.95516.com, wcprd.hilton.com.cn, weatherkit.apple.com, web.meituan.com, webapi.qmai.cn, webappcfg.paas.cmbchina.com, weibo.com, weixin110.qq.com, www.baidu.com, www.dpfile.com, www.google.com, www.router.com, www.xiaohongshu.com, www1.elecfans.com, wx.17u.cn, wxa.wxs.qq.com, wximg.wxs.qq.com, wxproj.seeyouyima.com, wxsmw.wxs.qq.com, x.seeyouyima.com, y.gtimg.cn, yixiu-abtest.alicdn.com, youtubei.googleapis.com, zj.haier.net
 hostname-disabled = %INSERT% buy.itunes.apple.com, gateway.icloud.com, gateway.icloud.com.cn, ios.chat.openai.com, weather-data.apple.com
 
