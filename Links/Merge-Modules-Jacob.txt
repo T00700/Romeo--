@@ -147,9 +147,9 @@ Modules/Surge/zirawell/ejoy-Applet.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/VideoGo_remove_ads.sgmodule # Loon,Shadowrocket
 
 # Z #
-Modules/Surge/fmz200/ChinaMobile.sgmodule # Loon,Shadowrocket
+# Modules/Surge/fmz200/ChinaMobile.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/ccb.sgmodule # Loon,Shadowrocket
-# Modules/Surge/zirawell/10086.sgmodule # Loon,Shadowrocket
+Modules/Surge/zirawell/10086.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/boc.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/cmb.sgmodule# Loon,Shadowrocket
 Modules/Surge/zirawell/alipay.sgmodule # Loon,Shadowrocket
