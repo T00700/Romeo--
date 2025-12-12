@@ -20,13 +20,14 @@ https://github.com/ifflagged/Neverflagged/raw/main/Loon/Plugin/Host.plugin
 # Top #
 https://github.com/ifflagged/Neverflagged/raw/main/Surge/Module/Tools.sgmodule
 Modules/Surge/Kelee/BlockAdvertisers.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/AffiliateMarketing.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/functional.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/adunion.sgmodule # Loon,Shadowrocket
 Modules/Surge/ifflagged/Module-Top.sgmodule # Loon,Shadowrocket
 Modules/Surge/ifflagged/Plugin-Top.sgmodule # Loon,Shadowrocket
 
 # 1 #
-Modules/Surge/zirawell/12123.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/12123.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/12306_remove_ads.sgmodule # Loon,Shadowrocket
 
 # A #
@@ -38,39 +39,33 @@ Modules/Shadowrocket/kokoryh/bilibili.srmodule
 Modules/Surge/BiliUniverse/BiliBili.ADBlock.sgmodule # Loon,Shadowrocket
 Modules/Surge/BiliUniverse/BiliBili.Enhanced.sgmodule # Loon,Shadowrocket
 Modules/Surge/BiliUniverse/BiliBili.Redirect.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/byd.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/BYDDynasty.sgmodule # Loon,Shadowrocket
 
 # C #
 Modules/Surge/ifflagged/Module-Common.sgmodule # Loon,Shadowrocket
 Modules/Surge/ifflagged/Plugin-Common.sgmodule # Loon,Shadowrocket
 
 # D #
-Modules/Surge/zirawell/dewu.sgmodule # Loon,Shadowrocket
-# Modules/Surge/ifflagged/DiDi-AD.sgmodule # Shadowrocket
+Modules/Surge/Kelee/Dewu_remove_ads.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/DiDi_remove_ads.sgmodule # Loon,Shadowrocket
-# https://github.com/ifflagged/Neverflagged/raw/main/Loon/Plugin/DiDi.plugin
 Modules/Surge/fmz200/DianPing.sgmodule # Loon,Shadowrocket
 # Modules/Surge/Kelee/HKDouYin_remove_ads.sgmodule # Loon,Shadowrocket
 
 # E #
-Modules/Surge/zirawell/eleme-App.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/Eleme.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/eleme-Applet.sgmodule # Loon,Shadowrocket
 
 # F #
 Modules/Surge/zirawell/51fanli.sgmodule # Loon,Shadowrocket
 
 # G #
-# Modules/Surge/fmz200/GaoTieGuanJia.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/Amap_remove_ads.sgmodule # Loon,Shadowrocket
-# Modules/Surge/zirawell/amap-App.sgmodule # Loon,Shadowrocket
-# Modules/Surge/zirawell/rsscc.sgmodule # Loon,Shadowrocket
 
 # H #
-# Modules/Surge/Kelee/Umetrip_remove_ads.sgmodule # Loon,Shadowrocket
+Modules/Surge/Kelee/Umetrip_remove_ads.sgmodule # Loon,Shadowrocket
 # Modules/Surge/Yuheng0101/heiliao.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/ehaier.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/haiersmarthomes.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/umetrip.sgmodule # Loon,Shadowrocket
 
 # I #
 
@@ -79,12 +74,11 @@ Modules/Surge/zirawell/umetrip.sgmodule # Loon,Shadowrocket
 Modules/Surge/githubdulong/jd_price2.sgmodule # Loon,Shadowrocket
 # Modules/Surge/Kelee/JD_Price.sgmodule
 Modules/Surge/Kelee/JD_remove_ads.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/jd-App.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/jd-Applet.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/jparking.sgmodule # Loon,Shadowrocket
 
 # L #
-Modules/Surge/zirawell/leoao.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/LeKe.sgmodule # Loon,Shadowrocket
 
 # M #
 Modules/Shadowrocket/Kelee/MeetYou_remove_ads.srmodule
@@ -96,7 +90,7 @@ Modules/Surge/zirawell/mihome.sgmodule # Loon,Shadowrocket
 Modules/Surge/fmz200/Meituan.sgmodule # Loon,Shadowrocket
 Modules/Surge/fmz200/Meituan-MeituanWaimai.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/meitu.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/seeyouyima.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/Meiyou.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/seeYouYiMa.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/beautycam.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/mcd-App.sgmodule # Loon,Shadowrocket
@@ -105,7 +99,6 @@ Modules/Surge/zirawell/mcd-Applet.sgmodule # Loon,Shadowrocket
 # P #
 # Modules/Surge/Kelee/PinDuoDuo_remove_ads.sgmodule # Loon,Shadowrocket
 Modules/Surge/ZenmoFeiShi/Pinduoduo.sgmodule # Loon,Shadowrocket
-# Modules/Surge/zirawell/pdd.sgmodule # Loon,Shadowrocket
 
 # Q #
 Modules/Surge/zirawell/qunar.sgmodule # Loon,Shadowrocket
@@ -139,7 +132,6 @@ Modules/Surge/zirawell/sgcc.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/FleaMarket_remove_ads.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/RedPaper_remove_ads.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/hilton.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/goofish.sgmodule # Loon,Shadowrocket
 
 # Y #
 Modules/Surge/Maasea/YouTube.Enhance.sgmodule # Shadowrocket
@@ -150,7 +142,6 @@ Modules/Surge/DualSubs/DualSubs.Spotify.sgmodule # Loon,Shadowrocket
 Modules/Surge/fmz200/AtourSplash.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/yitao.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/unionpay.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/ejoy-App.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/ejoy-Applet.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/ys7.sgmodule # Loon,Shadowrocket
 
