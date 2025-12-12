@@ -52,7 +52,7 @@ Modules/Surge/fmz200/DianPing.sgmodule # Loon,Shadowrocket
 # Modules/Surge/Kelee/HKDouYin_remove_ads.sgmodule # Loon,Shadowrocket
 
 # E #
-Modules/Surge/zirawell/eleme-App.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/Eleme.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/eleme-Applet.sgmodule # Loon,Shadowrocket
 
 # F #
