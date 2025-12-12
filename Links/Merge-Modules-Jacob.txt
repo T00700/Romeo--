@@ -57,6 +57,7 @@ Modules/Surge/zirawell/eleme-Applet.sgmodule # Loon,Shadowrocket
 
 # F #
 Modules/Surge/zirawell/51fanli.sgmodule # Loon,Shadowrocket
+Modules/Surge/zirawell/fliggy.sgmodule # Loon,Shadowrocket
 
 # G #
 Modules/Surge/Kelee/Amap_remove_ads.sgmodule # Loon,Shadowrocket
@@ -114,8 +115,8 @@ Modules/Surge/fmz200/SamClub.sgmodule # Loon,Shadowrocket
 # T #
 Modules/Surge/zirawell/twitter.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/tft.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/taobao.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/tfilm.sgmodule # Loon,Shadowrocket
+Modules/Surge/Kelee/Taobao_remove_ads.sgmodule # Loon,Shadowrocket
+Modules/Surge/Kelee/Taopiaopiao_remove_ads.sgmodule # Loon,Shadowrocket
 
 # U #
 
@@ -143,7 +144,7 @@ Modules/Surge/fmz200/AtourSplash.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/yitao.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/unionpay.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/ejoy-Applet.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/ys7.sgmodule # Loon,Shadowrocket
+Modules/Surge/Kelee/VideoGo_remove_ads.sgmodule # Loon,Shadowrocket
 
 # Z #
 Modules/Surge/fmz200/ChinaMobile.sgmodule # Loon,Shadowrocket
