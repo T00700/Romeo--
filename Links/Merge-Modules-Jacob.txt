@@ -79,7 +79,7 @@ Modules/Surge/zirawell/jd-Applet.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/jparking.sgmodule # Loon,Shadowrocket
 
 # L #
-Modules/Surge/zirawell/leoao.sgmodule # Loon,Shadowrocket
+Modules/Surge/fmz200/LeKe.sgmodule # Loon,Shadowrocket
 
 # M #
 Modules/Shadowrocket/Kelee/MeetYou_remove_ads.srmodule
