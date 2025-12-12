@@ -9,9 +9,9 @@ Modules/Surge/VirgilClyne/HTTPDNS.Block.sgmodule # Loon,Copy
 Modules/Surge/VirgilClyne/DNS.sgmodule # Loon,Copy
 
 Modules/Surge/NSRingo/iRingo.WeatherKit.sgmodule # Loon
-Modules/Surge/NSRingo/iRingo.LocationService.sgmodule # Loon,Shadowrocket
-Modules/Surge/NSRingo/iRingo.Maps.sgmodule # Loon,Shadowrocket
-Modules/Surge/NSRingo/iRingo.Siri.sgmodule # Loon,Shadowrocket
+Modules/Surge/NSRingo/iRingo.LocationService.sgmodule # Loon
+Modules/Surge/NSRingo/iRingo.Maps.sgmodule # Loon
+Modules/Surge/NSRingo/iRingo.Siri.sgmodule # Loon
 
 # Host
 https://github.com/ifflagged/Neverflagged/raw/main/Surge/Module/Host.sgmodule # Copy
@@ -52,7 +52,7 @@ Modules/Surge/fmz200/DianPing.sgmodule # Loon,Shadowrocket
 # Modules/Surge/Kelee/HKDouYin_remove_ads.sgmodule # Loon,Shadowrocket
 
 # E #
-Modules/Surge/fmz200/Eleme.sgmodule # Loon,Shadowrocket
+Modules/Surge/zirawell/eleme-App.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/eleme-Applet.sgmodule # Loon,Shadowrocket
 
 # F #
