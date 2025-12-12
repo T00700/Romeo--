@@ -62,7 +62,7 @@ Modules/Surge/zirawell/51fanli.sgmodule # Loon,Shadowrocket
 # G #
 # Modules/Surge/fmz200/GaoTieGuanJia.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/Amap_remove_ads.sgmodule # Loon,Shadowrocket
-Modules/Surge/zirawell/amap-App.sgmodule # Loon,Shadowrocket
+# Modules/Surge/zirawell/amap-App.sgmodule # Loon,Shadowrocket
 # Modules/Surge/zirawell/rsscc.sgmodule # Loon,Shadowrocket
 
 # H #
@@ -115,9 +115,7 @@ Modules/Surge/zirawell/lkcoffee-App.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/lkcoffee-Applet.sgmodule # Loon,Shadowrocket
 
 # S #
-Modules/Surge/ddgksf2013/SmzdmAds.sgmodule # Loon,Shadowrocket
-Modules/Loon/Kelee/smzdm_remove_ads.lpx
-Modules/Surge/zirawell/smzdm.sgmodule # Loon,Shadowrocket
+Modules/Surge/Kelee/smzdm_remove_ads.sgmodule # Loon,Shadowrocket
 Modules/Surge/zirawell/samsclub.sgmodule # Loon,Shadowrocket
 
 # T #
