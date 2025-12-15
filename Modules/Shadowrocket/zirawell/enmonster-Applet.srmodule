@@ -3,7 +3,10 @@
 #!category=Jacob
 
 [URL Rewrite]
-^https?:\/\/aag\.enmonster\.com\/apa\/index\/advert\/skin - reject
+^https?:\/\/aag\.enmonster\.com\/apa(\/index)?\/advert - reject
+
+[Map Local]
+^https?:\/\/aag\.enmonster\.com\/apa(\/discount)?\/activity data-type=text data="{}"
 
 [MITM]
 hostname = %APPEND% aag.enmonster.com
