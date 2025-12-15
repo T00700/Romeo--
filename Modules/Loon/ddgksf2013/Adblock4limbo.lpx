@@ -9,6 +9,7 @@
 ^https?:\/\/adc\.tamedia\.com\.tw\/rmadp/static/js/gm-sdk8-mobile\.js - reject
 ^https?:\/\/.*?.gliacloud.com.*?www\.novel543\..* - reject
 ^https?:\/\/cdn\.holmesmind\.com\/js\/init\.js - reject
+^https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Adblock4limbo/js4.js - reject
 \/api\/video\/getadsdatalist\? - reject
 js\.wpadmngr\.com\/static\/adManager\.js - reject
 ^https?:\/\/[-a-z]{6,}\.com?\/[a-d][-\.\/_A-Za-z][DHWXm][-\.\/_A-Za-z][59FVZ][-\.\/_A-Za-z][6swyz][-\.\/_A-Za-z][-\/_0-9a-zA-Z][-\.\/_A-Za-z][-\/_0-9a-zA-Z]{22,162}$ - reject
