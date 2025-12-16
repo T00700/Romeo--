@@ -1,4 +1,4 @@
-#规则数量:26387
+#规则数量:26388
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -7392,6 +7392,7 @@ DOMAIN-SUFFIX,disquscdn.com
 DOMAIN-SUFFIX,disqusservice.com
 DOMAIN-SUFFIX,dit-inc.us
 DOMAIN-SUFFIX,divas.com.uy
+DOMAIN-SUFFIX,diwodiwo.xyz
 DOMAIN-SUFFIX,diyarbakirescort.com
 DOMAIN-SUFFIX,diyin.org
 DOMAIN-SUFFIX,diyuser.buzz
