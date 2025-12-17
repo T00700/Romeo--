@@ -1,4 +1,4 @@
-#规则数量:26402
+#规则数量:26404
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -4143,6 +4143,7 @@ payload:
   - DOMAIN-SUFFIX,bit-z.com
   - DOMAIN-SUFFIX,bit.do
   - DOMAIN-SUFFIX,bit.ly
+  - DOMAIN-SUFFIX,bitbaby.com
   - DOMAIN-SUFFIX,bitballoon.com
   - DOMAIN-SUFFIX,bitbank.cc
   - DOMAIN-SUFFIX,bitbay.net
@@ -12369,6 +12370,7 @@ payload:
   - DOMAIN-SUFFIX,icuminside.com
   - DOMAIN-SUFFIX,id.hao123.com
   - DOMAIN-SUFFIX,idarkdoll.com
+  - DOMAIN-SUFFIX,idcflare.com
   - DOMAIN-SUFFIX,idea-server.com
   - DOMAIN-SUFFIX,ideal-teens.com
   - DOMAIN-SUFFIX,ideapocket.com
