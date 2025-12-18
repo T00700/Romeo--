@@ -1,10 +1,7 @@
-#!name=clicli
-#!desc=clicli
-#!category=Jacob
+clicli%0A：Error: 请求超时(20 秒)
 
-[URL Rewrite]
-^https?:\/\/js-ad\.ayximgs\.com\.ad-universe-cdn\.hzhcbkj\.cn\/xgapp\.php\/v\d\/top_notice - reject
 
-[MITM]
-hostname = %APPEND% js-ad.ayximgs.com
 
+
+
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈

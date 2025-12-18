@@ -1,13 +1,7 @@
-#!name=zto
-#!desc=zto
-#!category=Jacob
+zto%0A：Error: 请求超时(20 秒)
 
-[URL Rewrite]
-^https?:\/\/fscdn\.zto\.com\/fs1 - reject
 
-[Map Local]
-^https?:\/\/hdgateway\.zto\.com\/(?>getApolloConfig|track|getAdInfo|listJumperShow) data-type=text data="{}" status-code=200
 
-[MITM]
-hostname = %APPEND% hdgateway.zto.com, fscdn.zto.com
 
+
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
