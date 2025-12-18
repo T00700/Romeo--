@@ -1,4 +1,4 @@
-#规则数量:117202
+#规则数量:117203
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -69638,6 +69638,7 @@ payload:
   - DOMAIN-SUFFIX,moontonapp.com
   - DOMAIN-SUFFIX,moontontech.net
   - DOMAIN-SUFFIX,moonvy.com
+  - DOMAIN-SUFFIX,moonvy.cool
   - DOMAIN-SUFFIX,moooc.cc
   - DOMAIN-SUFFIX,mooooc.com
   - DOMAIN-SUFFIX,mooool.com
