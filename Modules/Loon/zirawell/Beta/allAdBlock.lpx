@@ -8,7 +8,7 @@
 #!basedOn=iOS
 #!surge_version=5.14.2(Build3405,SDK18.2)
 #!homepage=https://github.com/zirawell/R-Store/tree/main/Rule/Surge/README.md
-#!date=2025-12-16 08:06:54
+#!date=2025-12-18 13:42:07
 
 [Rule]
 IP-CIDR,1.202.85.193/32,REJECT,no-resolve
@@ -2344,7 +2344,6 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.mimir\.recommend(?!\.hgitems) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/mobile\.cmbchina\.com\/dcardmanage\/salary-welfare\/get-recommend mock-response-body data-type=file data="https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/cmb.json"
 ^https?:\/\/kano\.guahao\.cn\/[a-zA-Z0-9]{12} mock-response-body data-type=text status-code=200
-^https?:\/\/hoapp\.juneyaoair\.com\/version mock-response-body data-type=text status-code=200
 ^https?:\/\/api-sams\.walmartmobile\.cn\/api\/v\d\/sams\/configuration\/personCenterEntrance\/query mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/api\.qbb6\.com\/ad\/ mock-response-body data-type=text status-code=200
 ^https?:\/\/wx\.bthhotels\.com\/miniapp\/weixin\/v\d\/home\/index_banner mock-response-body data-type=text data="{}" status-code=200
@@ -2364,13 +2363,13 @@ https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert
 ^https?:\/\/api\.bwton\.com\/bas\/ad mock-response-body data-type=text status-code=200
 ^https?:\/\/www\.iyingdi\.cn\/ad mock-response-body data-type=text status-code=200
 ^https?:\/\/api\.indeedpower\.com\/v\d\/m\/edu\/module\/homepage_banner\/\?randomStr mock-response-body data-type=text data="{}" status-code=200
+^https?:\/\/hoapp\.juneyaoair\.com\/version mock-response-body data-type=text status-code=200
 ^https?:\/\/(cdn-)?pay\.kkmh\.com\/v\d\/vip\/(?>banner|charge)_tip_list mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/wx\.17u\.cn\/crapi\/query\/(?>ad|getAdImgUrlByCode) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/hb-boom\.api\.mgtv\.com\/release\/pullReleaseInfo mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/shop-api\.retail\.mi\.com\/mtop\/navi\/(rec\/merge\/|skywheel\/mishop\/splash) mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/jdread-api\.jd\.com\/jdread\/api\/popup mock-response-body data-type=text status-code=200
-^https?:\/\/hoapp\.juneyaoair\.com\/data\/index\/getPictureList mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/img\.meituan\.net\/groceryimages\/\w+\.gif mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/specialSale\/listSpecialSalePageBanner mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/agn\.aty\.sohu\.com\/m? mock-response-body data-type=tiny-gif status-code=200
@@ -3093,6 +3092,8 @@ http-response ^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json script-pat
 http-response ^https?:\/\/conf\.diditaxi\.com\.cn\/ota\/na\/yuantu\/infoList script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/didi.js, requires-body=true, tag=didi
 
 http-response ^https?:\/\/gw\.m\.163\.com\/nc\/api\/v\d\/search\/hot-word script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/163news.js, requires-body=true, tag=163news
+
+http-response ^https?:\/\/hoapp\.juneyaoair\.com\/data\/index\/getPictureList script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/juneyaoair.js, requires-body=true, tag=juneyaoair
 
 http-response ^https?:\/\/iface2\.iqiyi\.com\/aggregate\/3\.0\/getMyMenus\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/allAdBlock/cntv.js, requires-body=true, tag=iqiyi
 
