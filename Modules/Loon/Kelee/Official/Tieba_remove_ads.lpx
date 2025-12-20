@@ -1,1 +1,37 @@
-<html lang="en"><head><title>Redirecting...</title></head><body><script>(()=>{"use strict";const t="offset",e="client",o=function(){};let n=!1,r=!1;const i={loopDelay:50,maxLoop:5,complete:o},l=[];let u=null;const s={cssClass:"ad-overlay google-ad-bottom-outer prebid-wrapper .dfp-ad-container"},a={nullProps:[t+"Parent"],zeroProps:[]};a.zeroProps=[t+"Height",t+"Left",t+"Top",t+"Width",t+"Height",e+"Height",e+"Width"];const c={quick:null,remote:null};let d=null;const p={test:0,download:0};function f(t){return"function"==typeof t}function m(t){!0!==d&&(r=!0,y(t),c.quick="testing",p.test=setTimeout((function(){h(t,1)}),5))}function y(t){let e,o,n=document.body,r="width: 1px !important; height: 1px !important; position: absolute !important; left: -10000px !important; top: -1000px !important;";if(null!=t&&"string"!=typeof t){for(null!=t.style&&(r+=t.style),u=function(t,e){let o,n,r=e;if(n=document.createElement(t),r)for(o in r)r.hasOwnProperty(o)&&n.setAttribute(o,r[o]);return n}("div",{class:t.cssClass,style:r}),n.appendChild(u),e=0;e<a.nullProps.length;e++)o=u[a.nullProps[e]];for(e=0;e<a.zeroProps.length;e++)o=u[a.zeroProps[e]]}}function h(t,e){const o=document.body;let c=!1;if(null==u&&y(t||s),"string"!=typeof t){p.test>0&&(clearTimeout(p.test),p.test=0),null!==o.getAttribute("abp")&&(c=!0);for(let t=0;t<a.nullProps.length;t++){if(null==u[a.nullProps[t]]){e>4&&(c=!0);break}if(!0===c)break}for(let t=0;t<a.zeroProps.length&&!0!==c;t++)0===u[a.zeroProps[t]]&&e>4&&(c=!0);if(void 0!==window.getComputedStyle){const t=window.getComputedStyle(u,null);"none"!==t.getPropertyValue("display")&&"hidden"!==t.getPropertyValue("visibility")||e>4&&(c=!0)}n=!0,c||e++>=i.maxLoop?(d=c,function(){let t,e;if(null===d)return;for(t=0;t<l.length;t++){e=l[t];try{null!=e&&f(e["complete"])&&e["complete"](d)}catch(t){return}}}(),g()&&setTimeout((function(){r=!1}),5)):p.test=setTimeout((function(){h(t,e)}),i.loopDelay)}else g()&&setTimeout((function(){r=!1}),5)}function g(){if(null===u)return!0;try{f(u.remove)&&u.remove(),document.body.removeChild(u)}catch(t){}return u=null,!0}var w=function(t){if(!t)return;const e={complete:o,found:o,notfound:o};let n;for(n in t)t.hasOwnProperty(n)&&("complete"===n||"found"===n||"notFound"===n?e[n.toLowerCase()]=t[n]:i[n]=t[n]);l.push(e),function(){let t,e=!1;document.readyState&&"complete"===document.readyState&&(e=!0),t=function(){m(s)},e?t():window.addEventListener("load",t)}()};function b(){document.write(`<a id="Lf5Bwk4VUwckRGlsodUE1cfaRyQBxT1O" href="/.IGV0hOcNusVJOgqoD1HuWTk0PssdueKB"></a>`),document.getElementById("Lf5Bwk4VUwckRGlsodUE1cfaRyQBxT1O").click()}function v(t){return`${t}`}async function P(t){const e=await async function(t,e){const o=JSON.parse(atob(t));return o.parameters.adBlockingDetected=e,o.parameters.timezoneBrowser=Intl.DateTimeFormat().resolvedOptions().timeZone,o.parameters.webdriver=navigator.webdriver,o.parameters.gpu=await async function(){if(!navigator.gpu)return null;const t=await navigator.gpu.requestAdapter();if(!t)return null;if(t.info&&t.info.vendor)return t.info.vendor;if(t.requestAdapterInfo){const e=await t.requestAdapterInfo();return e.vendor?e.vendor:null}return null}(),JSON.stringify(o)}("eyJwYXJhbWV0ZXJzIjp7ImNpdHkiOiJCb3lkdG9uIiwiY29udGluZW50IjoiTkEiLCJyZWdpb25OYW1lIjoiVmlyZ2luaWEiLCJjb250aW5lbnROYW1lIjoiTm9ydGggQW1lcmljYSIsImNvdW50cnlOYW1lIjoiVW5pdGVkIFN0YXRlcyIsImRvbWFpbkFwZXgiOiJib2lvLm1lIiwiZG9tYWluRnVsbCI6ImdpdC5ib2lvLm1lIiwiaXBPcmlnIjoiNTEuOC4xNTIuMjI0IiwicHJvdG9jb2wiOiJodHRwcyIsImNvdW50cnkiOiJVUyIsInJlZ2lvbiI6IlZBIiwicGF0aCI6Ilwva2VsZWUub25lXC9Ub29sXC9Mb29uXC9McHhcL1RpZWJhX3JlbW92ZV9hZHMubHB4IiwidGltZXpvbmVHZW8iOiJBbWVyaWNhXC9OZXdfWW9yayIsInV1aWQiOiJlNWE1ODE2NmI0M2ZiNTk3NDYyZTNmOWFmZDAxNDNmNiIsInRlbmFudCI6Im5hbWVjaGVhcC1leHBpcmVkIn19",t);(async function(t,e){const o=new XMLHttpRequest;o.onreadystatechange=_,o.open("POST",t,!0),o.send(e)})("https://router.parklogic.com/kelee.one/Tool/Loon/Lpx/Tieba_remove_ads.lpx",e).then()}function _(){var t;4===this.readyState&&(200!==this.status&&console.error(`failed to contact router, status code: ${this.status} "${this.statusText}"`),this.responseText.startsWith("http")?(t=this.responseText,"true"===v("false")?(document.cookie=`m6RW96QaECHb2mXiRi7YQBqlkYuoZc7A=${btoa(t)};max-age=5`,b()):window.location.replace(t)):document.body.innerHTML=this.responseText)}"true"===v("true")?w({complete:t=>{t?"true"===v("false")?(document.cookie="Nsj7rdlN8X5lOGh3PoZezs9aS9Eqq3VK=1;max-age=5","true"===v("false")?b():location.reload()):P(!0):P(!1)}}):P()})();</script></body></html>
+#!name=百度贴吧去广告
+#!desc=移除开屏广告、信息流广告和帖内广告，精简侧拉抽屉及我的页面。需注意此插件会导致新回复等通知功能不可用，需手动进入消息页点击查看。仅限iOS 15及以上版本系统使用。
+#!openUrl=https://apps.apple.com/app/id477927812
+#!author=app2smile[https://github.com/app2smile], 可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!tag=去广告
+#!system=
+#!system_version=15
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Tieba.png
+#!date=2025-11-20 01:28:27
+
+[Rule]
+DOMAIN, 180.76.76.200, REJECT
+IP-CIDR, 180.76.76.200/32, REJECT, no-resolve
+
+[Rewrite]
+^https:\/\/tieba\.baidu\.com\/c\/f\/member\/getMemberPopups$ reject-dict
+
+^https:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-body-json-del recom_naws_list namoaixud_entry custom_grid duxiaoman_entry finance_tab
+
+^https:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-body-json-replace user.shake_ad_switch.is_show 0
+
+^https:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile$ response-body-json-jq '.zone_info |= map(select(.type as $t | ["commerce","banner","game"] | index($t) | not))'
+
+^https:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home$ response-body-json-del task_list game_center tools tools.yunying_tools_list tools.show_tools_list
+^https:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home$ response-body-json-jq '.tools.show_tools_list |= map(.tools_list |= map(select(.title != "度小满钱包")))'
+
+^https:\/\/tiebac\.baidu\.com\/c\/f\/search\/discover$ reject-dict
+
+^https:\/\/tiebac\.baidu\.com\/c\/f\/frs\/frsBottom$ response-body-json-del card_activity
+
+[Script]
+http-response ^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/Kelee/Tieba_remove_ads/tieba-proto.js, requires-body=true, binary-body-mode=true, timeout=10, tag=ProtoBuf处理
+
+[MitM]
+hostname=tiebac.baidu.com, tieba.baidu.com
