@@ -10,7 +10,7 @@
 #!basedOn=iOS
 #!surge_version=5.14.2(Build3405,SDK18.2)
 #!homepage=https://github.com/zirawell/R-Store/tree/main/Rule/Surge/README.md
-#!date=2025-07-08
+#!date=2025-12-20
 
 [Rule]
 DOMAIN-KEYWORD,api.sobot.com,REJECT,extended-matching,pre-matching
@@ -27,14 +27,11 @@ DOMAIN-SUFFIX,cm.track.biligame.bilibili.com,REJECT,extended-matching,pre-matchi
 # 满意度调研
 ^https?:\/\/api\.bilibili\.com\/x\/v2\/dm\/qoe\/show\? data-type=text data="{}" status-code=200
 
-# 开屏广告 //app.bilibili.com
-^https?:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH data-type=text data="{}" status-code=200
-
 ^https?:\/\/upos-sz-static\.bilivideo\.com\/ssaxcode\/\w{2}\/\w{2}\/\w{32}-1-SPLASH data-type=text data="{}" status-code=200
 
 ^https?:\/\/api\.bilibili\.com\/x\/mengqi\/v\d\/resource\? data-type=text data="{}" status-code=200
 
-# IP请求,地理位置请求 //api.bilibili.com
+# IP请求,地理位置请求
 ^https?:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp data-type=text data="{}" status-code=200
 
 ^https?:\/\/app\.bilibili\.com\/x\/resource\/ip data-type=text data="{}" status-code=200
@@ -64,7 +61,7 @@ bilibili = type=http-response, pattern=^https?:\/\/app\.bilibili\.com\/x\/resour
 
 bilibili = type=http-response, pattern=^https?:\/\/app\.bilibili\.com\/x\/v\d\/splash\/(brand\/list|event\/list2|list|show)\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/bilibili-App/bilibiliJson.js, requires-body=true, max-size=0
 
-# 我的页面 解锁1080P高码率,4K画质,皮肤推送 //app.bilibili.com
+# 我的页面 解锁1080P高码率,4K画质,皮肤推送
 bilibili = type=http-response, pattern=^https?:\/\/app\.bilibili\.com\/x\/v\d\/account\/(mine(\/ipad)?|myinfo)\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/bilibili-App/bilibiliJson.js, requires-body=true, max-size=0
 
 bilibili = type=http-response, pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\?, script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/zirawell/bilibili-App/bilibiliJson.js, requires-body=true, max-size=0

@@ -25,10 +25,6 @@ DOMAIN,dwtracking.jk.cn,REJECT
 ^https?:\/\/cdn\.sdb\.com\.cn\/widget\/pb\/pb-plugins-recomend-content mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdn\.sdb\.com\.cn\/widget\/pb\/pb-plugins-rec-content-list mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/cdn\.sdb\.com\.cn\/widget\/pb\/pb-plugins-rec-mivideo mock-response-body data-type=text data="{}" status-code=200
-# 信用卡-精彩活动模块
-#^https?:\/\/cdn\.sdb\.com\.cn\/widget\/magic-module-sprite\/four-rectangle-grid mock-response-body data-type=text data="{}" status-code=200
-# 信用卡-平安好物模块
-#^https?:\/\/cdn\.sdb\.com\.cn\/widget\/magic-module-sprite\/goods-module mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/rsb\.pingan\.com\.cn\/brcp\/stp\/cust\/mobile\/source\/upgrade mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/rsb\.pingan\.com\.cn\/brcp\/bds\/cust\/ygfz\/up mock-response-body data-type=text data="{}" status-code=200
 
