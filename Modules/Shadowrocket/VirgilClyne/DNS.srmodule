@@ -173,12 +173,4 @@ upos-sz-mirrorali?.bilivideo.com = server:quic://dns.alidns.com
 upos-sz-mirrorali??.bilivideo.com = server:quic://dns.alidns.com
 upos-sz-mirrorbos.bilivideo.com = server:180.76.76.76
 upos-sz-upcdnbd??.bilivideo.com = server:180.76.76.76
-# *.1010.com.hk = server:dns1.pccw.com // 1O1O
-##*.hkcsl.com = server:dns1.pccw.com // csl.
-# *.theclub.com.hk = server:dns1.pccw.com // The CLUB by HKT
-##*.now.com = server:dns2.pccw.com // now.com
-# *.moov.hk = server:dns3.pccw.com // MOOV
-##*.viu.com = server:dns3.pccw.com // viu
-# *.viu.com = server:dns3.pccw.com // viu
-##*.viu.tv = server:dns3.pccw.com // viu tv
 
