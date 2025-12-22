@@ -42,11 +42,21 @@ jobs:
             if [[ "$url" =~ ^\s*#.* ]] || [[ -z "${url// }" ]]; then continue; fi
 
             clean_url="${url%%\?*}"
+            domain=$(echo "$clean_url" | cut -d'/' -f3)
+            if [[ "$domain" == "ddgksf2013.top" ]]; then
+                author="ddgksf2013"
+            elif [[ "$domain" == "github.com" ]]; then
+                author=$(echo "$clean_url" | cut -d'/' -f4)
+            else
+                # 默认逻辑
+                author=$(echo "$clean_url" | cut -d'/' -f4)
+            fi
+            
             author=$(echo "$clean_url" | cut -d'/' -f4)
             filename_full=$(basename "$clean_url")
             filename_noext="${filename_full%.*}"
             extension="${filename_full##*.}"
-            
+
             # 确定保存路径
             save_dir=""
             case "$extension" in
