@@ -32,15 +32,24 @@ jobs:
           echo "Waiting for Docker..."
           timeout 60 bash -c 'until nc -z localhost 9100 && nc -z localhost 9101; do sleep 1; done'
 
-      - name: Download ddgksf2013 README & Extract URLs
+      - name: Download Resources & Extract URLs
         run: |
+          # 1. 提取 README 中的 URL
           curl -s https://raw.githubusercontent.com/ddgksf2013/ddgksf2013/main/README.md > README.md
-          
           grep -oP '(?<=href=")[^"]+' README.md | \
           python3 -c "import sys, urllib.parse; [print(urllib.parse.unquote(l.strip())) for l in sys.stdin]" | \
-          grep -oP 'https?://[^\s,"]+\.(sgmodule|snippet|conf|js)' | sort -u > plugin_urls.txt
+          grep -oP 'https?://[^\s,"]+\.(sgmodule|snippet|conf|js)' > urls_temp.txt
           
-          echo "Successfully extracted URLs:"
+          # 2. 从 data.json 提取所有 items 中的 url
+          # 使用 jq 遍历 JSON 中所有 category 下的 items 数组，并输出 url 字段
+          curl -s https://ddgksf2013.top/data.json | \
+          jq -r '.[] | .items[] | .url' >> urls_temp.txt
+          
+          # 3. 合并、去重并过滤有效后缀
+          # 增加对 .conf 和 .snippet 的兼容处理（脚本转换器通常支持这些）
+          cat urls_temp.txt | sort -u | grep -E '\.(sgmodule|snippet|conf|js|lpx|srmodule)$' > plugin_urls.txt
+          
+          echo "Successfully extracted combined URLs:"
           cat plugin_urls.txt
 
       - name: Process files (Serialized for Stability)
