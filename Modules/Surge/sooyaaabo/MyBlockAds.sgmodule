@@ -164,12 +164,6 @@ DOMAIN,id.hadron.ad.gt,REJECT
 DOMAIN,a.cpic.com.cn,REJECT
 # 小米
 DOMAIN,sdkconfig.ad.xiaomi.com,REJECT
-# 迅雷 解除版权限制
-#DOMAIN,hub5btmain.v6.shub.sandai.net,REJECT
-# DOMAIN, hub5btmain.v6.shub.sandai.net, REJECT
-#DOMAIN,hub5emu.v6.shub.sandai.net,REJECT
-# DOMAIN, hub5emu.v6.shub.sandai.net, REJECT
-#DOMAIN,hub5idx.v6.shub.sandai.net,REJECT
 AND,((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"ishare4iphone*")),REJECT
 # 移花宫
 DOMAIN,tong.8888888888.bid,REJECT
@@ -217,9 +211,6 @@ http-response-jq ^https:\/\/emdcadvertise(?:pj)?\.eastmoney\.com\/infoService\/v
 http-response-jq ^https:\/\/api\.m\.mi\.com\/v1\/order\/expressView 'delpaths([["data","bottom","ad_info"]])'
 
 [Map Local]
-# 555电影 //app-v1.ecoliving168.com, 852b95d36.xwlpk.cn
-#^https:\/\/(app-v1\.ecoliving168\.com|852b95d36\.xwlpk\.cn)\/api\/v1\/advert\/config data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
 # 交管12123 //gab.122.gov.cn
 ^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery\/adver data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
