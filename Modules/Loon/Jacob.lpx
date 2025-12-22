@@ -1190,7 +1190,6 @@ IP-CIDR,180.76.76.112/32,REJECT,no-resolve
 DOMAIN,o2o-ad-log-gateway.alibaba.com,REJECT
 DOMAIN,eco.taobao.com,REJECT
 DOMAIN,ilce.alicdn.com,REJECT
-DOMAIN,dispatcher.is.autonavi.com,REJECT
 DOMAIN-SUFFIX,mpush-api.aliyun.com,REJECT
 DOMAIN-SUFFIX,aecpm.alicdn.com,REJECT
 DOMAIN-SUFFIX,afp.alicdn.com,REJECT
