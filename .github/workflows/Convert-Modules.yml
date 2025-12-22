@@ -52,7 +52,6 @@ jobs:
                 author=$(echo "$clean_url" | cut -d'/' -f4)
             fi
             
-            author=$(echo "$clean_url" | cut -d'/' -f4)
             filename_full=$(basename "$clean_url")
             filename_noext="${filename_full%.*}"
             extension="${filename_full##*.}"
@@ -98,7 +97,16 @@ jobs:
             [ -z "$module_link" ] && continue
             
             clean_url="${module_link%%\?*}"
-            author=$(echo "$clean_url" | cut -d'/' -f4)
+
+            domain=$(echo "$clean_url" | cut -d'/' -f3)
+            if [[ "$domain" == "ddgksf2013.top" ]]; then
+              author="ddgksf2013"
+            elif [[ "$domain" == "github.com" ]]; then
+              author=$(echo "$clean_url" | cut -d'/' -f4)
+            else
+              author=$(echo "$clean_url" | cut -d'/' -f4)
+            fi
+
             filename_full=$(basename "$clean_url")
             filename_noext="${filename_full%.*}"
             extension="${filename_full##*.}"
