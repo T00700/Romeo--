@@ -17,10 +17,8 @@ https://github.com/chavyleung/scripts/raw/master/box/rewrite/boxjs.rewrite.surge
 
 # D #
 # https://github.com/ddgksf2013/Modules/raw/main/RevenueCat.Vip.sgmodule
-https://github.com/ddgksf2013/Modules/raw/main/Adblock.sgmodule
-https://ddgksf2013.top/module/JavDB.WebEnhance.sgmodule
-https://ddgksf2013.top/scripts/pornhub.ads.js
-https://ddgksf2013.top/scripts/missav.ads.js
+# https://github.com/ddgksf2013/Modules/raw/main/Adblock.sgmodule
+# https://ddgksf2013.top/module/JavDB.WebEnhance.sgmodule
 
 # F #
 
