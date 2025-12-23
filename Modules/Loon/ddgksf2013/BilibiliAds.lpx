@@ -78,12 +78,6 @@ http-response ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app
 # ～ BiliBili_哔哩哔哩_动态综合页及视频页去广告@BiliUniverse
 http-response ^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/Dyn(All|Video)$ script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/BilibiliAds/response.bundle.js, requires-body=true, binary-body-mode=true, timeout=60, tag=response.bundle
 
-# > BiliBili_哔哩哔哩_繁体CC字幕转中文简体[自行启用hostname=aisubtitle.hdslb.com,i0.hdslb.com]@ddgksf2013
-#http-response ^https?:\/\/.*\.hdslb\.com\/bfs\/subtitle\/.+\.json script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/BilibiliAds/bilibili_json.js, requires-body=true, timeout=60, tag=bilibili_json
-
-# > BiliBili_哔哩哔哩_去除统一设置的皮肤[注释留存]@ddgksf2013
-#http-response ^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/BilibiliAds/bilibili_json.js, requires-body=true, timeout=60, tag=bilibili_json
-
 [MITM]
 hostname = -broadcast.chat.bilibili.com, -cm.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net, app.bilibili.com, api.live.bilibili.com, *.bilibili.com, *.bili*.*, *.bilibili.*, grpc.biliapi.net, *biliapi.net
 

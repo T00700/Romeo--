@@ -47,7 +47,6 @@ https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/Adblock4limbo/
 https://ra7.xyz/z/.*/code.js - reject
 https://(www|zhuanlan)\.zhihu\.com/api/v4/questions/\d+/related-readings - reject
 https://(www|zhuanlan)\.zhihu\.com/api/v4/answers/\d+/related-readings - reject
-#https://(www|zhuanlan)\.zhihu\.com/api/v4/hot_recommendation - reject
 #https://(www|zhuanlan)\.zhihu\.com/api/v4/hot_recommendation url reject
 https://(www|zhuanlan)\.zhihu\.com/commercial_api/banners_v3/(mobile_banner|mobile_question) - reject
 https://(www|zhuanlan)\.zhihu\.com/api/articles/\d+/recommendation - reject

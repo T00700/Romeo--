@@ -28,9 +28,6 @@ http-response ^https?:\/\/.*yangjibao\.com\/(wxapi\/)?account script-path=https:
 # ✅ TopWidgets
 http-response ^https?:\/\/.*xiaozujian\.com\/api\/app\/config\/userConfig script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/ForOwnUse/TopwidgetsProCrack.js, requires-body=true, timeout=60, tag=TopwidgetsProCrack
 
-# 🟥 WPS(国区)
-#http-response ^https:\/\/(vas|account)\.wps\.cn\/(query\/api\/v\d\/list_purchase_info|api\/users\/\d+\/overview) script-path=https://raw.githubusercontent.com/510004015/Quantumult_X/Remote/Premium/WPSOffice.js, requires-body=true, timeout=60, tag=WPSOffice
-
 # ✅ 扫描全能王
 http-response ^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? script-path=https://github.com/ifflagged/Romeo/raw/main/Modules/JS/ddgksf2013/ForOwnUse/CamscannerProCrack.js, requires-body=true, timeout=60, tag=CamscannerProCrack
 
