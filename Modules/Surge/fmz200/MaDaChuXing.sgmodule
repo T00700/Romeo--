@@ -7,8 +7,6 @@
 #!tg-channel=https://t.me/inaisi
 
 [Map Local]
-#^https?:\/\/display-sc\.miguvideo\.com\/display\/v3\/static\/PERSONAL_CENTER\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
 # 开屏广告
 ^https:\/\/mada-travel\.17u\.cn\/mdapi\/config\/ads data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 

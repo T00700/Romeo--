@@ -11,6 +11,3 @@
 DOMAIN-SUFFIX,ad.gameley.com,REJECT
 DOMAIN-SUFFIX,zlsdk.1rtb.net,REJECT
 
-[URL Rewrite]
-#去开屏 - reject
-

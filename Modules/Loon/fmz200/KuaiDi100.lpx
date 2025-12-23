@@ -1,7 +1,7 @@
 #!name=快递100
 #!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
 #!author=奶思
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1090.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1039.png
 #!tag=Jacob
 #!homepage=https://github.com/fmz200/wool_scripts
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Surge/module/split/partK/KuaiDi100.sgmodule
@@ -32,7 +32,6 @@ AND,((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,-normal-lq),(DOMAIN-SUFFIX,zijieapi.co
 URL-REGEX,"^http:\/\/p\d+-be-pack-sign\.pglstatp-toutiao\.com\/(ad-app-package|web\.business\.image)\/",REJECT
 DOMAIN,mon.zijieapi.com,REJECT
 DOMAIN,lf-ad-ies.bytecdn.cn,REJECT
-#DOMAIN,is.snssdk.com,REJECT
 #DOMAIN,is.snssdk.com,REJECT
 DOMAIN,bds.snssdk.com,REJECT
 DOMAIN,dm.bytedance.com,REJECT

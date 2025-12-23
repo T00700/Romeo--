@@ -1,7 +1,7 @@
 #!name=搜狗
 #!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
 #!author=奶思
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1037.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1068.png
 #!tag=Jacob
 #!homepage=https://github.com/fmz200/wool_scripts
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Surge/module/split/partS/Sogou.sgmodule
@@ -86,7 +86,4 @@ DOMAIN-SUFFIX,gif.lu.sogoucdn.com,REJECT
 DOMAIN-SUFFIX,png.lu.sogoucdn.com,REJECT
 DOMAIN-SUFFIX,inte.theta.sogoucdn.com,REJECT
 DOMAIN-SUFFIX,dl.wan.sogoucdn.com,REJECT
-
-[Rewrite]
-#屏蔽京东和搜狗收集信息 - reject
 

@@ -1,7 +1,7 @@
 #!name=腾讯新闻
 #!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
 #!author=奶思
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1033.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1048.png
 #!tag=Jacob
 #!homepage=https://github.com/fmz200/wool_scripts
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Surge/module/split/partT/TencentNews.sgmodule
@@ -11,7 +11,6 @@
 tgxyxbwf_enable=switch,"true","false",tag=tgxyxbwf_enable, desc=tgxyxbwf_enable
 
 [Rewrite]
-#^https?:\/\/r\.inews\.qq\.com\/getSplash\?apptype=ios&startarticleid=&__qnr= - reject-img
 #^https?:\/\/r\.inews\.qq\.com\/getSplash\?apptype=ios&startarticleid=&__qnr= reject-img
 ^https?:\/\/r\.inews\.qq\.com\/(adsBlacklist|getFullScreenPic|getQQNewsRemoteConfig) - reject
 ^https?:\/\/r\.inews\.qq\.com\/(getBannerAds|getNewsRemoteConfig|getSplash|searchHotCatList|upLoadLoc) - reject

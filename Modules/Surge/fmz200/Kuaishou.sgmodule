@@ -7,7 +7,6 @@
 #!tg-channel=https://t.me/inaisi
 
 [Rule]
-#DOMAIN,js-ad.a.yximgs.com,REJECT
 # DOMAIN, js-ad.a.yximgs.com, REJECT
 DOMAIN-SUFFIX,e.kuaishou.com,REJECT
 DOMAIN-SUFFIX,cm.downloader.commercial.kuaishou.com,REJECT

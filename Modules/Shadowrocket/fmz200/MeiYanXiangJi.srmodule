@@ -11,6 +11,3 @@
 DOMAIN,adui.tg.meitu.com,REJECT
 DOMAIN,aaid.uyunad.com,REJECT
 
-[URL Rewrite]
-#去首页和轮播广告, - reject
-

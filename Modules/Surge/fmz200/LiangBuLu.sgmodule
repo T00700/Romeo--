@@ -8,7 +8,6 @@
 
 [Rule]
 DOMAIN-SUFFIX,admobile.top,REJECT
-#DOMAIN-SUFFIX,admobile.top,REJECT
 
 [URL Rewrite]
 # host-suffix, admobile.top, reject

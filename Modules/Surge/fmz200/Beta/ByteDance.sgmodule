@@ -33,8 +33,6 @@ DOMAIN-SUFFIX,s3a.pstatp.com,REJECT
 ^https?:\/\/[\w-]+\.snssdk\.com\/.+_ad\/ - reject
 
 [Map Local]
-#^https?:\/\/.+\.pstatp\.com\/img\/ad data-type=text data=" " status-code=200
-
 #^https?:\/\/.+\.pstatp\.com\/img\/ad reject-200
 ^https?:\/\/.+\.(amemv|musical|snssdk|tiktokv)\.com\/(api|motor)\/ad\/ data-type=text data=" " status-code=200
 

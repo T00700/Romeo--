@@ -31,7 +31,6 @@ DOMAIN-SUFFIX,s3a.pstatp.com,REJECT
 [URL Rewrite]
 ^https?:\/\/[\w-]+\.amemv\.com\/aweme\/v\d\/ad\/ - reject
 ^https?:\/\/[\w-]+\.snssdk\.com\/.+_ad\/ - reject
-#^https?:\/\/.+\.pstatp\.com\/img\/ad - reject-200
 
 [Map Local]
 #^https?:\/\/.+\.pstatp\.com\/img\/ad reject-200

@@ -35,6 +35,3 @@ DOMAIN-SUFFIX,pages2.marketo.com,REJECT
 DOMAIN-SUFFIX,marketo.net,REJECT
 DOMAIN-SUFFIX,munchkin.marketo.net,REJECT
 
-[URL Rewrite]
-#Marketo, - reject
-

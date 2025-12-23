@@ -86,6 +86,3 @@ DOMAIN-SUFFIX,png.lu.sogoucdn.com,REJECT
 DOMAIN-SUFFIX,inte.theta.sogoucdn.com,REJECT
 DOMAIN-SUFFIX,dl.wan.sogoucdn.com,REJECT
 
-[URL Rewrite]
-#屏蔽京东和搜狗收集信息 - reject
-

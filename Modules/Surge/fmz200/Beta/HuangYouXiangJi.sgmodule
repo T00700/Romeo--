@@ -13,7 +13,6 @@ DOMAIN-SUFFIX,adkwai.com,REJECT
 DOMAIN-SUFFIX,mob.com,REJECT
 
 [URL Rewrite]
-#开屏广告 - reject
 ^https?:\/\/api4\.bybutter\.com\/v\d\/app\/placements\/\d\/advertisements - reject
 
 [MITM]

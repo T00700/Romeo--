@@ -1,7 +1,7 @@
 #!name=京东
 #!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
 #!author=奶思
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1080.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1045.png
 #!tag=Jacob
 #!homepage=https://github.com/fmz200/wool_scripts
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Surge/module/split/partJ/JD.com.sgmodule
@@ -30,7 +30,6 @@ IP-CIDR,101.124.19.122/32,REJECT,no-resolve
 IP-CIDR6,2402:db40:5100:1011::5/128,REJECT,no-resolve
 
 [Rewrite]
-#屏蔽DNS, - reject
 # 禁京东直播小窗
 ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=getWidgetV1052 - reject
 

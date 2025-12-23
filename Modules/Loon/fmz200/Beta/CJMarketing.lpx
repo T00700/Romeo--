@@ -1,7 +1,7 @@
 #!name=C&J Marketing
 #!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
 #!author=奶思
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1019.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1047.png
 #!tag=Jacob
 #!homepage=https://github.com/fmz200/wool_scripts
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Surge/module/split/partC/CJMarketing.sgmodule
@@ -23,7 +23,4 @@ DOMAIN-SUFFIX,mindmanager.cn,REJECT
 DOMAIN-SUFFIX,officesoftcn.com,REJECT
 DOMAIN-SUFFIX,photozoomchina.com,REJECT
 DOMAIN-SUFFIX,xitongqingli.com,REJECT
-
-[Rewrite]
-#苏州思杰马克丁软件有限公司, - reject
 

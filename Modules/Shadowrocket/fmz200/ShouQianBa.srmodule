@@ -10,9 +10,6 @@
 # 买单小程序去广告, REJECT
 DOMAIN,ads-shopping.shouqianba.com,REJECT
 
-[URL Rewrite]
-#买单小程序去广告, - reject
-
 [MITM]
 hostname = %APPEND% api.pinduoduo.com
 

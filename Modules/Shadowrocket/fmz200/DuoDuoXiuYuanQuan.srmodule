@@ -10,6 +10,3 @@
 # 微信小程序去广告, REJECT
 DOMAIN-SUFFIX,ad.duoduo.link,REJECT
 
-[URL Rewrite]
-#微信小程序去广告, - reject
-

@@ -17,7 +17,6 @@ DOMAIN-SUFFIX,v1d.szbdyd.com,REJECT
 DOMAIN-SUFFIX,3dm.huya.com,REJECT
 
 [URL Rewrite]
-#开屏广告, - reject
 ^https?:\/\/cdn\.wup\.huya\.com\/launch\/queryHttpDns$ - reject
 ^https?:\/\/business\.msstatic\.com\/advertiser\/material - reject
 

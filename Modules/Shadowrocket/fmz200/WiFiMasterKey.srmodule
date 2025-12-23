@@ -30,10 +30,6 @@ DOMAIN-SUFFIX,mi.gdt.qq.com,REJECT
 # 去除导航栏免费短剧, REJECT
 DOMAIN,taichi.51y5.net,REJECT
 
-[URL Rewrite]
-#感谢#All - reject
-#去除导航栏免费短剧, - reject
-
 [Map Local]
 # 首页弹窗广告
 ^https?:\/\/cds\.wifi188\.com\/feeds\.sec data-type=text data="{}" header="Content-Type:application/json"

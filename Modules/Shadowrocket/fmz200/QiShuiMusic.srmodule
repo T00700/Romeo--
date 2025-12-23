@@ -46,7 +46,6 @@ AND,((DOMAIN-KEYWORD,api),(DOMAIN-KEYWORD,pangolin),(DOMAIN-SUFFIX,sgsnssdk.com)
 AND,((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,-normal-lq),(DOMAIN-SUFFIX,zijieapi.com)),REJECT
 URL-REGEX,"^http:\/\/p\d+-be-pack-sign\.pglstatp-toutiao\.com\/(ad-app-package|web\.business\.image)\/",REJECT
 DOMAIN,mon.zijieapi.com,REJECT
-#DOMAIN,is.snssdk.com,REJECT
 #DOMAIN, is.snssdk.com, REJECT
 DOMAIN,bds.snssdk.com,REJECT
 DOMAIN,dm.bytedance.com,REJECT

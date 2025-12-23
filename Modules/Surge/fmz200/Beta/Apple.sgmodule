@@ -35,6 +35,3 @@ DOMAIN,vs6.bj2ct.u3.ucweb.com,REJECT
 DOMAIN-SUFFIX,safebrowsing.apple,REJECT
 DOMAIN-SUFFIX,u3.ucweb.com,REJECT
 
-[URL Rewrite]
-#安全浏览限制解除, - reject
-

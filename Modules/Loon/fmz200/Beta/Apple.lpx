@@ -1,7 +1,7 @@
 #!name=Apple
 #!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
 #!author=奶思
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1012.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1079.png
 #!tag=Jacob
 #!homepage=https://github.com/fmz200/wool_scripts
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Surge/module/split/partA/Apple.sgmodule
@@ -35,7 +35,4 @@ DOMAIN,token.safebrowsing.apple,REJECT
 DOMAIN,vs6.bj2ct.u3.ucweb.com,REJECT
 DOMAIN-SUFFIX,safebrowsing.apple,REJECT
 DOMAIN-SUFFIX,u3.ucweb.com,REJECT
-
-[Rewrite]
-#安全浏览限制解除, - reject
 

@@ -23,6 +23,3 @@ DOMAIN-SUFFIX,officesoftcn.com,REJECT
 DOMAIN-SUFFIX,photozoomchina.com,REJECT
 DOMAIN-SUFFIX,xitongqingli.com,REJECT
 
-[URL Rewrite]
-#苏州思杰马克丁软件有限公司, - reject
-

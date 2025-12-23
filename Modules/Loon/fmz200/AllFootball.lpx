@@ -1,7 +1,7 @@
 #!name=懂球帝
 #!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！
 #!author=奶思
-#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1052.png
+#!icon=https://github.com/Toperlock/Quantumult/raw/main/icon/Doraemon/Doraemon-1057.png
 #!tag=Jacob
 #!homepage=https://github.com/fmz200/wool_scripts
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Surge/module/split/partD/AllFootball.sgmodule
@@ -11,7 +11,6 @@
 DOMAIN-KEYWORD,apimg.qunliao.info,REJECT
 
 [Rewrite]
-#^https?:\/\/ap\.dongqiudi\.com\/plat\/v - reject
 #^https?:\/\/ap\.dongqiudi\.com\/plat\/v reject
 ^https?:\/\/ap\.dongdianqiu\.com\/plat\/v4 - reject
 

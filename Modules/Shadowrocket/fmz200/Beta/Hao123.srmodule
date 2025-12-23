@@ -12,6 +12,3 @@ DOMAIN-SUFFIX,hao123rt.com,REJECT
 DOMAIN-SUFFIX,1.hao123.com,REJECT
 DOMAIN-SUFFIX,mini.hao123.com,REJECT
 
-[URL Rewrite]
-#hao123上网导航, - reject
-

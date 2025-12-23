@@ -14,18 +14,15 @@ DOMAIN-SUFFIX,uczzd.cn,REJECT
 DOMAIN-SUFFIX,ranfenghd.com,REJECT
 DOMAIN-SUFFIX,zconfig.alibabausercontent.com,REJECT
 DOMAIN-SUFFIX,bgg.baidu.com,REJECT
-#DOMAIN-SUFFIX,acz.youku.com,REJECT
 # DOMAIN-SUFFIX, acz.youku.com, REJECT
 DOMAIN-SUFFIX,adx-core.youku.com,REJECT
 DOMAIN-SUFFIX,adx-open-service.youku.com,REJECT
 DOMAIN-SUFFIX,rhdc-acs.youku.com,REJECT
-#DOMAIN-SUFFIX,sjarvis.taobao.com,REJECT
 # DOMAIN-SUFFIX, sjarvis.taobao.com, REJECT
 DOMAIN,httpdns.alicdn.com,REJECT
 DOMAIN,adsmind.ugdtimg.com,REJECT
 DOMAIN,amdc.m.youku.com,REJECT
 DOMAIN,apiv4-iyes.youku.com,REJECT
-#DOMAIN,mc.atm.youku.com,REJECT
 # DOMAIN, mc.atm.youku.com, REJECT
 DOMAIN,yk-ssp.ad.youku.com,REJECT
 DOMAIN,ykad-data.youku.com,REJECT
@@ -34,7 +31,6 @@ DOMAIN-SUFFIX,ad.api.3g.tudou.com,REJECT
 DOMAIN-SUFFIX,ad.api.3g.youku.com,REJECT
 DOMAIN-SUFFIX,ad.api.mobile.youku.com,REJECT
 DOMAIN-SUFFIX,gamex.mobile.youku.com,REJECT
-#DOMAIN-SUFFIX,myes.youku.com,REJECT
 # DOMAIN-SUFFIX, myes.youku.com, REJECT
 DOMAIN-SUFFIX,p.l.youku.com,REJECT
 DOMAIN-SUFFIX,r.l.youku.com,REJECT

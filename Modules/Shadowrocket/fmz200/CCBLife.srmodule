@@ -12,7 +12,6 @@
 DOMAIN,o2o-ad-log-gateway.alibaba.com,REJECT
 
 [URL Rewrite]
-#内置饿了么外卖弹窗, - reject
 ^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.alsc\.wamai\.store\.detail\.miniapp\.popup - reject
 ^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.venus\.shopcouponpopupservice\.getshopcouponspopup - reject
 
