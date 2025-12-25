@@ -48,7 +48,8 @@ Modules/Surge/ifflagged/Plugin-Common.sgmodule # Loon,Shadowrocket
 # D #
 Modules/Surge/Kelee/Dewu_remove_ads.sgmodule # Loon,Shadowrocket
 Modules/Surge/Kelee/DiDi_remove_ads.sgmodule # Loon,Shadowrocket
-Modules/Surge/fmz200/DianPing.sgmodule # Loon,Shadowrocket
+Modules/Surge/zirawell/dianping-App.sgmodule # Loon,Shadowrocket
+Modules/Surge/zirawell/dianping-Applet.sgmodule # Loon,Shadowrocket
 # Modules/Surge/Kelee/HKDouYin_remove_ads.sgmodule # Loon,Shadowrocket
 
 # E #
