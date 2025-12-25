@@ -3,5 +3,6 @@
 #!category=Jacob
 
 [Rule]
+DOMAIN,rumt-zh.com,REJECT,extended-matching,pre-matching
 DOMAIN,tracker-prd.aldi.com.cn,REJECT,extended-matching,pre-matching
 
