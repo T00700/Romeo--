@@ -1,4 +1,4 @@
-#规则数量:26427
+#规则数量:26428
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -14697,6 +14697,7 @@ payload:
   - DOMAIN-SUFFIX,lotcrap.com
   - DOMAIN-SUFFIX,lotsawahouse.org
   - DOMAIN-SUFFIX,lotuslight.org.tw
+  - DOMAIN-SUFFIX,lovart.ai
   - DOMAIN-SUFFIX,love-sextoys.co.uk
   - DOMAIN-SUFFIX,love4porn.com
   - DOMAIN-SUFFIX,love6.tv
